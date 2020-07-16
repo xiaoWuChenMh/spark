@@ -2700,6 +2700,7 @@ object SparkContext extends Logging {
       case SparkMasterRegex.LOCAL_N_REGEX(threads) => convertToInt(threads)
       case SparkMasterRegex.LOCAL_N_FAILURES_REGEX(threads, _) => convertToInt(threads)
       case "yarn" =>
+        //conf信息不为空  and 是集群模式，返回配置“spark.driver.cores”对应的值，否则返回0
         if (conf != null && conf.getOption("spark.submit.deployMode").contains("cluster")) {
           conf.getInt("spark.driver.cores", 0)
         } else {

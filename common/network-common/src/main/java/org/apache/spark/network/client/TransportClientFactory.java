@@ -73,38 +73,55 @@ public class TransportClientFactory implements Closeable {
 
   private static final Logger logger = LoggerFactory.getLogger(TransportClientFactory.class);
 
+  //传输上下文
   private final TransportContext context;
+  //使用TransportContext的配置作为自身的配置，同类一起初始化
   private final TransportConf conf;
+  //客户端引导程序（不是Netty的引导）
   private final List<TransportClientBootstrap> clientBootstraps;
+  //连接池，实质就是一个线程安全的Map,同类一起初始化
   private final ConcurrentHashMap<SocketAddress, ClientPool> connectionPool;
 
-  /** Random number generator for picking connections between peers. */
+  /** 随机数生成器，用于选择对等体之间的连接,同类一起初始化 */
   private final Random rand;
+  //两个节点之间用于获取数据的并发连接数。
   private final int numConnectionsPerPeer;
 
+  //Netty客户端引导程序需要的——channel
   private final Class<? extends Channel> socketChannelClass;
+  //Netty客户端引导程序需要的——EventLoopGroup
   private EventLoopGroup workerGroup;
+  //Netty中提供池化buf的分配器
   private PooledByteBufAllocator pooledAllocator;
+  //用于从Netty PooledByteBufAllocator收集指标的——内存指标类
   private final NettyMemoryMetrics metrics;
 
+  //主要是做一些初始化的操作
   public TransportClientFactory(
       TransportContext context,
       List<TransportClientBootstrap> clientBootstraps) {
+    //TransportContext不能为空，为空抛出 NullPointerException
     this.context = Preconditions.checkNotNull(context);
     this.conf = context.getConf();
+    //赋值前会做空检查，为空抛出 NullPointerException
     this.clientBootstraps = Lists.newArrayList(Preconditions.checkNotNull(clientBootstraps));
     this.connectionPool = new ConcurrentHashMap<>();
     this.numConnectionsPerPeer = conf.numConnectionsPerPeer();
     this.rand = new Random();
 
+    //Spark网络io模块，默认是nio
     IOMode ioMode = IOMode.valueOf(conf.ioMode());
+    //根据网络io模块，获取当前客户端所需要的 channel
     this.socketChannelClass = NettyUtils.getClientChannelClass(ioMode);
+    //根据网络io模块，获取当前客户端所需要的 EventLoopGroup
     this.workerGroup = NettyUtils.createEventLoop(
         ioMode,
         conf.clientThreads(),
         conf.getModuleName() + "-client");
+    //初始化：一个不允许缓存的——Netty池化buf分配器
     this.pooledAllocator = NettyUtils.createPooledByteBufAllocator(
       conf.preferDirectBufs(), false /* allowCache */, conf.clientThreads());
+    //初始化  Netty内存指标收集器，并注册常规指标 和 PoolArenaMetric中的指标
     this.metrics = new NettyMemoryMetrics(
       this.pooledAllocator, conf.getModuleName() + "-client", conf);
   }

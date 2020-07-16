@@ -21,13 +21,20 @@ import org.apache.spark.rpc.{RpcCallContext, RpcEndpoint, RpcEnv}
 
 /**
  * An [[RpcEndpoint]] for remote [[RpcEnv]]s to query if an `RpcEndpoint` exists.
- *
+ * 一个用于远程[[RpcEnv]]的[[RpcEndpoint]]，以查询是否存在`RpcEndpoint`。
  * This is used when setting up a remote endpoint reference.
+ * 在设置远程端点引用时使用。
  */
 private[netty] class RpcEndpointVerifier(override val rpcEnv: RpcEnv, dispatcher: Dispatcher)
   extends RpcEndpoint {
 
+  //偏函数：接收信息 并 回复
   override def receiveAndReply(context: RpcCallContext): PartialFunction[Any, Unit] = {
+    //类型匹配，判断给定的名称所对应的端点是否存在，把结果通过 context.reply（内部是netty）把结果返回到远程，其中一个调用链如下：
+      //NettyRpcCallContext.reply
+      //RemoteNettyRpcCallContext.send
+      //TransportRequestHandler.processRpcRequest.RpcResponseCallback.onSuccess(nettyEnv.serialize(message))
+      //netyy的channel.writeAndFlush(RpcResponse)
     case RpcEndpointVerifier.CheckExistence(name) => context.reply(dispatcher.verify(name))
   }
 }
@@ -35,6 +42,8 @@ private[netty] class RpcEndpointVerifier(override val rpcEnv: RpcEnv, dispatcher
 private[netty] object RpcEndpointVerifier {
   val NAME = "endpoint-verifier"
 
-  /** A message used to ask the remote [[RpcEndpointVerifier]] if an `RpcEndpoint` exists. */
+  /** A message used to ask the remote [[RpcEndpointVerifier]] if an `RpcEndpoint` exists.
+    * 一条消息，用于询问远程[[RpcEndpointVerifier]]是否存在 `RpcEndpoint`。
+    * */
   case class CheckExistence(name: String)
 }

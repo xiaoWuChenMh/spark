@@ -45,6 +45,7 @@ private[spark] object ThreadUtils {
 
   /**
    * Create a thread factory that names threads with a prefix and also sets the threads to daemon.
+   * 通过guava jar里的ThreadFactoryBuilder 创建一个线程工厂，该工厂用前缀命名线程，并将线程设置为守护程序。
    */
   def namedThreadFactory(prefix: String): ThreadFactory = {
     new ThreadFactoryBuilder().setDaemon(true).setNameFormat(prefix + "-%d").build()
@@ -60,29 +61,34 @@ private[spark] object ThreadUtils {
   }
 
   /**
-   * Create a cached thread pool whose max number of threads is `maxThreadNumber`. Thread names
-   * are formatted as prefix-ID, where ID is a unique, sequentially assigned integer.
+   * 创建一个最大线程数为“ maxThreadNumber”的缓存线程池。 线程名称的格式为前缀ID，其中ID是唯一的，顺序分配的整数。
    */
   def newDaemonCachedThreadPool(
       prefix: String, maxThreadNumber: Int, keepAliveSeconds: Int = 60): ThreadPoolExecutor = {
+    //创建一个指定名字的线程工厂
     val threadFactory = namedThreadFactory(prefix)
+    //
     val threadPool = new ThreadPoolExecutor(
-      maxThreadNumber, // corePoolSize: the max number of threads to create before queuing the tasks
-      maxThreadNumber, // maximumPoolSize: because we use LinkedBlockingDeque, this one is not used
-      keepAliveSeconds,
-      TimeUnit.SECONDS,
-      new LinkedBlockingQueue[Runnable],
-      threadFactory)
+      maxThreadNumber, // corePoolSize(核心线程池大小)：在排队任务之前要创建的最大线程数
+      maxThreadNumber, // maximumPoolSize(最大线程池大小): because we use LinkedBlockingDeque, this one is not used
+      keepAliveSeconds,// 线程最大空闲时间
+      TimeUnit.SECONDS,// 时间单位
+      new LinkedBlockingQueue[Runnable],// 线程等待队列
+      threadFactory)// 线程创建工厂
+    //该值为true，允许核心线程超时,超时会关闭，即核心线程池的线程在没有任务到达的时候 keepAliveTime时间后关闭
     threadPool.allowCoreThreadTimeOut(true)
+    //返回线程池
     threadPool
   }
 
   /**
-   * Wrapper over newFixedThreadPool. Thread names are formatted as prefix-ID, where ID is a
-   * unique, sequentially assigned integer.
+   * Wrapper over newFixedThreadPool. Thread names are formatted as prefix-ID, where ID is a unique, sequentially assigned integer.
+   * 通过newFixedThreadPool包装。 线程名称的格式为前缀ID，其中ID是唯一的，顺序分配的整数。
    */
   def newDaemonFixedThreadPool(nThreads: Int, prefix: String): ThreadPoolExecutor = {
+    //设置一个守护线程的线程工厂
     val threadFactory = namedThreadFactory(prefix)
+    //根据上面的线程规程创建一个线程池（守护线程）
     Executors.newFixedThreadPool(nThreads, threadFactory).asInstanceOf[ThreadPoolExecutor]
   }
 
@@ -95,14 +101,18 @@ private[spark] object ThreadUtils {
   }
 
   /**
-   * Wrapper over ScheduledThreadPoolExecutor.
+   * Wrapper over ScheduledThreadPoolExecutor. 通过ScheduledThreadPoolExecutor进行包装。
    */
   def newDaemonSingleThreadScheduledExecutor(threadName: String): ScheduledExecutorService = {
+    //创建一个指定名称的 守护线程工厂
     val threadFactory = new ThreadFactoryBuilder().setDaemon(true).setNameFormat(threadName).build()
+    //创建一个可以用于配置定时执行的 线程池
     val executor = new ScheduledThreadPoolExecutor(1, threadFactory)
     // By default, a cancelled task is not automatically removed from the work queue until its delay
-    // elapses. We have to enable it manually.
+    //    // elapses. We have to enable it manually.
+    //默认情况下为true，取消的任务不会自动从工作队列中删除，直到其延迟过去。 我们必须手动启用它。
     executor.setRemoveOnCancelPolicy(true)
+    //返回线程池
     executor
   }
 

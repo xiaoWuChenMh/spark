@@ -44,7 +44,7 @@ import org.apache.spark.util.VersionUtils
  * Developer API</span> are intended for advanced users want to extend Spark through lower
  * level interfaces. These are subject to changes or removal in minor releases.
  */
-package object spark {
+package object Evspark {
 
   private object SparkBuildInfo {
 

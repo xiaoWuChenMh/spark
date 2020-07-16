@@ -152,9 +152,16 @@ object SparkEnv extends Logging {
     env
   }
 
-  /**
-   * Create a SparkEnv for the driver.
-   */
+ /*
+ * @Description: Create a SparkEnv for the driver.
+ * @Param: conf: SparkConf配置信息
+ * @Param: isLocal: 是否是本地
+ * @Param: listenerBus: 暂不清楚
+ * @Param: numCores: 使用的内核数（yarn集群模式返回配置“spark.driver.cores”对应的值）
+ * @Param: mockOutputCommitCoordinator:暂不清楚
+ *
+ * @return:SparkEnv（spark执行环境）
+ */
   private[spark] def createDriverEnv(
       conf: SparkConf,
       isLocal: Boolean,
@@ -211,9 +218,33 @@ object SparkEnv extends Logging {
     env
   }
 
-  /**
-   * Helper method to create a SparkEnv for a driver or an executor.
-   */
+  /*
+  * @Description:   Helper method to create a SparkEnv for a driver or an executor.
+  *                 为每一个 driver和executor创建spakrEnv
+  *
+  * @Param: conf: SparkConf;
+  * @Param: executorId:
+  *      Driver  : 'driver';
+  *      Executor:
+  * @Param: bindAddress:
+  *      Driver  : 配置 'spark.driver.bindAddress'的值——driver端绑定监听block manager的地址;
+  *      Executor:
+  * @Param: advertiseAddress:
+  *      Driver : 配置‘spark.driver.port’的值——driver端的ip;
+  *      Executor:
+  * @Param: port:
+  *      Driver  : 配置‘spark.driver.port’的值——driver端的端口;
+  *      Executor:
+  * @Param: isLocal: 是否是本地;
+  * @Param: numUsableCores:任务运行的核数：
+  *      Driver  : yarn集群模式 “spark.driver.cores”;
+  *      Executor:
+  * @Param: ioEncryptionKey:不清楚
+  * @Param: listenerBus:不清楚
+  * @Param: mockOutputCommitCoordinator:不清楚
+
+  * @return: org.apache.spark.SparkEnv
+  */
   private def create(
       conf: SparkConf,
       executorId: String,

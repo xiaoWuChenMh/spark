@@ -114,7 +114,7 @@
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <maven.version>3.5.4</maven.version>
+    <maven.version>3.3.9</maven.version>
     <sbt.project.name>spark</sbt.project.name>
     <slf4j.version>1.7.16</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
@@ -160,7 +160,7 @@
     <codehaus.jackson.version>1.9.13</codehaus.jackson.version>
     <fasterxml.jackson.version>2.6.7</fasterxml.jackson.version>
     <fasterxml.jackson-module-scala.version>2.6.7.1</fasterxml.jackson-module-scala.version>
-    <fasterxml.jackson.databind.version>2.6.7.3</fasterxml.jackson.databind.version>
+    <fasterxml.jackson.databind.version>2.10.1</fasterxml.jackson.databind.version>
     <snappy.version>1.1.7.3</snappy.version>
     <netlib.java.version>1.1.2</netlib.java.version>
     <calcite.version>1.2.0-incubating</calcite.version>
@@ -224,8 +224,9 @@
     <!--
       Overridable test home. So that you can call individual pom files directly without
       things breaking.
+        <spark.test.home>${session.executionRootDirectory}</spark.test.home>
     -->
-    <spark.test.home>${session.executionRootDirectory}</spark.test.home>
+
 
     <CodeCacheSize>1g</CodeCacheSize>
   </properties>
@@ -237,7 +238,7 @@
         See https://storage-download.googleapis.com/maven-central/index.html
       -->
       <name>GCS Maven Central mirror</name>
-      <url>https://maven-central.storage-download.googleapis.com/maven2/</url>
+      <url>http://maven.oa.com/nexus/content/groups/public</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -251,7 +252,7 @@
       -->
       <id>central</id>
       <name>Maven Repository</name>
-      <url>https://repo.maven.apache.org/maven2</url>
+      <url>http://maven.oa.com/nexus/content/groups/public</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -268,7 +269,7 @@
         See https://storage-download.googleapis.com/maven-central/index.html
       -->
       <name>GCS Maven Central mirror</name>
-      <url>https://maven-central.storage-download.googleapis.com/maven2/</url>
+      <url>http://maven.oa.com/nexus/content/groups/public</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -278,7 +279,7 @@
     </pluginRepository>
     <pluginRepository>
       <id>central</id>
-      <url>https://repo.maven.apache.org/maven2</url>
+      <url>http://maven.oa.com/nexus/content/groups/public</url>
       <releases>
         <enabled>true</enabled>
       </releases>

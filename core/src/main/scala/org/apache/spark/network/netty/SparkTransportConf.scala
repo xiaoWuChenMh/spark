@@ -42,25 +42,32 @@ object SparkTransportConf {
 
   /**
    * Utility for creating a [[TransportConf]] from a [[SparkConf]].
+   * 通过一个[[SparkConf]] 来创建一个[[TransportConf]]
    * @param _conf the [[SparkConf]]
-   * @param module the module name
+   * @param module module名称
    * @param numUsableCores if nonzero, this will restrict the server and client threads to only
    *                       use the given number of cores, rather than all of the machine's cores.
    *                       This restriction will only occur if these properties are not already set.
+   *                      可用内核数：如果非零，这将限制服务器和客户端线程仅使用给定数量的内核，而不使用所有计算机内核。
    */
   def fromSparkConf(_conf: SparkConf, module: String, numUsableCores: Int = 0): TransportConf = {
+    //克隆一份 SparkConf
     val conf = _conf.clone
 
-    // Specify thread configuration based on our JVM's allocation of cores (rather than necessarily
-    // assuming we have all the machine's cores).
-    // NB: Only set if serverThreads/clientThreads not already set.
+    // 获取 Netty客户端和服务器线程池的默认线程数
     val numThreads = defaultNumThreads(numUsableCores)
+    //设置rpc 服务端的io 线程个数
     conf.setIfMissing(s"spark.$module.io.serverThreads", numThreads.toString)
+    // 设置rpc客户端的io 线程个数
     conf.setIfMissing(s"spark.$module.io.clientThreads", numThreads.toString)
 
+    //初始化TransportConf配置，参数：模块名（rpc）；配置提供者（利用匿名内部类声明的一个抽象类）
     new TransportConf(module, new ConfigProvider {
+      //根据配置SparkConf的key获取对应的value。
       override def get(name: String): String = conf.get(name)
+      //根据配置SparkConf的key获取对应的value，无值使用默认值
       override def get(name: String, defaultValue: String): String = conf.get(name, defaultValue)
+      //获得配置SparkConf中全部的配置迭代器（Map）
       override def getAll(): java.lang.Iterable[java.util.Map.Entry[String, String]] = {
         conf.getAll.toMap.asJava.entrySet()
       }
@@ -70,10 +77,13 @@ object SparkTransportConf {
   /**
    * Returns the default number of threads for both the Netty client and server thread pools.
    * If numUsableCores is 0, we will use Runtime get an approximate number of available cores.
+   * 返回Netty客户端和服务器线程池的默认线程数。 如果numUsableCores为0，我们将使用运行时获取可用内核的大约数量。
    */
   private def defaultNumThreads(numUsableCores: Int): Int = {
+    //如numUsableCores=0，则使用运行时可以获取的近似的可用内核数，作为客户端和服务端的默认线程数
     val availableCores =
       if (numUsableCores > 0) numUsableCores else Runtime.getRuntime.availableProcessors()
+    //可用内核数，不能大于默认的最大网络线程数（8）
     math.min(availableCores, MAX_DEFAULT_NETTY_THREADS)
   }
 }

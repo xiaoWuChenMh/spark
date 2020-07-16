@@ -32,11 +32,11 @@ import org.apache.spark.util.Utils
 
 /**
  * Spark class responsible for security.
- *
+ * 负责安全性的类。
  * In general this class should be instantiated by the SparkEnv and most components
  * should access it from that. There are some cases where the SparkEnv hasn't been
  * initialized yet and this class must be instantiated directly.
- *
+ * 通常，此类应由SparkEnv实例化，并且大多数组件应从中访问它。 在某些情况下，尚未初始化SparkEnv时，也必须直接实例化此类。
  * This class implements all of the configuration related to security features described
  * in the "Security" document. Please refer to that document for specific features implemented
  * here.
@@ -48,15 +48,15 @@ private[spark] class SecurityManager(
 
   import SecurityManager._
 
-  // allow all users/groups to have view/modify permissions
+  // allow all users/groups to have view/modify permissions =》允许所有用户/组具有查看/修改权限
   private val WILDCARD_ACL = "*"
 
   private val authOn = sparkConf.get(NETWORK_AUTH_ENABLED)
-  // keep spark.ui.acls.enable for backwards compatibility with 1.0
+  // keep spark.ui.acls.enable for backwards compatibility with 1.0 =》保持spark.ui.acls.enable以便与1.0向后兼容
   private var aclsOn =
     sparkConf.getBoolean("spark.acls.enable", sparkConf.getBoolean("spark.ui.acls.enable", false))
 
-  // admin acls should be set before view or modify acls
+  // admin acls should be set before view or modify acls =》在查看或修改ACL之前应先设置管理员ACL
   private var adminAcls: Set[String] =
     stringToSet(sparkConf.get("spark.admin.acls", ""))
 
@@ -285,6 +285,7 @@ private[spark] class SecurityManager(
 
   /**
    * Check to see if authentication for the Spark communication protocols is enabled
+   * 检查是否已启用Spark通信协议的身份验证
    * @return true if authentication is enabled, otherwise false
    */
   def isAuthenticationEnabled(): Boolean = authOn

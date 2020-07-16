@@ -173,5 +173,6 @@ public class TransportContext {
       conf.connectionTimeoutMs(), closeIdleConnections);
   }
 
+  //获取配置信息，类型是 TransportConf
   public TransportConf getConf() { return conf; }
 }
