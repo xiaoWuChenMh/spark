@@ -18,6 +18,7 @@
 package org.apache.spark
 
 /**
+ * 此软件包实现了 Spark 的内存管理系统。该系统由两个主要 组件组成：一个 JVM 范围的内存管理器和一个每个任务的内存管理器：
  * This package implements Spark's memory management system. This system consists of two main
  * components, a JVM-wide memory manager and a per-task manager:
  *
@@ -25,11 +26,15 @@ package org.apache.spark
  *    This component implements the policies for dividing the available memory across tasks and for
  *    allocating memory between storage (memory used caching and data transfer) and execution
  *    (memory used by computations, such as shuffles, joins, sorts, and aggregations).
+ *    [[org.apache.spark.memory.MemoryManager]] 管理 Spark 在 JVM 中的整体内存使用情况。该组件实现了在各个任务之间分配可用内存的策略，
+ *    以及在存储（用于缓存和数据传输的内存）和执行（用于计算的内存，例如 shuffle、join、sort 和 aggregation）之间分配内存的策略。
+
  *  - [[org.apache.spark.memory.TaskMemoryManager]] manages the memory allocated by individual
  *    tasks. Tasks interact with TaskMemoryManager and never directly interact with the JVM-wide
  *    MemoryManager.
+ *  - [[org.apache.spark.memory.TaskMemoryManager]] 管理各个任务分配的内存。任务与 TaskMemoryManager 交互，但不会直接与 JVM 范围的MemoryManager 交互。
  *
- * Internally, each of these components have additional abstractions for memory bookkeeping:
+ * Internally, each of these components have additional abstractions for memory bookkeeping: 在内部，每个组件都具有用于内存簿记的额外抽象：
  *
  *  - [[org.apache.spark.memory.MemoryConsumer]]s are clients of the TaskMemoryManager and
  *    correspond to individual operators and data structures within a task. The TaskMemoryManager
