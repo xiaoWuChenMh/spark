@@ -35,6 +35,9 @@ import org.apache.spark.util.Utils
  * In this context, execution memory refers to that used for computation in shuffles, joins,
  * sorts and aggregations, while storage memory refers to that used for caching and propagating
  * internal data across the cluster. There exists one MemoryManager per JVM.
+ * 管理Spark在JVM 中的整体内存使用情况的抽象类，通过强制的方式执行内存和存储内存之间的共享方式。
+ *   执行内存：用于shuffle、join、排序和聚合计算的内存
+ *   存储内存：缓存和在集群间传播内部数据的内存
  */
 private[spark] abstract class MemoryManager(
     conf: SparkConf,
@@ -46,6 +49,7 @@ private[spark] abstract class MemoryManager(
 
   // -- Methods related to memory allocation policies and bookkeeping ------------------------------
 
+  // 分别是：堆上-存储内存池、堆外-存储内存池、堆上-执行内存池、堆外-执行内存池、
   @GuardedBy("this")
   protected val onHeapStorageMemoryPool = new StorageMemoryPool(this, MemoryMode.ON_HEAP)
   @GuardedBy("this")
@@ -55,13 +59,17 @@ private[spark] abstract class MemoryManager(
   @GuardedBy("this")
   protected val offHeapExecutionMemoryPool = new ExecutionMemoryPool(this, MemoryMode.OFF_HEAP)
 
+  // 设置各个内存池的大小
   onHeapStorageMemoryPool.incrementPoolSize(onHeapStorageMemory)
   onHeapExecutionMemoryPool.incrementPoolSize(onHeapExecutionMemory)
 
+  // 最大的可用端外内存大小 = 获取配置（spark.memory.offHeap.size）的端外内存大小
   protected[this] val maxOffHeapMemory = conf.get(MEMORY_OFFHEAP_SIZE)
+  // 堆外-存储内存大小 = 最大的可用端外内存 * 预留内存的比例（spark.memory.storageFraction 默认0.5）
   protected[this] val offHeapStorageMemory =
     (maxOffHeapMemory * conf.get(MEMORY_STORAGE_FRACTION)).toLong
 
+  // 堆外-执行内存大小 = 最大的可用端外内存-堆外-存储内存大小
   offHeapExecutionMemoryPool.incrementPoolSize(maxOffHeapMemory - offHeapStorageMemory)
   offHeapStorageMemoryPool.incrementPoolSize(offHeapStorageMemory)
 
@@ -69,12 +77,14 @@ private[spark] abstract class MemoryManager(
    * Total available on heap memory for storage, in bytes. This amount can vary over time,
    * depending on the MemoryManager implementation.
    * In this model, this is equivalent to the amount of memory not occupied by execution.
+   * [堆上-存储内存] 当前的总可用量（字节）,随着使用情况而变动。在该内存模型下相当于未被执行占用的内存量
    */
   def maxOnHeapStorageMemory: Long
 
   /**
    * Total available off heap memory for storage, in bytes. This amount can vary over time,
    * depending on the MemoryManager implementation.
+   * [堆外-存储内存] 当前的总可用量（字节）,随着使用情况而变动。
    */
   def maxOffHeapStorageMemory: Long
 
