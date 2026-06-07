@@ -1,0 +1,5057 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "org.apache.spark.util",
+    "languages": [
+      "scala",
+      "java",
+      "markdown",
+      "json"
+    ],
+    "frameworks": [
+      "spark"
+    ],
+    "description": "Apache Spark 内核的 util 工具包：通用工具方法、并发原语、事件总线、可序列化包装、IO/日志/采样/Shuffle 数据结构，是 Spark 引擎各层都会依赖的基础设施。",
+    "analyzedAt": "2026-06-07T18:37:18.127536+00:00",
+    "gitCommitHash": "88f727c7e51933e741941a1c845070e47451aed5"
+  },
+  "nodes": [
+    {
+      "id": "file:AccumulatorV2.md",
+      "type": "file",
+      "name": "AccumulatorV2.md",
+      "filePath": "AccumulatorV2.md",
+      "summary": "对应 AccumulatorV2 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ByteBufferInputStream.md",
+      "type": "file",
+      "name": "ByteBufferInputStream.md",
+      "filePath": "ByteBufferInputStream.md",
+      "summary": "对应 ByteBufferInputStream 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ByteBufferOutputStream.md",
+      "type": "file",
+      "name": "ByteBufferOutputStream.md",
+      "filePath": "ByteBufferOutputStream.md",
+      "summary": "对应 ByteBufferOutputStream 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CausedBy.md",
+      "type": "file",
+      "name": "CausedBy.md",
+      "filePath": "CausedBy.md",
+      "summary": "对应 CausedBy 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Clock.md",
+      "type": "file",
+      "name": "Clock.md",
+      "filePath": "Clock.md",
+      "summary": "对应 Clock 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ClosureCleaner.md",
+      "type": "file",
+      "name": "ClosureCleaner.md",
+      "filePath": "ClosureCleaner.md",
+      "summary": "对应 ClosureCleaner 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CollectionsUtils.md",
+      "type": "file",
+      "name": "CollectionsUtils.md",
+      "filePath": "CollectionsUtils.md",
+      "summary": "对应 CollectionsUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CommandLineUtils.md",
+      "type": "file",
+      "name": "CommandLineUtils.md",
+      "filePath": "CommandLineUtils.md",
+      "summary": "对应 CommandLineUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CompletionIterator.md",
+      "type": "file",
+      "name": "CompletionIterator.md",
+      "filePath": "CompletionIterator.md",
+      "summary": "对应 CompletionIterator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:DependencyUtils.md",
+      "type": "file",
+      "name": "DependencyUtils.md",
+      "filePath": "DependencyUtils.md",
+      "summary": "对应 DependencyUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Distribution.md",
+      "type": "file",
+      "name": "Distribution.md",
+      "filePath": "Distribution.md",
+      "summary": "对应 Distribution 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:EventLoop.md",
+      "type": "file",
+      "name": "EventLoop.md",
+      "filePath": "EventLoop.md",
+      "summary": "对应 EventLoop 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:HadoopFSUtils.md",
+      "type": "file",
+      "name": "HadoopFSUtils.md",
+      "filePath": "HadoopFSUtils.md",
+      "summary": "对应 HadoopFSUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:IdGenerator.md",
+      "type": "file",
+      "name": "IdGenerator.md",
+      "filePath": "IdGenerator.md",
+      "summary": "对应 IdGenerator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:IntParam.md",
+      "type": "file",
+      "name": "IntParam.md",
+      "filePath": "IntParam.md",
+      "summary": "对应 IntParam 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:JsonProtocol.md",
+      "type": "file",
+      "name": "JsonProtocol.md",
+      "filePath": "JsonProtocol.md",
+      "summary": "对应 JsonProtocol 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:KeyLock.md",
+      "type": "file",
+      "name": "KeyLock.md",
+      "filePath": "KeyLock.md",
+      "summary": "对应 KeyLock 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ListenerBus.md",
+      "type": "file",
+      "name": "ListenerBus.md",
+      "filePath": "ListenerBus.md",
+      "summary": "对应 ListenerBus 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ManualClock.md",
+      "type": "file",
+      "name": "ManualClock.md",
+      "filePath": "ManualClock.md",
+      "summary": "对应 ManualClock 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:MemoryParam.md",
+      "type": "file",
+      "name": "MemoryParam.md",
+      "filePath": "MemoryParam.md",
+      "summary": "对应 MemoryParam 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:MutablePair.md",
+      "type": "file",
+      "name": "MutablePair.md",
+      "filePath": "MutablePair.md",
+      "summary": "对应 MutablePair 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:NextIterator.md",
+      "type": "file",
+      "name": "NextIterator.md",
+      "filePath": "NextIterator.md",
+      "summary": "对应 NextIterator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:PeriodicCheckpointer.md",
+      "type": "file",
+      "name": "PeriodicCheckpointer.md",
+      "filePath": "PeriodicCheckpointer.md",
+      "summary": "对应 PeriodicCheckpointer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:RpcUtils.md",
+      "type": "file",
+      "name": "RpcUtils.md",
+      "filePath": "RpcUtils.md",
+      "summary": "对应 RpcUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SecurityUtils.md",
+      "type": "file",
+      "name": "SecurityUtils.md",
+      "filePath": "SecurityUtils.md",
+      "summary": "对应 SecurityUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SerializableBuffer.md",
+      "type": "file",
+      "name": "SerializableBuffer.md",
+      "filePath": "SerializableBuffer.md",
+      "summary": "对应 SerializableBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SerializableConfiguration.md",
+      "type": "file",
+      "name": "SerializableConfiguration.md",
+      "filePath": "SerializableConfiguration.md",
+      "summary": "对应 SerializableConfiguration 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SerializableJobConf.md",
+      "type": "file",
+      "name": "SerializableJobConf.md",
+      "filePath": "SerializableJobConf.md",
+      "summary": "对应 SerializableJobConf 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ShutdownHookManager.md",
+      "type": "file",
+      "name": "ShutdownHookManager.md",
+      "filePath": "ShutdownHookManager.md",
+      "summary": "对应 ShutdownHookManager 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SignalUtils.md",
+      "type": "file",
+      "name": "SignalUtils.md",
+      "filePath": "SignalUtils.md",
+      "summary": "对应 SignalUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SizeEstimator.md",
+      "type": "file",
+      "name": "SizeEstimator.md",
+      "filePath": "SizeEstimator.md",
+      "summary": "对应 SizeEstimator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkExitCode.md",
+      "type": "file",
+      "name": "SparkExitCode.md",
+      "filePath": "SparkExitCode.md",
+      "summary": "对应 SparkExitCode 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkFatalException.md",
+      "type": "file",
+      "name": "SparkFatalException.md",
+      "filePath": "SparkFatalException.md",
+      "summary": "对应 SparkFatalException 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkUncaughtExceptionHandler.md",
+      "type": "file",
+      "name": "SparkUncaughtExceptionHandler.md",
+      "filePath": "SparkUncaughtExceptionHandler.md",
+      "summary": "对应 SparkUncaughtExceptionHandler 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:StatCounter.md",
+      "type": "file",
+      "name": "StatCounter.md",
+      "filePath": "StatCounter.md",
+      "summary": "对应 StatCounter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ThreadUtils.md",
+      "type": "file",
+      "name": "ThreadUtils.md",
+      "filePath": "ThreadUtils.md",
+      "summary": "对应 ThreadUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:UninterruptibleThread.md",
+      "type": "file",
+      "name": "UninterruptibleThread.md",
+      "filePath": "UninterruptibleThread.md",
+      "summary": "对应 UninterruptibleThread 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:UninterruptibleThreadRunner.md",
+      "type": "file",
+      "name": "UninterruptibleThreadRunner.md",
+      "filePath": "UninterruptibleThreadRunner.md",
+      "summary": "对应 UninterruptibleThreadRunner 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Utils.md",
+      "type": "file",
+      "name": "Utils.md",
+      "filePath": "Utils.md",
+      "summary": "对应 Utils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:VersionUtils.md",
+      "type": "file",
+      "name": "VersionUtils.md",
+      "filePath": "VersionUtils.md",
+      "summary": "对应 VersionUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/AppendOnlyMap.md",
+      "type": "file",
+      "name": "AppendOnlyMap.md",
+      "filePath": "collection/AppendOnlyMap.md",
+      "summary": "对应 AppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/BitSet.md",
+      "type": "file",
+      "name": "BitSet.md",
+      "filePath": "collection/BitSet.md",
+      "summary": "对应 BitSet 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/CompactBuffer.md",
+      "type": "file",
+      "name": "CompactBuffer.md",
+      "filePath": "collection/CompactBuffer.md",
+      "summary": "对应 CompactBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/ExternalAppendOnlyMap.md",
+      "type": "file",
+      "name": "ExternalAppendOnlyMap.md",
+      "filePath": "collection/ExternalAppendOnlyMap.md",
+      "summary": "对应 ExternalAppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ExternalSorter.md",
+      "type": "file",
+      "name": "ExternalSorter.md",
+      "filePath": "collection/ExternalSorter.md",
+      "summary": "对应 ExternalSorter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ImmutableBitSet.md",
+      "type": "file",
+      "name": "ImmutableBitSet.md",
+      "filePath": "collection/ImmutableBitSet.md",
+      "summary": "对应 ImmutableBitSet 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/OpenHashMap.md",
+      "type": "file",
+      "name": "OpenHashMap.md",
+      "filePath": "collection/OpenHashMap.md",
+      "summary": "对应 OpenHashMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/OpenHashSet.md",
+      "type": "file",
+      "name": "OpenHashSet.md",
+      "filePath": "collection/OpenHashSet.md",
+      "summary": "对应 OpenHashSet 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PairsWriter.md",
+      "type": "file",
+      "name": "PairsWriter.md",
+      "filePath": "collection/PairsWriter.md",
+      "summary": "对应 PairsWriter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PartitionedAppendOnlyMap.md",
+      "type": "file",
+      "name": "PartitionedAppendOnlyMap.md",
+      "filePath": "collection/PartitionedAppendOnlyMap.md",
+      "summary": "对应 PartitionedAppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PartitionedPairBuffer.md",
+      "type": "file",
+      "name": "PartitionedPairBuffer.md",
+      "filePath": "collection/PartitionedPairBuffer.md",
+      "summary": "对应 PartitionedPairBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PercentileHeap.md",
+      "type": "file",
+      "name": "PercentileHeap.md",
+      "filePath": "collection/PercentileHeap.md",
+      "summary": "对应 PercentileHeap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PrimitiveKeyOpenHashMap.md",
+      "type": "file",
+      "name": "PrimitiveKeyOpenHashMap.md",
+      "filePath": "collection/PrimitiveKeyOpenHashMap.md",
+      "summary": "对应 PrimitiveKeyOpenHashMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PrimitiveVector.md",
+      "type": "file",
+      "name": "PrimitiveVector.md",
+      "filePath": "collection/PrimitiveVector.md",
+      "summary": "对应 PrimitiveVector 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SizeTracker.md",
+      "type": "file",
+      "name": "SizeTracker.md",
+      "filePath": "collection/SizeTracker.md",
+      "summary": "对应 SizeTracker 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SizeTrackingAppendOnlyMap.md",
+      "type": "file",
+      "name": "SizeTrackingAppendOnlyMap.md",
+      "filePath": "collection/SizeTrackingAppendOnlyMap.md",
+      "summary": "对应 SizeTrackingAppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SizeTrackingVector.md",
+      "type": "file",
+      "name": "SizeTrackingVector.md",
+      "filePath": "collection/SizeTrackingVector.md",
+      "summary": "对应 SizeTrackingVector 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SortDataFormat.md",
+      "type": "file",
+      "name": "SortDataFormat.md",
+      "filePath": "collection/SortDataFormat.md",
+      "summary": "对应 SortDataFormat 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/Sorter.md",
+      "type": "file",
+      "name": "Sorter.md",
+      "filePath": "collection/Sorter.md",
+      "summary": "对应 Sorter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/Spillable.md",
+      "type": "file",
+      "name": "Spillable.md",
+      "filePath": "collection/Spillable.md",
+      "summary": "对应 Spillable 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:io/ChunkedByteBuffer.md",
+      "type": "file",
+      "name": "ChunkedByteBuffer.md",
+      "filePath": "io/ChunkedByteBuffer.md",
+      "summary": "对应 ChunkedByteBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferFileRegion.md",
+      "type": "file",
+      "name": "ChunkedByteBufferFileRegion.md",
+      "filePath": "io/ChunkedByteBufferFileRegion.md",
+      "summary": "对应 ChunkedByteBufferFileRegion 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferOutputStream.md",
+      "type": "file",
+      "name": "ChunkedByteBufferOutputStream.md",
+      "filePath": "io/ChunkedByteBufferOutputStream.md",
+      "summary": "对应 ChunkedByteBufferOutputStream 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:logging/DriverLogger.md",
+      "type": "file",
+      "name": "DriverLogger.md",
+      "filePath": "logging/DriverLogger.md",
+      "summary": "对应 DriverLogger 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/FileAppender.md",
+      "type": "file",
+      "name": "FileAppender.md",
+      "filePath": "logging/FileAppender.md",
+      "summary": "对应 FileAppender 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/RollingFileAppender.md",
+      "type": "file",
+      "name": "RollingFileAppender.md",
+      "filePath": "logging/RollingFileAppender.md",
+      "summary": "对应 RollingFileAppender 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:logging/RollingPolicy.md",
+      "type": "file",
+      "name": "RollingPolicy.md",
+      "filePath": "logging/RollingPolicy.md",
+      "summary": "对应 RollingPolicy 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/Pseudorandom.md",
+      "type": "file",
+      "name": "Pseudorandom.md",
+      "filePath": "random/Pseudorandom.md",
+      "summary": "对应 Pseudorandom 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/RandomSampler.md",
+      "type": "file",
+      "name": "RandomSampler.md",
+      "filePath": "random/RandomSampler.md",
+      "summary": "对应 RandomSampler 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/SamplingUtils.md",
+      "type": "file",
+      "name": "SamplingUtils.md",
+      "filePath": "random/SamplingUtils.md",
+      "summary": "对应 SamplingUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/StratifiedSamplingUtils.md",
+      "type": "file",
+      "name": "StratifiedSamplingUtils.md",
+      "filePath": "random/StratifiedSamplingUtils.md",
+      "summary": "对应 StratifiedSamplingUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/XORShiftRandom.md",
+      "type": "file",
+      "name": "XORShiftRandom.md",
+      "filePath": "random/XORShiftRandom.md",
+      "summary": "对应 XORShiftRandom 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/package-info.md",
+      "type": "file",
+      "name": "package-info.md",
+      "filePath": "random/package-info.md",
+      "summary": "对应 package-info 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/package.md",
+      "type": "file",
+      "name": "package.md",
+      "filePath": "random/package.md",
+      "summary": "对应 package 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "项目元文件。",
+      "tags": [
+        "元文件"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/config.json",
+      "type": "file",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "JSON 配置文件。",
+      "tags": [
+        "配置",
+        "json"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:AccumulatorV2.scala",
+      "type": "file",
+      "name": "AccumulatorV2.scala",
+      "filePath": "AccumulatorV2.scala",
+      "summary": "Spark 通用累加器抽象 AccumulatorV2，定义 add/merge/reset/copy 等契约。",
+      "tags": [
+        "累加器",
+        "抽象",
+        "序列化",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:AccumulatorV2.scala:AccumulatorV2",
+      "type": "class",
+      "name": "AccumulatorV2",
+      "filePath": "AccumulatorV2.scala",
+      "summary": "累加器 v2 抽象基类。",
+      "tags": [
+        "累加器",
+        "抽象"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ByteBufferInputStream.scala",
+      "type": "file",
+      "name": "ByteBufferInputStream.scala",
+      "filePath": "ByteBufferInputStream.scala",
+      "summary": "将 java.nio.ByteBuffer 包装为 java.io.InputStream。",
+      "tags": [
+        "io",
+        "nio",
+        "桥接",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ByteBufferOutputStream.scala",
+      "type": "file",
+      "name": "ByteBufferOutputStream.scala",
+      "filePath": "ByteBufferOutputStream.scala",
+      "summary": "将 java.nio.ByteBuffer 包装为 java.io.OutputStream。",
+      "tags": [
+        "io",
+        "nio",
+        "桥接",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:CausedBy.scala",
+      "type": "file",
+      "name": "CausedBy.scala",
+      "filePath": "CausedBy.scala",
+      "summary": "提供从异常链中查找根因的工具对象。",
+      "tags": [
+        "异常处理",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CausedBy.scala:CausedBy",
+      "type": "class",
+      "name": "CausedBy",
+      "filePath": "CausedBy.scala",
+      "summary": "查找异常链根因的工具对象。",
+      "tags": [
+        "异常处理",
+        "单例"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Clock.scala",
+      "type": "file",
+      "name": "Clock.scala",
+      "filePath": "Clock.scala",
+      "summary": "抽象时钟 trait，便于在测试中替换系统时间。",
+      "tags": [
+        "时间",
+        "抽象",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Clock.scala:Clock",
+      "type": "class",
+      "name": "Clock",
+      "filePath": "Clock.scala",
+      "summary": "抽象时钟 trait，提供 now()/waitTillTime() 等。",
+      "tags": [
+        "时间",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ClosureCleaner.scala",
+      "type": "file",
+      "name": "ClosureCleaner.scala",
+      "filePath": "ClosureCleaner.scala",
+      "summary": "清理 Scala 闭包以避免序列化时携带不必要引用，处理 REPL/匿名类等边界情况。",
+      "tags": [
+        "闭包",
+        "序列化",
+        "反射",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/AppendOnlyMap.scala",
+      "type": "file",
+      "name": "AppendOnlyMap.scala",
+      "filePath": "collection/AppendOnlyMap.scala",
+      "summary": "只追加的哈希映射，支持聚合合并。",
+      "tags": [
+        "数据结构",
+        "map",
+        "shuffle",
+        "聚合",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/AppendOnlyMap.scala:AppendOnlyMap",
+      "type": "class",
+      "name": "AppendOnlyMap",
+      "filePath": "collection/AppendOnlyMap.scala",
+      "summary": "只追加哈希映射，支持 key 上的合并语义。",
+      "tags": [
+        "map",
+        "聚合"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/BitSet.scala",
+      "type": "file",
+      "name": "BitSet.scala",
+      "filePath": "collection/BitSet.scala",
+      "summary": "基于 Long[] 的可变位图。",
+      "tags": [
+        "位图",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/BitSet.scala:BitSet",
+      "type": "class",
+      "name": "BitSet",
+      "filePath": "collection/BitSet.scala",
+      "summary": "基于 Long[] 的可变位图。",
+      "tags": [
+        "位图"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/CompactBuffer.scala",
+      "type": "file",
+      "name": "CompactBuffer.scala",
+      "filePath": "collection/CompactBuffer.scala",
+      "summary": "元素少时使用数组、较多时切换为缓冲的高效可变缓冲。",
+      "tags": [
+        "缓冲区",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/CompactBuffer.scala:CompactBuffer",
+      "type": "class",
+      "name": "CompactBuffer",
+      "filePath": "collection/CompactBuffer.scala",
+      "summary": "高效可变缓冲（少元素用数组、否则切缓冲）。",
+      "tags": [
+        "缓冲区"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/ExternalAppendOnlyMap.scala",
+      "type": "file",
+      "name": "ExternalAppendOnlyMap.scala",
+      "filePath": "collection/ExternalAppendOnlyMap.scala",
+      "summary": "可溢写磁盘的 AppendOnlyMap，groupBy/join 的去耦与聚合。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "聚合",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/ExternalAppendOnlyMap.scala:ExternalAppendOnlyMap",
+      "type": "class",
+      "name": "ExternalAppendOnlyMap",
+      "filePath": "collection/ExternalAppendOnlyMap.scala",
+      "summary": "可溢写磁盘的 AppendOnlyMap。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "聚合"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ExternalSorter.scala",
+      "type": "file",
+      "name": "ExternalSorter.scala",
+      "filePath": "collection/ExternalSorter.scala",
+      "summary": "可溢写磁盘的外部排序器，sort-based shuffle 的核心。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "排序",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/ExternalSorter.scala:ExternalSorter",
+      "type": "class",
+      "name": "ExternalSorter",
+      "filePath": "collection/ExternalSorter.scala",
+      "summary": "可溢写磁盘的外部排序器，sort shuffle 内核。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "排序"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ImmutableBitSet.scala",
+      "type": "file",
+      "name": "ImmutableBitSet.scala",
+      "filePath": "collection/ImmutableBitSet.scala",
+      "summary": "不可变位图。",
+      "tags": [
+        "位图",
+        "不可变",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/ImmutableBitSet.scala:ImmutableBitSet",
+      "type": "class",
+      "name": "ImmutableBitSet",
+      "filePath": "collection/ImmutableBitSet.scala",
+      "summary": "不可变位图。",
+      "tags": [
+        "位图",
+        "不可变"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/OpenHashMap.scala",
+      "type": "file",
+      "name": "OpenHashMap.scala",
+      "filePath": "collection/OpenHashMap.scala",
+      "summary": "Scala mutable Map 的开放寻址高性能替代。",
+      "tags": [
+        "map",
+        "哈希",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/OpenHashMap.scala:OpenHashMap",
+      "type": "class",
+      "name": "OpenHashMap",
+      "filePath": "collection/OpenHashMap.scala",
+      "summary": "开放寻址高性能哈希映射。",
+      "tags": [
+        "map",
+        "哈希"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/OpenHashSet.scala",
+      "type": "file",
+      "name": "OpenHashSet.scala",
+      "filePath": "collection/OpenHashSet.scala",
+      "summary": "Scala mutable Set 的开放寻址高性能替代。",
+      "tags": [
+        "set",
+        "哈希",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/OpenHashSet.scala:OpenHashSet",
+      "type": "class",
+      "name": "OpenHashSet",
+      "filePath": "collection/OpenHashSet.scala",
+      "summary": "开放寻址高性能哈希集合。",
+      "tags": [
+        "set",
+        "哈希"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PairsWriter.scala",
+      "type": "file",
+      "name": "PairsWriter.scala",
+      "filePath": "collection/PairsWriter.scala",
+      "summary": "外部排序/spill 阶段写 (K,V) 对的抽象迭代器。",
+      "tags": [
+        "迭代器",
+        "shuffle",
+        "抽象",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/PairsWriter.scala:PairsWriter",
+      "type": "class",
+      "name": "PairsWriter",
+      "filePath": "collection/PairsWriter.scala",
+      "summary": "写 (K,V) 对的抽象迭代器。",
+      "tags": [
+        "shuffle",
+        "迭代器",
+        "抽象"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/PartitionedAppendOnlyMap.scala",
+      "type": "file",
+      "name": "PartitionedAppendOnlyMap.scala",
+      "filePath": "collection/PartitionedAppendOnlyMap.scala",
+      "summary": "带分区信息的 AppendOnlyMap，用于 partition-by-key 聚合。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "聚合",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/PartitionedAppendOnlyMap.scala:PartitionedAppendOnlyMap",
+      "type": "class",
+      "name": "PartitionedAppendOnlyMap",
+      "filePath": "collection/PartitionedAppendOnlyMap.scala",
+      "summary": "带分区信息的 AppendOnlyMap。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "聚合"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/PartitionedPairBuffer.scala",
+      "type": "file",
+      "name": "PartitionedPairBuffer.scala",
+      "filePath": "collection/PartitionedPairBuffer.scala",
+      "summary": "带分区信息的 (K,V) 缓冲。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "缓冲区",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PartitionedPairBuffer.scala:PartitionedPairBuffer",
+      "type": "class",
+      "name": "PartitionedPairBuffer",
+      "filePath": "collection/PartitionedPairBuffer.scala",
+      "summary": "带分区信息的 (K,V) 缓冲。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "缓冲"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PercentileHeap.scala",
+      "type": "file",
+      "name": "PercentileHeap.scala",
+      "filePath": "collection/PercentileHeap.scala",
+      "summary": "近似百分位估算的双堆实现。",
+      "tags": [
+        "百分位",
+        "堆",
+        "近似",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PercentileHeap.scala:PercentileHeap",
+      "type": "class",
+      "name": "PercentileHeap",
+      "filePath": "collection/PercentileHeap.scala",
+      "summary": "近似百分位双堆。",
+      "tags": [
+        "百分位",
+        "堆"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "type": "file",
+      "name": "PrimitiveKeyOpenHashMap.scala",
+      "filePath": "collection/PrimitiveKeyOpenHashMap.scala",
+      "summary": "针对基本类型 key 优化的高性能哈希映射。",
+      "tags": [
+        "map",
+        "哈希",
+        "基本类型",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PrimitiveKeyOpenHashMap.scala:PrimitiveKeyOpenHashMap",
+      "type": "class",
+      "name": "PrimitiveKeyOpenHashMap",
+      "filePath": "collection/PrimitiveKeyOpenHashMap.scala",
+      "summary": "针对基本类型 key 的高性能哈希映射。",
+      "tags": [
+        "map",
+        "哈希",
+        "基本类型"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PrimitiveVector.scala",
+      "type": "file",
+      "name": "PrimitiveVector.scala",
+      "filePath": "collection/PrimitiveVector.scala",
+      "summary": "基本类型数组的高效可变缓冲。",
+      "tags": [
+        "向量",
+        "基本类型",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PrimitiveVector.scala:PrimitiveVector",
+      "type": "class",
+      "name": "PrimitiveVector",
+      "filePath": "collection/PrimitiveVector.scala",
+      "summary": "基本类型可变向量。",
+      "tags": [
+        "向量"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/SizeTracker.scala",
+      "type": "file",
+      "name": "SizeTracker.scala",
+      "filePath": "collection/SizeTracker.scala",
+      "summary": "通过抽样估算集合当前大小。",
+      "tags": [
+        "大小估算",
+        "spill",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/SizeTracker.scala:SizeTracker",
+      "type": "class",
+      "name": "SizeTracker",
+      "filePath": "collection/SizeTracker.scala",
+      "summary": "通过抽样估算集合当前大小。",
+      "tags": [
+        "大小估算",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "file",
+      "name": "SizeTrackingAppendOnlyMap.scala",
+      "filePath": "collection/SizeTrackingAppendOnlyMap.scala",
+      "summary": "带大小跟踪的 AppendOnlyMap。",
+      "tags": [
+        "spill",
+        "map",
+        "大小估算",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/SizeTrackingAppendOnlyMap.scala:SizeTrackingAppendOnlyMap",
+      "type": "class",
+      "name": "SizeTrackingAppendOnlyMap",
+      "filePath": "collection/SizeTrackingAppendOnlyMap.scala",
+      "summary": "带大小跟踪的 AppendOnlyMap。",
+      "tags": [
+        "spill",
+        "map"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/SizeTrackingVector.scala",
+      "type": "file",
+      "name": "SizeTrackingVector.scala",
+      "filePath": "collection/SizeTrackingVector.scala",
+      "summary": "带大小跟踪的 PrimitiveVector。",
+      "tags": [
+        "spill",
+        "向量",
+        "大小估算",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/SizeTrackingVector.scala:SizeTrackingVector",
+      "type": "class",
+      "name": "SizeTrackingVector",
+      "filePath": "collection/SizeTrackingVector.scala",
+      "summary": "带大小跟踪的 PrimitiveVector。",
+      "tags": [
+        "spill",
+        "向量"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/SortDataFormat.scala",
+      "type": "file",
+      "name": "SortDataFormat.scala",
+      "filePath": "collection/SortDataFormat.scala",
+      "summary": "排序所需的数据格式抽象（key/comparator）。",
+      "tags": [
+        "排序",
+        "抽象",
+        "shuffle",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/SortDataFormat.scala:SortDataFormat",
+      "type": "class",
+      "name": "SortDataFormat",
+      "filePath": "collection/SortDataFormat.scala",
+      "summary": "排序数据格式抽象。",
+      "tags": [
+        "排序",
+        "抽象"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/Sorter.scala",
+      "type": "file",
+      "name": "Sorter.scala",
+      "filePath": "collection/Sorter.scala",
+      "summary": "基于 TimSort 的可溢写排序器。",
+      "tags": [
+        "排序",
+        "timsort",
+        "shuffle",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/Sorter.scala:Sorter",
+      "type": "class",
+      "name": "Sorter",
+      "filePath": "collection/Sorter.scala",
+      "summary": "基于 SortDataFormat 的可溢写排序器。",
+      "tags": [
+        "排序"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/Spillable.scala",
+      "type": "file",
+      "name": "Spillable.scala",
+      "filePath": "collection/Spillable.scala",
+      "summary": "可溢写集合的基类。",
+      "tags": [
+        "spill",
+        "抽象基类",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/Spillable.scala:Spillable",
+      "type": "class",
+      "name": "Spillable",
+      "filePath": "collection/Spillable.scala",
+      "summary": "可溢写集合基类。",
+      "tags": [
+        "spill",
+        "抽象基类"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/Utils.md",
+      "type": "file",
+      "name": "Utils.md",
+      "filePath": "collection/Utils.md",
+      "summary": "对应 Utils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/Utils.scala",
+      "type": "file",
+      "name": "Utils.scala",
+      "filePath": "collection/Utils.scala",
+      "summary": "collection 子包的工具函数。",
+      "tags": [
+        "工具函数",
+        "集合",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/Utils.scala:Utils",
+      "type": "class",
+      "name": "Utils",
+      "filePath": "collection/Utils.scala",
+      "summary": "collection 子包的工具对象。",
+      "tags": [
+        "工具对象",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/WritablePartitionedPairCollection.md",
+      "type": "file",
+      "name": "WritablePartitionedPairCollection.md",
+      "filePath": "collection/WritablePartitionedPairCollection.md",
+      "summary": "对应 WritablePartitionedPairCollection 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "file",
+      "name": "WritablePartitionedPairCollection.scala",
+      "filePath": "collection/WritablePartitionedPairCollection.scala",
+      "summary": "可写出分区 (K,V) 的集合抽象。",
+      "tags": [
+        "shuffle",
+        "抽象",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/WritablePartitionedPairCollection.scala:WritablePartitionedPairCollection",
+      "type": "class",
+      "name": "WritablePartitionedPairCollection",
+      "filePath": "collection/WritablePartitionedPairCollection.scala",
+      "summary": "可写出分区 (K,V) 的集合抽象。",
+      "tags": [
+        "shuffle",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:CollectionsUtils.scala",
+      "type": "file",
+      "name": "CollectionsUtils.scala",
+      "filePath": "CollectionsUtils.scala",
+      "summary": "Spark 集合相关通用工具。",
+      "tags": [
+        "集合",
+        "工具函数",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CollectionsUtils.scala:CollectionsUtils",
+      "type": "class",
+      "name": "CollectionsUtils",
+      "filePath": "CollectionsUtils.scala",
+      "summary": "集合相关通用工具。",
+      "tags": [
+        "集合",
+        "单例"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:CommandLineUtils.scala",
+      "type": "file",
+      "name": "CommandLineUtils.scala",
+      "filePath": "CommandLineUtils.scala",
+      "summary": "命令行参数解析工具。",
+      "tags": [
+        "命令行",
+        "工具函数",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CommandLineUtils.scala:CommandLineUtils",
+      "type": "class",
+      "name": "CommandLineUtils",
+      "filePath": "CommandLineUtils.scala",
+      "summary": "命令行参数解析工具。",
+      "tags": [
+        "命令行",
+        "单例"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:CompletionIterator.scala",
+      "type": "file",
+      "name": "CompletionIterator.scala",
+      "filePath": "CompletionIterator.scala",
+      "summary": "包装迭代器并在消费完毕后触发 onComplete 回调。",
+      "tags": [
+        "迭代器",
+        "装饰器",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:DependencyUtils.scala",
+      "type": "file",
+      "name": "DependencyUtils.scala",
+      "filePath": "DependencyUtils.scala",
+      "summary": "Spark 外部依赖（Ivy/URL）解析与缓存工具。",
+      "tags": [
+        "依赖管理",
+        "ivy",
+        "工具函数",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:DependencyUtils.scala:DependencyUtils",
+      "type": "class",
+      "name": "DependencyUtils",
+      "filePath": "DependencyUtils.scala",
+      "summary": "依赖解析工具。",
+      "tags": [
+        "依赖管理",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Distribution.scala",
+      "type": "file",
+      "name": "Distribution.scala",
+      "filePath": "Distribution.scala",
+      "summary": "统计摘要（均值/方差/分位数等）。",
+      "tags": [
+        "统计",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Distribution.scala:Distribution",
+      "type": "class",
+      "name": "Distribution",
+      "filePath": "Distribution.scala",
+      "summary": "统计分布摘要（含分位数）。",
+      "tags": [
+        "统计"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:EventLoop.scala",
+      "type": "file",
+      "name": "EventLoop.scala",
+      "filePath": "EventLoop.scala",
+      "summary": "基于守护线程的事件循环，AsyncEventQueue 的基类。",
+      "tags": [
+        "事件循环",
+        "异步",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:EventLoop.scala:EventLoop",
+      "type": "class",
+      "name": "EventLoop",
+      "filePath": "EventLoop.scala",
+      "summary": "守护线程驱动的单线程事件循环，AsyncEventQueue 的基类。",
+      "tags": [
+        "事件循环"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:HadoopFSUtils.scala",
+      "type": "file",
+      "name": "HadoopFSUtils.scala",
+      "filePath": "HadoopFSUtils.scala",
+      "summary": "封装 Hadoop FileSystem 常用操作（list/glob/copy 等）。",
+      "tags": [
+        "hadoop",
+        "文件系统",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:HadoopFSUtils.scala:HadoopFSUtils",
+      "type": "class",
+      "name": "HadoopFSUtils",
+      "filePath": "HadoopFSUtils.scala",
+      "summary": "Hadoop FileSystem 操作封装。",
+      "tags": [
+        "hadoop",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:IdGenerator.scala",
+      "type": "file",
+      "name": "IdGenerator.scala",
+      "filePath": "IdGenerator.scala",
+      "summary": "生成单调递增的 ID。",
+      "tags": [
+        "id 生成",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:IdGenerator.scala:IdGenerator",
+      "type": "class",
+      "name": "IdGenerator",
+      "filePath": "IdGenerator.scala",
+      "summary": "单调递增的 ID 生成器。",
+      "tags": [
+        "id 生成"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:IntParam.scala",
+      "type": "file",
+      "name": "IntParam.scala",
+      "filePath": "IntParam.scala",
+      "summary": "将命令行整型参数注册到 SparkConf 的工具。",
+      "tags": [
+        "命令行",
+        "配置",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:IntParam.scala:IntParam",
+      "type": "class",
+      "name": "IntParam",
+      "filePath": "IntParam.scala",
+      "summary": "可注册到 SparkConf 的整型参数。",
+      "tags": [
+        "配置"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:io/ChunkedByteBuffer.scala",
+      "type": "file",
+      "name": "ChunkedByteBuffer.scala",
+      "filePath": "io/ChunkedByteBuffer.scala",
+      "summary": "分块的 NIO ByteBuffer 容器，支持分块序列化与 IO。",
+      "tags": [
+        "io",
+        "nio",
+        "字节缓冲",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:io/ChunkedByteBuffer.scala:ChunkedByteBuffer",
+      "type": "class",
+      "name": "ChunkedByteBuffer",
+      "filePath": "io/ChunkedByteBuffer.scala",
+      "summary": "分块 NIO ByteBuffer 容器。",
+      "tags": [
+        "io",
+        "nio"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferFileRegion.scala",
+      "type": "file",
+      "name": "ChunkedByteBufferFileRegion.scala",
+      "filePath": "io/ChunkedByteBufferFileRegion.scala",
+      "summary": "将 ChunkedByteBuffer 适配为 Netty FileRegion 的零拷贝传输。",
+      "tags": [
+        "io",
+        "零拷贝",
+        "netty",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:io/ChunkedByteBufferFileRegion.scala:ChunkedByteBufferFileRegion",
+      "type": "class",
+      "name": "ChunkedByteBufferFileRegion",
+      "filePath": "io/ChunkedByteBufferFileRegion.scala",
+      "summary": "ChunkedByteBuffer 到 Netty FileRegion 的适配器。",
+      "tags": [
+        "io",
+        "零拷贝",
+        "netty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferOutputStream.scala",
+      "type": "file",
+      "name": "ChunkedByteBufferOutputStream.scala",
+      "filePath": "io/ChunkedByteBufferOutputStream.scala",
+      "summary": "可写出到 ChunkedByteBuffer 的 OutputStream。",
+      "tags": [
+        "io",
+        "字节缓冲",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:io/ChunkedByteBufferOutputStream.scala:ChunkedByteBufferOutputStream",
+      "type": "class",
+      "name": "ChunkedByteBufferOutputStream",
+      "filePath": "io/ChunkedByteBufferOutputStream.scala",
+      "summary": "输出到 ChunkedByteBuffer 的 OutputStream。",
+      "tags": [
+        "io",
+        "字节缓冲"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:JsonProtocol.scala",
+      "type": "file",
+      "name": "JsonProtocol.scala",
+      "filePath": "JsonProtocol.scala",
+      "summary": "Spark 事件日志的 JSON 序列化/反序列化协议。",
+      "tags": [
+        "json",
+        "序列化",
+        "事件日志",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:JsonProtocol.scala:JsonProtocol",
+      "type": "class",
+      "name": "JsonProtocol",
+      "filePath": "JsonProtocol.scala",
+      "summary": "Spark 事件日志的 JSON 编解码协议。",
+      "tags": [
+        "json",
+        "序列化",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:KeyLock.scala",
+      "type": "file",
+      "name": "KeyLock.scala",
+      "filePath": "KeyLock.scala",
+      "summary": "基于键的细粒度锁。",
+      "tags": [
+        "并发",
+        "锁",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:KeyLock.scala:KeyLock",
+      "type": "class",
+      "name": "KeyLock",
+      "filePath": "KeyLock.scala",
+      "summary": "基于键的细粒度读写锁。",
+      "tags": [
+        "并发",
+        "锁"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ListenerBus.scala",
+      "type": "file",
+      "name": "ListenerBus.scala",
+      "filePath": "ListenerBus.scala",
+      "summary": "事件总线抽象 trait，SparkListenerBus 的基类。",
+      "tags": [
+        "事件总线",
+        "观察者",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:ListenerBus.scala:ListenerBus",
+      "type": "class",
+      "name": "ListenerBus",
+      "filePath": "ListenerBus.scala",
+      "summary": "事件总线抽象，定义 addListener/postToAll 等契约。",
+      "tags": [
+        "事件总线",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/DriverLogger.scala",
+      "type": "file",
+      "name": "DriverLogger.scala",
+      "filePath": "logging/DriverLogger.scala",
+      "summary": "Driver 端结构化日志管理器，支持重定向到指定文件。",
+      "tags": [
+        "日志",
+        "driver",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:logging/DriverLogger.scala:DriverLogger",
+      "type": "class",
+      "name": "DriverLogger",
+      "filePath": "logging/DriverLogger.scala",
+      "summary": "Driver 端结构化日志管理器。",
+      "tags": [
+        "日志",
+        "driver",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:logging/FileAppender.scala",
+      "type": "file",
+      "name": "FileAppender.scala",
+      "filePath": "logging/FileAppender.scala",
+      "summary": "基于文件的日志追加器抽象。",
+      "tags": [
+        "日志",
+        "抽象",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:logging/FileAppender.scala:FileAppender",
+      "type": "class",
+      "name": "FileAppender",
+      "filePath": "logging/FileAppender.scala",
+      "summary": "文件日志追加器抽象。",
+      "tags": [
+        "日志",
+        "抽象"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/RollingFileAppender.scala",
+      "type": "file",
+      "name": "RollingFileAppender.scala",
+      "filePath": "logging/RollingFileAppender.scala",
+      "summary": "支持按大小/时间滚动的文件日志追加器。",
+      "tags": [
+        "日志",
+        "滚动",
+        "文件",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:logging/RollingFileAppender.scala:RollingFileAppender",
+      "type": "class",
+      "name": "RollingFileAppender",
+      "filePath": "logging/RollingFileAppender.scala",
+      "summary": "滚动文件日志追加器。",
+      "tags": [
+        "日志",
+        "滚动"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/RollingPolicy.scala",
+      "type": "file",
+      "name": "RollingPolicy.scala",
+      "filePath": "logging/RollingPolicy.scala",
+      "summary": "日志滚动策略的抽象与默认实现。",
+      "tags": [
+        "日志",
+        "滚动",
+        "策略",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:logging/RollingPolicy.scala:RollingPolicy",
+      "type": "class",
+      "name": "RollingPolicy",
+      "filePath": "logging/RollingPolicy.scala",
+      "summary": "日志滚动策略抽象。",
+      "tags": [
+        "日志",
+        "策略",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ManualClock.scala",
+      "type": "file",
+      "name": "ManualClock.scala",
+      "filePath": "ManualClock.scala",
+      "summary": "Clock 的可手动推进实现，用于测试。",
+      "tags": [
+        "时间",
+        "测试替身",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:ManualClock.scala:ManualClock",
+      "type": "class",
+      "name": "ManualClock",
+      "filePath": "ManualClock.scala",
+      "summary": "可手动推进时间的 Clock 实现，专为测试而设。",
+      "tags": [
+        "时间",
+        "测试替身"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:MemoryParam.scala",
+      "type": "file",
+      "name": "MemoryParam.scala",
+      "filePath": "MemoryParam.scala",
+      "summary": "将内存字符串（如 1g）注册到 SparkConf 的工具。",
+      "tags": [
+        "命令行",
+        "配置",
+        "内存",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:MemoryParam.scala:MemoryParam",
+      "type": "class",
+      "name": "MemoryParam",
+      "filePath": "MemoryParam.scala",
+      "summary": "可注册到 SparkConf 的内存参数（接受 1g/512m 字符串）。",
+      "tags": [
+        "配置",
+        "内存"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:MutablePair.scala",
+      "type": "file",
+      "name": "MutablePair.scala",
+      "filePath": "MutablePair.scala",
+      "summary": "可变的键值对容器。",
+      "tags": [
+        "数据结构",
+        "键值对",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:MutablePair.scala:MutablePair",
+      "type": "class",
+      "name": "MutablePair",
+      "filePath": "MutablePair.scala",
+      "summary": "可变的键值对容器。",
+      "tags": [
+        "数据结构"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:NextIterator.scala",
+      "type": "file",
+      "name": "NextIterator.scala",
+      "filePath": "NextIterator.scala",
+      "summary": "自定义迭代器的样板抽象基类。",
+      "tags": [
+        "迭代器",
+        "抽象基类",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:NextIterator.scala:NextIterator",
+      "type": "class",
+      "name": "NextIterator",
+      "filePath": "NextIterator.scala",
+      "summary": "自定义迭代器样板抽象基类。",
+      "tags": [
+        "迭代器",
+        "抽象"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:package-info.java",
+      "type": "file",
+      "name": "package-info.java",
+      "filePath": "package-info.java",
+      "summary": "package-info.java 的 Java 实现，为 Scala 端提供 Java API。",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:package.scala",
+      "type": "file",
+      "name": "package.scala",
+      "filePath": "package.scala",
+      "summary": "org.apache.spark.util 的 package object，提供包级注释。",
+      "tags": [
+        "package",
+        "barrel",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:PeriodicCheckpointer.scala",
+      "type": "file",
+      "name": "PeriodicCheckpointer.scala",
+      "filePath": "PeriodicCheckpointer.scala",
+      "summary": "在后台线程周期性将 Checkpointable 写入可靠检查点。",
+      "tags": [
+        "检查点",
+        "周期任务",
+        "可靠性",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:PeriodicCheckpointer.scala:PeriodicCheckpointer",
+      "type": "class",
+      "name": "PeriodicCheckpointer",
+      "filePath": "PeriodicCheckpointer.scala",
+      "summary": "周期性检查点写入器。",
+      "tags": [
+        "检查点",
+        "可靠性"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/package-info.java",
+      "type": "file",
+      "name": "package-info.java",
+      "filePath": "random/package-info.java",
+      "summary": "package-info.java 的 Java 实现，为 Scala 端提供 Java API。",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:random/package.scala",
+      "type": "file",
+      "name": "package.scala",
+      "filePath": "random/package.scala",
+      "summary": "random/package.scala 的实现。",
+      "tags": [
+        "util",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:random/Pseudorandom.scala",
+      "type": "file",
+      "name": "Pseudorandom.scala",
+      "filePath": "random/Pseudorandom.scala",
+      "summary": "伪随机数生成器 trait。",
+      "tags": [
+        "随机数",
+        "抽象",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:random/Pseudorandom.scala:Pseudorandom",
+      "type": "class",
+      "name": "Pseudorandom",
+      "filePath": "random/Pseudorandom.scala",
+      "summary": "伪随机数生成器 trait。",
+      "tags": [
+        "随机数",
+        "trait"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:random/RandomSampler.scala",
+      "type": "file",
+      "name": "RandomSampler.scala",
+      "filePath": "random/RandomSampler.scala",
+      "summary": "采样抽象与多种采样策略（泊松/伯努利/水塘等）。",
+      "tags": [
+        "采样",
+        "随机数",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:random/RandomSampler.scala:RandomSampler",
+      "type": "class",
+      "name": "RandomSampler",
+      "filePath": "random/RandomSampler.scala",
+      "summary": "采样器抽象。",
+      "tags": [
+        "采样",
+        "trait"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/SamplingUtils.scala",
+      "type": "file",
+      "name": "SamplingUtils.scala",
+      "filePath": "random/SamplingUtils.scala",
+      "summary": "排序后数据的分层/分位数采样工具。",
+      "tags": [
+        "采样",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:random/SamplingUtils.scala:SamplingUtils",
+      "type": "class",
+      "name": "SamplingUtils",
+      "filePath": "random/SamplingUtils.scala",
+      "summary": "采样工具集合。",
+      "tags": [
+        "采样",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/StratifiedSamplingUtils.scala",
+      "type": "file",
+      "name": "StratifiedSamplingUtils.scala",
+      "filePath": "random/StratifiedSamplingUtils.scala",
+      "summary": "分层抽样的核心算法与 RDD 辅助函数。",
+      "tags": [
+        "采样",
+        "分层",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:random/StratifiedSamplingUtils.scala:StratifiedSamplingUtils",
+      "type": "class",
+      "name": "StratifiedSamplingUtils",
+      "filePath": "random/StratifiedSamplingUtils.scala",
+      "summary": "分层采样算法。",
+      "tags": [
+        "采样",
+        "分层",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/XORShiftRandom.scala",
+      "type": "file",
+      "name": "XORShiftRandom.scala",
+      "filePath": "random/XORShiftRandom.scala",
+      "summary": "高性能 XORShift 随机数生成器。",
+      "tags": [
+        "随机数",
+        "高性能",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:random/XORShiftRandom.scala:XORShiftRandom",
+      "type": "class",
+      "name": "XORShiftRandom",
+      "filePath": "random/XORShiftRandom.scala",
+      "summary": "XORShift 随机数生成器。",
+      "tags": [
+        "随机数"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:RpcUtils.scala",
+      "type": "file",
+      "name": "RpcUtils.scala",
+      "filePath": "RpcUtils.scala",
+      "summary": "Spark RPC 框架的辅助方法。",
+      "tags": [
+        "rpc",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcUtils.scala:RpcUtils",
+      "type": "class",
+      "name": "RpcUtils",
+      "filePath": "RpcUtils.scala",
+      "summary": "RPC 框架辅助方法。",
+      "tags": [
+        "rpc",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SecurityUtils.scala",
+      "type": "file",
+      "name": "SecurityUtils.scala",
+      "filePath": "SecurityUtils.scala",
+      "summary": "安全相关工具（认证/授权/SSL 配置读取）。",
+      "tags": [
+        "安全",
+        "认证",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SecurityUtils.scala:SecurityUtils",
+      "type": "class",
+      "name": "SecurityUtils",
+      "filePath": "SecurityUtils.scala",
+      "summary": "安全相关辅助方法。",
+      "tags": [
+        "安全",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SerializableBuffer.scala",
+      "type": "file",
+      "name": "SerializableBuffer.scala",
+      "filePath": "SerializableBuffer.scala",
+      "summary": "可序列化的 NIO ByteBuffer 包装。",
+      "tags": [
+        "序列化",
+        "nio",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SerializableBuffer.scala:SerializableBuffer",
+      "type": "class",
+      "name": "SerializableBuffer",
+      "filePath": "SerializableBuffer.scala",
+      "summary": "可序列化的 NIO ByteBuffer 包装。",
+      "tags": [
+        "序列化",
+        "nio"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SerializableConfiguration.scala",
+      "type": "file",
+      "name": "SerializableConfiguration.scala",
+      "filePath": "SerializableConfiguration.scala",
+      "summary": "可序列化的 Hadoop Configuration 包装。",
+      "tags": [
+        "序列化",
+        "hadoop",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:SerializableConfiguration.scala:SerializableConfiguration",
+      "type": "class",
+      "name": "SerializableConfiguration",
+      "filePath": "SerializableConfiguration.scala",
+      "summary": "可序列化的 Hadoop Configuration 包装。",
+      "tags": [
+        "序列化",
+        "hadoop"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:SerializableJobConf.scala",
+      "type": "file",
+      "name": "SerializableJobConf.scala",
+      "filePath": "SerializableJobConf.scala",
+      "summary": "可序列化的 Hadoop JobConf 包装。",
+      "tags": [
+        "序列化",
+        "hadoop",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:SerializableJobConf.scala:SerializableJobConf",
+      "type": "class",
+      "name": "SerializableJobConf",
+      "filePath": "SerializableJobConf.scala",
+      "summary": "可序列化的 Hadoop JobConf 包装。",
+      "tags": [
+        "序列化",
+        "hadoop"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ShutdownHookManager.scala",
+      "type": "file",
+      "name": "ShutdownHookManager.scala",
+      "filePath": "ShutdownHookManager.scala",
+      "summary": "统一管理 JVM 关闭钩子，确保有序清理 Spark 资源。",
+      "tags": [
+        "关闭钩子",
+        "资源管理",
+        "生命周期",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:ShutdownHookManager.scala:ShutdownHookManager",
+      "type": "class",
+      "name": "ShutdownHookManager",
+      "filePath": "ShutdownHookManager.scala",
+      "summary": "JVM 关闭钩子统一管理器。",
+      "tags": [
+        "关闭钩子",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SignalUtils.scala",
+      "type": "file",
+      "name": "SignalUtils.scala",
+      "filePath": "SignalUtils.scala",
+      "summary": "POSIX 信号处理工具。",
+      "tags": [
+        "信号",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SignalUtils.scala:SignalUtils",
+      "type": "class",
+      "name": "SignalUtils",
+      "filePath": "SignalUtils.scala",
+      "summary": "POSIX 信号处理工具。",
+      "tags": [
+        "信号",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SizeEstimator.scala",
+      "type": "file",
+      "name": "SizeEstimator.scala",
+      "filePath": "SizeEstimator.scala",
+      "summary": "通过反射估算对象图的堆内存占用。",
+      "tags": [
+        "内存估算",
+        "反射",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:SizeEstimator.scala:SizeEstimator",
+      "type": "class",
+      "name": "SizeEstimator",
+      "filePath": "SizeEstimator.scala",
+      "summary": "基于反射的对象图大小估算器。",
+      "tags": [
+        "内存估算",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkExitCode.scala",
+      "type": "file",
+      "name": "SparkExitCode.scala",
+      "filePath": "SparkExitCode.scala",
+      "summary": "Spark 进程退出码的统一定义。",
+      "tags": [
+        "退出码",
+        "常量",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:SparkFatalException.scala",
+      "type": "file",
+      "name": "SparkFatalException.scala",
+      "filePath": "SparkFatalException.scala",
+      "summary": "标记 Spark 致命错误的异常类型。",
+      "tags": [
+        "异常",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:SparkUncaughtExceptionHandler.scala",
+      "type": "file",
+      "name": "SparkUncaughtExceptionHandler.scala",
+      "filePath": "SparkUncaughtExceptionHandler.scala",
+      "summary": "Spark 线程未捕获异常的统一处理器。",
+      "tags": [
+        "异常处理",
+        "线程",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SparkUncaughtExceptionHandler.scala:SparkUncaughtExceptionHandler",
+      "type": "class",
+      "name": "SparkUncaughtExceptionHandler",
+      "filePath": "SparkUncaughtExceptionHandler.scala",
+      "summary": "Spark 线程未捕获异常统一处理。",
+      "tags": [
+        "异常处理",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:StatCounter.scala",
+      "type": "file",
+      "name": "StatCounter.scala",
+      "filePath": "StatCounter.scala",
+      "summary": "在线计算均值/方差/最值等统计指标。",
+      "tags": [
+        "统计",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:StatCounter.scala:StatCounter",
+      "type": "class",
+      "name": "StatCounter",
+      "filePath": "StatCounter.scala",
+      "summary": "在线统计指标（均值/方差/最值）。",
+      "tags": [
+        "统计"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:taskListeners.md",
+      "type": "file",
+      "name": "taskListeners.md",
+      "filePath": "taskListeners.md",
+      "summary": "对应 taskListeners 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:taskListeners.scala",
+      "type": "file",
+      "name": "taskListeners.scala",
+      "filePath": "taskListeners.scala",
+      "summary": "task 监听器相关的辅助定义。",
+      "tags": [
+        "task",
+        "监听器",
+        "钩子",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ThreadUtils.scala",
+      "type": "file",
+      "name": "ThreadUtils.scala",
+      "filePath": "ThreadUtils.scala",
+      "summary": "线程工厂与线程池辅助方法（命名/守护/uncaught）。",
+      "tags": [
+        "线程",
+        "线程池",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:ThreadUtils.scala:ThreadUtils",
+      "type": "class",
+      "name": "ThreadUtils",
+      "filePath": "ThreadUtils.scala",
+      "summary": "线程工厂与线程池辅助方法集合。",
+      "tags": [
+        "线程",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:UninterruptibleThread.scala",
+      "type": "file",
+      "name": "UninterruptibleThread.scala",
+      "filePath": "UninterruptibleThread.scala",
+      "summary": "对中断免疫的线程，配套 UninterruptibleThreadRunner 保护关键临界区。",
+      "tags": [
+        "线程",
+        "中断",
+        "锁",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:UninterruptibleThread.scala:UninterruptibleThread",
+      "type": "class",
+      "name": "UninterruptibleThread",
+      "filePath": "UninterruptibleThread.scala",
+      "summary": "对中断免疫的线程，保护关键临界区。",
+      "tags": [
+        "线程",
+        "中断"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:UninterruptibleThreadRunner.scala",
+      "type": "file",
+      "name": "UninterruptibleThreadRunner.scala",
+      "filePath": "UninterruptibleThreadRunner.scala",
+      "summary": "在不可中断线程中运行指定块的执行器。",
+      "tags": [
+        "线程",
+        "中断",
+        "锁",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:UninterruptibleThreadRunner.scala:UninterruptibleThreadRunner",
+      "type": "class",
+      "name": "UninterruptibleThreadRunner",
+      "filePath": "UninterruptibleThreadRunner.scala",
+      "summary": "在不可中断线程中运行指定块。",
+      "tags": [
+        "线程",
+        "中断"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:Utils.scala",
+      "type": "file",
+      "name": "Utils.scala",
+      "filePath": "Utils.scala",
+      "summary": "Spark 通用工具对象，聚合序列化/IO/时间解析/文件操作/字符串等大量工具方法。",
+      "tags": [
+        "工具函数",
+        "核心",
+        "helpers",
+        "common",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:Utils.scala:Utils",
+      "type": "class",
+      "name": "Utils",
+      "filePath": "Utils.scala",
+      "summary": "Spark 通用工具对象，封装序列化/IO/文件/时间解析/字符串/网络等大量静态工具。",
+      "tags": [
+        "工具对象",
+        "单例",
+        "helpers"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:VersionUtils.scala",
+      "type": "file",
+      "name": "VersionUtils.scala",
+      "filePath": "VersionUtils.scala",
+      "summary": "Spark 版本号解析与比较工具。",
+      "tags": [
+        "版本",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:VersionUtils.scala:VersionUtils",
+      "type": "class",
+      "name": "VersionUtils",
+      "filePath": "VersionUtils.scala",
+      "summary": "版本号解析与比较工具。",
+      "tags": [
+        "版本",
+        "单例"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:AccumulatorV2.md",
+      "target": "file:AccumulatorV2.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ByteBufferInputStream.md",
+      "target": "file:ByteBufferInputStream.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ByteBufferOutputStream.md",
+      "target": "file:ByteBufferOutputStream.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CausedBy.md",
+      "target": "file:CausedBy.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:Clock.md",
+      "target": "file:Clock.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ClosureCleaner.md",
+      "target": "file:ClosureCleaner.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CollectionsUtils.md",
+      "target": "file:CollectionsUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CommandLineUtils.md",
+      "target": "file:CommandLineUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CompletionIterator.md",
+      "target": "file:CompletionIterator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:DependencyUtils.md",
+      "target": "file:DependencyUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:Distribution.md",
+      "target": "file:Distribution.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:EventLoop.md",
+      "target": "file:EventLoop.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:HadoopFSUtils.md",
+      "target": "file:HadoopFSUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:IdGenerator.md",
+      "target": "file:IdGenerator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:IntParam.md",
+      "target": "file:IntParam.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:JsonProtocol.md",
+      "target": "file:JsonProtocol.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:KeyLock.md",
+      "target": "file:KeyLock.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ListenerBus.md",
+      "target": "file:ListenerBus.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ManualClock.md",
+      "target": "file:ManualClock.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:MemoryParam.md",
+      "target": "file:MemoryParam.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:MutablePair.md",
+      "target": "file:MutablePair.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:NextIterator.md",
+      "target": "file:NextIterator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:PeriodicCheckpointer.md",
+      "target": "file:PeriodicCheckpointer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:RpcUtils.md",
+      "target": "file:RpcUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SecurityUtils.md",
+      "target": "file:SecurityUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SerializableBuffer.md",
+      "target": "file:SerializableBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SerializableConfiguration.md",
+      "target": "file:SerializableConfiguration.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SerializableJobConf.md",
+      "target": "file:SerializableJobConf.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ShutdownHookManager.md",
+      "target": "file:ShutdownHookManager.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SignalUtils.md",
+      "target": "file:SignalUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SizeEstimator.md",
+      "target": "file:SizeEstimator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SparkExitCode.md",
+      "target": "file:SparkExitCode.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SparkFatalException.md",
+      "target": "file:SparkFatalException.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SparkUncaughtExceptionHandler.md",
+      "target": "file:SparkUncaughtExceptionHandler.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:StatCounter.md",
+      "target": "file:StatCounter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ThreadUtils.md",
+      "target": "file:ThreadUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:UninterruptibleThread.md",
+      "target": "file:UninterruptibleThread.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.md",
+      "target": "file:UninterruptibleThreadRunner.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:Utils.md",
+      "target": "file:Utils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:VersionUtils.md",
+      "target": "file:VersionUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/AppendOnlyMap.md",
+      "target": "file:collection/AppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/BitSet.md",
+      "target": "file:collection/BitSet.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/CompactBuffer.md",
+      "target": "file:collection/CompactBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.md",
+      "target": "file:collection/ExternalAppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/ExternalSorter.md",
+      "target": "file:collection/ExternalSorter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/ImmutableBitSet.md",
+      "target": "file:collection/ImmutableBitSet.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/OpenHashMap.md",
+      "target": "file:collection/OpenHashMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/OpenHashSet.md",
+      "target": "file:collection/OpenHashSet.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PairsWriter.md",
+      "target": "file:collection/PairsWriter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.md",
+      "target": "file:collection/PartitionedAppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.md",
+      "target": "file:collection/PartitionedPairBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PercentileHeap.md",
+      "target": "file:collection/PercentileHeap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PrimitiveKeyOpenHashMap.md",
+      "target": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PrimitiveVector.md",
+      "target": "file:collection/PrimitiveVector.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SizeTracker.md",
+      "target": "file:collection/SizeTracker.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.md",
+      "target": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SizeTrackingVector.md",
+      "target": "file:collection/SizeTrackingVector.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SortDataFormat.md",
+      "target": "file:collection/SortDataFormat.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/Sorter.md",
+      "target": "file:collection/Sorter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/Spillable.md",
+      "target": "file:collection/Spillable.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:io/ChunkedByteBuffer.md",
+      "target": "file:io/ChunkedByteBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.md",
+      "target": "file:io/ChunkedByteBufferFileRegion.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.md",
+      "target": "file:io/ChunkedByteBufferOutputStream.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/DriverLogger.md",
+      "target": "file:logging/DriverLogger.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/FileAppender.md",
+      "target": "file:logging/FileAppender.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/RollingFileAppender.md",
+      "target": "file:logging/RollingFileAppender.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/RollingPolicy.md",
+      "target": "file:logging/RollingPolicy.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/Pseudorandom.md",
+      "target": "file:random/Pseudorandom.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/RandomSampler.md",
+      "target": "file:random/RandomSampler.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/SamplingUtils.md",
+      "target": "file:random/SamplingUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.md",
+      "target": "file:random/StratifiedSamplingUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/XORShiftRandom.md",
+      "target": "file:random/XORShiftRandom.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/package.md",
+      "target": "file:random/package.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:AccumulatorV2.scala",
+      "target": "class:AccumulatorV2.scala:AccumulatorV2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:AccumulatorV2.scala",
+      "target": "class:AccumulatorV2.scala:AccumulatorV2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:CausedBy.scala",
+      "target": "class:CausedBy.scala:CausedBy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:CausedBy.scala",
+      "target": "class:CausedBy.scala:CausedBy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Clock.scala",
+      "target": "class:Clock.scala:Clock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:Clock.scala",
+      "target": "class:Clock.scala:Clock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/AppendOnlyMap.scala",
+      "target": "class:collection/AppendOnlyMap.scala:AppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/AppendOnlyMap.scala",
+      "target": "class:collection/AppendOnlyMap.scala:AppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/BitSet.scala",
+      "target": "class:collection/BitSet.scala:BitSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/BitSet.scala",
+      "target": "class:collection/BitSet.scala:BitSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/CompactBuffer.scala",
+      "target": "class:collection/CompactBuffer.scala:CompactBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/CompactBuffer.scala",
+      "target": "class:collection/CompactBuffer.scala:CompactBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "class:collection/ExternalAppendOnlyMap.scala:ExternalAppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "class:collection/ExternalAppendOnlyMap.scala:ExternalAppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "class:collection/ExternalSorter.scala:ExternalSorter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "class:collection/ExternalSorter.scala:ExternalSorter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/ImmutableBitSet.scala",
+      "target": "class:collection/ImmutableBitSet.scala:ImmutableBitSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/ImmutableBitSet.scala",
+      "target": "class:collection/ImmutableBitSet.scala:ImmutableBitSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/OpenHashMap.scala",
+      "target": "class:collection/OpenHashMap.scala:OpenHashMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/OpenHashMap.scala",
+      "target": "class:collection/OpenHashMap.scala:OpenHashMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/OpenHashSet.scala",
+      "target": "class:collection/OpenHashSet.scala:OpenHashSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/OpenHashSet.scala",
+      "target": "class:collection/OpenHashSet.scala:OpenHashSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PairsWriter.scala",
+      "target": "class:collection/PairsWriter.scala:PairsWriter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PairsWriter.scala",
+      "target": "class:collection/PairsWriter.scala:PairsWriter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "class:collection/PartitionedAppendOnlyMap.scala:PartitionedAppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "class:collection/PartitionedAppendOnlyMap.scala:PartitionedAppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "class:collection/PartitionedPairBuffer.scala:PartitionedPairBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "class:collection/PartitionedPairBuffer.scala:PartitionedPairBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PercentileHeap.scala",
+      "target": "class:collection/PercentileHeap.scala:PercentileHeap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PercentileHeap.scala",
+      "target": "class:collection/PercentileHeap.scala:PercentileHeap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "target": "class:collection/PrimitiveKeyOpenHashMap.scala:PrimitiveKeyOpenHashMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "target": "class:collection/PrimitiveKeyOpenHashMap.scala:PrimitiveKeyOpenHashMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PrimitiveVector.scala",
+      "target": "class:collection/PrimitiveVector.scala:PrimitiveVector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PrimitiveVector.scala",
+      "target": "class:collection/PrimitiveVector.scala:PrimitiveVector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTracker.scala",
+      "target": "class:collection/SizeTracker.scala:SizeTracker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SizeTracker.scala",
+      "target": "class:collection/SizeTracker.scala:SizeTracker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "class:collection/SizeTrackingAppendOnlyMap.scala:SizeTrackingAppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "class:collection/SizeTrackingAppendOnlyMap.scala:SizeTrackingAppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTrackingVector.scala",
+      "target": "class:collection/SizeTrackingVector.scala:SizeTrackingVector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SizeTrackingVector.scala",
+      "target": "class:collection/SizeTrackingVector.scala:SizeTrackingVector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "file:collection/AppendOnlyMap.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "file:collection/SizeTracker.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "file:collection/SizeTracker.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/Spillable.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "file:collection/Spillable.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/PartitionedAppendOnlyMap.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/PartitionedPairBuffer.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ClosureCleaner.scala",
+      "target": "file:SparkFatalException.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ClosureCleaner.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/Spillable.scala",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SortDataFormat.scala",
+      "target": "class:collection/SortDataFormat.scala:SortDataFormat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SortDataFormat.scala",
+      "target": "class:collection/SortDataFormat.scala:SortDataFormat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Sorter.scala",
+      "target": "class:collection/Sorter.scala:Sorter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/Sorter.scala",
+      "target": "class:collection/Sorter.scala:Sorter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Spillable.scala",
+      "target": "class:collection/Spillable.scala:Spillable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/Spillable.scala",
+      "target": "class:collection/Spillable.scala:Spillable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Utils.md",
+      "target": "file:collection/Utils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/Utils.scala",
+      "target": "class:collection/Utils.scala:Utils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/Utils.scala",
+      "target": "class:collection/Utils.scala:Utils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/WritablePartitionedPairCollection.md",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/WritablePartitionedPairCollection.scala",
+      "target": "class:collection/WritablePartitionedPairCollection.scala:WritablePartitionedPairCollection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/WritablePartitionedPairCollection.scala",
+      "target": "class:collection/WritablePartitionedPairCollection.scala:WritablePartitionedPairCollection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:CollectionsUtils.scala",
+      "target": "class:CollectionsUtils.scala:CollectionsUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:CollectionsUtils.scala",
+      "target": "class:CollectionsUtils.scala:CollectionsUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:CommandLineUtils.scala",
+      "target": "class:CommandLineUtils.scala:CommandLineUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:CommandLineUtils.scala",
+      "target": "class:CommandLineUtils.scala:CommandLineUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:DependencyUtils.scala",
+      "target": "class:DependencyUtils.scala:DependencyUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:DependencyUtils.scala",
+      "target": "class:DependencyUtils.scala:DependencyUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Distribution.scala",
+      "target": "class:Distribution.scala:Distribution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:Distribution.scala",
+      "target": "class:Distribution.scala:Distribution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:EventLoop.scala",
+      "target": "class:EventLoop.scala:EventLoop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:EventLoop.scala",
+      "target": "class:EventLoop.scala:EventLoop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:HadoopFSUtils.scala",
+      "target": "class:HadoopFSUtils.scala:HadoopFSUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:HadoopFSUtils.scala",
+      "target": "class:HadoopFSUtils.scala:HadoopFSUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:IdGenerator.scala",
+      "target": "class:IdGenerator.scala:IdGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:IdGenerator.scala",
+      "target": "class:IdGenerator.scala:IdGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:IntParam.scala",
+      "target": "class:IntParam.scala:IntParam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:IntParam.scala",
+      "target": "class:IntParam.scala:IntParam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:io/ChunkedByteBuffer.scala",
+      "target": "class:io/ChunkedByteBuffer.scala:ChunkedByteBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:io/ChunkedByteBuffer.scala",
+      "target": "class:io/ChunkedByteBuffer.scala:ChunkedByteBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.scala",
+      "target": "class:io/ChunkedByteBufferFileRegion.scala:ChunkedByteBufferFileRegion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.scala",
+      "target": "class:io/ChunkedByteBufferFileRegion.scala:ChunkedByteBufferFileRegion",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.scala",
+      "target": "class:io/ChunkedByteBufferOutputStream.scala:ChunkedByteBufferOutputStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.scala",
+      "target": "class:io/ChunkedByteBufferOutputStream.scala:ChunkedByteBufferOutputStream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:JsonProtocol.scala",
+      "target": "class:JsonProtocol.scala:JsonProtocol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:JsonProtocol.scala",
+      "target": "class:JsonProtocol.scala:JsonProtocol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:KeyLock.scala",
+      "target": "class:KeyLock.scala:KeyLock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:KeyLock.scala",
+      "target": "class:KeyLock.scala:KeyLock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "class:ListenerBus.scala:ListenerBus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "class:ListenerBus.scala:ListenerBus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:logging/DriverLogger.scala",
+      "target": "class:logging/DriverLogger.scala:DriverLogger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/DriverLogger.scala",
+      "target": "class:logging/DriverLogger.scala:DriverLogger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:logging/FileAppender.scala",
+      "target": "class:logging/FileAppender.scala:FileAppender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/FileAppender.scala",
+      "target": "class:logging/FileAppender.scala:FileAppender",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "class:logging/RollingFileAppender.scala:RollingFileAppender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "class:logging/RollingFileAppender.scala:RollingFileAppender",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Sorter.scala",
+      "target": "file:collection/SortDataFormat.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:JsonProtocol.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:EventLoop.scala",
+      "target": "file:ThreadUtils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:HadoopFSUtils.scala",
+      "target": "file:SerializableConfiguration.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.scala",
+      "target": "file:io/ChunkedByteBuffer.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.scala",
+      "target": "file:io/ChunkedByteBuffer.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "file:EventLoop.scala",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "file:logging/RollingPolicy.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "file:logging/FileAppender.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:logging/RollingPolicy.scala",
+      "target": "class:logging/RollingPolicy.scala:RollingPolicy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/RollingPolicy.scala",
+      "target": "class:logging/RollingPolicy.scala:RollingPolicy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ManualClock.scala",
+      "target": "class:ManualClock.scala:ManualClock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ManualClock.scala",
+      "target": "class:ManualClock.scala:ManualClock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:MemoryParam.scala",
+      "target": "class:MemoryParam.scala:MemoryParam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:MemoryParam.scala",
+      "target": "class:MemoryParam.scala:MemoryParam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:MutablePair.scala",
+      "target": "class:MutablePair.scala:MutablePair",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:MutablePair.scala",
+      "target": "class:MutablePair.scala:MutablePair",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:NextIterator.scala",
+      "target": "class:NextIterator.scala:NextIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:NextIterator.scala",
+      "target": "class:NextIterator.scala:NextIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:PeriodicCheckpointer.scala",
+      "target": "class:PeriodicCheckpointer.scala:PeriodicCheckpointer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:PeriodicCheckpointer.scala",
+      "target": "class:PeriodicCheckpointer.scala:PeriodicCheckpointer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/Pseudorandom.scala",
+      "target": "class:random/Pseudorandom.scala:Pseudorandom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/Pseudorandom.scala",
+      "target": "class:random/Pseudorandom.scala:Pseudorandom",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/RandomSampler.scala",
+      "target": "class:random/RandomSampler.scala:RandomSampler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/RandomSampler.scala",
+      "target": "class:random/RandomSampler.scala:RandomSampler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/SamplingUtils.scala",
+      "target": "class:random/SamplingUtils.scala:SamplingUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/SamplingUtils.scala",
+      "target": "class:random/SamplingUtils.scala:SamplingUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.scala",
+      "target": "class:random/StratifiedSamplingUtils.scala:StratifiedSamplingUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.scala",
+      "target": "class:random/StratifiedSamplingUtils.scala:StratifiedSamplingUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/XORShiftRandom.scala",
+      "target": "class:random/XORShiftRandom.scala:XORShiftRandom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/XORShiftRandom.scala",
+      "target": "class:random/XORShiftRandom.scala:XORShiftRandom",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:RpcUtils.scala",
+      "target": "class:RpcUtils.scala:RpcUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:RpcUtils.scala",
+      "target": "class:RpcUtils.scala:RpcUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SecurityUtils.scala",
+      "target": "class:SecurityUtils.scala:SecurityUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SecurityUtils.scala",
+      "target": "class:SecurityUtils.scala:SecurityUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SerializableBuffer.scala",
+      "target": "class:SerializableBuffer.scala:SerializableBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SerializableBuffer.scala",
+      "target": "class:SerializableBuffer.scala:SerializableBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SerializableConfiguration.scala",
+      "target": "class:SerializableConfiguration.scala:SerializableConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SerializableConfiguration.scala",
+      "target": "class:SerializableConfiguration.scala:SerializableConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SerializableJobConf.scala",
+      "target": "class:SerializableJobConf.scala:SerializableJobConf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SerializableJobConf.scala",
+      "target": "class:SerializableJobConf.scala:SerializableJobConf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ShutdownHookManager.scala",
+      "target": "class:ShutdownHookManager.scala:ShutdownHookManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ShutdownHookManager.scala",
+      "target": "class:ShutdownHookManager.scala:ShutdownHookManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SignalUtils.scala",
+      "target": "class:SignalUtils.scala:SignalUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SignalUtils.scala",
+      "target": "class:SignalUtils.scala:SignalUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SizeEstimator.scala",
+      "target": "class:SizeEstimator.scala:SizeEstimator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SizeEstimator.scala",
+      "target": "class:SizeEstimator.scala:SizeEstimator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ManualClock.scala",
+      "target": "file:Clock.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:PeriodicCheckpointer.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ShutdownHookManager.scala",
+      "target": "file:ThreadUtils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.scala",
+      "target": "file:random/RandomSampler.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:random/SamplingUtils.scala",
+      "target": "file:random/RandomSampler.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:random/XORShiftRandom.scala",
+      "target": "file:random/Pseudorandom.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:SparkUncaughtExceptionHandler.scala",
+      "target": "class:SparkUncaughtExceptionHandler.scala:SparkUncaughtExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SparkUncaughtExceptionHandler.scala",
+      "target": "class:SparkUncaughtExceptionHandler.scala:SparkUncaughtExceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:StatCounter.scala",
+      "target": "class:StatCounter.scala:StatCounter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:StatCounter.scala",
+      "target": "class:StatCounter.scala:StatCounter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:taskListeners.md",
+      "target": "file:taskListeners.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ThreadUtils.scala",
+      "target": "class:ThreadUtils.scala:ThreadUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ThreadUtils.scala",
+      "target": "class:ThreadUtils.scala:ThreadUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:UninterruptibleThread.scala",
+      "target": "class:UninterruptibleThread.scala:UninterruptibleThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:UninterruptibleThread.scala",
+      "target": "class:UninterruptibleThread.scala:UninterruptibleThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.scala",
+      "target": "class:UninterruptibleThreadRunner.scala:UninterruptibleThreadRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.scala",
+      "target": "class:UninterruptibleThreadRunner.scala:UninterruptibleThreadRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Utils.scala",
+      "target": "class:Utils.scala:Utils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:Utils.scala",
+      "target": "class:Utils.scala:Utils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:VersionUtils.scala",
+      "target": "class:VersionUtils.scala:VersionUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:VersionUtils.scala",
+      "target": "class:VersionUtils.scala:VersionUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.scala",
+      "target": "file:UninterruptibleThread.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:core-utilities",
+      "name": "核心工具与基础设施",
+      "description": "位于 util/ 根目录的核心工具：通用 Utils 对象、线程/锁/并发、序列化包装、关闭钩子等 Spark 引擎各层都会引用的基础组件。",
+      "nodeIds": [
+        "file:Utils.scala",
+        "file:AccumulatorV2.scala",
+        "file:ClosureCleaner.scala",
+        "file:CollectionsUtils.scala",
+        "file:CommandLineUtils.scala",
+        "file:DependencyUtils.scala",
+        "file:Distribution.scala",
+        "file:HadoopFSUtils.scala",
+        "file:IdGenerator.scala",
+        "file:IntParam.scala",
+        "file:JsonProtocol.scala",
+        "file:MemoryParam.scala",
+        "file:MutablePair.scala",
+        "file:NextIterator.scala",
+        "file:PeriodicCheckpointer.scala",
+        "file:RpcUtils.scala",
+        "file:SecurityUtils.scala",
+        "file:SerializableBuffer.scala",
+        "file:SerializableConfiguration.scala",
+        "file:SerializableJobConf.scala",
+        "file:SizeEstimator.scala",
+        "file:SparkExitCode.scala",
+        "file:SparkFatalException.scala",
+        "file:SparkUncaughtExceptionHandler.scala",
+        "file:StatCounter.scala",
+        "file:VersionUtils.scala",
+        "file:CausedBy.scala",
+        "file:CompletionIterator.scala",
+        "file:KeyLock.scala",
+        "file:package.scala",
+        "file:package-info.java",
+        "file:taskListeners.scala",
+        "file:taskListeners.md"
+      ]
+    },
+    {
+      "id": "layer:concurrency-and-lifecycle",
+      "name": "并发与生命周期",
+      "description": "线程、事件总线、事件循环、中断抑制、关闭钩子等负责运行时并发和进程生命周期的组件。",
+      "nodeIds": [
+        "file:Clock.scala",
+        "file:ManualClock.scala",
+        "file:ListenerBus.scala",
+        "file:EventLoop.scala",
+        "file:ShutdownHookManager.scala",
+        "file:ThreadUtils.scala",
+        "file:UninterruptibleThread.scala",
+        "file:UninterruptibleThreadRunner.scala",
+        "file:SignalUtils.scala",
+        "file:ByteBufferInputStream.scala",
+        "file:ByteBufferOutputStream.scala"
+      ]
+    },
+    {
+      "id": "layer:io",
+      "name": "IO 与字节缓冲",
+      "description": "NIO ByteBuffer 在 Spark 序列化/网络层的桥接工具，支持分块缓冲、零拷贝传输。",
+      "nodeIds": [
+        "file:io/ChunkedByteBuffer.scala",
+        "file:io/ChunkedByteBufferFileRegion.scala",
+        "file:io/ChunkedByteBufferOutputStream.scala"
+      ]
+    },
+    {
+      "id": "layer:logging",
+      "name": "日志与文件追加器",
+      "description": "DriverLogger 与文件追加器抽象/滚动策略，支撑 Spark 结构化日志与日志归档。",
+      "nodeIds": [
+        "file:logging/DriverLogger.scala",
+        "file:logging/FileAppender.scala",
+        "file:logging/RollingFileAppender.scala",
+        "file:logging/RollingPolicy.scala"
+      ]
+    },
+    {
+      "id": "layer:random",
+      "name": "随机数与采样",
+      "description": "伪随机数生成、分层/伯努利/泊松采样与 RDD 采样 API 的实现。",
+      "nodeIds": [
+        "file:random/Pseudorandom.scala",
+        "file:random/RandomSampler.scala",
+        "file:random/SamplingUtils.scala",
+        "file:random/StratifiedSamplingUtils.scala",
+        "file:random/XORShiftRandom.scala",
+        "file:random/package.scala",
+        "file:random/package.md",
+        "file:random/package-info.java",
+        "file:random/package-info.md"
+      ]
+    },
+    {
+      "id": "layer:shuffle-data-structures",
+      "name": "Shuffle 与高性能数据结构",
+      "description": "collection 子包：可溢写磁盘的外部排序器/聚合映射、开放寻址哈希、位图、采样堆等 Spark shuffle/聚合的高性能数据结构。",
+      "nodeIds": [
+        "file:collection/AppendOnlyMap.scala",
+        "file:collection/BitSet.scala",
+        "file:collection/CompactBuffer.scala",
+        "file:collection/ExternalAppendOnlyMap.scala",
+        "file:collection/ExternalSorter.scala",
+        "file:collection/ImmutableBitSet.scala",
+        "file:collection/OpenHashMap.scala",
+        "file:collection/OpenHashSet.scala",
+        "file:collection/PairsWriter.scala",
+        "file:collection/PartitionedAppendOnlyMap.scala",
+        "file:collection/PartitionedPairBuffer.scala",
+        "file:collection/PercentileHeap.scala",
+        "file:collection/PrimitiveKeyOpenHashMap.scala",
+        "file:collection/PrimitiveVector.scala",
+        "file:collection/SizeTracker.scala",
+        "file:collection/SizeTrackingAppendOnlyMap.scala",
+        "file:collection/SizeTrackingVector.scala",
+        "file:collection/SortDataFormat.scala",
+        "file:collection/Sorter.scala",
+        "file:collection/Spillable.scala",
+        "file:collection/Utils.scala",
+        "file:collection/WritablePartitionedPairCollection.scala"
+      ]
+    },
+    {
+      "id": "layer:docs",
+      "name": "Scaladoc API 参考",
+      "description": "Scaladoc 自动生成的全部 .md API 参考文档，每份对应一个 .scala 源文件。",
+      "nodeIds": [
+        "file:AccumulatorV2.md",
+        "file:ByteBufferInputStream.md",
+        "file:ByteBufferOutputStream.md",
+        "file:CausedBy.md",
+        "file:Clock.md",
+        "file:ClosureCleaner.md",
+        "file:CollectionsUtils.md",
+        "file:CommandLineUtils.md",
+        "file:CompletionIterator.md",
+        "file:DependencyUtils.md",
+        "file:Distribution.md",
+        "file:EventLoop.md",
+        "file:HadoopFSUtils.md",
+        "file:IdGenerator.md",
+        "file:IntParam.md",
+        "file:JsonProtocol.md",
+        "file:KeyLock.md",
+        "file:ListenerBus.md",
+        "file:ManualClock.md",
+        "file:MemoryParam.md",
+        "file:MutablePair.md",
+        "file:NextIterator.md",
+        "file:PeriodicCheckpointer.md",
+        "file:RpcUtils.md",
+        "file:SecurityUtils.md",
+        "file:SerializableBuffer.md",
+        "file:SerializableConfiguration.md",
+        "file:SerializableJobConf.md",
+        "file:ShutdownHookManager.md",
+        "file:SignalUtils.md",
+        "file:SizeEstimator.md",
+        "file:SparkExitCode.md",
+        "file:SparkFatalException.md",
+        "file:SparkUncaughtExceptionHandler.md",
+        "file:StatCounter.md",
+        "file:ThreadUtils.md",
+        "file:UninterruptibleThread.md",
+        "file:UninterruptibleThreadRunner.md",
+        "file:Utils.md",
+        "file:VersionUtils.md",
+        "file:collection/AppendOnlyMap.md",
+        "file:collection/BitSet.md",
+        "file:collection/CompactBuffer.md",
+        "file:collection/ExternalAppendOnlyMap.md",
+        "file:collection/ExternalSorter.md",
+        "file:collection/ImmutableBitSet.md",
+        "file:collection/OpenHashMap.md",
+        "file:collection/OpenHashSet.md",
+        "file:collection/PairsWriter.md",
+        "file:collection/PartitionedAppendOnlyMap.md",
+        "file:collection/PartitionedPairBuffer.md",
+        "file:collection/PercentileHeap.md",
+        "file:collection/PrimitiveKeyOpenHashMap.md",
+        "file:collection/PrimitiveVector.md",
+        "file:collection/SizeTracker.md",
+        "file:collection/SizeTrackingAppendOnlyMap.md",
+        "file:collection/SizeTrackingVector.md",
+        "file:collection/SortDataFormat.md",
+        "file:collection/Sorter.md",
+        "file:collection/Spillable.md",
+        "file:collection/Utils.md",
+        "file:collection/WritablePartitionedPairCollection.md",
+        "file:io/ChunkedByteBuffer.md",
+        "file:io/ChunkedByteBufferFileRegion.md",
+        "file:io/ChunkedByteBufferOutputStream.md",
+        "file:logging/DriverLogger.md",
+        "file:logging/FileAppender.md",
+        "file:logging/RollingFileAppender.md",
+        "file:logging/RollingPolicy.md",
+        "file:random/Pseudorandom.md",
+        "file:random/RandomSampler.md",
+        "file:random/SamplingUtils.md",
+        "file:random/StratifiedSamplingUtils.md",
+        "file:random/XORShiftRandom.md"
+      ]
+    },
+    {
+      "id": "layer:project-meta",
+      "name": "项目元文件",
+      "description": "understand 工具自身生成的元数据与配置，不属于 Spark util 包代码。",
+      "nodeIds": [
+        "file:.understand-anything/.understandignore",
+        "file:.understand-anything/config.json"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "包概览：org.apache.spark.util",
+      "description": "Spark 内核最常被引用的「工具/基础设施」包。Utils.scala、线程/事件总线、序列化包装、可溢写数据结构等都被本包之上的 scheduler/shuffle/storage 大量使用。先看 package.scala 的注释与 Utils.scala 顶部说明，建立对包职责的整体印象。",
+      "nodeIds": [
+        "file:package.scala",
+        "file:Utils.scala"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "通用工具：Utils 对象",
+      "description": "Utils 是 Spark 内的事实「瑞士军刀」：文件/IO 包装、时间/字节解析、字符串处理、Java/Scala 互转、反射、类加载器等。了解它的方法分布有助于在阅读其他模块时快速定位基础设施。",
+      "nodeIds": [
+        "file:Utils.scala",
+        "file:CollectionsUtils.scala",
+        "file:CommandLineUtils.scala",
+        "file:CausedBy.scala"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "并发原语与生命周期",
+      "description": "线程池、命名工厂、关闭钩子、KeyLock、UninterruptibleThread 等基础设施，Spark 启动/执行/Shuffle 都会用到。ListenerBus 与 EventLoop 构成事件分发核心。",
+      "nodeIds": [
+        "file:ThreadUtils.scala",
+        "file:ShutdownHookManager.scala",
+        "file:KeyLock.scala",
+        "file:UninterruptibleThread.scala",
+        "file:UninterruptibleThreadRunner.scala",
+        "file:ListenerBus.scala",
+        "file:EventLoop.scala",
+        "file:SignalUtils.scala"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "时间抽象：Clock/ManualClock",
+      "description": "Spark 把『系统时间』抽象成 Clock trait，便于调度、事件总线等逻辑在测试中推进时间。ManualClock 是测试替身。",
+      "nodeIds": [
+        "file:Clock.scala",
+        "file:ManualClock.scala"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "序列化与可分发包装",
+      "description": "Spark 经常需要把 Hadoop Configuration/JobConf、ByteBuffer 之类的对象传到 executor。这些类把它们包装为可序列化对象，绕过原生类型不能直接 putClosure 的限制。",
+      "nodeIds": [
+        "file:SerializableConfiguration.scala",
+        "file:SerializableJobConf.scala",
+        "file:SerializableBuffer.scala",
+        "file:ByteBufferInputStream.scala",
+        "file:ByteBufferOutputStream.scala"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "事件日志：JsonProtocol",
+      "description": "EventLogListenerBus 写入历史服务器的事件 JSON 都由 JsonProtocol 序列化/反序列化。事件结构与 JsonProtocol 一一对应。",
+      "nodeIds": [
+        "file:JsonProtocol.scala"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "IO 子包：ChunkedByteBuffer",
+      "description": "分块 ByteBuffer 是 Spark 网络层、Shuffle 输出、BlockManager 复用的核心容器。FileRegion 把 ChunkedByteBuffer 暴露为 Netty 的零拷贝 FileRegion。",
+      "nodeIds": [
+        "file:io/ChunkedByteBuffer.scala",
+        "file:io/ChunkedByteBufferFileRegion.scala",
+        "file:io/ChunkedByteBufferOutputStream.scala"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "随机数与采样",
+      "description": "XORShiftRandom 是 Spark 内部高性能随机数；RandomSampler 提供泊松/伯努利/水塘等多种策略；StratifiedSamplingUtils 是 RDD.sampleByKey 的核心算法。",
+      "nodeIds": [
+        "file:random/Pseudorandom.scala",
+        "file:random/XORShiftRandom.scala",
+        "file:random/RandomSampler.scala",
+        "file:random/SamplingUtils.scala",
+        "file:random/StratifiedSamplingUtils.scala"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "日志：DriverLogger + 文件追加器",
+      "description": "Driver 端结构化日志（4xx/5xx/driver 日志）通过 DriverLogger 重定向到滚动文件，RollingPolicy 控制切分策略。",
+      "nodeIds": [
+        "file:logging/DriverLogger.scala",
+        "file:logging/FileAppender.scala",
+        "file:logging/RollingFileAppender.scala",
+        "file:logging/RollingPolicy.scala"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "collection 子包概览",
+      "description": "collection 子包是 Spark 内部最被复用的「高性能数据结构」层：sort-based shuffle、聚合、key-only 集合都建立在此。读 ExternalSorter/ExternalAppendOnlyMap 之前先理解 size tracking + spill + 可写分区集合的协作模式。",
+      "nodeIds": [
+        "file:collection/Spillable.scala",
+        "file:collection/SizeTracker.scala",
+        "file:collection/WritablePartitionedPairCollection.scala",
+        "file:collection/SortDataFormat.scala",
+        "file:collection/Sorter.scala"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "集合族谱：AppendOnlyMap → SizeTracking → Partitioned",
+      "description": "AppendOnlyMap 提供只追加+合并语义；SizeTrackingAppendOnlyMap 增加抽样大小估算，用于触发 spill；PartitionedAppendOnlyMap 在此基础上引入 partitionId，是聚合 + 排序 shuffle 的主力。",
+      "nodeIds": [
+        "file:collection/AppendOnlyMap.scala",
+        "file:collection/SizeTrackingAppendOnlyMap.scala",
+        "file:collection/PartitionedAppendOnlyMap.scala",
+        "file:collection/PartitionedPairBuffer.scala"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "外排序：ExternalSorter",
+      "description": "sort-based shuffle 内核：维护 PartitionedAppendOnlyMap / PartitionedPairBuffer，spill 时调用 Sorter + 临时文件；可与 Aggregator/Partitioner 配合生成 map 输出。",
+      "nodeIds": [
+        "file:collection/ExternalSorter.scala",
+        "file:collection/PairsWriter.scala"
+      ]
+    },
+    {
+      "order": 13,
+      "title": "外聚合：ExternalAppendOnlyMap",
+      "description": "groupByKey / aggregateByKey / combineByKey 等 group/join 操作的内核：spill SizeTrackingAppendOnlyMap 形成的 DiskMapIterator，并在迭代时按 key 合并。",
+      "nodeIds": [
+        "file:collection/ExternalAppendOnlyMap.scala"
+      ]
+    },
+    {
+      "order": 14,
+      "title": "哈希集合：OpenHashMap / OpenHashSet",
+      "description": "Spark 内部 Mutable 性能敏感的 Map/Set 替代品（开放寻址，无 boxing 的 primitive key 支持），被 SQL/Tungsten 大量使用。",
+      "nodeIds": [
+        "file:collection/OpenHashMap.scala",
+        "file:collection/OpenHashSet.scala",
+        "file:collection/PrimitiveKeyOpenHashMap.scala"
+      ]
+    },
+    {
+      "order": 15,
+      "title": "位图与紧凑缓冲",
+      "description": "BitSet/ImmutableBitSet 用作 join 端的位图过滤；CompactBuffer 是 ArrayBuffer 的轻量替代，常用于执行 plan 的中间缓冲。",
+      "nodeIds": [
+        "file:collection/BitSet.scala",
+        "file:collection/ImmutableBitSet.scala",
+        "file:collection/CompactBuffer.scala",
+        "file:collection/PrimitiveVector.scala",
+        "file:collection/SizeTrackingVector.scala"
+      ]
+    },
+    {
+      "order": 16,
+      "title": "统计与采样工具",
+      "description": "StatCounter/Distribution 在 Driver 端聚合指标；PercentileHeap 用作近似百分位；SamplingUtils 是非分层采样的入口。",
+      "nodeIds": [
+        "file:StatCounter.scala",
+        "file:Distribution.scala",
+        "file:collection/PercentileHeap.scala",
+        "file:collection/Utils.scala"
+      ]
+    },
+    {
+      "order": 17,
+      "title": "累加器：AccumulatorV2",
+      "description": "AccumulatorV2 是用户自定义累加器的基类，定义了 add/merge/reset/copy/copyAndReset/isZero 等契约。理解它有助于自定义 driver→executor 双向汇总指标。",
+      "nodeIds": [
+        "file:AccumulatorV2.scala"
+      ]
+    },
+    {
+      "order": 18,
+      "title": "闭包清理与异常：ClosureCleaner",
+      "description": "ClosureCleaner 在序列化闭包前清理不必要的引用、检测 REPL/匿名类边界，是 Spark 序列化与 Executor Task 创建路径上的关键步骤。",
+      "nodeIds": [
+        "file:ClosureCleaner.scala",
+        "file:SparkFatalException.scala"
+      ]
+    },
+    {
+      "order": 19,
+      "title": "迭代器模板与检查点",
+      "description": "NextIterator 是写自定义迭代器的样板基类；PeriodicCheckpointer 用于在后台线程周期将可 checkpoint 的状态写入可靠存储（RDD/DStream 血统依赖）。",
+      "nodeIds": [
+        "file:NextIterator.scala",
+        "file:CompletionIterator.scala",
+        "file:PeriodicCheckpointer.scala"
+      ]
+    },
+    {
+      "order": 20,
+      "title": "辅助工具与版本",
+      "description": "DependencyUtils、RpcUtils、SecurityUtils、IdGenerator、IntParam/MemoryParam、SizeEstimator、VersionUtils、taskListeners 等「散落小工具」虽独立，但常被 scheduler/launcher/driver 入口调用，是理解 Spark 启动与运行时行为的有益补充。",
+      "nodeIds": [
+        "file:DependencyUtils.scala",
+        "file:RpcUtils.scala",
+        "file:SecurityUtils.scala",
+        "file:IdGenerator.scala",
+        "file:IntParam.scala",
+        "file:MemoryParam.scala",
+        "file:SizeEstimator.scala",
+        "file:VersionUtils.scala",
+        "file:MutablePair.scala",
+        "file:SparkExitCode.scala",
+        "file:SparkUncaughtExceptionHandler.scala",
+        "file:HadoopFSUtils.scala",
+        "file:taskListeners.scala"
+      ]
+    }
+  ]
+}

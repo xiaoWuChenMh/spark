@@ -1,0 +1,1006 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "logging/DriverLogger.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 200,
+      "nonEmptyLines": 156,
+      "sections": [
+        {
+          "heading": "DriverLogger 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "`conf: SparkConf`",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "常量定义",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "实例属性",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "初始化方法",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "`addLogAppender(): Unit`",
+          "level": 4,
+          "line": 36
+        },
+        {
+          "heading": "`startSync(hadoopConf: Configuration): Unit`",
+          "level": 4,
+          "line": 44
+        },
+        {
+          "heading": "`stop(): Unit`",
+          "level": 4,
+          "line": 52
+        },
+        {
+          "heading": "内部类 DfsAsyncWriter",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "构造函数 `DfsAsyncWriter(appId: String, hadoopConf: Configuration)`",
+          "level": 4,
+          "line": 62
+        },
+        {
+          "heading": "`run(): Unit`",
+          "level": 4,
+          "line": 70
+        },
+        {
+          "heading": "`closeWriter(): Unit`",
+          "level": 4,
+          "line": 78
+        },
+        {
+          "heading": "伴生对象方法",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "`apply(conf: SparkConf): Option[DriverLogger]`",
+          "level": 4,
+          "line": 87
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "1. 异步同步机制",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "2. 资源管理",
+          "level": 3,
+          "line": 102
+        },
+        {
+          "heading": "3. 配置驱动",
+          "level": 3,
+          "line": 107
+        },
+        {
+          "heading": "4. 容错性设计",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "核心配置项",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "性能相关配置",
+          "level": 3,
+          "line": 125
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 129
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 131
+        },
+        {
+          "heading": "潜在优化方向",
+          "level": 3,
+          "line": 137
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 142
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "执行保障",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "容错策略",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 159
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 161
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 172
+        },
+        {
+          "heading": "与Log4j集成",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "与HDFS交互",
+          "level": 3,
+          "line": 179
+        },
+        {
+          "heading": "与Spark核心集成",
+          "level": 3,
+          "line": 184
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 189
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 191
+        },
+        {
+          "heading": "架构优化方向",
+          "level": 3,
+          "line": 197
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 43
+      }
+    },
+    {
+      "path": "logging/FileAppender.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 195,
+      "nonEmptyLines": 147,
+      "sections": [
+        {
+          "heading": "FileAppender 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "主要参数",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "实例属性",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "线程配置",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "线程控制方法",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "`awaitTermination(): Unit`",
+          "level": 4,
+          "line": 33
+        },
+        {
+          "heading": "`stop(): Unit`",
+          "level": 4,
+          "line": 38
+        },
+        {
+          "heading": "核心数据追加方法",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "`appendStreamToFile(): Unit`",
+          "level": 4,
+          "line": 45
+        },
+        {
+          "heading": "`appendToFile(bytes: Array[Byte], len: Int): Unit`",
+          "level": 4,
+          "line": 53
+        },
+        {
+          "heading": "文件管理方法",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "`openFile(): Unit`",
+          "level": 4,
+          "line": 60
+        },
+        {
+          "heading": "`closeFile(): Unit`",
+          "level": 4,
+          "line": 65
+        },
+        {
+          "heading": "伴生对象功能分析",
+          "level": 2,
+          "line": 70
+        },
+        {
+          "heading": "工厂方法 `apply()`",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "滚动策略实现",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "时间基于滚动 (`createTimeBasedAppender`)",
+          "level": 4,
+          "line": 81
+        },
+        {
+          "heading": "大小基于滚动 (`createSizeBasedAppender`)",
+          "level": 4,
+          "line": 86
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 91
+        },
+        {
+          "heading": "1. 异步处理架构",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "2. 资源管理优化",
+          "level": 3,
+          "line": 98
+        },
+        {
+          "heading": "3. 配置驱动设计",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "4. 容错性设计",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 113
+        },
+        {
+          "heading": "核心配置项",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "时间间隔格式",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 125
+        },
+        {
+          "heading": "优势特性",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "潜在优化方向",
+          "level": 3,
+          "line": 132
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 137
+        },
+        {
+          "heading": "输入流异常",
+          "level": 3,
+          "line": 139
+        },
+        {
+          "heading": "文件操作异常",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "配置验证",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 154
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 156
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 161
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 167
+        },
+        {
+          "heading": "与RollingFileAppender集成",
+          "level": 3,
+          "line": 169
+        },
+        {
+          "heading": "与Spark配置系统集成",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "与工具类集成",
+          "level": 3,
+          "line": 179
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 184
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 186
+        },
+        {
+          "heading": "架构优化方向",
+          "level": 3,
+          "line": 192
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 47
+      }
+    },
+    {
+      "path": "logging/RollingFileAppender.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 214,
+      "nonEmptyLines": 165,
+      "sections": [
+        {
+          "heading": "RollingFileAppender 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "继承关系和构造函数参数",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "继承关系",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "构造函数参数",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "配置相关属性",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "核心特性分析",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "滚动策略集成",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "文件压缩支持",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "文件数量管理",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "核心方法重写",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "`appendToFile(bytes: Array[Byte], len: Int): Unit`",
+          "level": 4,
+          "line": 48
+        },
+        {
+          "heading": "滚动相关方法",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "`rollover(): Unit`",
+          "level": 4,
+          "line": 59
+        },
+        {
+          "heading": "`moveFile(): Unit`",
+          "level": 4,
+          "line": 68
+        },
+        {
+          "heading": "`rotateFile(activeFile: File, rolloverFile: File): Unit`",
+          "level": 4,
+          "line": 76
+        },
+        {
+          "heading": "文件管理方法",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "`deleteOldFiles(): Unit`",
+          "level": 4,
+          "line": 84
+        },
+        {
+          "heading": "`rolloverFileExist(file: File): Boolean`",
+          "level": 4,
+          "line": 93
+        },
+        {
+          "heading": "伴生对象功能分析",
+          "level": 2,
+          "line": 98
+        },
+        {
+          "heading": "常量定义",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "工具方法 `getSortedRolledOverFiles(directory: String, activeFileName: String): Seq[File]`",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "1. 策略模式应用",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "2. 资源管理优化",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "3. 容错性设计",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "4. 配置驱动特性",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 132
+        },
+        {
+          "heading": "滚动相关配置",
+          "level": 3,
+          "line": 134
+        },
+        {
+          "heading": "性能相关配置",
+          "level": 3,
+          "line": 138
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 142
+        },
+        {
+          "heading": "优势特性",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "潜在优化方向",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 154
+        },
+        {
+          "heading": "文件操作异常",
+          "level": 3,
+          "line": 156
+        },
+        {
+          "heading": "资源冲突处理",
+          "level": 3,
+          "line": 161
+        },
+        {
+          "heading": "配置验证",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 173
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 179
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 185
+        },
+        {
+          "heading": "与RollingPolicy集成",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "与父类FileAppender集成",
+          "level": 3,
+          "line": 192
+        },
+        {
+          "heading": "与Spark配置系统集成",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 202
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "架构优化方向",
+          "level": 3,
+          "line": 210
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 48
+      }
+    },
+    {
+      "path": "logging/RollingPolicy.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 197,
+      "nonEmptyLines": 147,
+      "sections": [
+        {
+          "heading": "RollingPolicy 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "接口概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "接口方法定义",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "`shouldRollover(bytesToBeWritten: Long): Boolean`",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "`rolledOver(): Unit`",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "`bytesWritten(bytes: Long): Unit`",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "`generateRolledOverFileSuffix(): String`",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "时间基于滚动策略分析",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "TimeBasedRollingPolicy 类",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "构造函数参数",
+          "level": 4,
+          "line": 36
+        },
+        {
+          "heading": "核心属性",
+          "level": 4,
+          "line": 41
+        },
+        {
+          "heading": "方法实现分析",
+          "level": 4,
+          "line": 45
+        },
+        {
+          "heading": "`shouldRollover(bytesToBeWritten: Long): Boolean`",
+          "level": 5,
+          "line": 47
+        },
+        {
+          "heading": "`rolledOver(): Unit`",
+          "level": 5,
+          "line": 52
+        },
+        {
+          "heading": "`calculateNextRolloverTime(): Long`",
+          "level": 5,
+          "line": 57
+        },
+        {
+          "heading": "`generateRolledOverFileSuffix(): String`",
+          "level": 5,
+          "line": 62
+        },
+        {
+          "heading": "约束验证",
+          "level": 4,
+          "line": 66
+        },
+        {
+          "heading": "大小基于滚动策略分析",
+          "level": 2,
+          "line": 71
+        },
+        {
+          "heading": "SizeBasedRollingPolicy 类",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "构造函数参数",
+          "level": 4,
+          "line": 75
+        },
+        {
+          "heading": "核心属性",
+          "level": 4,
+          "line": 79
+        },
+        {
+          "heading": "方法实现分析",
+          "level": 4,
+          "line": 83
+        },
+        {
+          "heading": "`shouldRollover(bytesToBeWritten: Long): Boolean`",
+          "level": 5,
+          "line": 85
+        },
+        {
+          "heading": "`rolledOver(): Unit`",
+          "level": 5,
+          "line": 90
+        },
+        {
+          "heading": "`bytesWritten(bytes: Long): Unit`",
+          "level": 5,
+          "line": 94
+        },
+        {
+          "heading": "`generateRolledOverFileSuffix(): String`",
+          "level": 5,
+          "line": 98
+        },
+        {
+          "heading": "约束验证",
+          "level": 4,
+          "line": 102
+        },
+        {
+          "heading": "设计模式应用分析",
+          "level": 2,
+          "line": 107
+        },
+        {
+          "heading": "策略模式实现",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "开闭原则遵循",
+          "level": 3,
+          "line": 114
+        },
+        {
+          "heading": "单一职责原则",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "时间策略配置",
+          "level": 3,
+          "line": 125
+        },
+        {
+          "heading": "大小策略配置",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 135
+        },
+        {
+          "heading": "时间策略优化",
+          "level": 3,
+          "line": 137
+        },
+        {
+          "heading": "大小策略优化",
+          "level": 3,
+          "line": 142
+        },
+        {
+          "heading": "通用优化",
+          "level": 3,
+          "line": 147
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 152
+        },
+        {
+          "heading": "配置验证",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "运行时容错",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 164
+        },
+        {
+          "heading": "时间策略适用场景",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "大小策略适用场景",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 182
+        },
+        {
+          "heading": "新策略实现",
+          "level": 3,
+          "line": 184
+        },
+        {
+          "heading": "功能增强",
+          "level": 3,
+          "line": 189
+        },
+        {
+          "heading": "性能优化",
+          "level": 3,
+          "line": 194
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 49
+      }
+    }
+  ]
+}

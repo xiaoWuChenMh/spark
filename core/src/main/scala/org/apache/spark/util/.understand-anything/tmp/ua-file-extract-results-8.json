@@ -1,0 +1,803 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "collection/SortDataFormat.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 112,
+      "nonEmptyLines": 96,
+      "metrics": {}
+    },
+    {
+      "path": "collection/Sorter.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 34,
+      "metrics": {}
+    },
+    {
+      "path": "collection/Spillable.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 150,
+      "nonEmptyLines": 133,
+      "metrics": {}
+    },
+    {
+      "path": "collection/Utils.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 352,
+      "nonEmptyLines": 271,
+      "sections": [
+        {
+          "heading": "Utils 工具对象分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "对象概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "方法分类和说明",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "排序相关方法",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "`takeOrdered[T](input: Iterator[T], num: Int)(implicit ord: Ordering[T]): Iterator[T]`",
+          "level": 4,
+          "line": 19
+        },
+        {
+          "heading": "`mergeOrdered[T](inputs: Iterable[TraversableOnce[T]])(implicit ord: Ordering[T]): Iterator[T]`",
+          "level": 4,
+          "line": 47
+        },
+        {
+          "heading": "集合转换方法",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "`sequenceToOption[T](input: Seq[Option[T]]): Option[Seq[T]]`",
+          "level": 4,
+          "line": 82
+        },
+        {
+          "heading": "`toMap[K, V](keys: Iterable[K], values: Iterable[V]): Map[K, V]`",
+          "level": 4,
+          "line": 106
+        },
+        {
+          "heading": "`toMapWithIndex[K](keys: Iterable[K]): Map[K, Int]`",
+          "level": 4,
+          "line": 135
+        },
+        {
+          "heading": "`toJavaMap[K, V](keys: Iterable[K], values: Iterable[V]): java.util.Map[K, V]`",
+          "level": 4,
+          "line": 165
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 195
+        },
+        {
+          "heading": "1. 性能优先设计",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "2. 外部库集成",
+          "level": 3,
+          "line": 202
+        },
+        {
+          "heading": "3. 函数式与命令式结合",
+          "level": 3,
+          "line": 207
+        },
+        {
+          "heading": "4. 类型安全设计",
+          "level": 3,
+          "line": 212
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 217
+        },
+        {
+          "heading": "1. 避免中间集合创建",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "2. 算法复杂度优化",
+          "level": 3,
+          "line": 224
+        },
+        {
+          "heading": "3. 内存使用优化",
+          "level": 3,
+          "line": 229
+        },
+        {
+          "heading": "4. JVM 优化友好",
+          "level": 3,
+          "line": 234
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 239
+        },
+        {
+          "heading": "排序操作场景",
+          "level": 3,
+          "line": 241
+        },
+        {
+          "heading": "takeOrdered 最佳实践：",
+          "level": 4,
+          "line": 242
+        },
+        {
+          "heading": "mergeOrdered 最佳实践：",
+          "level": 4,
+          "line": 247
+        },
+        {
+          "heading": "集合转换场景",
+          "level": 3,
+          "line": 252
+        },
+        {
+          "heading": "高性能 Map 构建：",
+          "level": 4,
+          "line": 253
+        },
+        {
+          "heading": "Option 序列处理：",
+          "level": 4,
+          "line": 258
+        },
+        {
+          "heading": "性能调优建议",
+          "level": 3,
+          "line": 263
+        },
+        {
+          "heading": "方法选择指南：",
+          "level": 4,
+          "line": 264
+        },
+        {
+          "heading": "参数调优：",
+          "level": 4,
+          "line": 269
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 274
+        },
+        {
+          "heading": "与 Google Guava 的集成",
+          "level": 3,
+          "line": 276
+        },
+        {
+          "heading": "与 Scala 集合框架的关系",
+          "level": 3,
+          "line": 281
+        },
+        {
+          "heading": "在 Spark 框架中的角色",
+          "level": 3,
+          "line": 286
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 291
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 293
+        },
+        {
+          "heading": "错误传播",
+          "level": 3,
+          "line": 298
+        },
+        {
+          "heading": "扩展性分析",
+          "level": 2,
+          "line": 303
+        },
+        {
+          "heading": "现有的扩展点",
+          "level": 3,
+          "line": 305
+        },
+        {
+          "heading": "可能的扩展方向",
+          "level": 3,
+          "line": 310
+        },
+        {
+          "heading": "设计模式应用",
+          "level": 2,
+          "line": 316
+        },
+        {
+          "heading": "工具模式（Utility Pattern）",
+          "level": 3,
+          "line": 318
+        },
+        {
+          "heading": "适配器模式（Adapter Pattern）",
+          "level": 3,
+          "line": 323
+        },
+        {
+          "heading": "建造者模式（Builder Pattern）",
+          "level": 3,
+          "line": 328
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 333
+        },
+        {
+          "heading": "性能优化原则",
+          "level": 3,
+          "line": 337
+        },
+        {
+          "heading": "软件工程原则",
+          "level": 3,
+          "line": 342
+        },
+        {
+          "heading": "实用主义原则",
+          "level": 3,
+          "line": 347
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 49
+      }
+    },
+    {
+      "path": "collection/Utils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 97,
+      "metrics": {}
+    },
+    {
+      "path": "collection/WritablePartitionedPairCollection.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 403,
+      "nonEmptyLines": 296,
+      "sections": [
+        {
+          "heading": "WritablePartitionedPairCollection 组件分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "整体架构概述",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "特质：WritablePartitionedPairCollection[K, V]",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "特质定义和类型参数",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "类型参数详解：",
+          "level": 4,
+          "line": 21
+        },
+        {
+          "heading": "核心接口方法",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "`insert(partition: Int, key: K, value: V): Unit`",
+          "level": 4,
+          "line": 35
+        },
+        {
+          "heading": "`partitionedDestructiveSortedIterator(keyComparator: Option[Comparator[K]]): Iterator[((Int, K), V)]`",
+          "level": 4,
+          "line": 49
+        },
+        {
+          "heading": "`destructiveSortedWritablePartitionedIterator(keyComparator: Option[Comparator[K]]): WritablePartitionedIterator[K, V]`",
+          "level": 4,
+          "line": 68
+        },
+        {
+          "heading": "伴生对象：WritablePartitionedPairCollection",
+          "level": 2,
+          "line": 85
+        },
+        {
+          "heading": "比较器工具方法",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "`partitionComparator[K]: Comparator[(Int, K)]`",
+          "level": 4,
+          "line": 89
+        },
+        {
+          "heading": "`partitionKeyComparator[K](keyComparator: Comparator[K]): Comparator[(Int, K)]`",
+          "level": 4,
+          "line": 108
+        },
+        {
+          "heading": "具体类：WritablePartitionedIterator[K, V]",
+          "level": 2,
+          "line": 140
+        },
+        {
+          "heading": "类定义和构造函数",
+          "level": 3,
+          "line": 142
+        },
+        {
+          "heading": "构造函数参数：",
+          "level": 4,
+          "line": 148
+        },
+        {
+          "heading": "核心属性",
+          "level": 3,
+          "line": 155
+        },
+        {
+          "heading": "`cur: ((Int, K), V)`",
+          "level": 4,
+          "line": 157
+        },
+        {
+          "heading": "核心方法",
+          "level": 3,
+          "line": 169
+        },
+        {
+          "heading": "`writeNext(writer: PairsWriter): Unit`",
+          "level": 4,
+          "line": 171
+        },
+        {
+          "heading": "`hasNext: Boolean`",
+          "level": 4,
+          "line": 193
+        },
+        {
+          "heading": "`nextPartition(): Int`",
+          "level": 4,
+          "line": 207
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 221
+        },
+        {
+          "heading": "1. 分层排序架构",
+          "level": 3,
+          "line": 223
+        },
+        {
+          "heading": "2. 流式处理设计",
+          "level": 3,
+          "line": 228
+        },
+        {
+          "heading": "3. 内存效率优化",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "4. 磁盘写入集成",
+          "level": 3,
+          "line": 238
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 243
+        },
+        {
+          "heading": "1. 排序算法优化",
+          "level": 3,
+          "line": 245
+        },
+        {
+          "heading": "分区优先排序",
+          "level": 4,
+          "line": 247
+        },
+        {
+          "heading": "比较器复用",
+          "level": 4,
+          "line": 252
+        },
+        {
+          "heading": "2. 迭代器性能优化",
+          "level": 3,
+          "line": 257
+        },
+        {
+          "heading": "状态维护优化",
+          "level": 4,
+          "line": 259
+        },
+        {
+          "heading": "写入性能优化",
+          "level": 4,
+          "line": 264
+        },
+        {
+          "heading": "3. 内存管理优化",
+          "level": 3,
+          "line": 269
+        },
+        {
+          "heading": "破坏性操作",
+          "level": 4,
+          "line": 271
+        },
+        {
+          "heading": "对象池化",
+          "level": 4,
+          "line": 276
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 281
+        },
+        {
+          "heading": "Shuffle 写入场景",
+          "level": 3,
+          "line": 283
+        },
+        {
+          "heading": "数据排序阶段",
+          "level": 4,
+          "line": 285
+        },
+        {
+          "heading": "磁盘写入阶段",
+          "level": 4,
+          "line": 290
+        },
+        {
+          "heading": "自定义集合实现",
+          "level": 3,
+          "line": 295
+        },
+        {
+          "heading": "接口实现指南",
+          "level": 4,
+          "line": 297
+        },
+        {
+          "heading": "性能优化建议",
+          "level": 4,
+          "line": 302
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 307
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 309
+        },
+        {
+          "heading": "写入错误处理",
+          "level": 3,
+          "line": 314
+        },
+        {
+          "heading": "资源清理",
+          "level": 3,
+          "line": 319
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 324
+        },
+        {
+          "heading": "与 Shuffle 系统的集成",
+          "level": 3,
+          "line": 326
+        },
+        {
+          "heading": "与排序框架的关系",
+          "level": 3,
+          "line": 331
+        },
+        {
+          "heading": "与磁盘存储的集成",
+          "level": 3,
+          "line": 336
+        },
+        {
+          "heading": "设计模式应用",
+          "level": 2,
+          "line": 341
+        },
+        {
+          "heading": "迭代器模式（Iterator Pattern）",
+          "level": 3,
+          "line": 343
+        },
+        {
+          "heading": "策略模式（Strategy Pattern）",
+          "level": 3,
+          "line": 348
+        },
+        {
+          "heading": "模板方法模式（Template Method Pattern）",
+          "level": 3,
+          "line": 353
+        },
+        {
+          "heading": "扩展性分析",
+          "level": 2,
+          "line": 358
+        },
+        {
+          "heading": "现有的扩展点",
+          "level": 3,
+          "line": 360
+        },
+        {
+          "heading": "新的排序策略",
+          "level": 4,
+          "line": 362
+        },
+        {
+          "heading": "新的写入格式",
+          "level": 4,
+          "line": 367
+        },
+        {
+          "heading": "可能的扩展方向",
+          "level": 3,
+          "line": 372
+        },
+        {
+          "heading": "并行处理支持",
+          "level": 4,
+          "line": 374
+        },
+        {
+          "heading": "高级功能",
+          "level": 4,
+          "line": 379
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 384
+        },
+        {
+          "heading": "架构价值",
+          "level": 3,
+          "line": 388
+        },
+        {
+          "heading": "工程价值",
+          "level": 3,
+          "line": 393
+        },
+        {
+          "heading": "性能价值",
+          "level": 3,
+          "line": 398
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 67
+      }
+    },
+    {
+      "path": "collection/WritablePartitionedPairCollection.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 78,
+      "metrics": {}
+    },
+    {
+      "path": "CollectionsUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 43,
+      "metrics": {}
+    },
+    {
+      "path": "CommandLineUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 38,
+      "metrics": {}
+    },
+    {
+      "path": "CompletionIterator.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 45,
+      "metrics": {}
+    },
+    {
+      "path": "DependencyUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 324,
+      "nonEmptyLines": 294,
+      "metrics": {}
+    },
+    {
+      "path": "Distribution.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 80,
+      "metrics": {}
+    },
+    {
+      "path": "EventLoop.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 142,
+      "nonEmptyLines": 123,
+      "metrics": {}
+    },
+    {
+      "path": "HadoopFSUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 374,
+      "nonEmptyLines": 346,
+      "metrics": {}
+    },
+    {
+      "path": "IdGenerator.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 28,
+      "metrics": {}
+    },
+    {
+      "path": "IntParam.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 29,
+      "metrics": {}
+    },
+    {
+      "path": "io/ChunkedByteBuffer.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 338,
+      "nonEmptyLines": 304,
+      "metrics": {}
+    },
+    {
+      "path": "io/ChunkedByteBufferFileRegion.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 71,
+      "metrics": {}
+    },
+    {
+      "path": "io/ChunkedByteBufferOutputStream.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 108,
+      "metrics": {}
+    },
+    {
+      "path": "JsonProtocol.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 1618,
+      "nonEmptyLines": 1484,
+      "metrics": {}
+    },
+    {
+      "path": "KeyLock.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 62,
+      "metrics": {}
+    },
+    {
+      "path": "ListenerBus.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 163,
+      "nonEmptyLines": 140,
+      "metrics": {}
+    },
+    {
+      "path": "logging/DriverLogger.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 231,
+      "nonEmptyLines": 211,
+      "metrics": {}
+    },
+    {
+      "path": "logging/FileAppender.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 195,
+      "nonEmptyLines": 176,
+      "metrics": {}
+    },
+    {
+      "path": "logging/RollingFileAppender.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 189,
+      "nonEmptyLines": 172,
+      "metrics": {}
+    }
+  ]
+}

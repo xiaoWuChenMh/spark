@@ -1,0 +1,406 @@
+{
+  "nodes": [
+    {
+      "id": "file:AccumulatorV2.md",
+      "type": "file",
+      "name": "AccumulatorV2.md",
+      "filePath": "AccumulatorV2.md",
+      "summary": "对应 AccumulatorV2 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ByteBufferInputStream.md",
+      "type": "file",
+      "name": "ByteBufferInputStream.md",
+      "filePath": "ByteBufferInputStream.md",
+      "summary": "对应 ByteBufferInputStream 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ByteBufferOutputStream.md",
+      "type": "file",
+      "name": "ByteBufferOutputStream.md",
+      "filePath": "ByteBufferOutputStream.md",
+      "summary": "对应 ByteBufferOutputStream 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CausedBy.md",
+      "type": "file",
+      "name": "CausedBy.md",
+      "filePath": "CausedBy.md",
+      "summary": "对应 CausedBy 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Clock.md",
+      "type": "file",
+      "name": "Clock.md",
+      "filePath": "Clock.md",
+      "summary": "对应 Clock 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ClosureCleaner.md",
+      "type": "file",
+      "name": "ClosureCleaner.md",
+      "filePath": "ClosureCleaner.md",
+      "summary": "对应 ClosureCleaner 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CollectionsUtils.md",
+      "type": "file",
+      "name": "CollectionsUtils.md",
+      "filePath": "CollectionsUtils.md",
+      "summary": "对应 CollectionsUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CommandLineUtils.md",
+      "type": "file",
+      "name": "CommandLineUtils.md",
+      "filePath": "CommandLineUtils.md",
+      "summary": "对应 CommandLineUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:CompletionIterator.md",
+      "type": "file",
+      "name": "CompletionIterator.md",
+      "filePath": "CompletionIterator.md",
+      "summary": "对应 CompletionIterator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:DependencyUtils.md",
+      "type": "file",
+      "name": "DependencyUtils.md",
+      "filePath": "DependencyUtils.md",
+      "summary": "对应 DependencyUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Distribution.md",
+      "type": "file",
+      "name": "Distribution.md",
+      "filePath": "Distribution.md",
+      "summary": "对应 Distribution 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:EventLoop.md",
+      "type": "file",
+      "name": "EventLoop.md",
+      "filePath": "EventLoop.md",
+      "summary": "对应 EventLoop 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:HadoopFSUtils.md",
+      "type": "file",
+      "name": "HadoopFSUtils.md",
+      "filePath": "HadoopFSUtils.md",
+      "summary": "对应 HadoopFSUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:IdGenerator.md",
+      "type": "file",
+      "name": "IdGenerator.md",
+      "filePath": "IdGenerator.md",
+      "summary": "对应 IdGenerator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:IntParam.md",
+      "type": "file",
+      "name": "IntParam.md",
+      "filePath": "IntParam.md",
+      "summary": "对应 IntParam 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:JsonProtocol.md",
+      "type": "file",
+      "name": "JsonProtocol.md",
+      "filePath": "JsonProtocol.md",
+      "summary": "对应 JsonProtocol 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:KeyLock.md",
+      "type": "file",
+      "name": "KeyLock.md",
+      "filePath": "KeyLock.md",
+      "summary": "对应 KeyLock 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ListenerBus.md",
+      "type": "file",
+      "name": "ListenerBus.md",
+      "filePath": "ListenerBus.md",
+      "summary": "对应 ListenerBus 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ManualClock.md",
+      "type": "file",
+      "name": "ManualClock.md",
+      "filePath": "ManualClock.md",
+      "summary": "对应 ManualClock 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:MemoryParam.md",
+      "type": "file",
+      "name": "MemoryParam.md",
+      "filePath": "MemoryParam.md",
+      "summary": "对应 MemoryParam 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:AccumulatorV2.md",
+      "target": "file:AccumulatorV2.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ByteBufferInputStream.md",
+      "target": "file:ByteBufferInputStream.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ByteBufferOutputStream.md",
+      "target": "file:ByteBufferOutputStream.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CausedBy.md",
+      "target": "file:CausedBy.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:Clock.md",
+      "target": "file:Clock.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ClosureCleaner.md",
+      "target": "file:ClosureCleaner.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CollectionsUtils.md",
+      "target": "file:CollectionsUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CommandLineUtils.md",
+      "target": "file:CommandLineUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:CompletionIterator.md",
+      "target": "file:CompletionIterator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:DependencyUtils.md",
+      "target": "file:DependencyUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:Distribution.md",
+      "target": "file:Distribution.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:EventLoop.md",
+      "target": "file:EventLoop.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:HadoopFSUtils.md",
+      "target": "file:HadoopFSUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:IdGenerator.md",
+      "target": "file:IdGenerator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:IntParam.md",
+      "target": "file:IntParam.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:JsonProtocol.md",
+      "target": "file:JsonProtocol.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:KeyLock.md",
+      "target": "file:KeyLock.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ListenerBus.md",
+      "target": "file:ListenerBus.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ManualClock.md",
+      "target": "file:ManualClock.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:MemoryParam.md",
+      "target": "file:MemoryParam.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

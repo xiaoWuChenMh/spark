@@ -1,0 +1,864 @@
+{
+  "nodes": [
+    {
+      "id": "file:logging/RollingPolicy.scala",
+      "type": "file",
+      "name": "RollingPolicy.scala",
+      "filePath": "logging/RollingPolicy.scala",
+      "summary": "日志滚动策略的抽象与默认实现。",
+      "tags": [
+        "日志",
+        "滚动",
+        "策略",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:logging/RollingPolicy.scala:RollingPolicy",
+      "type": "class",
+      "name": "RollingPolicy",
+      "filePath": "logging/RollingPolicy.scala",
+      "summary": "日志滚动策略抽象。",
+      "tags": [
+        "日志",
+        "策略",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ManualClock.scala",
+      "type": "file",
+      "name": "ManualClock.scala",
+      "filePath": "ManualClock.scala",
+      "summary": "Clock 的可手动推进实现，用于测试。",
+      "tags": [
+        "时间",
+        "测试替身",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:ManualClock.scala:ManualClock",
+      "type": "class",
+      "name": "ManualClock",
+      "filePath": "ManualClock.scala",
+      "summary": "可手动推进时间的 Clock 实现，专为测试而设。",
+      "tags": [
+        "时间",
+        "测试替身"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:MemoryParam.scala",
+      "type": "file",
+      "name": "MemoryParam.scala",
+      "filePath": "MemoryParam.scala",
+      "summary": "将内存字符串（如 1g）注册到 SparkConf 的工具。",
+      "tags": [
+        "命令行",
+        "配置",
+        "内存",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:MemoryParam.scala:MemoryParam",
+      "type": "class",
+      "name": "MemoryParam",
+      "filePath": "MemoryParam.scala",
+      "summary": "可注册到 SparkConf 的内存参数（接受 1g/512m 字符串）。",
+      "tags": [
+        "配置",
+        "内存"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:MutablePair.scala",
+      "type": "file",
+      "name": "MutablePair.scala",
+      "filePath": "MutablePair.scala",
+      "summary": "可变的键值对容器。",
+      "tags": [
+        "数据结构",
+        "键值对",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:MutablePair.scala:MutablePair",
+      "type": "class",
+      "name": "MutablePair",
+      "filePath": "MutablePair.scala",
+      "summary": "可变的键值对容器。",
+      "tags": [
+        "数据结构"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:NextIterator.scala",
+      "type": "file",
+      "name": "NextIterator.scala",
+      "filePath": "NextIterator.scala",
+      "summary": "自定义迭代器的样板抽象基类。",
+      "tags": [
+        "迭代器",
+        "抽象基类",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:NextIterator.scala:NextIterator",
+      "type": "class",
+      "name": "NextIterator",
+      "filePath": "NextIterator.scala",
+      "summary": "自定义迭代器样板抽象基类。",
+      "tags": [
+        "迭代器",
+        "抽象"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:package-info.java",
+      "type": "file",
+      "name": "package-info.java",
+      "filePath": "package-info.java",
+      "summary": "package-info.java 的 Java 实现，为 Scala 端提供 Java API。",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:package.scala",
+      "type": "file",
+      "name": "package.scala",
+      "filePath": "package.scala",
+      "summary": "org.apache.spark.util 的 package object，提供包级注释。",
+      "tags": [
+        "package",
+        "barrel",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:PeriodicCheckpointer.scala",
+      "type": "file",
+      "name": "PeriodicCheckpointer.scala",
+      "filePath": "PeriodicCheckpointer.scala",
+      "summary": "在后台线程周期性将 Checkpointable 写入可靠检查点。",
+      "tags": [
+        "检查点",
+        "周期任务",
+        "可靠性",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:PeriodicCheckpointer.scala:PeriodicCheckpointer",
+      "type": "class",
+      "name": "PeriodicCheckpointer",
+      "filePath": "PeriodicCheckpointer.scala",
+      "summary": "周期性检查点写入器。",
+      "tags": [
+        "检查点",
+        "可靠性"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/package-info.java",
+      "type": "file",
+      "name": "package-info.java",
+      "filePath": "random/package-info.java",
+      "summary": "package-info.java 的 Java 实现，为 Scala 端提供 Java API。",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:random/package.scala",
+      "type": "file",
+      "name": "package.scala",
+      "filePath": "random/package.scala",
+      "summary": "random/package.scala 的实现。",
+      "tags": [
+        "util",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:random/Pseudorandom.scala",
+      "type": "file",
+      "name": "Pseudorandom.scala",
+      "filePath": "random/Pseudorandom.scala",
+      "summary": "伪随机数生成器 trait。",
+      "tags": [
+        "随机数",
+        "抽象",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:random/Pseudorandom.scala:Pseudorandom",
+      "type": "class",
+      "name": "Pseudorandom",
+      "filePath": "random/Pseudorandom.scala",
+      "summary": "伪随机数生成器 trait。",
+      "tags": [
+        "随机数",
+        "trait"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:random/RandomSampler.scala",
+      "type": "file",
+      "name": "RandomSampler.scala",
+      "filePath": "random/RandomSampler.scala",
+      "summary": "采样抽象与多种采样策略（泊松/伯努利/水塘等）。",
+      "tags": [
+        "采样",
+        "随机数",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:random/RandomSampler.scala:RandomSampler",
+      "type": "class",
+      "name": "RandomSampler",
+      "filePath": "random/RandomSampler.scala",
+      "summary": "采样器抽象。",
+      "tags": [
+        "采样",
+        "trait"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/SamplingUtils.scala",
+      "type": "file",
+      "name": "SamplingUtils.scala",
+      "filePath": "random/SamplingUtils.scala",
+      "summary": "排序后数据的分层/分位数采样工具。",
+      "tags": [
+        "采样",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:random/SamplingUtils.scala:SamplingUtils",
+      "type": "class",
+      "name": "SamplingUtils",
+      "filePath": "random/SamplingUtils.scala",
+      "summary": "采样工具集合。",
+      "tags": [
+        "采样",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/StratifiedSamplingUtils.scala",
+      "type": "file",
+      "name": "StratifiedSamplingUtils.scala",
+      "filePath": "random/StratifiedSamplingUtils.scala",
+      "summary": "分层抽样的核心算法与 RDD 辅助函数。",
+      "tags": [
+        "采样",
+        "分层",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:random/StratifiedSamplingUtils.scala:StratifiedSamplingUtils",
+      "type": "class",
+      "name": "StratifiedSamplingUtils",
+      "filePath": "random/StratifiedSamplingUtils.scala",
+      "summary": "分层采样算法。",
+      "tags": [
+        "采样",
+        "分层",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/XORShiftRandom.scala",
+      "type": "file",
+      "name": "XORShiftRandom.scala",
+      "filePath": "random/XORShiftRandom.scala",
+      "summary": "高性能 XORShift 随机数生成器。",
+      "tags": [
+        "随机数",
+        "高性能",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:random/XORShiftRandom.scala:XORShiftRandom",
+      "type": "class",
+      "name": "XORShiftRandom",
+      "filePath": "random/XORShiftRandom.scala",
+      "summary": "XORShift 随机数生成器。",
+      "tags": [
+        "随机数"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:RpcUtils.scala",
+      "type": "file",
+      "name": "RpcUtils.scala",
+      "filePath": "RpcUtils.scala",
+      "summary": "Spark RPC 框架的辅助方法。",
+      "tags": [
+        "rpc",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcUtils.scala:RpcUtils",
+      "type": "class",
+      "name": "RpcUtils",
+      "filePath": "RpcUtils.scala",
+      "summary": "RPC 框架辅助方法。",
+      "tags": [
+        "rpc",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SecurityUtils.scala",
+      "type": "file",
+      "name": "SecurityUtils.scala",
+      "filePath": "SecurityUtils.scala",
+      "summary": "安全相关工具（认证/授权/SSL 配置读取）。",
+      "tags": [
+        "安全",
+        "认证",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SecurityUtils.scala:SecurityUtils",
+      "type": "class",
+      "name": "SecurityUtils",
+      "filePath": "SecurityUtils.scala",
+      "summary": "安全相关辅助方法。",
+      "tags": [
+        "安全",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SerializableBuffer.scala",
+      "type": "file",
+      "name": "SerializableBuffer.scala",
+      "filePath": "SerializableBuffer.scala",
+      "summary": "可序列化的 NIO ByteBuffer 包装。",
+      "tags": [
+        "序列化",
+        "nio",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SerializableBuffer.scala:SerializableBuffer",
+      "type": "class",
+      "name": "SerializableBuffer",
+      "filePath": "SerializableBuffer.scala",
+      "summary": "可序列化的 NIO ByteBuffer 包装。",
+      "tags": [
+        "序列化",
+        "nio"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SerializableConfiguration.scala",
+      "type": "file",
+      "name": "SerializableConfiguration.scala",
+      "filePath": "SerializableConfiguration.scala",
+      "summary": "可序列化的 Hadoop Configuration 包装。",
+      "tags": [
+        "序列化",
+        "hadoop",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:SerializableConfiguration.scala:SerializableConfiguration",
+      "type": "class",
+      "name": "SerializableConfiguration",
+      "filePath": "SerializableConfiguration.scala",
+      "summary": "可序列化的 Hadoop Configuration 包装。",
+      "tags": [
+        "序列化",
+        "hadoop"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:SerializableJobConf.scala",
+      "type": "file",
+      "name": "SerializableJobConf.scala",
+      "filePath": "SerializableJobConf.scala",
+      "summary": "可序列化的 Hadoop JobConf 包装。",
+      "tags": [
+        "序列化",
+        "hadoop",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:SerializableJobConf.scala:SerializableJobConf",
+      "type": "class",
+      "name": "SerializableJobConf",
+      "filePath": "SerializableJobConf.scala",
+      "summary": "可序列化的 Hadoop JobConf 包装。",
+      "tags": [
+        "序列化",
+        "hadoop"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ShutdownHookManager.scala",
+      "type": "file",
+      "name": "ShutdownHookManager.scala",
+      "filePath": "ShutdownHookManager.scala",
+      "summary": "统一管理 JVM 关闭钩子，确保有序清理 Spark 资源。",
+      "tags": [
+        "关闭钩子",
+        "资源管理",
+        "生命周期",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:ShutdownHookManager.scala:ShutdownHookManager",
+      "type": "class",
+      "name": "ShutdownHookManager",
+      "filePath": "ShutdownHookManager.scala",
+      "summary": "JVM 关闭钩子统一管理器。",
+      "tags": [
+        "关闭钩子",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SignalUtils.scala",
+      "type": "file",
+      "name": "SignalUtils.scala",
+      "filePath": "SignalUtils.scala",
+      "summary": "POSIX 信号处理工具。",
+      "tags": [
+        "信号",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SignalUtils.scala:SignalUtils",
+      "type": "class",
+      "name": "SignalUtils",
+      "filePath": "SignalUtils.scala",
+      "summary": "POSIX 信号处理工具。",
+      "tags": [
+        "信号",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:SizeEstimator.scala",
+      "type": "file",
+      "name": "SizeEstimator.scala",
+      "filePath": "SizeEstimator.scala",
+      "summary": "通过反射估算对象图的堆内存占用。",
+      "tags": [
+        "内存估算",
+        "反射",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:SizeEstimator.scala:SizeEstimator",
+      "type": "class",
+      "name": "SizeEstimator",
+      "filePath": "SizeEstimator.scala",
+      "summary": "基于反射的对象图大小估算器。",
+      "tags": [
+        "内存估算",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkExitCode.scala",
+      "type": "file",
+      "name": "SparkExitCode.scala",
+      "filePath": "SparkExitCode.scala",
+      "summary": "Spark 进程退出码的统一定义。",
+      "tags": [
+        "退出码",
+        "常量",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:SparkFatalException.scala",
+      "type": "file",
+      "name": "SparkFatalException.scala",
+      "filePath": "SparkFatalException.scala",
+      "summary": "标记 Spark 致命错误的异常类型。",
+      "tags": [
+        "异常",
+        "util"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:logging/RollingPolicy.scala",
+      "target": "class:logging/RollingPolicy.scala:RollingPolicy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/RollingPolicy.scala",
+      "target": "class:logging/RollingPolicy.scala:RollingPolicy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ManualClock.scala",
+      "target": "class:ManualClock.scala:ManualClock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ManualClock.scala",
+      "target": "class:ManualClock.scala:ManualClock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:MemoryParam.scala",
+      "target": "class:MemoryParam.scala:MemoryParam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:MemoryParam.scala",
+      "target": "class:MemoryParam.scala:MemoryParam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:MutablePair.scala",
+      "target": "class:MutablePair.scala:MutablePair",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:MutablePair.scala",
+      "target": "class:MutablePair.scala:MutablePair",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:NextIterator.scala",
+      "target": "class:NextIterator.scala:NextIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:NextIterator.scala",
+      "target": "class:NextIterator.scala:NextIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:PeriodicCheckpointer.scala",
+      "target": "class:PeriodicCheckpointer.scala:PeriodicCheckpointer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:PeriodicCheckpointer.scala",
+      "target": "class:PeriodicCheckpointer.scala:PeriodicCheckpointer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/Pseudorandom.scala",
+      "target": "class:random/Pseudorandom.scala:Pseudorandom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/Pseudorandom.scala",
+      "target": "class:random/Pseudorandom.scala:Pseudorandom",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/RandomSampler.scala",
+      "target": "class:random/RandomSampler.scala:RandomSampler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/RandomSampler.scala",
+      "target": "class:random/RandomSampler.scala:RandomSampler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/SamplingUtils.scala",
+      "target": "class:random/SamplingUtils.scala:SamplingUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/SamplingUtils.scala",
+      "target": "class:random/SamplingUtils.scala:SamplingUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.scala",
+      "target": "class:random/StratifiedSamplingUtils.scala:StratifiedSamplingUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.scala",
+      "target": "class:random/StratifiedSamplingUtils.scala:StratifiedSamplingUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:random/XORShiftRandom.scala",
+      "target": "class:random/XORShiftRandom.scala:XORShiftRandom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:random/XORShiftRandom.scala",
+      "target": "class:random/XORShiftRandom.scala:XORShiftRandom",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:RpcUtils.scala",
+      "target": "class:RpcUtils.scala:RpcUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:RpcUtils.scala",
+      "target": "class:RpcUtils.scala:RpcUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SecurityUtils.scala",
+      "target": "class:SecurityUtils.scala:SecurityUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SecurityUtils.scala",
+      "target": "class:SecurityUtils.scala:SecurityUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SerializableBuffer.scala",
+      "target": "class:SerializableBuffer.scala:SerializableBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SerializableBuffer.scala",
+      "target": "class:SerializableBuffer.scala:SerializableBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SerializableConfiguration.scala",
+      "target": "class:SerializableConfiguration.scala:SerializableConfiguration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SerializableConfiguration.scala",
+      "target": "class:SerializableConfiguration.scala:SerializableConfiguration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SerializableJobConf.scala",
+      "target": "class:SerializableJobConf.scala:SerializableJobConf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SerializableJobConf.scala",
+      "target": "class:SerializableJobConf.scala:SerializableJobConf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ShutdownHookManager.scala",
+      "target": "class:ShutdownHookManager.scala:ShutdownHookManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ShutdownHookManager.scala",
+      "target": "class:ShutdownHookManager.scala:ShutdownHookManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SignalUtils.scala",
+      "target": "class:SignalUtils.scala:SignalUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SignalUtils.scala",
+      "target": "class:SignalUtils.scala:SignalUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:SizeEstimator.scala",
+      "target": "class:SizeEstimator.scala:SizeEstimator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SizeEstimator.scala",
+      "target": "class:SizeEstimator.scala:SizeEstimator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ManualClock.scala",
+      "target": "file:Clock.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:PeriodicCheckpointer.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ShutdownHookManager.scala",
+      "target": "file:ThreadUtils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.scala",
+      "target": "file:random/RandomSampler.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:random/SamplingUtils.scala",
+      "target": "file:random/RandomSampler.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:random/XORShiftRandom.scala",
+      "target": "file:random/Pseudorandom.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

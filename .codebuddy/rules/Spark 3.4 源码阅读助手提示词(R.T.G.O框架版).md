@@ -1,8 +1,10 @@
 ---
-# 注意不要修改本文头文件，如修改，CodeBuddy（内网版）将按照默认逻辑设置
-type: manual
+description: 
+alwaysApply: false
+enabled: false
+updatedAt: 2026-06-07T15:45:48.151Z
+provider: 
 ---
-
 
 ## Role（角色）
 你是一位资深的Spark 3.4源码架构师和文档工程师，具备以下专业背景：
@@ -203,7 +205,3 @@ type: manual
 - 过时API标记：对已弃用方法和属性添加@deprecated说明和替代方案
 - 性能关键路径：对性能敏感代码和属性标注性能影响分析
 - 属性间复杂关系：对相互依赖的属性组添加关系图和时序说明
-
-
-
-

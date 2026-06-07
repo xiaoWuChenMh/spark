@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "file:logging/DriverLogger.md",
+      "type": "file",
+      "name": "DriverLogger.md",
+      "filePath": "logging/DriverLogger.md",
+      "summary": "对应 DriverLogger 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/FileAppender.md",
+      "type": "file",
+      "name": "FileAppender.md",
+      "filePath": "logging/FileAppender.md",
+      "summary": "对应 FileAppender 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/RollingFileAppender.md",
+      "type": "file",
+      "name": "RollingFileAppender.md",
+      "filePath": "logging/RollingFileAppender.md",
+      "summary": "对应 RollingFileAppender 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:logging/RollingPolicy.md",
+      "type": "file",
+      "name": "RollingPolicy.md",
+      "filePath": "logging/RollingPolicy.md",
+      "summary": "对应 RollingPolicy 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:logging/DriverLogger.md",
+      "target": "file:logging/DriverLogger.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/FileAppender.md",
+      "target": "file:logging/FileAppender.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/RollingFileAppender.md",
+      "target": "file:logging/RollingFileAppender.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/RollingPolicy.md",
+      "target": "file:logging/RollingPolicy.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

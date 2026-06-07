@@ -1,0 +1,322 @@
+{
+  "nodes": [
+    {
+      "id": "file:SparkUncaughtExceptionHandler.scala",
+      "type": "file",
+      "name": "SparkUncaughtExceptionHandler.scala",
+      "filePath": "SparkUncaughtExceptionHandler.scala",
+      "summary": "Spark 线程未捕获异常的统一处理器。",
+      "tags": [
+        "异常处理",
+        "线程",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:SparkUncaughtExceptionHandler.scala:SparkUncaughtExceptionHandler",
+      "type": "class",
+      "name": "SparkUncaughtExceptionHandler",
+      "filePath": "SparkUncaughtExceptionHandler.scala",
+      "summary": "Spark 线程未捕获异常统一处理。",
+      "tags": [
+        "异常处理",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:StatCounter.scala",
+      "type": "file",
+      "name": "StatCounter.scala",
+      "filePath": "StatCounter.scala",
+      "summary": "在线计算均值/方差/最值等统计指标。",
+      "tags": [
+        "统计",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:StatCounter.scala:StatCounter",
+      "type": "class",
+      "name": "StatCounter",
+      "filePath": "StatCounter.scala",
+      "summary": "在线统计指标（均值/方差/最值）。",
+      "tags": [
+        "统计"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:taskListeners.md",
+      "type": "file",
+      "name": "taskListeners.md",
+      "filePath": "taskListeners.md",
+      "summary": "对应 taskListeners 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:taskListeners.scala",
+      "type": "file",
+      "name": "taskListeners.scala",
+      "filePath": "taskListeners.scala",
+      "summary": "task 监听器相关的辅助定义。",
+      "tags": [
+        "task",
+        "监听器",
+        "钩子",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ThreadUtils.scala",
+      "type": "file",
+      "name": "ThreadUtils.scala",
+      "filePath": "ThreadUtils.scala",
+      "summary": "线程工厂与线程池辅助方法（命名/守护/uncaught）。",
+      "tags": [
+        "线程",
+        "线程池",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:ThreadUtils.scala:ThreadUtils",
+      "type": "class",
+      "name": "ThreadUtils",
+      "filePath": "ThreadUtils.scala",
+      "summary": "线程工厂与线程池辅助方法集合。",
+      "tags": [
+        "线程",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:UninterruptibleThread.scala",
+      "type": "file",
+      "name": "UninterruptibleThread.scala",
+      "filePath": "UninterruptibleThread.scala",
+      "summary": "对中断免疫的线程，配套 UninterruptibleThreadRunner 保护关键临界区。",
+      "tags": [
+        "线程",
+        "中断",
+        "锁",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:UninterruptibleThread.scala:UninterruptibleThread",
+      "type": "class",
+      "name": "UninterruptibleThread",
+      "filePath": "UninterruptibleThread.scala",
+      "summary": "对中断免疫的线程，保护关键临界区。",
+      "tags": [
+        "线程",
+        "中断"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:UninterruptibleThreadRunner.scala",
+      "type": "file",
+      "name": "UninterruptibleThreadRunner.scala",
+      "filePath": "UninterruptibleThreadRunner.scala",
+      "summary": "在不可中断线程中运行指定块的执行器。",
+      "tags": [
+        "线程",
+        "中断",
+        "锁",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:UninterruptibleThreadRunner.scala:UninterruptibleThreadRunner",
+      "type": "class",
+      "name": "UninterruptibleThreadRunner",
+      "filePath": "UninterruptibleThreadRunner.scala",
+      "summary": "在不可中断线程中运行指定块。",
+      "tags": [
+        "线程",
+        "中断"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:Utils.scala",
+      "type": "file",
+      "name": "Utils.scala",
+      "filePath": "Utils.scala",
+      "summary": "Spark 通用工具对象，聚合序列化/IO/时间解析/文件操作/字符串等大量工具方法。",
+      "tags": [
+        "工具函数",
+        "核心",
+        "helpers",
+        "common",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:Utils.scala:Utils",
+      "type": "class",
+      "name": "Utils",
+      "filePath": "Utils.scala",
+      "summary": "Spark 通用工具对象，封装序列化/IO/文件/时间解析/字符串/网络等大量静态工具。",
+      "tags": [
+        "工具对象",
+        "单例",
+        "helpers"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:VersionUtils.scala",
+      "type": "file",
+      "name": "VersionUtils.scala",
+      "filePath": "VersionUtils.scala",
+      "summary": "Spark 版本号解析与比较工具。",
+      "tags": [
+        "版本",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:VersionUtils.scala:VersionUtils",
+      "type": "class",
+      "name": "VersionUtils",
+      "filePath": "VersionUtils.scala",
+      "summary": "版本号解析与比较工具。",
+      "tags": [
+        "版本",
+        "单例"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:SparkUncaughtExceptionHandler.scala",
+      "target": "class:SparkUncaughtExceptionHandler.scala:SparkUncaughtExceptionHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:SparkUncaughtExceptionHandler.scala",
+      "target": "class:SparkUncaughtExceptionHandler.scala:SparkUncaughtExceptionHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:StatCounter.scala",
+      "target": "class:StatCounter.scala:StatCounter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:StatCounter.scala",
+      "target": "class:StatCounter.scala:StatCounter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:taskListeners.md",
+      "target": "file:taskListeners.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ThreadUtils.scala",
+      "target": "class:ThreadUtils.scala:ThreadUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ThreadUtils.scala",
+      "target": "class:ThreadUtils.scala:ThreadUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:UninterruptibleThread.scala",
+      "target": "class:UninterruptibleThread.scala:UninterruptibleThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:UninterruptibleThread.scala",
+      "target": "class:UninterruptibleThread.scala:UninterruptibleThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.scala",
+      "target": "class:UninterruptibleThreadRunner.scala:UninterruptibleThreadRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.scala",
+      "target": "class:UninterruptibleThreadRunner.scala:UninterruptibleThreadRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Utils.scala",
+      "target": "class:Utils.scala:Utils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:Utils.scala",
+      "target": "class:Utils.scala:Utils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:VersionUtils.scala",
+      "target": "class:VersionUtils.scala:VersionUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:VersionUtils.scala",
+      "target": "class:VersionUtils.scala:VersionUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.scala",
+      "target": "file:UninterruptibleThread.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

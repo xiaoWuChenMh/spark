@@ -1,0 +1,220 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "outputLanguage",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "AccumulatorV2.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 523,
+      "nonEmptyLines": 444,
+      "metrics": {}
+    },
+    {
+      "path": "ByteBufferInputStream.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 67,
+      "metrics": {}
+    },
+    {
+      "path": "ByteBufferOutputStream.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 49,
+      "metrics": {}
+    },
+    {
+      "path": "CausedBy.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 33,
+      "metrics": {}
+    },
+    {
+      "path": "Clock.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 89,
+      "metrics": {}
+    },
+    {
+      "path": "ClosureCleaner.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 904,
+      "nonEmptyLines": 809,
+      "metrics": {}
+    },
+    {
+      "path": "collection/AppendOnlyMap.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 301,
+      "nonEmptyLines": 272,
+      "metrics": {}
+    },
+    {
+      "path": "collection/BitSet.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 262,
+      "nonEmptyLines": 236,
+      "metrics": {}
+    },
+    {
+      "path": "collection/CompactBuffer.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 161,
+      "nonEmptyLines": 145,
+      "metrics": {}
+    },
+    {
+      "path": "collection/ExternalAppendOnlyMap.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 643,
+      "nonEmptyLines": 567,
+      "metrics": {}
+    },
+    {
+      "path": "collection/ExternalSorter.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 859,
+      "nonEmptyLines": 776,
+      "metrics": {}
+    },
+    {
+      "path": "collection/ImmutableBitSet.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 48,
+      "metrics": {}
+    },
+    {
+      "path": "collection/OpenHashMap.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 160,
+      "nonEmptyLines": 141,
+      "metrics": {}
+    },
+    {
+      "path": "collection/OpenHashSet.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 328,
+      "nonEmptyLines": 286,
+      "metrics": {}
+    },
+    {
+      "path": "collection/PairsWriter.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 25,
+      "metrics": {}
+    },
+    {
+      "path": "collection/PartitionedAppendOnlyMap.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 34,
+      "metrics": {}
+    },
+    {
+      "path": "collection/PartitionedPairBuffer.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 88,
+      "metrics": {}
+    },
+    {
+      "path": "collection/PercentileHeap.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 116,
+      "nonEmptyLines": 104,
+      "metrics": {}
+    },
+    {
+      "path": "collection/PrimitiveKeyOpenHashMap.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 109,
+      "metrics": {}
+    },
+    {
+      "path": "collection/PrimitiveVector.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 76,
+      "metrics": {}
+    },
+    {
+      "path": "collection/SizeTracker.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 89,
+      "metrics": {}
+    },
+    {
+      "path": "collection/SizeTrackingAppendOnlyMap.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 37,
+      "metrics": {}
+    },
+    {
+      "path": "collection/SizeTrackingVector.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 34,
+      "metrics": {}
+    }
+  ]
+}

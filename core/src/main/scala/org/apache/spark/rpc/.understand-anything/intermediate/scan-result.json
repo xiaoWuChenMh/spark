@@ -1,0 +1,231 @@
+{
+  "scriptCompleted": true,
+  "files": [
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "sizeLines": 4,
+      "fileCategory": "config"
+    },
+    {
+      "path": "netty/Dispatcher.md",
+      "language": "markdown",
+      "sizeLines": 150,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/Dispatcher.scala",
+      "language": "scala",
+      "sizeLines": 220,
+      "fileCategory": "code"
+    },
+    {
+      "path": "netty/Inbox.md",
+      "language": "markdown",
+      "sizeLines": 170,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/Inbox.scala",
+      "language": "scala",
+      "sizeLines": 236,
+      "fileCategory": "code"
+    },
+    {
+      "path": "netty/MessageLoop.md",
+      "language": "markdown",
+      "sizeLines": 199,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/MessageLoop.scala",
+      "language": "scala",
+      "sizeLines": 198,
+      "fileCategory": "code"
+    },
+    {
+      "path": "netty/NettyRpcCallContext.md",
+      "language": "markdown",
+      "sizeLines": 209,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/NettyRpcCallContext.scala",
+      "language": "scala",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "netty/NettyRpcEnv.md",
+      "language": "markdown",
+      "sizeLines": 257,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/NettyRpcEnv.scala",
+      "language": "scala",
+      "sizeLines": 758,
+      "fileCategory": "code"
+    },
+    {
+      "path": "netty/NettyStreamManager.md",
+      "language": "markdown",
+      "sizeLines": 190,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/NettyStreamManager.scala",
+      "language": "scala",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "netty/Outbox.md",
+      "language": "markdown",
+      "sizeLines": 246,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/Outbox.scala",
+      "language": "scala",
+      "sizeLines": 283,
+      "fileCategory": "code"
+    },
+    {
+      "path": "netty/RpcEndpointVerifier.md",
+      "language": "markdown",
+      "sizeLines": 262,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "netty/RpcEndpointVerifier.scala",
+      "language": "scala",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcAddress.md",
+      "language": "markdown",
+      "sizeLines": 355,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcAddress.scala",
+      "language": "scala",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcCallContext.md",
+      "language": "markdown",
+      "sizeLines": 267,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcCallContext.scala",
+      "language": "scala",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcEndpoint.md",
+      "language": "markdown",
+      "sizeLines": 561,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcEndpoint.scala",
+      "language": "scala",
+      "sizeLines": 177,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcEndpointAddress.md",
+      "language": "markdown",
+      "sizeLines": 392,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcEndpointAddress.scala",
+      "language": "scala",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcEndpointNotFoundException.md",
+      "language": "markdown",
+      "sizeLines": 193,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcEndpointNotFoundException.scala",
+      "language": "scala",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcEndpointRef.md",
+      "language": "markdown",
+      "sizeLines": 482,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcEndpointRef.scala",
+      "language": "scala",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcEnv.md",
+      "language": "markdown",
+      "sizeLines": 685,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcEnv.scala",
+      "language": "scala",
+      "sizeLines": 208,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcEnvStoppedException.md",
+      "language": "markdown",
+      "sizeLines": 162,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcEnvStoppedException.scala",
+      "language": "scala",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "RpcTimeout.md",
+      "language": "markdown",
+      "sizeLines": 307,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "RpcTimeout.scala",
+      "language": "scala",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 35,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "moderate",
+  "stats": {
+    "filesScanned": 35,
+    "byCategory": {
+      "config": 1,
+      "docs": 17,
+      "code": 17
+    },
+    "byLanguage": {
+      "json": 1,
+      "markdown": 17,
+      "scala": 17
+    }
+  }
+}
