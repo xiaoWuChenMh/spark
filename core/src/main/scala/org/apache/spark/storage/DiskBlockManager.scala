@@ -92,11 +92,13 @@ private[spark] class DiskBlockManager(
   // org.apache.spark.network.shuffle.ExecutorDiskUtils#getFilePath().
   def getFile(filename: String): File = {
     // Figure out which local directory it hashes to, and which subdirectory in that
+    // 根据文件名，找出物理文件存储在那个目录下（主目录/子目录）
     val hash = Utils.nonNegativeHash(filename)
     val dirId = hash % localDirs.length
     val subDirId = (hash / localDirs.length) % subDirsPerLocalDir
 
     // Create the subdirectory if it doesn't already exist
+    // 目录是否存在，存在直接使用，不存在则直接新建
     val subDir = subDirs(dirId).synchronized {
       val old = subDirs(dirId)(subDirId)
       if (old != null) {
@@ -119,7 +121,7 @@ private[spark] class DiskBlockManager(
         newDir
       }
     }
-
+    // 根据文件所在目录，文件名来创建一个物理文件对象（java.io.File）
     new File(subDir, filename)
   }
 
@@ -131,6 +133,7 @@ private[spark] class DiskBlockManager(
    *     java.lang.String, java.lang.String)]]
    */
   def getMergedShuffleFile(blockId: BlockId, dirs: Option[Array[String]]): File = {
+    // 根据shuffleBlockID的类型，获取BlockId的name(文件名），dirs是文件可能存在的主目录列表
     blockId match {
       case mergedBlockId: ShuffleMergedDataBlockId =>
         getMergedShuffleFile(mergedBlockId.name, dirs)
@@ -145,15 +148,18 @@ private[spark] class DiskBlockManager(
   }
 
   private def getMergedShuffleFile(filename: String, dirs: Option[Array[String]]): File = {
+    // 校验主目录列表不能是空
     if (!dirs.exists(_.nonEmpty)) {
       throw new IllegalArgumentException(
         s"Cannot read $filename because merged shuffle dirs is empty")
     }
+    //根据 主目录列表、主目录下的字目录个数，shufflieBlockID对于的物理文件的文件名，来找到物理文件对象（java.io.File）
     new File(ExecutorDiskUtils.getFilePath(dirs.get, subDirsPerLocalDir, filename))
   }
 
   /** Check if disk block manager has a block. */
   def containsBlock(blockId: BlockId): Boolean = {
+    //根据BlockId找到块物理文件对象（java.io.File），接入文件对象（File）的exists函数来判断文件是否存在
     getFile(blockId.name).exists()
   }
 
@@ -192,10 +198,14 @@ private[spark] class DiskBlockManager(
    * from being able to read shuffle files. The outer directories will still not be
    * world executable, so this doesn't allow access to these files except for the
    * running user and shuffle service.
+   * WorldReadable: 这个单词代表全局可读
    */
   def createWorldReadableFile(file: File): Unit = {
+    // 获取文件路径
     val path = file.toPath
+    //调用java.nio.file.Files对象在磁盘上创建实际存在的文件（是文件不是目录）
     Files.createFile(path)
+    //获取文件权限对象，并设置全局可读
     val currentPerms = Files.getPosixFilePermissions(path)
     currentPerms.add(PosixFilePermission.OTHERS_READ)
     Files.setPosixFilePermissions(path, currentPerms)
@@ -206,11 +216,14 @@ private[spark] class DiskBlockManager(
    * Used to create block files that will be renamed to the final version of the file.
    */
   def createTempFileWith(file: File): File = {
+    // 返回与 `file` 位于同一目录下带 UUID 唯一后缀的临时文件对象（java.io.File）
     val tmpFile = Utils.tempFileWith(file)
+    // 校验当前是否需要修改文件和目录权限
     if (permissionChangingRequired) {
       // SPARK-37618: we need to make the file world readable because the parent will
       // lose the setgid bit when making it group writable. Without this the shuffle
       // service can't read the shuffle files in a secure setup.
+      //在磁盘上创建实际存在的文件，并且设置文件权限为全局可读
       createWorldReadableFile(tmpFile)
     }
     tmpFile
@@ -219,6 +232,7 @@ private[spark] class DiskBlockManager(
   /** Produces a unique block id and File suitable for storing local intermediate results. */
   def createTempLocalBlock(): (TempLocalBlockId, File) = {
     var blockId = new TempLocalBlockId(UUID.randomUUID())
+    // 创建的临时块ID是否存在，存在就在换一个。
     while (getFile(blockId).exists()) {
       blockId = new TempLocalBlockId(UUID.randomUUID())
     }

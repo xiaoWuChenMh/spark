@@ -1,0 +1,527 @@
+# 数仓数据加工工作流配置文件
+# 采用分层架构（DWD、DIM、DWS、ADS）和工作流决策树
+
+# =============================================================================
+# 数据库配置
+# =============================================================================
+database:
+  # 数据库类型：hive、spark、impala、presto等
+  type: "hive"
+  
+  # 连接配置
+  host: "localhost"
+  port: 10000
+  username: "hive"
+  database: "default"
+  
+  # 连接池配置
+  connection_pool:
+    max_size: 10
+    min_idle: 2
+    connection_timeout: 30000  # 毫秒
+    idle_timeout: 600000  # 毫秒
+  
+  # JDBC配置
+  jdbc:
+    driver: "org.apache.hive.jdbc.HiveDriver"
+    url: "jdbc:hive2://localhost:10000/default"
+  
+  # 性能配置
+  performance:
+    fetch_size: 1000
+    batch_size: 10000
+
+
+# =============================================================================
+# HDFS/Hadoop配置
+# =============================================================================
+hdfs:
+  # HDFS配置
+  namenode: "hdfs://localhost:9000"
+  warehouse_dir: "/data/warehouse"
+  
+  # 各层数据目录
+  layer_directories:
+    dwd: "/data/warehouse/dwd"
+    dim: "/data/warehouse/dim"
+    dws: "/data/warehouse/dws"
+    ads: "/data/warehouse/ads"
+  
+  # HDFS客户端配置
+  client:
+    replication: 3
+    block_size: 134217728  # 128MB
+    buffer_size: 4096
+  
+  # 数据保留策略
+  retention:
+    dwd_days: 90      # DWD层保留90天
+    dim_days: 365     # DIM层保留365天
+    dws_days: 730     # DWS层保留730天
+    ads_days: 1095    # ADS层保留1095天
+
+
+# =============================================================================
+# 调度器配置
+# =============================================================================
+scheduler:
+  # 并发控制
+  max_parallel_tasks: 5
+  task_queue_size: 100
+  
+  # 重试策略
+  retry:
+    count: 3
+    delay: 60  # 秒
+    backoff_multiplier: 2
+    max_delay: 600  # 秒
+  
+  # 超时配置
+  timeout:
+    task_timeout: 3600  # 任务超时时间（秒）
+    step_timeout: 1800  # 步骤超时时间（秒）
+    connection_timeout: 300  # 连接超时时间（秒）
+  
+  # 调度策略
+  strategy: "sequential"  # sequential, parallel, dependency_based
+  
+  # 通知配置
+  notification:
+    on_success: true
+    on_failure: true
+    on_timeout: true
+
+
+# =============================================================================
+# 日志配置
+# =============================================================================
+logging:
+  # 日志级别：DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+  
+  # 日志文件配置
+  file:
+    main: "data_warehouse_workflow.log"
+    error: "data_warehouse_error.log"
+    audit: "data_warehouse_audit.log"
+    max_size: 104857600  # 100MB
+    backup_count: 10
+  
+  # 日志格式
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+  
+  # 日志处理器
+  handlers:
+    - type: "file"
+      enabled: true
+    - type: "console"
+      enabled: true
+    - type: "syslog"
+      enabled: false
+      address: "/dev/log"
+
+
+# =============================================================================
+# 工作流配置
+# =============================================================================
+workflows:
+  # 工作流默认参数
+  default_parameters:
+    data_date: "{{current_date}}"
+    batch_id: "{{timestamp}}"
+    environment: "production"
+  
+  # 工作流模板路径
+  template_paths:
+    sql_templates: "assets/sql_templates.sql"
+    python_templates: "scripts/"
+    config_templates: "config/"
+  
+  # 预定义工作流
+  predefined:
+    dwd_data_cleaning:
+      description: "DWD层数据清洗工作流"
+      enabled: true
+      schedule: "0 2 * * *"  # 每天凌晨2点执行
+      steps: 3
+      estimated_duration: 75  # 分钟
+    
+    dim_scd_processing:
+      description: "DIM层SCD处理工作流"
+      enabled: true
+      schedule: "0 3 * * *"  # 每天凌晨3点执行
+      steps: 2
+      estimated_duration: 75  # 分钟
+    
+    dws_aggregation_processing:
+      description: "DWS层聚合处理工作流"
+      enabled: true
+      schedule: "0 4 * * *"  # 每天凌晨4点执行
+      steps: 2
+      estimated_duration: 150  # 分钟
+    
+    ads_wide_table_processing:
+      description: "ADS层宽表处理工作流"
+      enabled: true
+      schedule: "0 5 * * *"  # 每天凌晨5点执行
+      steps: 2
+      estimated_duration: 180  # 分钟
+
+
+# =============================================================================
+# 表结构配置
+# =============================================================================
+table_schemas:
+  # 表命名规范
+  naming_convention:
+    prefix_mapping:
+      dwd: "dwd"
+      dim: "dim"
+      dws: "dws"
+      ads: "ads"
+    
+    # 字段命名规范
+    field_naming:
+      id_suffix: "_id"
+      name_suffix: "_name"
+      time_suffix: "_time"
+      date_suffix: "_date"
+      count_suffix: "_count"
+      amount_suffix: "_amount"
+  
+  # 默认表结构
+  default_schema:
+    dwd:
+      comment: "明细数据层表"
+      storage_format: "PARQUET"
+      compression: "SNAPPY"
+      partitioned_by: ["data_date"]
+    
+    dim:
+      comment: "维度数据层表"
+      storage_format: "PARQUET"
+      compression: "SNAPPY"
+      partitioned_by: []
+    
+    dws:
+      comment: "汇总数据层表"
+      storage_format: "PARQUET"
+      compression: "SNAPPY"
+      partitioned_by: ["data_date"]
+    
+    ads:
+      comment: "应用数据层表"
+      storage_format: "PARQUET"
+      compression: "SNAPPY"
+      partitioned_by: ["data_date"]
+
+
+# =============================================================================
+# 数据质量配置
+# =============================================================================
+data_quality:
+  # 数据质量检查规则
+  rules:
+    completeness:
+      enabled: true
+      threshold: 0.95  # 完整度阈值
+    
+    consistency:
+      enabled: true
+      threshold: 0.98  # 一致度阈值
+    
+    accuracy:
+      enabled: true
+      threshold: 0.99  # 准确度阈值
+    
+    timeliness:
+      enabled: true
+      threshold_hours: 24  # 及时性阈值（小时）
+  
+  # 检查频率
+  check_frequency:
+    daily: true
+    weekly: true
+    monthly: true
+  
+  # 告警配置
+  alerts:
+    email:
+      enabled: true
+      recipients:
+        - "data_team@example.com"
+        - "dba@example.com"
+    
+    slack:
+      enabled: false
+      webhook_url: ""
+      channel: "#data-alerts"
+    
+    # 告警级别
+    severity_levels:
+      critical:
+        threshold: 0.90
+        repeat_interval: 300  # 5分钟
+      
+      warning:
+        threshold: 0.95
+        repeat_interval: 3600  # 1小时
+      
+      info:
+        threshold: 0.98
+        repeat_interval: 86400  # 24小时
+
+
+# =============================================================================
+# 性能优化配置
+# =============================================================================
+performance:
+  # 查询优化
+  query_optimization:
+    enable_cbo: true  # 成本优化器
+    enable_vectorization: true  # 向量化执行
+    enable_compression: true  # 压缩优化
+    
+    # 统计信息
+    statistics:
+      auto_gather: true
+      sample_rate: 0.1  # 采样率
+      gather_frequency: "weekly"
+  
+  # 分区优化
+  partitioning:
+    # 分区策略
+    strategy: "date"  # date, range, list, hash
+    
+    # 分区维护
+    maintenance:
+      auto_add_partitions: true
+      auto_drop_partitions: true
+      retention_days: 90
+  
+  # 缓存配置
+  caching:
+    enable_result_cache: true
+    cache_size_mb: 1024
+    cache_ttl_hours: 24
+
+
+# =============================================================================
+# 监控配置
+# =============================================================================
+monitoring:
+  # 监控指标
+  metrics:
+    - name: "workflow_execution_time"
+      type: "gauge"
+      description: "工作流执行时间"
+    
+    - name: "data_quality_score"
+      type: "gauge"
+      description: "数据质量得分"
+    
+    - name: "table_row_count"
+      type: "counter"
+      description: "表行数统计"
+    
+    - name: "error_count"
+      type: "counter"
+      description: "错误计数"
+  
+  # 监控系统集成
+  integrations:
+    prometheus:
+      enabled: true
+      port: 9090
+      path: "/metrics"
+    
+    grafana:
+      enabled: true
+      dashboard_id: "data_warehouse"
+    
+    # 健康检查
+    health_check:
+      enabled: true
+      endpoint: "/health"
+      interval: 60  # 秒
+
+
+# =============================================================================
+# 安全配置
+# =============================================================================
+security:
+  # 认证配置
+  authentication:
+    type: "kerberos"  # kerberos, ldap, simple
+    
+    kerberos:
+      principal: "hive/localhost@EXAMPLE.COM"
+      keytab: "/etc/security/keytabs/hive.service.keytab"
+    
+    ldap:
+      url: "ldap://ldap.example.com:389"
+      base_dn: "ou=users,dc=example,dc=com"
+  
+  # 授权配置
+  authorization:
+    rbac_enabled: true
+    
+    # 角色定义
+    roles:
+      - name: "data_engineer"
+        permissions:
+          - "read_all_tables"
+          - "write_dwd_tables"
+          - "execute_workflows"
+      
+      - name: "data_analyst"
+        permissions:
+          - "read_all_tables"
+          - "query_ads_tables"
+      
+      - name: "admin"
+        permissions:
+          - "*"
+  
+  # 加密配置
+  encryption:
+    data_at_rest: true
+    data_in_transit: true
+    
+    ssl:
+      enabled: true
+      keystore_path: "/etc/security/ssl/keystore.jks"
+      truststore_path: "/etc/security/ssl/truststore.jks"
+
+
+# =============================================================================
+# 备份与恢复配置
+# =============================================================================
+backup:
+  # 备份策略
+  strategy: "incremental"  # full, incremental
+  
+  # 备份频率
+  frequency:
+    full_backup: "weekly"
+    incremental_backup: "daily"
+  
+  # 备份存储
+  storage:
+    type: "hdfs"  # hdfs, s3, local
+    
+    hdfs:
+      backup_dir: "/backup/warehouse"
+      compression: "gzip"
+    
+    # 保留策略
+    retention:
+      full_backups: 4  # 保留4次完整备份
+      incremental_backups: 30  # 保留30次增量备份
+  
+  # 恢复配置
+  recovery:
+    point_in_time_recovery: true
+    recovery_time_objective: 3600  # RTO: 1小时
+    recovery_point_objective: 900  # RPO: 15分钟
+
+
+# =============================================================================
+# 环境变量配置
+# =============================================================================
+environment:
+  # 环境变量映射
+  variables:
+    # 日期相关
+    current_date: "{{ now().strftime('%Y-%m-%d') }}"
+    current_year: "{{ now().year }}"
+    current_month: "{{ now().month }}"
+    current_day: "{{ now().day }}"
+    
+    # 路径相关
+    warehouse_root: "/data/warehouse"
+    log_directory: "/var/log/data_warehouse"
+    
+    # 系统相关
+    hostname: "{{ os.environ.get('HOSTNAME', 'localhost') }}"
+    username: "{{ os.environ.get('USER', 'unknown') }}"
+  
+  # 环境特定配置
+  profiles:
+    development:
+      database:
+        host: "dev-hive.example.com"
+        port: 10000
+      
+      hdfs:
+        namenode: "hdfs://dev-namenode:9000"
+    
+    testing:
+      database:
+        host: "test-hive.example.com"
+        port: 10000
+      
+      hdfs:
+        namenode: "hdfs://test-namenode:9000"
+    
+    production:
+      database:
+        host: "prod-hive.example.com"
+        port: 10000
+      
+      hdfs:
+        namenode: "hdfs://prod-namenode:9000"
+
+
+# =============================================================================
+# 元数据管理配置
+# =============================================================================
+metadata:
+  # 元数据存储
+  storage:
+    type: "database"  # database, file, external
+    
+    database:
+      table_name: "data_warehouse_metadata"
+      sync_frequency: 300  # 秒
+    
+    file:
+      path: "metadata/metadata.json"
+      format: "json"
+  
+  # 收集的元数据类型
+  collection:
+    table_schemas: true
+    data_lineage: true
+    data_quality: true
+    performance_metrics: true
+    access_logs: true
+  
+  # 数据血缘配置
+  lineage:
+    enable_tracking: true
+    storage_backend: "neo4j"  # neo4j, database, file
+    
+    neo4j:
+      uri: "bolt://localhost:7687"
+      username: "neo4j"
+      password: "password"
+
+
+# =============================================================================
+# 使用说明
+# =============================================================================
+# 1. 复制此文件为实际配置文件（如：config.yaml）
+# 2. 根据实际环境修改配置值
+# 3. 使用环境变量替换敏感信息
+# 4. 不同环境使用不同的配置文件
+#
+# 支持的变量替换语法：
+#   {{ variable_name }} - 环境变量或内置变量
+#   {{ now().strftime('%Y-%m-%d') }} - 当前日期
+#   {{ os.environ.get('VAR_NAME') }} - 系统环境变量
+#
+# 示例：
+#   host: "{{ os.environ.get('HIVE_HOST', 'localhost') }}"
+#   data_date: "{{ now().strftime('%Y-%m-%d') }}"

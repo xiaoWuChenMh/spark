@@ -2788,6 +2788,7 @@ private[spark] object Utils extends Logging {
 
   /**
    * Returns a path of temporary file which is in the same directory with `path`.
+   * 该函数接收一个目标文件（如最终的 Shuffle 块文件），返回一个和目标文件在同一目录下、带 UUID 唯一后缀的临时文件对象，保证临时文件的唯一性和同目录特性。
    */
   def tempFileWith(path: File): File = {
     new File(path.getAbsolutePath + "." + UUID.randomUUID())
