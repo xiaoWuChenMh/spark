@@ -1,0 +1,30 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'file:random/package-info.md' has no edges (orphan)",
+    "Node 'file:.understand-anything/.understandignore' has no edges (orphan)",
+    "Node 'file:.understand-anything/config.json' has no edges (orphan)",
+    "Node 'file:package-info.java' has no edges (orphan)",
+    "Node 'file:package.scala' has no edges (orphan)",
+    "Node 'file:random/package-info.java' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 226,
+    "totalEdges": 244,
+    "totalLayers": 8,
+    "tourSteps": 20,
+    "nodeTypes": {
+      "file": 158,
+      "class": 68
+    },
+    "edgeTypes": {
+      "documents": 76,
+      "contains": 68,
+      "exports": 68,
+      "inherits": 8,
+      "implements": 4,
+      "depends_on": 18,
+      "related": 2
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "logging/RollingPolicy.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 139,
+      "nonEmptyLines": 113,
+      "metrics": {}
+    },
+    {
+      "path": "ManualClock.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 62,
+      "metrics": {}
+    },
+    {
+      "path": "MemoryParam.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 30,
+      "metrics": {}
+    },
+    {
+      "path": "MutablePair.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 43,
+      "metrics": {}
+    },
+    {
+      "path": "NextIterator.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 82,
+      "metrics": {}
+    },
+    {
+      "path": "package-info.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "package.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "metrics": {}
+    },
+    {
+      "path": "PeriodicCheckpointer.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 192,
+      "nonEmptyLines": 169,
+      "metrics": {}
+    },
+    {
+      "path": "random/package-info.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "random/package.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "metrics": {}
+    },
+    {
+      "path": "random/Pseudorandom.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "random/RandomSampler.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 340,
+      "nonEmptyLines": 284,
+      "metrics": {}
+    },
+    {
+      "path": "random/SamplingUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 169,
+      "nonEmptyLines": 155,
+      "metrics": {}
+    },
+    {
+      "path": "random/StratifiedSamplingUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 332,
+      "nonEmptyLines": 310,
+      "metrics": {}
+    },
+    {
+      "path": "random/XORShiftRandom.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 57,
+      "metrics": {}
+    },
+    {
+      "path": "RpcUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 58,
+      "metrics": {}
+    },
+    {
+      "path": "SecurityUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 63,
+      "metrics": {}
+    },
+    {
+      "path": "SerializableBuffer.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 49,
+      "metrics": {}
+    },
+    {
+      "path": "SerializableConfiguration.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 36,
+      "metrics": {}
+    },
+    {
+      "path": "SerializableJobConf.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 30,
+      "metrics": {}
+    },
+    {
+      "path": "ShutdownHookManager.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 216,
+      "nonEmptyLines": 185,
+      "metrics": {}
+    },
+    {
+      "path": "SignalUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 123,
+      "metrics": {}
+    },
+    {
+      "path": "SizeEstimator.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 401,
+      "nonEmptyLines": 356,
+      "metrics": {}
+    },
+    {
+      "path": "SparkExitCode.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 37,
+      "metrics": {}
+    },
+    {
+      "path": "SparkFatalException.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    }
+  ]
+}

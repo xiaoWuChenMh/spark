@@ -1,0 +1,4157 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "AccumulatorV2.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 226,
+      "nonEmptyLines": 179,
+      "sections": [
+        {
+          "heading": "AccumulatorV2 累加器抽象类分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "1. 元数据属性",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "2. 驱动端标识",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "3. AccumulatorMetadata 内部类",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 51
+        },
+        {
+          "heading": "1. 注册和管理方法",
+          "level": 3,
+          "line": 53
+        },
+        {
+          "heading": "`register` 方法",
+          "level": 4,
+          "line": 55
+        },
+        {
+          "heading": "`isRegistered` 方法",
+          "level": 4,
+          "line": 69
+        },
+        {
+          "heading": "2. 核心抽象方法",
+          "level": 3,
+          "line": 76
+        },
+        {
+          "heading": "`isZero` 方法",
+          "level": 4,
+          "line": 78
+        },
+        {
+          "heading": "`copy` 方法",
+          "level": 4,
+          "line": 85
+        },
+        {
+          "heading": "`reset` 方法",
+          "level": 4,
+          "line": 92
+        },
+        {
+          "heading": "`add` 方法",
+          "level": 4,
+          "line": 99
+        },
+        {
+          "heading": "`merge` 方法",
+          "level": 4,
+          "line": 106
+        },
+        {
+          "heading": "`value` 方法",
+          "level": 4,
+          "line": 113
+        },
+        {
+          "heading": "3. 序列化相关方法",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "`writeReplace` 方法",
+          "level": 4,
+          "line": 122
+        },
+        {
+          "heading": "`readObject` 方法",
+          "level": 4,
+          "line": 131
+        },
+        {
+          "heading": "具体实现类分析",
+          "level": 2,
+          "line": 140
+        },
+        {
+          "heading": "LongAccumulator",
+          "level": 3,
+          "line": 142
+        },
+        {
+          "heading": "DoubleAccumulator",
+          "level": 3,
+          "line": 148
+        },
+        {
+          "heading": "CollectionAccumulator[T]",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "AccumulatorContext 对象分析",
+          "level": 2,
+          "line": 160
+        },
+        {
+          "heading": "核心功能",
+          "level": 3,
+          "line": 162
+        },
+        {
+          "heading": "主要方法",
+          "level": 3,
+          "line": 167
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 173
+        },
+        {
+          "heading": "1. 类型安全设计",
+          "level": 3,
+          "line": 175
+        },
+        {
+          "heading": "2. 分布式支持",
+          "level": 3,
+          "line": 179
+        },
+        {
+          "heading": "3. 内存管理",
+          "level": 3,
+          "line": 183
+        },
+        {
+          "heading": "4. 线程安全",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 191
+        },
+        {
+          "heading": "注册参数",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "内部配置",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 201
+        },
+        {
+          "heading": "适用场景",
+          "level": 3,
+          "line": 203
+        },
+        {
+          "heading": "最佳实践",
+          "level": 3,
+          "line": 208
+        },
+        {
+          "heading": "性能考虑",
+          "level": 2,
+          "line": 214
+        },
+        {
+          "heading": "序列化开销",
+          "level": 3,
+          "line": 216
+        },
+        {
+          "heading": "内存占用",
+          "level": 3,
+          "line": 220
+        },
+        {
+          "heading": "扩展性设计",
+          "level": 2,
+          "line": 224
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 43
+      }
+    },
+    {
+      "path": "ByteBufferInputStream.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 226,
+      "nonEmptyLines": 171,
+      "sections": [
+        {
+          "heading": "ByteBufferInputStream 字节缓冲输入流分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "唯一构造函数",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "buffer字段",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 45
+        },
+        {
+          "heading": "1. 核心读取方法",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "`read(): Int` 方法",
+          "level": 4,
+          "line": 49
+        },
+        {
+          "heading": "`read(dest: Array[Byte]): Int` 方法",
+          "level": 4,
+          "line": 71
+        },
+        {
+          "heading": "`read(dest: Array[Byte], offset: Int, length: Int): Int` 方法",
+          "level": 4,
+          "line": 80
+        },
+        {
+          "heading": "2. 跳过方法",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "`skip(bytes: Long): Long` 方法",
+          "level": 4,
+          "line": 102
+        },
+        {
+          "heading": "3. 资源管理方法",
+          "level": 3,
+          "line": 125
+        },
+        {
+          "heading": "`cleanUp(): Unit` 方法",
+          "level": 4,
+          "line": 127
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 147
+        },
+        {
+          "heading": "1. 轻量级设计",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "2. 资源管理",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "3. 兼容性设计",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "4. 性能考虑",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 169
+        },
+        {
+          "heading": "适用场景",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "不适用场景",
+          "level": 3,
+          "line": 177
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 182
+        },
+        {
+          "heading": "ByteBuffer相关参数",
+          "level": 3,
+          "line": 186
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 192
+        },
+        {
+          "heading": "使用建议",
+          "level": 3,
+          "line": 194
+        },
+        {
+          "heading": "性能优化",
+          "level": 3,
+          "line": 199
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 204
+        },
+        {
+          "heading": "可能的扩展",
+          "level": 3,
+          "line": 206
+        },
+        {
+          "heading": "设计限制",
+          "level": 3,
+          "line": 211
+        },
+        {
+          "heading": "与其他组件的关系",
+          "level": 2,
+          "line": 216
+        },
+        {
+          "heading": "与Spark内部组件",
+          "level": 3,
+          "line": 218
+        },
+        {
+          "heading": "与Java标准库",
+          "level": 3,
+          "line": 223
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 34
+      }
+    },
+    {
+      "path": "ByteBufferOutputStream.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 291,
+      "nonEmptyLines": 224,
+      "sections": [
+        {
+          "heading": "ByteBufferOutputStream 字节缓冲输出流分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "主构造函数",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "辅助构造函数",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "closed状态标志",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "继承属性",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "1. 状态检查方法",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "`getCount(): Int` 方法",
+          "level": 4,
+          "line": 61
+        },
+        {
+          "heading": "2. 写入操作方法",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "`write(b: Int): Unit` 方法",
+          "level": 4,
+          "line": 75
+        },
+        {
+          "heading": "`write(b: Array[Byte], off: Int, len: Int): Unit` 方法",
+          "level": 4,
+          "line": 90
+        },
+        {
+          "heading": "3. 流管理方法",
+          "level": 3,
+          "line": 105
+        },
+        {
+          "heading": "`reset(): Unit` 方法",
+          "level": 4,
+          "line": 107
+        },
+        {
+          "heading": "`close(): Unit` 方法",
+          "level": 4,
+          "line": 122
+        },
+        {
+          "heading": "4. 核心转换方法",
+          "level": 3,
+          "line": 140
+        },
+        {
+          "heading": "`toByteBuffer: ByteBuffer` 方法",
+          "level": 4,
+          "line": 142
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 163
+        },
+        {
+          "heading": "1. 零拷贝设计理念",
+          "level": 3,
+          "line": 165
+        },
+        {
+          "heading": "2. 状态机设计",
+          "level": 3,
+          "line": 177
+        },
+        {
+          "heading": "3. 继承与扩展设计",
+          "level": 3,
+          "line": 190
+        },
+        {
+          "heading": "4. 防御性编程",
+          "level": 3,
+          "line": 201
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 208
+        },
+        {
+          "heading": "适用场景",
+          "level": 3,
+          "line": 210
+        },
+        {
+          "heading": "使用流程示例",
+          "level": 3,
+          "line": 216
+        },
+        {
+          "heading": "注意事项",
+          "level": 3,
+          "line": 224
+        },
+        {
+          "heading": "性能优化分析",
+          "level": 2,
+          "line": 230
+        },
+        {
+          "heading": "零拷贝优势",
+          "level": 3,
+          "line": 232
+        },
+        {
+          "heading": "容量规划建议",
+          "level": 3,
+          "line": 237
+        },
+        {
+          "heading": "与其他组件的关系",
+          "level": 2,
+          "line": 242
+        },
+        {
+          "heading": "与ByteBufferInputStream的关系",
+          "level": 3,
+          "line": 244
+        },
+        {
+          "heading": "与Spark内部组件",
+          "level": 3,
+          "line": 249
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 254
+        },
+        {
+          "heading": "可能的扩展功能",
+          "level": 3,
+          "line": 256
+        },
+        {
+          "heading": "设计限制",
+          "level": 3,
+          "line": 262
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 267
+        },
+        {
+          "heading": "使用模式",
+          "level": 3,
+          "line": 269
+        },
+        {
+          "heading": "性能调优",
+          "level": 3,
+          "line": 287
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 40
+      }
+    },
+    {
+      "path": "CausedBy.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 305,
+      "nonEmptyLines": 236,
+      "sections": [
+        {
+          "heading": "CausedBy 异常根因提取器分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "对象概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "核心方法分析",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "unapply 提取器方法",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 66
+        },
+        {
+          "heading": "1. 函数式编程风格",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "2. 递归算法设计",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "3. 模式匹配集成",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "使用场景和示例",
+          "level": 2,
+          "line": 97
+        },
+        {
+          "heading": "基本用法示例",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "与传统写法的对比",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 150
+        },
+        {
+          "heading": "提取器模式（Extractor Pattern）",
+          "level": 3,
+          "line": 152
+        },
+        {
+          "heading": "递归组合模式",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "性能考虑",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "时间复杂度",
+          "level": 3,
+          "line": 173
+        },
+        {
+          "heading": "空间复杂度",
+          "level": 3,
+          "line": 177
+        },
+        {
+          "heading": "实际性能",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "与其他异常处理工具的比较",
+          "level": 2,
+          "line": 186
+        },
+        {
+          "heading": "与Java标准库对比",
+          "level": 3,
+          "line": 188
+        },
+        {
+          "heading": "与第三方库对比",
+          "level": 3,
+          "line": 206
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 217
+        },
+        {
+          "heading": "可能的扩展功能",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "当前设计限制",
+          "level": 3,
+          "line": 236
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 241
+        },
+        {
+          "heading": "使用建议",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "测试策略",
+          "level": 3,
+          "line": 272
+        },
+        {
+          "heading": "在Spark内部的使用场景",
+          "level": 2,
+          "line": 291
+        },
+        {
+          "heading": "任务执行异常处理",
+          "level": 3,
+          "line": 293
+        },
+        {
+          "heading": "序列化错误处理",
+          "level": 3,
+          "line": 297
+        },
+        {
+          "heading": "网络通信异常",
+          "level": 3,
+          "line": 301
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 31
+      }
+    },
+    {
+      "path": "Clock.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 413,
+      "nonEmptyLines": 327,
+      "sections": [
+        {
+          "heading": "Clock 时间管理接口分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "接口定义分析",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Clock Trait 定义",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "方法签名分析",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "`getTimeMillis(): Long` 方法",
+          "level": 4,
+          "line": 28
+        },
+        {
+          "heading": "`nanoTime(): Long` 方法",
+          "level": 4,
+          "line": 41
+        },
+        {
+          "heading": "`waitTillTime(targetTime: Long): Long` 方法",
+          "level": 4,
+          "line": 89
+        },
+        {
+          "heading": "SystemClock 实现类分析",
+          "level": 2,
+          "line": 105
+        },
+        {
+          "heading": "类定义和属性",
+          "level": 3,
+          "line": 107
+        },
+        {
+          "heading": "方法实现分析",
+          "level": 3,
+          "line": 121
+        },
+        {
+          "heading": "`getTimeMillis(): Long` 实现",
+          "level": 4,
+          "line": 123
+        },
+        {
+          "heading": "`nanoTime(): Long` 实现",
+          "level": 4,
+          "line": 133
+        },
+        {
+          "heading": "`waitTillTime(targetTime: Long): Long` 实现",
+          "level": 4,
+          "line": 142
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 207
+        },
+        {
+          "heading": "策略模式（Strategy Pattern）",
+          "level": 3,
+          "line": 209
+        },
+        {
+          "heading": "依赖注入（Dependency Injection）",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "测试模拟能力分析",
+          "level": 2,
+          "line": 239
+        },
+        {
+          "heading": "MockClock 实现示例",
+          "level": 3,
+          "line": 241
+        },
+        {
+          "heading": "性能优化分析",
+          "level": 2,
+          "line": 281
+        },
+        {
+          "heading": "waitTillTime 算法优化",
+          "level": 3,
+          "line": 283
+        },
+        {
+          "heading": "高精度时间测量",
+          "level": 3,
+          "line": 312
+        },
+        {
+          "heading": "在Spark内部的使用场景",
+          "level": 2,
+          "line": 324
+        },
+        {
+          "heading": "任务调度",
+          "level": 3,
+          "line": 326
+        },
+        {
+          "heading": "性能监控",
+          "level": 3,
+          "line": 331
+        },
+        {
+          "heading": "测试框架",
+          "level": 3,
+          "line": 336
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 341
+        },
+        {
+          "heading": "接口使用建议",
+          "level": 3,
+          "line": 343
+        },
+        {
+          "heading": "错误处理",
+          "level": 3,
+          "line": 359
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 383
+        },
+        {
+          "heading": "可能的扩展功能",
+          "level": 3,
+          "line": 385
+        },
+        {
+          "heading": "当前设计限制",
+          "level": 3,
+          "line": 408
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 32
+      }
+    },
+    {
+      "path": "ClosureCleaner.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 423,
+      "nonEmptyLines": 329,
+      "sections": [
+        {
+          "heading": "ClosureCleaner 闭包清理器分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "核心组件架构",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "主要组件概览",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "组件职责分工",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "核心算法分析",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "清理算法流程",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "Indylambda闭包处理",
+          "level": 3,
+          "line": 101
+        },
+        {
+          "heading": "字节码分析技术",
+          "level": 2,
+          "line": 122
+        },
+        {
+          "heading": "ASM框架使用",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "字段访问检测",
+          "level": 3,
+          "line": 140
+        },
+        {
+          "heading": "Return语句检测",
+          "level": 3,
+          "line": 156
+        },
+        {
+          "heading": "关键设计模式",
+          "level": 2,
+          "line": 170
+        },
+        {
+          "heading": "访问者模式（Visitor Pattern）",
+          "level": 3,
+          "line": 172
+        },
+        {
+          "heading": "策略模式（Strategy Pattern）",
+          "level": 3,
+          "line": 186
+        },
+        {
+          "heading": "递归算法设计",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "内存管理和性能优化",
+          "level": 2,
+          "line": 216
+        },
+        {
+          "heading": "对象克隆策略",
+          "level": 3,
+          "line": 218
+        },
+        {
+          "heading": "缓存机制",
+          "level": 3,
+          "line": 231
+        },
+        {
+          "heading": "资源清理",
+          "level": 3,
+          "line": 239
+        },
+        {
+          "heading": "错误处理和异常管理",
+          "level": 2,
+          "line": 246
+        },
+        {
+          "heading": "序列化验证",
+          "level": 3,
+          "line": 248
+        },
+        {
+          "heading": "Return语句限制",
+          "level": 3,
+          "line": 262
+        },
+        {
+          "heading": "平台兼容性处理",
+          "level": 2,
+          "line": 273
+        },
+        {
+          "heading": "Java版本适配",
+          "level": 3,
+          "line": 275
+        },
+        {
+          "heading": "Scala版本适配",
+          "level": 3,
+          "line": 287
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 293
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 295
+        },
+        {
+          "heading": "最佳实践",
+          "level": 3,
+          "line": 315
+        },
+        {
+          "heading": "测试和调试支持",
+          "level": 2,
+          "line": 333
+        },
+        {
+          "heading": "日志输出",
+          "level": 3,
+          "line": 335
+        },
+        {
+          "heading": "测试用例",
+          "level": 3,
+          "line": 344
+        },
+        {
+          "heading": "扩展性和维护性",
+          "level": 2,
+          "line": 361
+        },
+        {
+          "heading": "设计扩展点",
+          "level": 3,
+          "line": 363
+        },
+        {
+          "heading": "代码维护",
+          "level": 3,
+          "line": 373
+        },
+        {
+          "heading": "性能优化建议",
+          "level": 2,
+          "line": 383
+        },
+        {
+          "heading": "缓存优化",
+          "level": 3,
+          "line": 385
+        },
+        {
+          "heading": "算法优化",
+          "level": 3,
+          "line": 392
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 409
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 39
+      }
+    },
+    {
+      "path": "CollectionsUtils.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 368,
+      "nonEmptyLines": 279,
+      "sections": [
+        {
+          "heading": "CollectionsUtils 集合工具类分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "类定义和访问控制",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "类定义",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "核心方法分析",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "makeBinarySearch 方法签名",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "实现策略分析",
+          "level": 2,
+          "line": 50
+        },
+        {
+          "heading": "类型匹配模式",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "基本类型优化",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "引用类型处理",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "性能优化分析",
+          "level": 2,
+          "line": 113
+        },
+        {
+          "heading": "避免装箱操作",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "编译时优化",
+          "level": 3,
+          "line": 133
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 149
+        },
+        {
+          "heading": "策略模式（Strategy Pattern）",
+          "level": 3,
+          "line": 151
+        },
+        {
+          "heading": "工厂方法模式（Factory Method）",
+          "level": 3,
+          "line": 168
+        },
+        {
+          "heading": "类型类模式（Type Class Pattern）",
+          "level": 3,
+          "line": 175
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 186
+        },
+        {
+          "heading": "Spark内部使用",
+          "level": 3,
+          "line": 188
+        },
+        {
+          "heading": "使用示例",
+          "level": 3,
+          "line": 200
+        },
+        {
+          "heading": "与其他组件的对比",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "与Scala标准库对比",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "与Java标准库对比",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 244
+        },
+        {
+          "heading": "支持新类型",
+          "level": 3,
+          "line": 246
+        },
+        {
+          "heading": "算法扩展",
+          "level": 3,
+          "line": 256
+        },
+        {
+          "heading": "错误处理分析",
+          "level": 2,
+          "line": 267
+        },
+        {
+          "heading": "前置条件检查",
+          "level": 3,
+          "line": 269
+        },
+        {
+          "heading": "返回值语义",
+          "level": 3,
+          "line": 280
+        },
+        {
+          "heading": "性能测试建议",
+          "level": 2,
+          "line": 287
+        },
+        {
+          "heading": "基准测试场景",
+          "level": 3,
+          "line": 289
+        },
+        {
+          "heading": "优化效果评估",
+          "level": 3,
+          "line": 310
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 317
+        },
+        {
+          "heading": "使用建议",
+          "level": 3,
+          "line": 319
+        },
+        {
+          "heading": "性能调优",
+          "level": 3,
+          "line": 331
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 353
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 36
+      }
+    },
+    {
+      "path": "CommandLineUtils.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 410,
+      "nonEmptyLines": 315,
+      "sections": [
+        {
+          "heading": "CommandLineUtils 命令行工具框架分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "类结构分析",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "类层次结构",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "CommandLineUtils Trait分析",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "核心方法定义",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "CommandLineLoggingUtils Trait分析",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "依赖注入设计",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "日志输出功能",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "错误处理机制",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 111
+        },
+        {
+          "heading": "模板方法模式（Template Method）",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "依赖注入模式（Dependency Injection）",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "装饰器模式（Decorator Pattern）",
+          "level": 3,
+          "line": 140
+        },
+        {
+          "heading": "可测试性设计",
+          "level": 2,
+          "line": 152
+        },
+        {
+          "heading": "测试友好的接口",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "访问控制策略",
+          "level": 3,
+          "line": 182
+        },
+        {
+          "heading": "在Spark中的应用场景",
+          "level": 2,
+          "line": 195
+        },
+        {
+          "heading": "命令行工具示例",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "错误处理标准化",
+          "level": 3,
+          "line": 235
+        },
+        {
+          "heading": "扩展性设计",
+          "level": 2,
+          "line": 252
+        },
+        {
+          "heading": "trait组合扩展",
+          "level": 3,
+          "line": 254
+        },
+        {
+          "heading": "自定义行为",
+          "level": 3,
+          "line": 271
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 287
+        },
+        {
+          "heading": "实现类设计",
+          "level": 3,
+          "line": 289
+        },
+        {
+          "heading": "错误处理模式",
+          "level": 3,
+          "line": 327
+        },
+        {
+          "heading": "性能考虑",
+          "level": 2,
+          "line": 353
+        },
+        {
+          "heading": "轻量级设计",
+          "level": 3,
+          "line": 355
+        },
+        {
+          "heading": "内存使用",
+          "level": 3,
+          "line": 362
+        },
+        {
+          "heading": "与其他组件的集成",
+          "level": 2,
+          "line": 369
+        },
+        {
+          "heading": "与Logging集成",
+          "level": 3,
+          "line": 371
+        },
+        {
+          "heading": "与配置系统集成",
+          "level": 3,
+          "line": 383
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 394
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 33
+      }
+    },
+    {
+      "path": "CompletionIterator.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 508,
+      "nonEmptyLines": 397,
+      "sections": [
+        {
+          "heading": "CompletionIterator 迭代器完成回调分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "类结构分析",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "类层次结构",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "核心实现分析",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "构造函数和字段",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "迭代器接口实现",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "抽象方法定义",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "伴生对象分析",
+          "level": 2,
+          "line": 102
+        },
+        {
+          "heading": "工厂方法",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 124
+        },
+        {
+          "heading": "装饰器模式（Decorator Pattern）",
+          "level": 3,
+          "line": 126
+        },
+        {
+          "heading": "模板方法模式（Template Method）",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "回调模式（Callback Pattern）",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "资源管理策略",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "及时资源释放",
+          "level": 3,
+          "line": 173
+        },
+        {
+          "heading": "完成状态管理",
+          "level": 3,
+          "line": 190
+        },
+        {
+          "heading": "性能优化分析",
+          "level": 2,
+          "line": 205
+        },
+        {
+          "heading": "零运行时开销",
+          "level": 3,
+          "line": 207
+        },
+        {
+          "heading": "内存管理优化",
+          "level": 3,
+          "line": 220
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 227
+        },
+        {
+          "heading": "Spark内部使用示例",
+          "level": 3,
+          "line": 229
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 22
+      }
+    },
+    {
+      "path": "DependencyUtils.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 691,
+      "nonEmptyLines": 547,
+      "sections": [
+        {
+          "heading": "DependencyUtils 依赖管理工具分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "类结构分析",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "IvyProperties Case Class",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "DependencyUtils Object",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "核心功能分析",
+          "level": 2,
+          "line": 58
+        },
+        {
+          "heading": "Ivy依赖解析",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "getIvyProperties方法",
+          "level": 4,
+          "line": 62
+        },
+        {
+          "heading": "parseQueryParams方法",
+          "level": 4,
+          "line": 83
+        },
+        {
+          "heading": "依赖解析方法",
+          "level": 3,
+          "line": 133
+        },
+        {
+          "heading": "resolveMavenDependencies方法",
+          "level": 4,
+          "line": 135
+        },
+        {
+          "heading": "文件下载功能",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "downloadFileList方法",
+          "level": 4,
+          "line": 178
+        },
+        {
+          "heading": "downloadFile方法",
+          "level": 4,
+          "line": 195
+        },
+        {
+          "heading": "类路径管理",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "addJarsToClassPath方法",
+          "level": 4,
+          "line": 235
+        },
+        {
+          "heading": "路径解析功能",
+          "level": 3,
+          "line": 271
+        },
+        {
+          "heading": "resolveGlobPaths方法",
+          "level": 4,
+          "line": 273
+        },
+        {
+          "heading": "resolveGlobPath方法",
+          "level": 4,
+          "line": 298
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 326
+        },
+        {
+          "heading": "策略模式（Strategy Pattern）",
+          "level": 3,
+          "line": 328
+        },
+        {
+          "heading": "模板方法模式（Template Method）",
+          "level": 3,
+          "line": 344
+        },
+        {
+          "heading": "工厂方法模式（Factory Method）",
+          "level": 3,
+          "line": 360
+        },
+        {
+          "heading": "错误处理机制",
+          "level": 2,
+          "line": 370
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 372
+        },
+        {
+          "heading": "异常处理",
+          "level": 3,
+          "line": 386
+        },
+        {
+          "heading": "警告日志",
+          "level": 3,
+          "line": 407
+        },
+        {
+          "heading": "性能优化分析",
+          "level": 2,
+          "line": 423
+        },
+        {
+          "heading": "懒加载策略",
+          "level": 3,
+          "line": 425
+        },
+        {
+          "heading": "批量处理优化",
+          "level": 3,
+          "line": 439
+        },
+        {
+          "heading": "缓存机制",
+          "level": 3,
+          "line": 451
+        },
+        {
+          "heading": "安全考虑",
+          "level": 2,
+          "line": 463
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 465
+        },
+        {
+          "heading": "文件下载安全",
+          "level": 3,
+          "line": 483
+        },
+        {
+          "heading": "类路径安全",
+          "level": 3,
+          "line": 500
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 512
+        },
+        {
+          "heading": "Spark Submit集成",
+          "level": 3,
+          "line": 514
+        },
+        {
+          "heading": "集群部署支持",
+          "level": 3,
+          "line": 531
+        },
+        {
+          "heading": "开发调试支持",
+          "level": 3,
+          "line": 544
+        },
+        {
+          "heading": "扩展性设计",
+          "level": 2,
+          "line": 557
+        },
+        {
+          "heading": "协议扩展支持",
+          "level": 3,
+          "line": 559
+        },
+        {
+          "heading": "依赖解析器扩展",
+          "level": 3,
+          "line": 572
+        },
+        {
+          "heading": "配置系统集成",
+          "level": 3,
+          "line": 581
+        },
+        {
+          "heading": "测试策略",
+          "level": 2,
+          "line": 590
+        },
+        {
+          "heading": "单元测试示例",
+          "level": 3,
+          "line": 592
+        },
+        {
+          "heading": "集成测试",
+          "level": 3,
+          "line": 620
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 633
+        },
+        {
+          "heading": "配置管理",
+          "level": 3,
+          "line": 635
+        },
+        {
+          "heading": "错误处理",
+          "level": 3,
+          "line": 647
+        },
+        {
+          "heading": "性能优化",
+          "level": 3,
+          "line": 663
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 675
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 51
+      }
+    },
+    {
+      "path": "Distribution.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 574,
+      "nonEmptyLines": 441,
+      "sections": [
+        {
+          "heading": "Distribution 统计分布分析工具分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "类结构分析",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "类层次结构",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "核心实现分析",
+          "level": 2,
+          "line": 42
+        },
+        {
+          "heading": "数据预处理",
+          "level": 3,
+          "line": 44
+        },
+        {
+          "heading": "关键属性",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "核心算法分析",
+          "level": 2,
+          "line": 83
+        },
+        {
+          "heading": "分位数计算算法",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "统计量计算",
+          "level": 3,
+          "line": 116
+        },
+        {
+          "heading": "可视化输出功能",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "分位数显示",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "统计摘要",
+          "level": 3,
+          "line": 152
+        },
+        {
+          "heading": "伴生对象分析",
+          "level": 2,
+          "line": 167
+        },
+        {
+          "heading": "工厂方法",
+          "level": 3,
+          "line": 169
+        },
+        {
+          "heading": "工具方法",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 199
+        },
+        {
+          "heading": "工厂模式（Factory Pattern）",
+          "level": 3,
+          "line": 201
+        },
+        {
+          "heading": "值对象模式（Value Object Pattern）",
+          "level": 3,
+          "line": 215
+        },
+        {
+          "heading": "策略模式（Strategy Pattern）",
+          "level": 3,
+          "line": 227
+        },
+        {
+          "heading": "性能优化分析",
+          "level": 2,
+          "line": 239
+        },
+        {
+          "heading": "排序预处理策略",
+          "level": 3,
+          "line": 241
+        },
+        {
+          "heading": "内存使用优化",
+          "level": 3,
+          "line": 258
+        },
+        {
+          "heading": "小数据集优化",
+          "level": 3,
+          "line": 270
+        },
+        {
+          "heading": "数学算法分析",
+          "level": 2,
+          "line": 282
+        },
+        {
+          "heading": "分位数算法选择",
+          "level": 3,
+          "line": 284
+        },
+        {
+          "heading": "边界处理算法",
+          "level": 3,
+          "line": 304
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 316
+        },
+        {
+          "heading": "Spark内部应用",
+          "level": 3,
+          "line": 318
+        },
+        {
+          "heading": "性能监控场景",
+          "level": 3,
+          "line": 337
+        },
+        {
+          "heading": "数据质量检查",
+          "level": 3,
+          "line": 354
+        },
+        {
+          "heading": "错误处理和健壮性",
+          "level": 2,
+          "line": 368
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 370
+        },
+        {
+          "heading": "边界条件处理",
+          "level": 3,
+          "line": 382
+        },
+        {
+          "heading": "扩展性设计",
+          "level": 2,
+          "line": 403
+        },
+        {
+          "heading": "自定义分位点支持",
+          "level": 3,
+          "line": 405
+        },
+        {
+          "heading": "统计方法扩展",
+          "level": 3,
+          "line": 419
+        },
+        {
+          "heading": "输出格式扩展",
+          "level": 3,
+          "line": 433
+        },
+        {
+          "heading": "与其他组件集成",
+          "level": 2,
+          "line": 447
+        },
+        {
+          "heading": "与StatCounter集成",
+          "level": 3,
+          "line": 449
+        },
+        {
+          "heading": "与Spark Metrics集成",
+          "level": 3,
+          "line": 461
+        },
+        {
+          "heading": "性能测试建议",
+          "level": 2,
+          "line": 475
+        },
+        {
+          "heading": "基准测试场景",
+          "level": 3,
+          "line": 477
+        },
+        {
+          "heading": "内存使用测试",
+          "level": 3,
+          "line": 495
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 505
+        },
+        {
+          "heading": "使用模式",
+          "level": 3,
+          "line": 507
+        },
+        {
+          "heading": "性能敏感场景",
+          "level": 3,
+          "line": 527
+        },
+        {
+          "heading": "错误处理最佳实践",
+          "level": 3,
+          "line": 541
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 558
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 49
+      }
+    },
+    {
+      "path": "EventLoop.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 670,
+      "nonEmptyLines": 526,
+      "sections": [
+        {
+          "heading": "EventLoop 事件循环框架分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "类结构分析",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "类定义和类型参数",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "核心组件分析",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "事件队列",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "状态管理",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "事件线程",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "核心算法分析",
+          "level": 2,
+          "line": 84
+        },
+        {
+          "heading": "事件循环主逻辑",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "事件处理流程",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "生命周期管理",
+          "level": 2,
+          "line": 132
+        },
+        {
+          "heading": "启动过程",
+          "level": 3,
+          "line": 134
+        },
+        {
+          "heading": "停止过程",
+          "level": 3,
+          "line": 157
+        },
+        {
+          "heading": "事件发布机制",
+          "level": 2,
+          "line": 191
+        },
+        {
+          "heading": "post方法",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "抽象方法接口",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "事件处理接口",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "生命周期回调",
+          "level": 3,
+          "line": 239
+        },
+        {
+          "heading": "错误处理接口",
+          "level": 3,
+          "line": 261
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 278
+        },
+        {
+          "heading": "模板方法模式（Template Method）",
+          "level": 3,
+          "line": 280
+        },
+        {
+          "heading": "生产者-消费者模式",
+          "level": 3,
+          "line": 301
+        },
+        {
+          "heading": "观察者模式变体",
+          "level": 3,
+          "line": 322
+        },
+        {
+          "heading": "线程模型分析",
+          "level": 2,
+          "line": 335
+        },
+        {
+          "heading": "单线程事件处理",
+          "level": 3,
+          "line": 337
+        },
+        {
+          "heading": "守护线程设计",
+          "level": 3,
+          "line": 349
+        },
+        {
+          "heading": "错误处理机制",
+          "level": 2,
+          "line": 361
+        },
+        {
+          "heading": "多层异常处理",
+          "level": 3,
+          "line": 363
+        },
+        {
+          "heading": "中断处理",
+          "level": 3,
+          "line": 384
+        },
+        {
+          "heading": "性能优化分析",
+          "level": 2,
+          "line": 398
+        },
+        {
+          "heading": "队列选择优化",
+          "level": 3,
+          "line": 400
+        },
+        {
+          "heading": "原子操作优化",
+          "level": 3,
+          "line": 412
+        },
+        {
+          "heading": "内存管理考虑",
+          "level": 2,
+          "line": 424
+        },
+        {
+          "heading": "无界队列风险",
+          "level": 3,
+          "line": 426
+        },
+        {
+          "heading": "对象生命周期",
+          "level": 3,
+          "line": 439
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 446
+        },
+        {
+          "heading": "Spark内部应用",
+          "level": 3,
+          "line": 448
+        },
+        {
+          "heading": "自定义事件循环",
+          "level": 3,
+          "line": 481
+        },
+        {
+          "heading": "扩展性设计",
+          "level": 2,
+          "line": 524
+        },
+        {
+          "heading": "自定义队列实现",
+          "level": 3,
+          "line": 526
+        },
+        {
+          "heading": "优先级事件支持",
+          "level": 3,
+          "line": 545
+        },
+        {
+          "heading": "测试策略",
+          "level": 2,
+          "line": 556
+        },
+        {
+          "heading": "单元测试示例",
+          "level": 3,
+          "line": 558
+        },
+        {
+          "heading": "并发测试",
+          "level": 3,
+          "line": 580
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 602
+        },
+        {
+          "heading": "事件设计原则",
+          "level": 3,
+          "line": 604
+        },
+        {
+          "heading": "错误处理最佳实践",
+          "level": 3,
+          "line": 617
+        },
+        {
+          "heading": "性能优化建议",
+          "level": 3,
+          "line": 636
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 654
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 50
+      }
+    },
+    {
+      "path": "HadoopFSUtils.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 575,
+      "nonEmptyLines": 463,
+      "sections": [
+        {
+          "heading": "HadoopFSUtils Hadoop文件系统工具分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "概述和设计目标",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "类结构分析",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "类定义和访问控制",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "内部数据结构",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "核心算法分析",
+          "level": 2,
+          "line": 63
+        },
+        {
+          "heading": "并行文件列表算法",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "parallelListLeafFiles方法",
+          "level": 4,
+          "line": 67
+        },
+        {
+          "heading": "智能策略选择",
+          "level": 3,
+          "line": 131
+        },
+        {
+          "heading": "递归目录遍历",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "listLeafFiles方法",
+          "level": 4,
+          "line": 151
+        },
+        {
+          "heading": "文件系统集成优化",
+          "level": 2,
+          "line": 203
+        },
+        {
+          "heading": "Hadoop文件系统适配",
+          "level": 3,
+          "line": 205
+        },
+        {
+          "heading": "文件系统异常处理",
+          "level": 3,
+          "line": 218
+        },
+        {
+          "heading": "路径过滤策略",
+          "level": 3,
+          "line": 234
+        },
+        {
+          "heading": "shouldFilterOutPathName方法",
+          "level": 4,
+          "line": 236
+        },
+        {
+          "heading": "性能优化策略",
+          "level": 2,
+          "line": 254
+        },
+        {
+          "heading": "并行化优化",
+          "level": 3,
+          "line": 256
+        },
+        {
+          "heading": "内存优化",
+          "level": 3,
+          "line": 268
+        },
+        {
+          "heading": "本地性优化",
+          "level": 3,
+          "line": 290
+        },
+        {
+          "heading": "容错和健壮性设计",
+          "level": 2,
+          "line": 304
+        },
+        {
+          "heading": "竞争条件处理",
+          "level": 3,
+          "line": 306
+        },
+        {
+          "heading": "配置序列化",
+          "level": 3,
+          "line": 320
+        },
+        {
+          "heading": "作业描述管理",
+          "level": 3,
+          "line": 332
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 350
+        },
+        {
+          "heading": "策略模式（Strategy Pattern）",
+          "level": 3,
+          "line": 352
+        },
+        {
+          "heading": "模板方法模式（Template Method）",
+          "level": 3,
+          "line": 368
+        },
+        {
+          "heading": "工厂方法模式（Factory Method）",
+          "level": 3,
+          "line": 380
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 387
+        },
+        {
+          "heading": "Spark SQL表扫描",
+          "level": 3,
+          "line": 389
+        },
+        {
+          "heading": "数据湖表发现",
+          "level": 3,
+          "line": 408
+        },
+        {
+          "heading": "数据迁移工具",
+          "level": 3,
+          "line": 422
+        },
+        {
+          "heading": "性能测试和调优",
+          "level": 2,
+          "line": 434
+        },
+        {
+          "heading": "基准测试指标",
+          "level": 3,
+          "line": 436
+        },
+        {
+          "heading": "调优参数",
+          "level": 3,
+          "line": 444
+        },
+        {
+          "heading": "监控和诊断",
+          "level": 3,
+          "line": 463
+        },
+        {
+          "heading": "扩展性设计",
+          "level": 2,
+          "line": 474
+        },
+        {
+          "heading": "自定义文件系统支持",
+          "level": 3,
+          "line": 476
+        },
+        {
+          "heading": "过滤器扩展",
+          "level": 3,
+          "line": 485
+        },
+        {
+          "heading": "序列化格式扩展",
+          "level": 3,
+          "line": 495
+        },
+        {
+          "heading": "最佳实践",
+          "level": 2,
+          "line": 505
+        },
+        {
+          "heading": "使用模式",
+          "level": 3,
+          "line": 507
+        },
+        {
+          "heading": "错误处理最佳实践",
+          "level": 3,
+          "line": 522
+        },
+        {
+          "heading": "性能优化实践",
+          "level": 3,
+          "line": 541
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 559
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 45
+      }
+    },
+    {
+      "path": "IdGenerator.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 99,
+      "nonEmptyLines": 70,
+      "sections": [
+        {
+          "heading": "IdGenerator 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "`id: AtomicInteger`",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "唯一ID生成方法",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "`def next: Int`",
+          "level": 4,
+          "line": 25
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "1. 线程安全性",
+          "level": 3,
+          "line": 38
+        },
+        {
+          "heading": "2. 简单高效",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "3. 内部使用",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "4. 序列化特性",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 54
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 60
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 72
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 83
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 87
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "IntParam.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 137,
+      "nonEmptyLines": 104,
+      "sections": [
+        {
+          "heading": "IntParam 提取器对象分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "对象概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "提取器模式（Extractor Pattern）",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "核心方法说明",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "`def unapply(str: String): Option[Int]`",
+          "level": 3,
+          "line": 16
+        },
+        {
+          "heading": "使用示例和模式匹配",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "基本用法示例",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "模式匹配用法",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 48
+        },
+        {
+          "heading": "1. 函数式编程风格",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "2. 类型安全",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "3. 模式匹配集成",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "4. 异常处理",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 70
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 77
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 93
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 95
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 104
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 111
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "Scala语言特性应用",
+          "level": 2,
+          "line": 125
+        },
+        {
+          "heading": "提取器模式的应用",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "Option类型的运用",
+          "level": 3,
+          "line": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 27
+      }
+    },
+    {
+      "path": "JsonProtocol.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 162,
+      "nonEmptyLines": 126,
+      "sections": [
+        {
+          "heading": "JsonProtocol 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "主要功能定位",
+          "level": 3,
+          "line": 7
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "1. ObjectMapper 实例",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "2. 事件类型名称常量",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "1. 核心序列化方法",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "sparkEventToJsonString",
+          "level": 4,
+          "line": 45
+        },
+        {
+          "heading": "toJsonString",
+          "level": 4,
+          "line": 53
+        },
+        {
+          "heading": "2. 事件特定序列化方法",
+          "level": 3,
+          "line": 64
+        },
+        {
+          "heading": "3. 核心反序列化方法",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "sparkEventFromJson",
+          "level": 4,
+          "line": 79
+        },
+        {
+          "heading": "4. 辅助工具方法",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "类型转换方法",
+          "level": 4,
+          "line": 92
+        },
+        {
+          "heading": "JSON 节点操作方法",
+          "level": 4,
+          "line": 98
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 102
+        },
+        {
+          "heading": "1. 兼容性设计",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "2. 类型安全",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "3. 模块化设计",
+          "level": 3,
+          "line": 114
+        },
+        {
+          "heading": "4. 性能优化",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 124
+        },
+        {
+          "heading": "Jackson 配置参数",
+          "level": 3,
+          "line": 126
+        },
+        {
+          "heading": "序列化排除列表",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "扩展内容分析",
+          "level": 2,
+          "line": 136
+        },
+        {
+          "heading": "性能优化点",
+          "level": 3,
+          "line": 138
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 3,
+          "line": 148
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 160
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 31
+      }
+    },
+    {
+      "path": "KeyLock.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 175,
+      "nonEmptyLines": 136,
+      "sections": [
+        {
+          "heading": "KeyLock 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "泛型参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "`K` - 键类型参数",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "`lockMap: ConcurrentHashMap[K, AnyRef]`",
+          "level": 3,
+          "line": 18
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "锁获取和释放方法",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "`private def acquireLock(key: K): Unit`",
+          "level": 4,
+          "line": 31
+        },
+        {
+          "heading": "`private def releaseLock(key: K): Unit`",
+          "level": 4,
+          "line": 40
+        },
+        {
+          "heading": "公共接口方法",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "`def withLock[T](key: K)(func: => T): T`",
+          "level": 4,
+          "line": 49
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "1. 细粒度锁设计",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "2. 线程安全性",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "3. 资源管理",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "4. 泛型设计",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "并发机制详细分析",
+          "level": 2,
+          "line": 88
+        },
+        {
+          "heading": "锁获取流程",
+          "level": 3,
+          "line": 90
+        },
+        {
+          "heading": "锁释放流程",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 106
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 118
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 125
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 131
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 133
+        },
+        {
+          "heading": "执行保障",
+          "level": 3,
+          "line": 137
+        },
+        {
+          "heading": "与其他并发工具的比较",
+          "level": 2,
+          "line": 141
+        },
+        {
+          "heading": "与ReentrantLock比较",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "与synchronized比较",
+          "level": 3,
+          "line": 147
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 151
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 153
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "设计模式应用",
+          "level": 2,
+          "line": 164
+        },
+        {
+          "heading": "模板方法模式",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "策略模式",
+          "level": 3,
+          "line": 172
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 38
+      }
+    },
+    {
+      "path": "ListenerBus.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 198,
+      "nonEmptyLines": 148,
+      "sections": [
+        {
+          "heading": "ListenerBus 特质分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "泛型参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "`L <: AnyRef` - 监听器类型参数",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "`E` - 事件类型参数",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "`listenersPlusTimers: CopyOnWriteArrayList[(L, Option[Timer])]`",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "`listeners: java.util.List[L]`",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "配置相关属性",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "监听器管理方法",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "`final def addListener(listener: L): Unit`",
+          "level": 4,
+          "line": 41
+        },
+        {
+          "heading": "`final def removeListener(listener: L): Unit`",
+          "level": 4,
+          "line": 46
+        },
+        {
+          "heading": "`final def removeAllListeners(): Unit`",
+          "level": 4,
+          "line": 51
+        },
+        {
+          "heading": "事件发布核心方法",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "`def postToAll(event: E): Unit`",
+          "level": 4,
+          "line": 57
+        },
+        {
+          "heading": "`protected def doPostEvent(listener: L, event: E): Unit`",
+          "level": 4,
+          "line": 63
+        },
+        {
+          "heading": "辅助方法",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "`protected def getTimer(listener: L): Option[Timer]`",
+          "level": 4,
+          "line": 69
+        },
+        {
+          "heading": "`protected def isIgnorableException(e: Throwable): Boolean`",
+          "level": 4,
+          "line": 74
+        },
+        {
+          "heading": "`def removeListenerOnError(listener: L): Unit`",
+          "level": 4,
+          "line": 79
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 84
+        },
+        {
+          "heading": "1. 监听器模式实现",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "2. 线程安全设计",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "3. 性能监控集成",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "4. 异常处理机制",
+          "level": 3,
+          "line": 101
+        },
+        {
+          "heading": "5. 扩展性设计",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "事件发布流程详细分析",
+          "level": 2,
+          "line": 111
+        },
+        {
+          "heading": "发布流程步骤",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "异常处理策略",
+          "level": 3,
+          "line": 123
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "优化措施",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "性能考虑",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 141
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 148
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 154
+        },
+        {
+          "heading": "Spark配置参数",
+          "level": 3,
+          "line": 156
+        },
+        {
+          "heading": "环境依赖",
+          "level": 3,
+          "line": 160
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 164
+        },
+        {
+          "heading": "子类实现要点",
+          "level": 3,
+          "line": 166
+        },
+        {
+          "heading": "功能扩展方向",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "设计模式应用",
+          "level": 2,
+          "line": 177
+        },
+        {
+          "heading": "模板方法模式",
+          "level": 3,
+          "line": 179
+        },
+        {
+          "heading": "观察者模式",
+          "level": 3,
+          "line": 182
+        },
+        {
+          "heading": "策略模式",
+          "level": 3,
+          "line": 185
+        },
+        {
+          "heading": "安全性和稳定性",
+          "level": 2,
+          "line": 188
+        },
+        {
+          "heading": "线程安全保证",
+          "level": 3,
+          "line": 190
+        },
+        {
+          "heading": "错误隔离",
+          "level": 3,
+          "line": 195
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 49
+      }
+    },
+    {
+      "path": "ManualClock.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 206,
+      "nonEmptyLines": 156,
+      "sections": [
+        {
+          "heading": "ManualClock 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "主构造函数",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "辅助构造函数",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "`time: Long`",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "时间获取方法",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "`override def getTimeMillis(): Long`",
+          "level": 4,
+          "line": 34
+        },
+        {
+          "heading": "`override def nanoTime(): Long`",
+          "level": 4,
+          "line": 40
+        },
+        {
+          "heading": "时间控制方法",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "`def setTime(timeToSet: Long): Unit`",
+          "level": 4,
+          "line": 48
+        },
+        {
+          "heading": "`def advance(timeToAdd: Long): Unit`",
+          "level": 4,
+          "line": 55
+        },
+        {
+          "heading": "时间等待方法",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "`override def waitTillTime(targetTime: Long): Long`",
+          "level": 4,
+          "line": 64
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 72
+        },
+        {
+          "heading": "1. 测试专用设计",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "2. 线程安全实现",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "3. 等待机制集成",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "4. 时间单位统一",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 94
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 102
+        },
+        {
+          "heading": "测试代码示例",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 134
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 141
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 146
+        },
+        {
+          "heading": "中断异常处理",
+          "level": 3,
+          "line": 148
+        },
+        {
+          "heading": "时间溢出处理",
+          "level": 3,
+          "line": 153
+        },
+        {
+          "heading": "与其他时钟实现的比较",
+          "level": 2,
+          "line": 158
+        },
+        {
+          "heading": "与SystemClock比较",
+          "level": 3,
+          "line": 160
+        },
+        {
+          "heading": "与MockClock比较",
+          "level": 3,
+          "line": 165
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 170
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 172
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 178
+        },
+        {
+          "heading": "设计模式应用",
+          "level": 2,
+          "line": 183
+        },
+        {
+          "heading": "策略模式",
+          "level": 3,
+          "line": 185
+        },
+        {
+          "heading": "模板方法模式",
+          "level": 3,
+          "line": 188
+        },
+        {
+          "heading": "测试价值分析",
+          "level": 2,
+          "line": 191
+        },
+        {
+          "heading": "确定性测试",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "边界条件测试",
+          "level": 3,
+          "line": 198
+        },
+        {
+          "heading": "并发测试",
+          "level": 3,
+          "line": 203
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 44
+      }
+    },
+    {
+      "path": "MemoryParam.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 278,
+      "nonEmptyLines": 222,
+      "sections": [
+        {
+          "heading": "MemoryParam 提取器对象分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "对象概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "设计模式分析",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "提取器模式（Extractor Pattern）",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "核心方法说明",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "`def unapply(str: String): Option[Int]`",
+          "level": 3,
+          "line": 16
+        },
+        {
+          "heading": "支持的内存字符串格式",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "支持的格式规则",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "单位后缀",
+          "level": 4,
+          "line": 33
+        },
+        {
+          "heading": "数值格式",
+          "level": 4,
+          "line": 40
+        },
+        {
+          "heading": "转换规则示例",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "使用示例和模式匹配",
+          "level": 2,
+          "line": 54
+        },
+        {
+          "heading": "基本用法示例",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "模式匹配用法",
+          "level": 3,
+          "line": 64
+        },
+        {
+          "heading": "实际应用场景",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "1. 类型安全的内存解析",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "2. 标准化格式支持",
+          "level": 3,
+          "line": 102
+        },
+        {
+          "heading": "3. 函数式编程风格",
+          "level": 3,
+          "line": 107
+        },
+        {
+          "heading": "4. 异常处理机制",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "5. 模式匹配集成",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "与Utils.memoryStringToMb的关系",
+          "level": 2,
+          "line": 122
+        },
+        {
+          "heading": "功能委托",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "设计分工",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 134
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 141
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "配置验证",
+          "level": 4,
+          "line": 151
+        },
+        {
+          "heading": "默认值处理",
+          "level": 4,
+          "line": 159
+        },
+        {
+          "heading": "链式处理",
+          "level": 4,
+          "line": 165
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 174
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "错误处理机制",
+          "level": 2,
+          "line": 185
+        },
+        {
+          "heading": "转换失败处理",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "调用方责任",
+          "level": 3,
+          "line": 192
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 198
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 200
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 206
+        },
+        {
+          "heading": "Scala语言特性应用",
+          "level": 2,
+          "line": 211
+        },
+        {
+          "heading": "提取器模式的高级应用",
+          "level": 3,
+          "line": 213
+        },
+        {
+          "heading": "Option类型的组合使用",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "与其他参数解析器的比较",
+          "level": 2,
+          "line": 235
+        },
+        {
+          "heading": "与IntParam比较",
+          "level": 3,
+          "line": 237
+        },
+        {
+          "heading": "优势特点",
+          "level": 3,
+          "line": 244
+        },
+        {
+          "heading": "测试策略建议",
+          "level": 2,
+          "line": 249
+        },
+        {
+          "heading": "单元测试重点",
+          "level": 3,
+          "line": 251
+        },
+        {
+          "heading": "测试代码示例",
+          "level": 3,
+          "line": 257
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 49
+      }
+    }
+  ]
+}

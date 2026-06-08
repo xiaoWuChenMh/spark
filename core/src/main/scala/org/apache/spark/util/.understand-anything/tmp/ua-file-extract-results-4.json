@@ -1,0 +1,820 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "io/ChunkedByteBuffer.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 246,
+      "nonEmptyLines": 185,
+      "sections": [
+        {
+          "heading": "ChunkedByteBuffer 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "主构造函数",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "辅助构造函数",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "缓冲区属性",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "配置参数",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "IO操作方法",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "`writeFully(channel: WritableByteChannel): Unit`",
+          "level": 4,
+          "line": 43
+        },
+        {
+          "heading": "`toInputStream(dispose: Boolean = false): InputStream`",
+          "level": 4,
+          "line": 49
+        },
+        {
+          "heading": "数据转换方法",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "`toArray: Array[Byte]`",
+          "level": 4,
+          "line": 56
+        },
+        {
+          "heading": "`toByteBuffer: ByteBuffer`",
+          "level": 4,
+          "line": 61
+        },
+        {
+          "heading": "`toNetty: ChunkedByteBufferFileRegion`",
+          "level": 4,
+          "line": 66
+        },
+        {
+          "heading": "缓冲区管理方法",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "`getChunks(): Array[ByteBuffer]`",
+          "level": 4,
+          "line": 72
+        },
+        {
+          "heading": "`copy(allocator: Int => ByteBuffer): ChunkedByteBuffer`",
+          "level": 4,
+          "line": 76
+        },
+        {
+          "heading": "`dispose(): Unit`",
+          "level": 4,
+          "line": 81
+        },
+        {
+          "heading": "序列化方法",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "`writeExternal(out: ObjectOutput): Unit`",
+          "level": 4,
+          "line": 88
+        },
+        {
+          "heading": "`readExternal(in: ObjectInput): Unit`",
+          "level": 4,
+          "line": 93
+        },
+        {
+          "heading": "静态工厂方法",
+          "level": 2,
+          "line": 97
+        },
+        {
+          "heading": "`fromManagedBuffer(data: ManagedBuffer): ChunkedByteBuffer`",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "`fromFile(file: File): ChunkedByteBuffer`",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "`estimateBufferChunkSize(estimatedSize: Long = -1): Int`",
+          "level": 3,
+          "line": 110
+        },
+        {
+          "heading": "ChunkedByteBufferInputStream类分析",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "类定义",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "核心属性",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "主要方法",
+          "level": 3,
+          "line": 126
+        },
+        {
+          "heading": "`read(): Int`",
+          "level": 4,
+          "line": 128
+        },
+        {
+          "heading": "`read(dest: Array[Byte], offset: Int, length: Int): Int`",
+          "level": 4,
+          "line": 133
+        },
+        {
+          "heading": "`skip(bytes: Long): Long`",
+          "level": 4,
+          "line": 137
+        },
+        {
+          "heading": "`close(): Unit`",
+          "level": 4,
+          "line": 141
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 145
+        },
+        {
+          "heading": "1. 内存管理优化",
+          "level": 3,
+          "line": 147
+        },
+        {
+          "heading": "2. IO性能优化",
+          "level": 3,
+          "line": 152
+        },
+        {
+          "heading": "3. 安全性设计",
+          "level": 3,
+          "line": 157
+        },
+        {
+          "heading": "4. 兼容性设计",
+          "level": 3,
+          "line": 162
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 167
+        },
+        {
+          "heading": "块大小配置",
+          "level": 3,
+          "line": 169
+        },
+        {
+          "heading": "内存限制",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 178
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 186
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 191
+        },
+        {
+          "heading": "输入验证异常",
+          "level": 3,
+          "line": 193
+        },
+        {
+          "heading": "资源管理异常",
+          "level": 3,
+          "line": 198
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 203
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 205
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 211
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 217
+        },
+        {
+          "heading": "依赖模块",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "集成点",
+          "level": 3,
+          "line": 225
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 230
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 232
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 238
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 244
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 59
+      }
+    },
+    {
+      "path": "io/ChunkedByteBufferFileRegion.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 220,
+      "nonEmptyLines": 172,
+      "sections": [
+        {
+          "heading": "ChunkedByteBufferFileRegion 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "主构造函数",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "状态跟踪属性",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "数据属性",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "配置属性",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "文件区域接口方法",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "`count(): Long`",
+          "level": 4,
+          "line": 34
+        },
+        {
+          "heading": "`position(): Long`",
+          "level": 4,
+          "line": 39
+        },
+        {
+          "heading": "`transferred(): Long`",
+          "level": 4,
+          "line": 44
+        },
+        {
+          "heading": "`deallocate: Unit`",
+          "level": 4,
+          "line": 48
+        },
+        {
+          "heading": "核心传输方法",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "`transferTo(target: WritableByteChannel, position: Long): Long`",
+          "level": 4,
+          "line": 54
+        },
+        {
+          "heading": "传输算法详细分析",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "传输状态管理",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "块内传输逻辑",
+          "level": 3,
+          "line": 79
+        },
+        {
+          "heading": "传输控制策略",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "块切换逻辑",
+          "level": 3,
+          "line": 102
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "1. 大文件传输支持",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "2. 传输性能优化",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "3. 资源管理",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "4. 错误处理",
+          "level": 3,
+          "line": 132
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 137
+        },
+        {
+          "heading": "IO块大小配置",
+          "level": 3,
+          "line": 139
+        },
+        {
+          "heading": "传输状态跟踪",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 149
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 151
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 157
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 162
+        },
+        {
+          "heading": "参数验证",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "传输控制",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 176
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 178
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 184
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 190
+        },
+        {
+          "heading": "依赖关系",
+          "level": 3,
+          "line": 192
+        },
+        {
+          "heading": "集成点",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 202
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 210
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 216
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 45
+      }
+    },
+    {
+      "path": "io/ChunkedByteBufferOutputStream.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 244,
+      "nonEmptyLines": 192,
+      "sections": [
+        {
+          "heading": "ChunkedByteBufferOutputStream 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "主构造函数",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "状态跟踪属性",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "数据存储属性",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "输出流接口方法",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "`write(b: Int): Unit`",
+          "level": 4,
+          "line": 33
+        },
+        {
+          "heading": "`write(bytes: Array[Byte], off: Int, len: Int): Unit`",
+          "level": 4,
+          "line": 41
+        },
+        {
+          "heading": "`close(): Unit`",
+          "level": 4,
+          "line": 49
+        },
+        {
+          "heading": "核心管理方法",
+          "level": 3,
+          "line": 54
+        },
+        {
+          "heading": "`allocateNewChunkIfNeeded(): Unit`",
+          "level": 4,
+          "line": 56
+        },
+        {
+          "heading": "`toChunkedByteBuffer: ChunkedByteBuffer`",
+          "level": 4,
+          "line": 64
+        },
+        {
+          "heading": "转换算法详细分析",
+          "level": 2,
+          "line": 71
+        },
+        {
+          "heading": "转换流程概述",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "最后一个块的特殊处理",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "内存优化策略",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 105
+        },
+        {
+          "heading": "1. 内存管理优化",
+          "level": 3,
+          "line": 107
+        },
+        {
+          "heading": "2. 性能优化设计",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "3. 状态管理严谨",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "4. 接口兼容性",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "块大小配置",
+          "level": 3,
+          "line": 129
+        },
+        {
+          "heading": "分配器配置",
+          "level": 3,
+          "line": 134
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 139
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 141
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 147
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 152
+        },
+        {
+          "heading": "前置条件检查",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "错误场景处理",
+          "level": 3,
+          "line": 161
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 166
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 168
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 180
+        },
+        {
+          "heading": "依赖关系",
+          "level": 3,
+          "line": 182
+        },
+        {
+          "heading": "集成点",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 192
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 194
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 200
+        },
+        {
+          "heading": "内存管理策略分析",
+          "level": 2,
+          "line": 206
+        },
+        {
+          "heading": "分配策略",
+          "level": 3,
+          "line": 208
+        },
+        {
+          "heading": "释放策略",
+          "level": 3,
+          "line": 213
+        },
+        {
+          "heading": "转换算法优化",
+          "level": 2,
+          "line": 218
+        },
+        {
+          "heading": "缓冲区重用优化",
+          "level": 3,
+          "line": 220
+        },
+        {
+          "heading": "最后一个块优化",
+          "level": 3,
+          "line": 229
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 240
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 49
+      }
+    }
+  ]
+}

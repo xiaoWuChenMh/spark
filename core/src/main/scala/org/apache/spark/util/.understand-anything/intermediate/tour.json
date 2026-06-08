@@ -1,0 +1,219 @@
+[
+  {
+    "order": 1,
+    "title": "包概览：org.apache.spark.util",
+    "description": "Spark 内核最常被引用的「工具/基础设施」包。Utils.scala、线程/事件总线、序列化包装、可溢写数据结构等都被本包之上的 scheduler/shuffle/storage 大量使用。先看 package.scala 的注释与 Utils.scala 顶部说明，建立对包职责的整体印象。",
+    "nodeIds": [
+      "file:package.scala",
+      "file:Utils.scala"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "通用工具：Utils 对象",
+    "description": "Utils 是 Spark 内的事实「瑞士军刀」：文件/IO 包装、时间/字节解析、字符串处理、Java/Scala 互转、反射、类加载器等。了解它的方法分布有助于在阅读其他模块时快速定位基础设施。",
+    "nodeIds": [
+      "file:Utils.scala",
+      "file:CollectionsUtils.scala",
+      "file:CommandLineUtils.scala",
+      "file:CausedBy.scala"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "并发原语与生命周期",
+    "description": "线程池、命名工厂、关闭钩子、KeyLock、UninterruptibleThread 等基础设施，Spark 启动/执行/Shuffle 都会用到。ListenerBus 与 EventLoop 构成事件分发核心。",
+    "nodeIds": [
+      "file:ThreadUtils.scala",
+      "file:ShutdownHookManager.scala",
+      "file:KeyLock.scala",
+      "file:UninterruptibleThread.scala",
+      "file:UninterruptibleThreadRunner.scala",
+      "file:ListenerBus.scala",
+      "file:EventLoop.scala",
+      "file:SignalUtils.scala"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "时间抽象：Clock/ManualClock",
+    "description": "Spark 把『系统时间』抽象成 Clock trait，便于调度、事件总线等逻辑在测试中推进时间。ManualClock 是测试替身。",
+    "nodeIds": [
+      "file:Clock.scala",
+      "file:ManualClock.scala"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "序列化与可分发包装",
+    "description": "Spark 经常需要把 Hadoop Configuration/JobConf、ByteBuffer 之类的对象传到 executor。这些类把它们包装为可序列化对象，绕过原生类型不能直接 putClosure 的限制。",
+    "nodeIds": [
+      "file:SerializableConfiguration.scala",
+      "file:SerializableJobConf.scala",
+      "file:SerializableBuffer.scala",
+      "file:ByteBufferInputStream.scala",
+      "file:ByteBufferOutputStream.scala"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "事件日志：JsonProtocol",
+    "description": "EventLogListenerBus 写入历史服务器的事件 JSON 都由 JsonProtocol 序列化/反序列化。事件结构与 JsonProtocol 一一对应。",
+    "nodeIds": [
+      "file:JsonProtocol.scala"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "IO 子包：ChunkedByteBuffer",
+    "description": "分块 ByteBuffer 是 Spark 网络层、Shuffle 输出、BlockManager 复用的核心容器。FileRegion 把 ChunkedByteBuffer 暴露为 Netty 的零拷贝 FileRegion。",
+    "nodeIds": [
+      "file:io/ChunkedByteBuffer.scala",
+      "file:io/ChunkedByteBufferFileRegion.scala",
+      "file:io/ChunkedByteBufferOutputStream.scala"
+    ]
+  },
+  {
+    "order": 8,
+    "title": "随机数与采样",
+    "description": "XORShiftRandom 是 Spark 内部高性能随机数；RandomSampler 提供泊松/伯努利/水塘等多种策略；StratifiedSamplingUtils 是 RDD.sampleByKey 的核心算法。",
+    "nodeIds": [
+      "file:random/Pseudorandom.scala",
+      "file:random/XORShiftRandom.scala",
+      "file:random/RandomSampler.scala",
+      "file:random/SamplingUtils.scala",
+      "file:random/StratifiedSamplingUtils.scala"
+    ]
+  },
+  {
+    "order": 9,
+    "title": "日志：DriverLogger + 文件追加器",
+    "description": "Driver 端结构化日志（4xx/5xx/driver 日志）通过 DriverLogger 重定向到滚动文件，RollingPolicy 控制切分策略。",
+    "nodeIds": [
+      "file:logging/DriverLogger.scala",
+      "file:logging/FileAppender.scala",
+      "file:logging/RollingFileAppender.scala",
+      "file:logging/RollingPolicy.scala"
+    ]
+  },
+  {
+    "order": 10,
+    "title": "collection 子包概览",
+    "description": "collection 子包是 Spark 内部最被复用的「高性能数据结构」层：sort-based shuffle、聚合、key-only 集合都建立在此。读 ExternalSorter/ExternalAppendOnlyMap 之前先理解 size tracking + spill + 可写分区集合的协作模式。",
+    "nodeIds": [
+      "file:collection/Spillable.scala",
+      "file:collection/SizeTracker.scala",
+      "file:collection/WritablePartitionedPairCollection.scala",
+      "file:collection/SortDataFormat.scala",
+      "file:collection/Sorter.scala"
+    ]
+  },
+  {
+    "order": 11,
+    "title": "集合族谱：AppendOnlyMap → SizeTracking → Partitioned",
+    "description": "AppendOnlyMap 提供只追加+合并语义；SizeTrackingAppendOnlyMap 增加抽样大小估算，用于触发 spill；PartitionedAppendOnlyMap 在此基础上引入 partitionId，是聚合 + 排序 shuffle 的主力。",
+    "nodeIds": [
+      "file:collection/AppendOnlyMap.scala",
+      "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "file:collection/PartitionedAppendOnlyMap.scala",
+      "file:collection/PartitionedPairBuffer.scala"
+    ]
+  },
+  {
+    "order": 12,
+    "title": "外排序：ExternalSorter",
+    "description": "sort-based shuffle 内核：维护 PartitionedAppendOnlyMap / PartitionedPairBuffer，spill 时调用 Sorter + 临时文件；可与 Aggregator/Partitioner 配合生成 map 输出。",
+    "nodeIds": [
+      "file:collection/ExternalSorter.scala",
+      "file:collection/PairsWriter.scala"
+    ]
+  },
+  {
+    "order": 13,
+    "title": "外聚合：ExternalAppendOnlyMap",
+    "description": "groupByKey / aggregateByKey / combineByKey 等 group/join 操作的内核：spill SizeTrackingAppendOnlyMap 形成的 DiskMapIterator，并在迭代时按 key 合并。",
+    "nodeIds": [
+      "file:collection/ExternalAppendOnlyMap.scala"
+    ]
+  },
+  {
+    "order": 14,
+    "title": "哈希集合：OpenHashMap / OpenHashSet",
+    "description": "Spark 内部 Mutable 性能敏感的 Map/Set 替代品（开放寻址，无 boxing 的 primitive key 支持），被 SQL/Tungsten 大量使用。",
+    "nodeIds": [
+      "file:collection/OpenHashMap.scala",
+      "file:collection/OpenHashSet.scala",
+      "file:collection/PrimitiveKeyOpenHashMap.scala"
+    ]
+  },
+  {
+    "order": 15,
+    "title": "位图与紧凑缓冲",
+    "description": "BitSet/ImmutableBitSet 用作 join 端的位图过滤；CompactBuffer 是 ArrayBuffer 的轻量替代，常用于执行 plan 的中间缓冲。",
+    "nodeIds": [
+      "file:collection/BitSet.scala",
+      "file:collection/ImmutableBitSet.scala",
+      "file:collection/CompactBuffer.scala",
+      "file:collection/PrimitiveVector.scala",
+      "file:collection/SizeTrackingVector.scala"
+    ]
+  },
+  {
+    "order": 16,
+    "title": "统计与采样工具",
+    "description": "StatCounter/Distribution 在 Driver 端聚合指标；PercentileHeap 用作近似百分位；SamplingUtils 是非分层采样的入口。",
+    "nodeIds": [
+      "file:StatCounter.scala",
+      "file:Distribution.scala",
+      "file:collection/PercentileHeap.scala",
+      "file:collection/Utils.scala"
+    ]
+  },
+  {
+    "order": 17,
+    "title": "累加器：AccumulatorV2",
+    "description": "AccumulatorV2 是用户自定义累加器的基类，定义了 add/merge/reset/copy/copyAndReset/isZero 等契约。理解它有助于自定义 driver→executor 双向汇总指标。",
+    "nodeIds": [
+      "file:AccumulatorV2.scala"
+    ]
+  },
+  {
+    "order": 18,
+    "title": "闭包清理与异常：ClosureCleaner",
+    "description": "ClosureCleaner 在序列化闭包前清理不必要的引用、检测 REPL/匿名类边界，是 Spark 序列化与 Executor Task 创建路径上的关键步骤。",
+    "nodeIds": [
+      "file:ClosureCleaner.scala",
+      "file:SparkFatalException.scala"
+    ]
+  },
+  {
+    "order": 19,
+    "title": "迭代器模板与检查点",
+    "description": "NextIterator 是写自定义迭代器的样板基类；PeriodicCheckpointer 用于在后台线程周期将可 checkpoint 的状态写入可靠存储（RDD/DStream 血统依赖）。",
+    "nodeIds": [
+      "file:NextIterator.scala",
+      "file:CompletionIterator.scala",
+      "file:PeriodicCheckpointer.scala"
+    ]
+  },
+  {
+    "order": 20,
+    "title": "辅助工具与版本",
+    "description": "DependencyUtils、RpcUtils、SecurityUtils、IdGenerator、IntParam/MemoryParam、SizeEstimator、VersionUtils、taskListeners 等「散落小工具」虽独立，但常被 scheduler/launcher/driver 入口调用，是理解 Spark 启动与运行时行为的有益补充。",
+    "nodeIds": [
+      "file:DependencyUtils.scala",
+      "file:RpcUtils.scala",
+      "file:SecurityUtils.scala",
+      "file:IdGenerator.scala",
+      "file:IntParam.scala",
+      "file:MemoryParam.scala",
+      "file:SizeEstimator.scala",
+      "file:VersionUtils.scala",
+      "file:MutablePair.scala",
+      "file:SparkExitCode.scala",
+      "file:SparkUncaughtExceptionHandler.scala",
+      "file:HadoopFSUtils.scala",
+      "file:taskListeners.scala"
+    ]
+  }
+]

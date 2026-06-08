@@ -1,0 +1,990 @@
+{
+  "nodes": [
+    {
+      "id": "file:collection/SortDataFormat.scala",
+      "type": "file",
+      "name": "SortDataFormat.scala",
+      "filePath": "collection/SortDataFormat.scala",
+      "summary": "排序所需的数据格式抽象（key/comparator）。",
+      "tags": [
+        "排序",
+        "抽象",
+        "shuffle",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/SortDataFormat.scala:SortDataFormat",
+      "type": "class",
+      "name": "SortDataFormat",
+      "filePath": "collection/SortDataFormat.scala",
+      "summary": "排序数据格式抽象。",
+      "tags": [
+        "排序",
+        "抽象"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/Sorter.scala",
+      "type": "file",
+      "name": "Sorter.scala",
+      "filePath": "collection/Sorter.scala",
+      "summary": "基于 TimSort 的可溢写排序器。",
+      "tags": [
+        "排序",
+        "timsort",
+        "shuffle",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/Sorter.scala:Sorter",
+      "type": "class",
+      "name": "Sorter",
+      "filePath": "collection/Sorter.scala",
+      "summary": "基于 SortDataFormat 的可溢写排序器。",
+      "tags": [
+        "排序"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/Spillable.scala",
+      "type": "file",
+      "name": "Spillable.scala",
+      "filePath": "collection/Spillable.scala",
+      "summary": "可溢写集合的基类。",
+      "tags": [
+        "spill",
+        "抽象基类",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/Spillable.scala:Spillable",
+      "type": "class",
+      "name": "Spillable",
+      "filePath": "collection/Spillable.scala",
+      "summary": "可溢写集合基类。",
+      "tags": [
+        "spill",
+        "抽象基类"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/Utils.md",
+      "type": "file",
+      "name": "Utils.md",
+      "filePath": "collection/Utils.md",
+      "summary": "对应 Utils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/Utils.scala",
+      "type": "file",
+      "name": "Utils.scala",
+      "filePath": "collection/Utils.scala",
+      "summary": "collection 子包的工具函数。",
+      "tags": [
+        "工具函数",
+        "集合",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/Utils.scala:Utils",
+      "type": "class",
+      "name": "Utils",
+      "filePath": "collection/Utils.scala",
+      "summary": "collection 子包的工具对象。",
+      "tags": [
+        "工具对象",
+        "单例"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/WritablePartitionedPairCollection.md",
+      "type": "file",
+      "name": "WritablePartitionedPairCollection.md",
+      "filePath": "collection/WritablePartitionedPairCollection.md",
+      "summary": "对应 WritablePartitionedPairCollection 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "file",
+      "name": "WritablePartitionedPairCollection.scala",
+      "filePath": "collection/WritablePartitionedPairCollection.scala",
+      "summary": "可写出分区 (K,V) 的集合抽象。",
+      "tags": [
+        "shuffle",
+        "抽象",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/WritablePartitionedPairCollection.scala:WritablePartitionedPairCollection",
+      "type": "class",
+      "name": "WritablePartitionedPairCollection",
+      "filePath": "collection/WritablePartitionedPairCollection.scala",
+      "summary": "可写出分区 (K,V) 的集合抽象。",
+      "tags": [
+        "shuffle",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:CollectionsUtils.scala",
+      "type": "file",
+      "name": "CollectionsUtils.scala",
+      "filePath": "CollectionsUtils.scala",
+      "summary": "Spark 集合相关通用工具。",
+      "tags": [
+        "集合",
+        "工具函数",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CollectionsUtils.scala:CollectionsUtils",
+      "type": "class",
+      "name": "CollectionsUtils",
+      "filePath": "CollectionsUtils.scala",
+      "summary": "集合相关通用工具。",
+      "tags": [
+        "集合",
+        "单例"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:CommandLineUtils.scala",
+      "type": "file",
+      "name": "CommandLineUtils.scala",
+      "filePath": "CommandLineUtils.scala",
+      "summary": "命令行参数解析工具。",
+      "tags": [
+        "命令行",
+        "工具函数",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CommandLineUtils.scala:CommandLineUtils",
+      "type": "class",
+      "name": "CommandLineUtils",
+      "filePath": "CommandLineUtils.scala",
+      "summary": "命令行参数解析工具。",
+      "tags": [
+        "命令行",
+        "单例"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:CompletionIterator.scala",
+      "type": "file",
+      "name": "CompletionIterator.scala",
+      "filePath": "CompletionIterator.scala",
+      "summary": "包装迭代器并在消费完毕后触发 onComplete 回调。",
+      "tags": [
+        "迭代器",
+        "装饰器",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:DependencyUtils.scala",
+      "type": "file",
+      "name": "DependencyUtils.scala",
+      "filePath": "DependencyUtils.scala",
+      "summary": "Spark 外部依赖（Ivy/URL）解析与缓存工具。",
+      "tags": [
+        "依赖管理",
+        "ivy",
+        "工具函数",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:DependencyUtils.scala:DependencyUtils",
+      "type": "class",
+      "name": "DependencyUtils",
+      "filePath": "DependencyUtils.scala",
+      "summary": "依赖解析工具。",
+      "tags": [
+        "依赖管理",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Distribution.scala",
+      "type": "file",
+      "name": "Distribution.scala",
+      "filePath": "Distribution.scala",
+      "summary": "统计摘要（均值/方差/分位数等）。",
+      "tags": [
+        "统计",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Distribution.scala:Distribution",
+      "type": "class",
+      "name": "Distribution",
+      "filePath": "Distribution.scala",
+      "summary": "统计分布摘要（含分位数）。",
+      "tags": [
+        "统计"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:EventLoop.scala",
+      "type": "file",
+      "name": "EventLoop.scala",
+      "filePath": "EventLoop.scala",
+      "summary": "基于守护线程的事件循环，AsyncEventQueue 的基类。",
+      "tags": [
+        "事件循环",
+        "异步",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:EventLoop.scala:EventLoop",
+      "type": "class",
+      "name": "EventLoop",
+      "filePath": "EventLoop.scala",
+      "summary": "守护线程驱动的单线程事件循环，AsyncEventQueue 的基类。",
+      "tags": [
+        "事件循环"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:HadoopFSUtils.scala",
+      "type": "file",
+      "name": "HadoopFSUtils.scala",
+      "filePath": "HadoopFSUtils.scala",
+      "summary": "封装 Hadoop FileSystem 常用操作（list/glob/copy 等）。",
+      "tags": [
+        "hadoop",
+        "文件系统",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:HadoopFSUtils.scala:HadoopFSUtils",
+      "type": "class",
+      "name": "HadoopFSUtils",
+      "filePath": "HadoopFSUtils.scala",
+      "summary": "Hadoop FileSystem 操作封装。",
+      "tags": [
+        "hadoop",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:IdGenerator.scala",
+      "type": "file",
+      "name": "IdGenerator.scala",
+      "filePath": "IdGenerator.scala",
+      "summary": "生成单调递增的 ID。",
+      "tags": [
+        "id 生成",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:IdGenerator.scala:IdGenerator",
+      "type": "class",
+      "name": "IdGenerator",
+      "filePath": "IdGenerator.scala",
+      "summary": "单调递增的 ID 生成器。",
+      "tags": [
+        "id 生成"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:IntParam.scala",
+      "type": "file",
+      "name": "IntParam.scala",
+      "filePath": "IntParam.scala",
+      "summary": "将命令行整型参数注册到 SparkConf 的工具。",
+      "tags": [
+        "命令行",
+        "配置",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:IntParam.scala:IntParam",
+      "type": "class",
+      "name": "IntParam",
+      "filePath": "IntParam.scala",
+      "summary": "可注册到 SparkConf 的整型参数。",
+      "tags": [
+        "配置"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:io/ChunkedByteBuffer.scala",
+      "type": "file",
+      "name": "ChunkedByteBuffer.scala",
+      "filePath": "io/ChunkedByteBuffer.scala",
+      "summary": "分块的 NIO ByteBuffer 容器，支持分块序列化与 IO。",
+      "tags": [
+        "io",
+        "nio",
+        "字节缓冲",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:io/ChunkedByteBuffer.scala:ChunkedByteBuffer",
+      "type": "class",
+      "name": "ChunkedByteBuffer",
+      "filePath": "io/ChunkedByteBuffer.scala",
+      "summary": "分块 NIO ByteBuffer 容器。",
+      "tags": [
+        "io",
+        "nio"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferFileRegion.scala",
+      "type": "file",
+      "name": "ChunkedByteBufferFileRegion.scala",
+      "filePath": "io/ChunkedByteBufferFileRegion.scala",
+      "summary": "将 ChunkedByteBuffer 适配为 Netty FileRegion 的零拷贝传输。",
+      "tags": [
+        "io",
+        "零拷贝",
+        "netty",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:io/ChunkedByteBufferFileRegion.scala:ChunkedByteBufferFileRegion",
+      "type": "class",
+      "name": "ChunkedByteBufferFileRegion",
+      "filePath": "io/ChunkedByteBufferFileRegion.scala",
+      "summary": "ChunkedByteBuffer 到 Netty FileRegion 的适配器。",
+      "tags": [
+        "io",
+        "零拷贝",
+        "netty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferOutputStream.scala",
+      "type": "file",
+      "name": "ChunkedByteBufferOutputStream.scala",
+      "filePath": "io/ChunkedByteBufferOutputStream.scala",
+      "summary": "可写出到 ChunkedByteBuffer 的 OutputStream。",
+      "tags": [
+        "io",
+        "字节缓冲",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:io/ChunkedByteBufferOutputStream.scala:ChunkedByteBufferOutputStream",
+      "type": "class",
+      "name": "ChunkedByteBufferOutputStream",
+      "filePath": "io/ChunkedByteBufferOutputStream.scala",
+      "summary": "输出到 ChunkedByteBuffer 的 OutputStream。",
+      "tags": [
+        "io",
+        "字节缓冲"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:JsonProtocol.scala",
+      "type": "file",
+      "name": "JsonProtocol.scala",
+      "filePath": "JsonProtocol.scala",
+      "summary": "Spark 事件日志的 JSON 序列化/反序列化协议。",
+      "tags": [
+        "json",
+        "序列化",
+        "事件日志",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:JsonProtocol.scala:JsonProtocol",
+      "type": "class",
+      "name": "JsonProtocol",
+      "filePath": "JsonProtocol.scala",
+      "summary": "Spark 事件日志的 JSON 编解码协议。",
+      "tags": [
+        "json",
+        "序列化",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:KeyLock.scala",
+      "type": "file",
+      "name": "KeyLock.scala",
+      "filePath": "KeyLock.scala",
+      "summary": "基于键的细粒度锁。",
+      "tags": [
+        "并发",
+        "锁",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:KeyLock.scala:KeyLock",
+      "type": "class",
+      "name": "KeyLock",
+      "filePath": "KeyLock.scala",
+      "summary": "基于键的细粒度读写锁。",
+      "tags": [
+        "并发",
+        "锁"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ListenerBus.scala",
+      "type": "file",
+      "name": "ListenerBus.scala",
+      "filePath": "ListenerBus.scala",
+      "summary": "事件总线抽象 trait，SparkListenerBus 的基类。",
+      "tags": [
+        "事件总线",
+        "观察者",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:ListenerBus.scala:ListenerBus",
+      "type": "class",
+      "name": "ListenerBus",
+      "filePath": "ListenerBus.scala",
+      "summary": "事件总线抽象，定义 addListener/postToAll 等契约。",
+      "tags": [
+        "事件总线",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/DriverLogger.scala",
+      "type": "file",
+      "name": "DriverLogger.scala",
+      "filePath": "logging/DriverLogger.scala",
+      "summary": "Driver 端结构化日志管理器，支持重定向到指定文件。",
+      "tags": [
+        "日志",
+        "driver",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:logging/DriverLogger.scala:DriverLogger",
+      "type": "class",
+      "name": "DriverLogger",
+      "filePath": "logging/DriverLogger.scala",
+      "summary": "Driver 端结构化日志管理器。",
+      "tags": [
+        "日志",
+        "driver",
+        "单例"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:logging/FileAppender.scala",
+      "type": "file",
+      "name": "FileAppender.scala",
+      "filePath": "logging/FileAppender.scala",
+      "summary": "基于文件的日志追加器抽象。",
+      "tags": [
+        "日志",
+        "抽象",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:logging/FileAppender.scala:FileAppender",
+      "type": "class",
+      "name": "FileAppender",
+      "filePath": "logging/FileAppender.scala",
+      "summary": "文件日志追加器抽象。",
+      "tags": [
+        "日志",
+        "抽象"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:logging/RollingFileAppender.scala",
+      "type": "file",
+      "name": "RollingFileAppender.scala",
+      "filePath": "logging/RollingFileAppender.scala",
+      "summary": "支持按大小/时间滚动的文件日志追加器。",
+      "tags": [
+        "日志",
+        "滚动",
+        "文件",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:logging/RollingFileAppender.scala:RollingFileAppender",
+      "type": "class",
+      "name": "RollingFileAppender",
+      "filePath": "logging/RollingFileAppender.scala",
+      "summary": "滚动文件日志追加器。",
+      "tags": [
+        "日志",
+        "滚动"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:collection/SortDataFormat.scala",
+      "target": "class:collection/SortDataFormat.scala:SortDataFormat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SortDataFormat.scala",
+      "target": "class:collection/SortDataFormat.scala:SortDataFormat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Sorter.scala",
+      "target": "class:collection/Sorter.scala:Sorter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/Sorter.scala",
+      "target": "class:collection/Sorter.scala:Sorter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Spillable.scala",
+      "target": "class:collection/Spillable.scala:Spillable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/Spillable.scala",
+      "target": "class:collection/Spillable.scala:Spillable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Utils.md",
+      "target": "file:collection/Utils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/Utils.scala",
+      "target": "class:collection/Utils.scala:Utils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/Utils.scala",
+      "target": "class:collection/Utils.scala:Utils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/WritablePartitionedPairCollection.md",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/WritablePartitionedPairCollection.scala",
+      "target": "class:collection/WritablePartitionedPairCollection.scala:WritablePartitionedPairCollection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/WritablePartitionedPairCollection.scala",
+      "target": "class:collection/WritablePartitionedPairCollection.scala:WritablePartitionedPairCollection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:CollectionsUtils.scala",
+      "target": "class:CollectionsUtils.scala:CollectionsUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:CollectionsUtils.scala",
+      "target": "class:CollectionsUtils.scala:CollectionsUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:CommandLineUtils.scala",
+      "target": "class:CommandLineUtils.scala:CommandLineUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:CommandLineUtils.scala",
+      "target": "class:CommandLineUtils.scala:CommandLineUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:DependencyUtils.scala",
+      "target": "class:DependencyUtils.scala:DependencyUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:DependencyUtils.scala",
+      "target": "class:DependencyUtils.scala:DependencyUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Distribution.scala",
+      "target": "class:Distribution.scala:Distribution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:Distribution.scala",
+      "target": "class:Distribution.scala:Distribution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:EventLoop.scala",
+      "target": "class:EventLoop.scala:EventLoop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:EventLoop.scala",
+      "target": "class:EventLoop.scala:EventLoop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:HadoopFSUtils.scala",
+      "target": "class:HadoopFSUtils.scala:HadoopFSUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:HadoopFSUtils.scala",
+      "target": "class:HadoopFSUtils.scala:HadoopFSUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:IdGenerator.scala",
+      "target": "class:IdGenerator.scala:IdGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:IdGenerator.scala",
+      "target": "class:IdGenerator.scala:IdGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:IntParam.scala",
+      "target": "class:IntParam.scala:IntParam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:IntParam.scala",
+      "target": "class:IntParam.scala:IntParam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:io/ChunkedByteBuffer.scala",
+      "target": "class:io/ChunkedByteBuffer.scala:ChunkedByteBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:io/ChunkedByteBuffer.scala",
+      "target": "class:io/ChunkedByteBuffer.scala:ChunkedByteBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.scala",
+      "target": "class:io/ChunkedByteBufferFileRegion.scala:ChunkedByteBufferFileRegion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.scala",
+      "target": "class:io/ChunkedByteBufferFileRegion.scala:ChunkedByteBufferFileRegion",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.scala",
+      "target": "class:io/ChunkedByteBufferOutputStream.scala:ChunkedByteBufferOutputStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.scala",
+      "target": "class:io/ChunkedByteBufferOutputStream.scala:ChunkedByteBufferOutputStream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:JsonProtocol.scala",
+      "target": "class:JsonProtocol.scala:JsonProtocol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:JsonProtocol.scala",
+      "target": "class:JsonProtocol.scala:JsonProtocol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:KeyLock.scala",
+      "target": "class:KeyLock.scala:KeyLock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:KeyLock.scala",
+      "target": "class:KeyLock.scala:KeyLock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "class:ListenerBus.scala:ListenerBus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "class:ListenerBus.scala:ListenerBus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:logging/DriverLogger.scala",
+      "target": "class:logging/DriverLogger.scala:DriverLogger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/DriverLogger.scala",
+      "target": "class:logging/DriverLogger.scala:DriverLogger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:logging/FileAppender.scala",
+      "target": "class:logging/FileAppender.scala:FileAppender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/FileAppender.scala",
+      "target": "class:logging/FileAppender.scala:FileAppender",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "class:logging/RollingFileAppender.scala:RollingFileAppender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "class:logging/RollingFileAppender.scala:RollingFileAppender",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/Sorter.scala",
+      "target": "file:collection/SortDataFormat.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:JsonProtocol.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:EventLoop.scala",
+      "target": "file:ThreadUtils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:HadoopFSUtils.scala",
+      "target": "file:SerializableConfiguration.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.scala",
+      "target": "file:io/ChunkedByteBuffer.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.scala",
+      "target": "file:io/ChunkedByteBuffer.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ListenerBus.scala",
+      "target": "file:EventLoop.scala",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "file:logging/RollingPolicy.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:logging/RollingFileAppender.scala",
+      "target": "file:logging/FileAppender.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

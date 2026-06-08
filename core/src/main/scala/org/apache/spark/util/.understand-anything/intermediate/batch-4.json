@@ -1,0 +1,66 @@
+{
+  "nodes": [
+    {
+      "id": "file:io/ChunkedByteBuffer.md",
+      "type": "file",
+      "name": "ChunkedByteBuffer.md",
+      "filePath": "io/ChunkedByteBuffer.md",
+      "summary": "对应 ChunkedByteBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferFileRegion.md",
+      "type": "file",
+      "name": "ChunkedByteBufferFileRegion.md",
+      "filePath": "io/ChunkedByteBufferFileRegion.md",
+      "summary": "对应 ChunkedByteBufferFileRegion 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:io/ChunkedByteBufferOutputStream.md",
+      "type": "file",
+      "name": "ChunkedByteBufferOutputStream.md",
+      "filePath": "io/ChunkedByteBufferOutputStream.md",
+      "summary": "对应 ChunkedByteBufferOutputStream 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:io/ChunkedByteBuffer.md",
+      "target": "file:io/ChunkedByteBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:io/ChunkedByteBufferFileRegion.md",
+      "target": "file:io/ChunkedByteBufferFileRegion.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:io/ChunkedByteBufferOutputStream.md",
+      "target": "file:io/ChunkedByteBufferOutputStream.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

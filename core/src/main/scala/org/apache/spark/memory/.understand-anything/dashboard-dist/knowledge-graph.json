@@ -1,0 +1,928 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Spark Memory Management",
+    "languages": [
+      "scala"
+    ],
+    "frameworks": [
+      "apache-spark"
+    ],
+    "description": "Apache Spark 的 JVM 范围内存管理子系统，包含内存池抽象、执行/存储内存分配、堆内/堆外内存管理及统一内存管理策略。",
+    "analyzedAt": "2026-06-07T18:48:14.771Z",
+    "gitCommitHash": "88f727c7e51933e741941a1c845070e47451aed5"
+  },
+  "nodes": [
+    {
+      "id": "file:core/src/main/scala/org/apache/spark/memory/package.scala",
+      "type": "file",
+      "name": "package.scala",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/package.scala",
+      "language": "scala",
+      "complexity": "simple",
+      "summary": "Spark memory 子包的包对象，包含该子系统的整体设计文档和组件关系图（MemoryManager、TaskMemoryManager、MemoryConsumer、MemoryPool）。",
+      "tags": [
+        "package",
+        "documentation",
+        "overview",
+        "diagram"
+      ]
+    },
+    {
+      "id": "file:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "type": "file",
+      "name": "MemoryPool.scala",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "language": "scala",
+      "complexity": "simple",
+      "summary": "定义 MemoryPool 抽象基类，提供可调大小内存池的通用簿记接口（poolSize/memoryFree/memoryUsed/incrementPoolSize/decrementPoolSize），所有具体内存池都继承自它。",
+      "tags": [
+        "memory-pool",
+        "abstract-class",
+        "synchronization",
+        "bookkeeping"
+      ]
+    },
+    {
+      "id": "file:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "type": "file",
+      "name": "ExecutionMemoryPool.scala",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "language": "scala",
+      "complexity": "moderate",
+      "summary": "实现任务间公平共享内存的执行内存池，按 taskAttemptId 跟踪每个任务的内存占用，并通过 1/2N 公平共享策略保证所有任务都能逐步获得内存。",
+      "tags": [
+        "execution-memory",
+        "task-fairness",
+        "spill",
+        "wait-notify"
+      ]
+    },
+    {
+      "id": "file:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "type": "file",
+      "name": "StorageMemoryPool.scala",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "language": "scala",
+      "complexity": "moderate",
+      "summary": "管理用于缓存（block caching）的存储内存池，支持在内存不足时通过 MemoryStore 驱逐已缓存的块以腾出空间。",
+      "tags": [
+        "storage-memory",
+        "caching",
+        "eviction",
+        "block-store"
+      ]
+    },
+    {
+      "id": "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "type": "file",
+      "name": "MemoryManager.scala",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "language": "scala",
+      "complexity": "complex",
+      "summary": "JVM 级别的抽象内存管理器，管理四个内存池（on/off-heap × execution/storage）的整体分配策略，并管理 Tungsten 内存模式与默认页大小。",
+      "tags": [
+        "memory-manager",
+        "abstract-class",
+        "tungsten",
+        "jvm-wide",
+        "page-size"
+      ]
+    },
+    {
+      "id": "file:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "type": "file",
+      "name": "UnifiedMemoryManager.scala",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "language": "scala",
+      "complexity": "complex",
+      "summary": "MemoryManager 的具体实现，强制执行和存储之间的软边界：任一方可向另一方借用空闲内存，存储空间不足时通过驱逐缓存块回收。",
+      "tags": [
+        "unified-memory",
+        "soft-boundary",
+        "borrowing",
+        "eviction",
+        "spark-12155"
+      ]
+    },
+    {
+      "id": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "type": "class",
+      "name": "MemoryPool",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "complexity": "simple",
+      "summary": "可调大小内存池的抽象基类。维护一个 _poolSize 字段并在传入的 lock 对象上同步，提供 poolSize、memoryFree、incrementPoolSize、decrementPoolSize 等公共方法，抽象方法 memoryUsed 由子类实现。",
+      "tags": [
+        "abstract-class",
+        "private[memory]",
+        "synchronized",
+        "memory-pool"
+      ]
+    },
+    {
+      "id": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "type": "class",
+      "name": "ExecutionMemoryPool",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "complexity": "moderate",
+      "summary": "执行内存池。继承 MemoryPool 并混入 Logging，维护 memoryForTask 映射实现按任务维度的内存跟踪和公平共享。acquireMemory 在内存不足时阻塞，直到每个任务至少能获得 1/(2N) 的内存。",
+      "tags": [
+        "concrete-class",
+        "private[memory]",
+        "task-tracking",
+        "fairness"
+      ]
+    },
+    {
+      "id": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "type": "class",
+      "name": "StorageMemoryPool",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "complexity": "moderate",
+      "summary": "存储内存池。继承 MemoryPool 并混入 Logging，使用 _memoryUsed 字段跟踪已用存储内存，通过 MemoryStore 引用在需要时驱逐块。",
+      "tags": [
+        "concrete-class",
+        "private[memory]",
+        "block-eviction",
+        "memorystore"
+      ]
+    },
+    {
+      "id": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "type": "class",
+      "name": "MemoryManager",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "complexity": "complex",
+      "summary": "JVM 级内存管理器抽象类。组合四个内存池（on/off-heap × execution/storage）并管理 Tungsten 内存模式（堆内/堆外 Unsafe）与默认页大小。",
+      "tags": [
+        "abstract-class",
+        "private[spark]",
+        "jvm-wide",
+        "tungsten",
+        "composite"
+      ]
+    },
+    {
+      "id": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "type": "class",
+      "name": "UnifiedMemoryManager",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "complexity": "complex",
+      "summary": "MemoryManager 的具体实现。强制执行和存储之间的软边界：执行内存不足时可驱逐存储缓存以回收空间；存储空间不足时可借用执行空闲内存。",
+      "tags": [
+        "concrete-class",
+        "private[spark]",
+        "unified-memory",
+        "soft-boundary"
+      ]
+    },
+    {
+      "id": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$",
+      "type": "class",
+      "name": "UnifiedMemoryManager (companion)",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "complexity": "simple",
+      "summary": "UnifiedMemoryManager 的伴生对象，包含 RESERVED_SYSTEM_MEMORY_BYTES 常量（300MB）、apply 工厂方法（从 SparkConf 构造实例）和 getMaxMemory 私有方法（计算可共享内存总量）。",
+      "tags": [
+        "companion-object",
+        "factory",
+        "configuration"
+      ]
+    },
+    {
+      "id": "concept:unified-memory-soft-boundary",
+      "type": "concept",
+      "name": "统一内存软边界 (Unified Memory Soft Boundary)",
+      "summary": "Spark 1.6+ 的核心策略：执行和存储共享一块总内存（默认 = (JVM堆 - 300MB) × 0.6），任一方可借用另一方的空闲空间；当执行需要回收空间时，存储的缓存块被驱逐。",
+      "tags": [
+        "policy",
+        "soft-boundary",
+        "borrowing",
+        "eviction"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:task-fair-sharing",
+      "type": "concept",
+      "name": "任务公平共享 (Task Fair Sharing)",
+      "summary": "ExecutionMemoryPool 的核心算法：保证每个任务至少能获得 1/(2N) 的执行内存（N=活动任务数），上限为 1/N。新任务通过 lock.wait() 阻塞，旧任务释放时 lock.notifyAll() 唤醒。",
+      "tags": [
+        "fairness",
+        "algorithm",
+        "wait-notify",
+        "spill-prevention"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:tungsten-memory-mode",
+      "type": "concept",
+      "name": "Tungsten 内存模式",
+      "summary": "Spark 的二进制内存管理优化：根据 spark.memory.offHeap.enabled 决定使用堆内 ON_HEAP 分配或 sun.misc.Unsafe 实现的堆外 OFF_HEAP 分配；通过 MemoryAllocator 抽象。",
+      "tags": [
+        "tungsten",
+        "off-heap",
+        "unsafe",
+        "binary-memory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.memoryFree",
+      "type": "function",
+      "name": "memoryFree",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "complexity": "simple",
+      "summary": "在 lock 同步下返回当前空闲内存（_poolSize - memoryUsed），final 不可重写。",
+      "tags": [
+        "getter",
+        "synchronized",
+        "final"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.incrementPoolSize",
+      "type": "function",
+      "name": "incrementPoolSize",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "complexity": "simple",
+      "summary": "将池大小增加 delta 字节，断言 delta >= 0，final 不可重写。",
+      "tags": [
+        "mutator",
+        "synchronized",
+        "final"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.decrementPoolSize",
+      "type": "function",
+      "name": "decrementPoolSize",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "complexity": "simple",
+      "summary": "将池大小减少 delta 字节；断言 delta >= 0、delta <= _poolSize 且释放后仍能容纳 memoryUsed。",
+      "tags": [
+        "mutator",
+        "synchronized",
+        "final",
+        "assertion"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.acquireMemory",
+      "type": "function",
+      "name": "acquireMemory",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "complexity": "complex",
+      "summary": "为指定任务申请 numBytes 字节，可能阻塞；通过 maybeGrowPool 回调尝试扩展池大小，通过 computeMaxPoolSize 回调计算最大池大小作为任务配额分母。返回实际授予的字节数。",
+      "tags": [
+        "allocation",
+        "blocking",
+        "fairness",
+        "callback"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.releaseMemory",
+      "type": "function",
+      "name": "releaseMemory",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "complexity": "simple",
+      "summary": "释放指定任务占用的 numBytes 字节；若任务内存归零则从 memoryForTask 中移除并通过 notifyAll 唤醒等待者。",
+      "tags": [
+        "deallocation",
+        "synchronized",
+        "notify"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.releaseAllMemoryForTask",
+      "type": "function",
+      "name": "releaseAllMemoryForTask",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "complexity": "simple",
+      "summary": "释放指定任务的所有内存（任务结束时调用），返回释放的字节数。",
+      "tags": [
+        "deallocation",
+        "task-end",
+        "synchronized"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.acquireMemory",
+      "type": "function",
+      "name": "acquireMemory (StorageMemoryPool)",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "complexity": "moderate",
+      "summary": "为给定 blockId 申请 numBytesToAcquire 字节的存储内存；先调用 MemoryStore.evictBlocksToFreeSpace 驱逐已缓存块以腾出 numBytesToFree 空间，更新 _memoryUsed 并返回是否成功。",
+      "tags": [
+        "allocation",
+        "eviction",
+        "synchronized",
+        "block-caching"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.freeSpaceToShrinkPool",
+      "type": "function",
+      "name": "freeSpaceToShrinkPool",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "complexity": "moderate",
+      "summary": "释放 spaceToFree 字节：先释放空闲内存，若不够则通过 MemoryStore 驱逐块；返回实际释放字节数。注意：本方法不实际缩减池大小，由调用者负责调用 decrementPoolSize。",
+      "tags": [
+        "shrink",
+        "eviction",
+        "delegation",
+        "memorystore"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager.acquireStorageMemory",
+      "type": "function",
+      "name": "acquireStorageMemory",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "complexity": "complex",
+      "summary": "抽象方法：申请 numBytes 字节的存储内存以缓存给定 blockId，必要时驱逐现有块；返回是否成功。UnifiedMemoryManager 实现了此方法。",
+      "tags": [
+        "abstract",
+        "storage-allocation",
+        "eviction"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager.acquireExecutionMemory",
+      "type": "function",
+      "name": "acquireExecutionMemory",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "complexity": "complex",
+      "summary": "为当前任务申请 numBytes 字节执行内存；可能阻塞直到能获得至少 1/(2N)。由 ExecutionMemoryPool.acquireMemory 实现具体逻辑。",
+      "tags": [
+        "abstract-via-pool",
+        "execution-allocation",
+        "blocking"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+      "type": "function",
+      "name": "acquireExecutionMemory (override)",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "complexity": "complex",
+      "summary": "重写自 MemoryManager：通过 maybeGrowExecutionPool 回调让执行池可通过驱逐存储块来扩张（shrink storage pool、grow execution pool），并通过 computeMaxExecutionPoolSize 计算合理的任务配额上界以避免 SPARK-12155。",
+      "tags": [
+        "override",
+        "borrowing",
+        "eviction",
+        "spark-12155"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireStorageMemory",
+      "type": "function",
+      "name": "acquireStorageMemory (override)",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "complexity": "complex",
+      "summary": "重写自 MemoryManager：存储池空闲时直接分配，否则从执行池借用空闲空间（但不会驱逐已使用的执行内存）。",
+      "tags": [
+        "override",
+        "borrowing",
+        "no-evict-of-execution"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.getMaxMemory",
+      "type": "function",
+      "name": "getMaxMemory",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "complexity": "moderate",
+      "summary": "私有静态方法：根据 SparkConf 计算执行和存储可共享的总内存（(systemMemory - reservedMemory) * memoryFraction）；校验系统内存不低于 reservedMemory * 1.5，并校验 executor 内存下限。",
+      "tags": [
+        "configuration",
+        "validation",
+        "static"
+      ]
+    },
+    {
+      "id": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.apply",
+      "type": "function",
+      "name": "apply (UnifiedMemoryManager)",
+      "filePath": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "complexity": "simple",
+      "summary": "伴生对象的工厂方法：从 SparkConf 和 numCores 构造 UnifiedMemoryManager 实例，先计算 maxMemory 再用 storageFraction 计算 onHeapStorageRegionSize。",
+      "tags": [
+        "factory",
+        "configuration"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "type": "inherits",
+      "weight": 0.9,
+      "label": "继承自 MemoryPool",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "type": "inherits",
+      "weight": 0.9,
+      "label": "继承自 MemoryPool",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "type": "inherits",
+      "weight": 0.9,
+      "label": "继承自 MemoryManager",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$",
+      "type": "contains",
+      "weight": 1,
+      "label": "包含伴生对象",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "type": "contains",
+      "weight": 1,
+      "label": "定义",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "type": "contains",
+      "weight": 1,
+      "label": "定义",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "type": "contains",
+      "weight": 1,
+      "label": "定义",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "type": "contains",
+      "weight": 1,
+      "label": "定义",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "type": "contains",
+      "weight": 1,
+      "label": "定义",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$",
+      "type": "contains",
+      "weight": 1,
+      "label": "定义伴生对象",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.acquireMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.releaseMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.releaseAllMemoryForTask",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.acquireMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.freeSpaceToShrinkPool",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager.acquireStorageMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "抽象方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager.acquireExecutionMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "重写方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireStorageMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "重写方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.getMaxMemory",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.apply",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "type": "contains",
+      "weight": 1,
+      "label": "实例化 on/off-heap × 2",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "type": "contains",
+      "weight": 1,
+      "label": "实例化 on/off-heap × 2",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.acquireMemory",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "调用",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireStorageMemory",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.acquireMemory",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "调用",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.freeSpaceToShrinkPool",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "在 maybeGrowExecutionPool 中调用",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.decrementPoolSize",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "收缩存储池",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.incrementPoolSize",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "扩展执行池",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireStorageMemory",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.decrementPoolSize",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "从执行池借用",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireStorageMemory",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.incrementPoolSize",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "增加存储池",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.acquireMemory",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "更新 _memoryUsed",
+      "direction": "forward"
+    },
+    {
+      "source": "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.freeSpaceToShrinkPool",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "type": "calls",
+      "weight": 0.8,
+      "label": "委托 MemoryStore.evictBlocksToFreeSpace",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "target": "concept:task-fair-sharing",
+      "type": "related",
+      "weight": 0.5,
+      "label": "实现",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "target": "concept:unified-memory-soft-boundary",
+      "type": "related",
+      "weight": 0.5,
+      "label": "实现",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "target": "concept:tungsten-memory-mode",
+      "type": "related",
+      "weight": 0.5,
+      "label": "管理",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "target": "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "type": "depends_on",
+      "weight": 0.7,
+      "label": "依赖 MemoryManager 基类",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "target": "file:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "type": "depends_on",
+      "weight": 0.7,
+      "label": "依赖 ExecutionMemoryPool",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "target": "file:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "type": "depends_on",
+      "weight": 0.7,
+      "label": "依赖 StorageMemoryPool",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "target": "file:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "type": "depends_on",
+      "weight": 0.7,
+      "label": "依赖 MemoryPool",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.memoryFree",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.incrementPoolSize",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "target": "function:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool.decrementPoolSize",
+      "type": "contains",
+      "weight": 1,
+      "label": "方法",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/package.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+      "type": "documents",
+      "weight": 0.5,
+      "label": "子系统文档",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/package.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+      "type": "documents",
+      "weight": 0.5,
+      "label": "子系统文档",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/package.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+      "type": "documents",
+      "weight": 0.5,
+      "label": "子系统文档",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/package.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+      "type": "documents",
+      "weight": 0.5,
+      "label": "子系统文档",
+      "direction": "forward"
+    },
+    {
+      "source": "file:core/src/main/scala/org/apache/spark/memory/package.scala",
+      "target": "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+      "type": "documents",
+      "weight": 0.5,
+      "label": "子系统文档",
+      "direction": "forward"
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:abstractions",
+      "name": "抽象基类层 (Abstractions)",
+      "description": "为内存管理子系统定义抽象契约的基类（MemoryPool、MemoryManager）。这一层的类不直接实例化使用，定义子类的扩展点和同步模型。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+        "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool",
+        "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager"
+      ]
+    },
+    {
+      "id": "layer:pool-implementations",
+      "name": "内存池实现层 (Pool Implementations)",
+      "description": "MemoryPool 的具体子类，分别实现执行内存（按任务公平共享）和存储内存（支持块驱逐）的簿记。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+        "file:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+        "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+        "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.acquireMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.releaseMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.releaseAllMemoryForTask",
+        "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.acquireMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.freeSpaceToShrinkPool"
+      ]
+    },
+    {
+      "id": "layer:unified-strategy",
+      "name": "统一内存策略层 (Unified Memory Strategy)",
+      "description": "MemoryManager 的具体实现 UnifiedMemoryManager，实现软边界：执行和存储可互相借用空闲空间，必要时通过驱逐缓存块回收。伴生对象提供配置驱动的工厂方法。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+        "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireStorageMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.getMaxMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.apply"
+      ]
+    },
+    {
+      "id": "layer:package-documentation",
+      "name": "包文档层 (Package Documentation)",
+      "description": "package.scala 中的包对象提供子系统的整体设计文档、组件关系图（MemoryManager / TaskMemoryManager / MemoryConsumer / MemoryPool）。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/package.scala"
+      ]
+    },
+    {
+      "id": "layer:concepts",
+      "name": "核心概念层 (Core Concepts)",
+      "description": "贯穿整个内存子系统的关键设计概念：统一内存软边界、任务公平共享、Tungsten 内存模式。",
+      "nodeIds": [
+        "concept:unified-memory-soft-boundary",
+        "concept:task-fair-sharing",
+        "concept:tungsten-memory-mode"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "整体架构概览",
+      "description": "从 package.scala 开始，理解 Spark 内存子系统的整体设计：MemoryManager（JVM 级）、TaskMemoryManager（任务级）、MemoryConsumer、MemoryPool 四大组件的关系。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/package.scala"
+      ],
+      "languageLesson": "package object 是 Scala 中将包级别文档、类型别名、隐式转换集中到单一文件的惯用模式。"
+    },
+    {
+      "order": 2,
+      "title": "内存池抽象：MemoryPool",
+      "description": "阅读 MemoryPool 基类，掌握 _poolSize 字段、lock 同步对象、poolSize/memoryFree/incrementPoolSize/decrementPoolSize/memoryUsed(abstract) 这套通用簿记接口。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/MemoryPool.scala:MemoryPool"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "执行内存池：任务公平共享",
+      "description": "阅读 ExecutionMemoryPool。理解核心算法：保证每个任务至少能获得 1/(2N) 的内存，上限 1/N。通过 memoryForTask 映射跟踪每个 taskAttemptId 的占用，使用 lock.wait()/notifyAll() 协调。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool",
+        "function:core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala:ExecutionMemoryPool.acquireMemory",
+        "concept:task-fair-sharing"
+      ],
+      "languageLesson": "@GuardedBy 注解是 JCIP（Java Concurrency in Practice）的约定，告诉代码阅读者哪个锁保护该字段，但 Scala 编译器不会强制检查。"
+    },
+    {
+      "order": 4,
+      "title": "存储内存池：缓存与驱逐",
+      "description": "阅读 StorageMemoryPool。理解 _memoryUsed 跟踪、acquireMemory 通过 MemoryStore.evictBlocksToFreeSpace 在内存不足时驱逐块、freeSpaceToShrinkPool 为统一策略层提供回收能力。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool",
+        "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.acquireMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala:StorageMemoryPool.freeSpaceToShrinkPool"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "JVM 级内存管理器：MemoryManager",
+      "description": "阅读 MemoryManager 抽象类。掌握它如何组合四个池（on/off-heap × execution/storage）、如何根据 spark.memory.offHeap.enabled 决定 Tungsten 模式（ON_HEAP / OFF_HEAP）、如何根据 numCores 和 maxTungstenMemory 计算默认页大小（注意 G1GC 下的 LONG_ARRAY_OFFSET 调整）。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager",
+        "function:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager.acquireStorageMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/MemoryManager.scala:MemoryManager.acquireExecutionMemory",
+        "concept:tungsten-memory-mode"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "统一内存策略：UnifiedMemoryManager",
+      "description": "阅读 UnifiedMemoryManager 及其伴生对象。核心要点：maybeGrowExecutionPool 回调让执行池通过驱逐存储块扩张；acquireStorageMemory 让存储池从执行池借用空闲空间（但不会驱逐执行）；伴生对象的 getMaxMemory 校验系统内存下限（reservedMemory * 1.5）。",
+      "nodeIds": [
+        "file:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+        "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager",
+        "class:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireExecutionMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager.acquireStorageMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.getMaxMemory",
+        "function:core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala:UnifiedMemoryManager$.apply",
+        "concept:unified-memory-soft-boundary"
+      ],
+      "languageLesson": "computeMaxExecutionPoolSize() 使用闭包形式 () => Long，可在每次 acquireMemory 内部重算以反映 storagePool.memoryUsed 的最新值。"
+    }
+  ]
+}

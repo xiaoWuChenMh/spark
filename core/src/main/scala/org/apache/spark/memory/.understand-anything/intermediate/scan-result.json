@@ -1,0 +1,111 @@
+{
+  "projectRoot": "f:\\code\\workpace\\study\\intellij idea\\source\\spark\\core\\src\\main\\scala\\org\\apache\\spark\\memory",
+  "projectName": "Spark Memory Management",
+  "projectDescription": "Apache Spark 的 JVM 范围内存管理子系统，包含内存池抽象、执行/存储内存分配、堆内/堆外内存管理及统一内存管理策略。",
+  "languages": ["scala"],
+  "frameworks": ["apache-spark"],
+  "complexity": "moderate",
+  "files": [
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/package.scala",
+      "language": "scala",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/MemoryPool.scala",
+      "language": "scala",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala",
+      "language": "scala",
+      "sizeLines": 181,
+      "fileCategory": "code"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala",
+      "language": "scala",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/MemoryManager.scala",
+      "language": "scala",
+      "sizeLines": 291,
+      "fileCategory": "code"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala",
+      "language": "scala",
+      "sizeLines": 236,
+      "fileCategory": "code"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/MemoryManager.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/MemoryPool.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "core/src/main/scala/org/apache/spark/memory/package.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    }
+  ],
+  "importMap": {
+    "core/src/main/scala/org/apache/spark/memory/MemoryPool.scala": [],
+    "core/src/main/scala/org/apache/spark/memory/ExecutionMemoryPool.scala": [
+      "org.apache.spark.internal.Logging"
+    ],
+    "core/src/main/scala/org/apache/spark/memory/StorageMemoryPool.scala": [
+      "org.apache.spark.internal.Logging",
+      "org.apache.spark.storage.BlockId",
+      "org.apache.spark.storage.memory.MemoryStore"
+    ],
+    "core/src/main/scala/org/apache/spark/memory/MemoryManager.scala": [
+      "org.apache.spark.SparkConf",
+      "org.apache.spark.internal.Logging",
+      "org.apache.spark.internal.config",
+      "org.apache.spark.storage.BlockId",
+      "org.apache.spark.storage.memory.MemoryStore",
+      "org.apache.spark.unsafe.Platform",
+      "org.apache.spark.unsafe.array.ByteArrayMethods",
+      "org.apache.spark.unsafe.memory.MemoryAllocator",
+      "org.apache.spark.util.Utils"
+    ],
+    "core/src/main/scala/org/apache/spark/memory/UnifiedMemoryManager.scala": [
+      "org.apache.spark.SparkConf",
+      "org.apache.spark.internal.config",
+      "org.apache.spark.internal.config.Tests",
+      "org.apache.spark.storage.BlockId"
+    ],
+    "core/src/main/scala/org/apache/spark/memory/package.scala": []
+  }
+}

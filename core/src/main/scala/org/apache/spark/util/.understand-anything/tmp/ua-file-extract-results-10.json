@@ -1,0 +1,407 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "SparkUncaughtExceptionHandler.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 71,
+      "metrics": {}
+    },
+    {
+      "path": "StatCounter.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 162,
+      "nonEmptyLines": 139,
+      "metrics": {}
+    },
+    {
+      "path": "taskListeners.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 761,
+      "nonEmptyLines": 622,
+      "sections": [
+        {
+          "heading": "TaskListeners 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "文件概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "主要功能定位",
+          "level": 3,
+          "line": 7
+        },
+        {
+          "heading": "接口定义分析",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "1. 任务完成监听器接口",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "TaskCompletionListener",
+          "level": 4,
+          "line": 17
+        },
+        {
+          "heading": "2. 任务失败监听器接口",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "TaskFailureListener",
+          "level": 4,
+          "line": 54
+        },
+        {
+          "heading": "异常类定义分析",
+          "level": 2,
+          "line": 92
+        },
+        {
+          "heading": "TaskCompletionListenerException",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "类定义",
+          "level": 4,
+          "line": 96
+        },
+        {
+          "heading": "getMessage方法重写",
+          "level": 4,
+          "line": 116
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 166
+        },
+        {
+          "heading": "1. 接口设计原则",
+          "level": 3,
+          "line": 168
+        },
+        {
+          "heading": "单一职责原则",
+          "level": 4,
+          "line": 170
+        },
+        {
+          "heading": "接口隔离原则",
+          "level": 4,
+          "line": 175
+        },
+        {
+          "heading": "2. 异常处理设计",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "异常聚合模式",
+          "level": 4,
+          "line": 182
+        },
+        {
+          "heading": "异常链设计",
+          "level": 4,
+          "line": 194
+        },
+        {
+          "heading": "3. 幂等性设计",
+          "level": 3,
+          "line": 199
+        },
+        {
+          "heading": "方法幂等性要求",
+          "level": 4,
+          "line": 201
+        },
+        {
+          "heading": "幂等操作示例",
+          "level": 4,
+          "line": 212
+        },
+        {
+          "heading": "4. 开发者API设计",
+          "level": 3,
+          "line": 228
+        },
+        {
+          "heading": "@DeveloperApi注解使用",
+          "level": 4,
+          "line": 230
+        },
+        {
+          "heading": "扩展点设计",
+          "level": 4,
+          "line": 241
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 246
+        },
+        {
+          "heading": "1. 典型使用场景",
+          "level": 3,
+          "line": 248
+        },
+        {
+          "heading": "资源管理监听器",
+          "level": 4,
+          "line": 250
+        },
+        {
+          "heading": "监控统计监听器",
+          "level": 4,
+          "line": 269
+        },
+        {
+          "heading": "容错恢复监听器",
+          "level": 4,
+          "line": 289
+        },
+        {
+          "heading": "2. 最佳实践建议",
+          "level": 3,
+          "line": 308
+        },
+        {
+          "heading": "监听器实现规范",
+          "level": 4,
+          "line": 310
+        },
+        {
+          "heading": "注册和管理策略",
+          "level": 4,
+          "line": 348
+        },
+        {
+          "heading": "测试策略",
+          "level": 4,
+          "line": 363
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 393
+        },
+        {
+          "heading": "1. 与TaskContext的集成",
+          "level": 3,
+          "line": 395
+        },
+        {
+          "heading": "上下文信息传递",
+          "level": 4,
+          "line": 397
+        },
+        {
+          "heading": "监听器注册机制",
+          "level": 4,
+          "line": 408
+        },
+        {
+          "heading": "2. 与Spark执行引擎的集成",
+          "level": 3,
+          "line": 422
+        },
+        {
+          "heading": "任务生命周期管理",
+          "level": 4,
+          "line": 424
+        },
+        {
+          "heading": "异常处理集成",
+          "level": 4,
+          "line": 449
+        },
+        {
+          "heading": "3. 与监控系统的集成",
+          "level": 3,
+          "line": 475
+        },
+        {
+          "heading": "指标收集集成",
+          "level": 4,
+          "line": 477
+        },
+        {
+          "heading": "日志系统集成",
+          "level": 4,
+          "line": 493
+        },
+        {
+          "heading": "性能和安全考虑",
+          "level": 2,
+          "line": 514
+        },
+        {
+          "heading": "1. 性能优化点",
+          "level": 3,
+          "line": 516
+        },
+        {
+          "heading": "监听器执行优化",
+          "level": 4,
+          "line": 518
+        },
+        {
+          "heading": "内存使用优化",
+          "level": 4,
+          "line": 536
+        },
+        {
+          "heading": "2. 安全考虑",
+          "level": 3,
+          "line": 556
+        },
+        {
+          "heading": "异常安全设计",
+          "level": 4,
+          "line": 558
+        },
+        {
+          "heading": "资源安全设计",
+          "level": 4,
+          "line": 579
+        },
+        {
+          "heading": "扩展性和维护性",
+          "level": 2,
+          "line": 600
+        },
+        {
+          "heading": "1. 接口扩展支持",
+          "level": 3,
+          "line": 602
+        },
+        {
+          "heading": "新事件类型扩展",
+          "level": 4,
+          "line": 604
+        },
+        {
+          "heading": "条件监听器",
+          "level": 4,
+          "line": 622
+        },
+        {
+          "heading": "2. 配置化支持",
+          "level": 3,
+          "line": 643
+        },
+        {
+          "heading": "监听器配置",
+          "level": 4,
+          "line": 645
+        },
+        {
+          "heading": "热配置支持",
+          "level": 4,
+          "line": 669
+        },
+        {
+          "heading": "3. 监控和诊断增强",
+          "level": 3,
+          "line": 691
+        },
+        {
+          "heading": "执行统计监控",
+          "level": 4,
+          "line": 693
+        },
+        {
+          "heading": "调试支持增强",
+          "level": 4,
+          "line": 722
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 745
+        },
+        {
+          "heading": "核心价值",
+          "level": 3,
+          "line": 749
+        },
+        {
+          "heading": "在Spark生态系统中的角色",
+          "level": 3,
+          "line": 755
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 64
+      }
+    },
+    {
+      "path": "taskListeners.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 61,
+      "metrics": {}
+    },
+    {
+      "path": "ThreadUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 401,
+      "nonEmptyLines": 362,
+      "metrics": {}
+    },
+    {
+      "path": "UninterruptibleThread.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 92,
+      "metrics": {}
+    },
+    {
+      "path": "UninterruptibleThreadRunner.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 49,
+      "metrics": {}
+    },
+    {
+      "path": "Utils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 3461,
+      "nonEmptyLines": 3187,
+      "metrics": {}
+    },
+    {
+      "path": "VersionUtils.scala",
+      "language": "scala",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 96,
+      "metrics": {}
+    }
+  ]
+}

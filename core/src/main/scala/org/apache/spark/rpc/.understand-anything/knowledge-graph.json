@@ -1,0 +1,2558 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "spark-rpc",
+    "languages": [
+      "scala",
+      "markdown"
+    ],
+    "frameworks": [
+      "spark",
+      "netty"
+    ],
+    "description": "Spark 节点间通信子系统：org.apache.spark.rpc 抽象 API + org.apache.spark.rpc.netty 基于 Netty 的实现。",
+    "analyzedAt": "2026-06-07T19:07:26Z",
+    "gitCommitHash": "88f727c7e51933e741941a1c845070e47451aed5"
+  },
+  "nodes": [
+    {
+      "id": "file:RpcAddress.scala",
+      "type": "file",
+      "name": "RpcAddress.scala",
+      "filePath": "RpcAddress.scala",
+      "summary": "RpcAddress：RPC 通信端点地址。case class（host: String, port: Int），支持 toSparkURL 序列化与 fromSparkURL/fromUrlString 解析，内部使用 Utils.normalizeIpIfNeeded。",
+      "tags": [
+        "rpc",
+        "address",
+        "case-class"
+      ],
+      "language": "scala",
+      "sizeLines": 57,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:RpcCallContext.scala",
+      "type": "file",
+      "name": "RpcCallContext.scala",
+      "filePath": "RpcCallContext.scala",
+      "summary": "RpcCallContext trait：RpcEndpoint 处理 ask 消息时用来回复响应 (reply) 或报告失败 (sendFailure) 的回调接口。",
+      "tags": [
+        "rpc",
+        "callback",
+        "trait"
+      ],
+      "language": "scala",
+      "sizeLines": 41,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:RpcEndpoint.scala",
+      "type": "file",
+      "name": "RpcEndpoint.scala",
+      "filePath": "RpcEndpoint.scala",
+      "summary": "定义 RpcEndpoint 抽象 trait（消息接收端，含 receive / receiveAndReply / onStart / onStop / onError 等生命周期回调）以及 ThreadSafeRpcEndpoint、IsolatedRpcEndpoint、IsolatedThreadSafeRpcEndpoint、RpcEnvFactory。",
+      "tags": [
+        "rpc",
+        "endpoint",
+        "trait",
+        "lifecycle"
+      ],
+      "language": "scala",
+      "sizeLines": 177,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:RpcEndpointAddress.scala",
+      "type": "file",
+      "name": "RpcEndpointAddress.scala",
+      "filePath": "RpcEndpointAddress.scala",
+      "summary": "RpcEndpointAddress：将 RpcAddress 与 endpoint 名称绑定，URI 形式 spark://name@host:port 或 spark-client://name，是 RpcEndpointRef 序列化时的标识。",
+      "tags": [
+        "rpc",
+        "address",
+        "uri",
+        "case-class"
+      ],
+      "language": "scala",
+      "sizeLines": 74,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:RpcEndpointNotFoundException.scala",
+      "type": "file",
+      "name": "RpcEndpointNotFoundException.scala",
+      "filePath": "RpcEndpointNotFoundException.scala",
+      "summary": "RpcEndpointNotFoundException：当根据 URI 找不到对应 RpcEndpoint 时抛出，继承自 SparkException。",
+      "tags": [
+        "rpc",
+        "exception"
+      ],
+      "language": "scala",
+      "sizeLines": 22,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:RpcEndpointRef.scala",
+      "type": "file",
+      "name": "RpcEndpointRef.scala",
+      "filePath": "RpcEndpointRef.scala",
+      "summary": "RpcEndpointRef 抽象类：可序列化的远程 endpoint 句柄。提供 send（单向）、ask、askAbortable、askSync 等调用方法，以及 AbortableRpcFuture 与 RpcAbortException 包装。",
+      "tags": [
+        "rpc",
+        "ref",
+        "serializable"
+      ],
+      "language": "scala",
+      "sizeLines": 118,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:RpcEnv.scala",
+      "type": "file",
+      "name": "RpcEnv.scala",
+      "filePath": "RpcEnv.scala",
+      "summary": "RpcEnv 抽象类 + companion object：RPC 环境的对外门面。定义 endpoint 注册、查询、关闭、文件服务等接口；RpcEnv.create() 通过反射调用 NettyRpcEnvFactory 创建实现。还包含 RpcEnvConfig 与 RpcEnvFileServer。",
+      "tags": [
+        "rpc",
+        "env",
+        "facade",
+        "trait"
+      ],
+      "language": "scala",
+      "sizeLines": 208,
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:RpcEnvStoppedException.scala",
+      "type": "file",
+      "name": "RpcEnvStoppedException.scala",
+      "filePath": "RpcEnvStoppedException.scala",
+      "summary": "RpcEnvStoppedException：在已关闭的 RpcEnv 上发送消息时抛出，继承自 IllegalStateException。",
+      "tags": [
+        "rpc",
+        "exception"
+      ],
+      "language": "scala",
+      "sizeLines": 20,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:RpcTimeout.scala",
+      "type": "file",
+      "name": "RpcTimeout.scala",
+      "filePath": "RpcTimeout.scala",
+      "summary": "RpcTimeout：把 FiniteDuration 与配置项名绑定，用于 awaitResult(future) 并在超时时抛出带有可读配置键的 RpcTimeoutException。",
+      "tags": [
+        "rpc",
+        "timeout",
+        "future"
+      ],
+      "language": "scala",
+      "sizeLines": 134,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:netty/Dispatcher.scala",
+      "type": "file",
+      "name": "Dispatcher.scala",
+      "filePath": "netty/Dispatcher.scala",
+      "summary": "Dispatcher：RPC 消息分发器。维护 endpoints (name → MessageLoop) 与 endpointRefs (endpoint → ref) 两张并发 map；负责 registerRpcEndpoint、unregister、stop；区分 postRemoteMessage / postLocalMessage / postOneWayMessage / postToAll。IsolatedRpcEndpoint 走专用 DedicatedMessageLoop，其它走 SharedMessageLoop。",
+      "tags": [
+        "rpc",
+        "dispatcher",
+        "registration",
+        "thread-pool"
+      ],
+      "language": "scala",
+      "sizeLines": 220,
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:netty/Inbox.scala",
+      "type": "file",
+      "name": "Inbox.scala",
+      "filePath": "netty/Inbox.scala",
+      "summary": "Inbox：每个 endpoint 持有一个 Inbox 队列，存放 InboxMessage（OneWayMessage / RpcMessage / OnStart / OnStop / RemoteProcessConnected|Disconnected|ConnectionError）。process() 由 MessageLoop 调用，按消息类型调用 endpoint 相应方法；通过 enableConcurrent 与 numActiveThreads 控制并发。",
+      "tags": [
+        "rpc",
+        "inbox",
+        "message-queue",
+        "sealed-trait"
+      ],
+      "language": "scala",
+      "sizeLines": 236,
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:netty/MessageLoop.scala",
+      "type": "file",
+      "name": "MessageLoop.scala",
+      "filePath": "netty/MessageLoop.scala",
+      "summary": "MessageLoop 抽象类及 SharedMessageLoop / DedicatedMessageLoop 实现：SharedMessageLoop 拥有共享线程池（dispatcher-event-loop）服务所有普通 endpoint；DedicatedMessageLoop 为 IsolatedRpcEndpoint 启动独立线程池（线程数由 endpoint.threadCount() 决定）。两者都通过 PoisonPill 优雅停机。",
+      "tags": [
+        "rpc",
+        "message-loop",
+        "thread-pool",
+        "executor"
+      ],
+      "language": "scala",
+      "sizeLines": 198,
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:netty/NettyRpcCallContext.scala",
+      "type": "file",
+      "name": "NettyRpcCallContext.scala",
+      "filePath": "netty/NettyRpcCallContext.scala",
+      "summary": "NettyRpcCallContext：RpcCallContext 的 Netty 实现。reply/sendFailure 编码为 RpcFailure；提供 LocalNettyRpcCallContext（同进程，通过 Promise 完成）与 RemoteNettyRpcCallContext（远端，序列化后经 RpcResponseCallback 回传）两个子类。",
+      "tags": [
+        "rpc",
+        "callback",
+        "netty"
+      ],
+      "language": "scala",
+      "sizeLines": 67,
+      "complexity": "simple"
+    },
+    {
+      "id": "file:netty/NettyRpcEnv.scala",
+      "type": "file",
+      "name": "NettyRpcEnv.scala",
+      "filePath": "netty/NettyRpcEnv.scala",
+      "summary": "NettyRpcEnv：RpcEnv 的 Netty 实现（核心，758 行）。内含 Dispatcher、NettyStreamManager、TransportContext/TransportClientFactory/TransportServer、超时调度器、客户端连接池；通过 Outbox 把远端消息发到对应 RpcAddress。同文件还定义 NettyRpcEnvFactory（反射创建 NettyRpcEnv）、NettyRpcEndpointRef（带 TransportClient 的可序列化引用）、RequestMessage、NettyRpcHandler（处理 channelActive/channelInactive/exceptionCaught/receive 并桥接 Dispatcher）。",
+      "tags": [
+        "rpc",
+        "netty",
+        "env",
+        "transport",
+        "factory",
+        "handler"
+      ],
+      "language": "scala",
+      "sizeLines": 758,
+      "complexity": "complex"
+    },
+    {
+      "id": "file:netty/NettyStreamManager.scala",
+      "type": "file",
+      "name": "NettyStreamManager.scala",
+      "filePath": "netty/NettyStreamManager.scala",
+      "summary": "NettyStreamManager：RpcEnvFileServer 与 Spark Network StreamManager 的实现。维护 files/jars/dirs 三张 map；addFile/addJar/addDirectory 把本地文件注册为 spark://host:port/{files|jars|dirs}/... URI，对外提供 openChannel 下载。",
+      "tags": [
+        "rpc",
+        "stream",
+        "file-server",
+        "jars"
+      ],
+      "language": "scala",
+      "sizeLines": 93,
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:netty/Outbox.scala",
+      "type": "file",
+      "name": "Outbox.scala",
+      "filePath": "netty/Outbox.scala",
+      "summary": "Outbox：每个远端 RpcAddress 持有一个 Outbox，缓存 OutboxMessage（OneWayOutboxMessage / RpcOutboxMessage）。按需通过 clientConnectionExecutor 异步建立 TransportClient 连接，复用同一 client 顺序 drain 消息；连接失败时调用 handleNetworkFailure 通知所有等待者。",
+      "tags": [
+        "rpc",
+        "outbox",
+        "outbound",
+        "connection-pool"
+      ],
+      "language": "scala",
+      "sizeLines": 283,
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:netty/RpcEndpointVerifier.scala",
+      "type": "file",
+      "name": "RpcEndpointVerifier.scala",
+      "filePath": "netty/RpcEndpointVerifier.scala",
+      "summary": "RpcEndpointVerifier：内置的 RpcEndpoint（NAME=endpoint-verifier），用于在建立远端 RpcEndpointRef 前通过 CheckExistence 消息确认对端真实存在。",
+      "tags": [
+        "rpc",
+        "verifier",
+        "endpoint"
+      ],
+      "language": "scala",
+      "sizeLines": 40,
+      "complexity": "simple"
+    },
+    {
+      "id": "document:RpcAddress.md",
+      "type": "document",
+      "name": "RpcAddress.md",
+      "filePath": "RpcAddress.md",
+      "summary": "RpcAddress.scala 的中文版设计文档：描述 host:port 地址模型、spark:// URL 协议与 IP 规范化策略。",
+      "tags": [
+        "rpc",
+        "address",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 355,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcCallContext.md",
+      "type": "document",
+      "name": "RpcCallContext.md",
+      "filePath": "RpcCallContext.md",
+      "summary": "RpcCallContext.scala 的中文版设计文档：解释 reply / sendFailure / senderAddress 三个方法的语义与线程安全保证。",
+      "tags": [
+        "rpc",
+        "callback",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 267,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcEndpoint.md",
+      "type": "document",
+      "name": "RpcEndpoint.md",
+      "filePath": "RpcEndpoint.md",
+      "summary": "RpcEndpoint.scala 的中文版设计文档：详述 endpoint 生命周期（constructor → onStart → receive* → onStop）、各回调的线程模型，以及 ThreadSafe / Isolated 变体的取舍。",
+      "tags": [
+        "rpc",
+        "endpoint",
+        "lifecycle",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 561,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcEndpointAddress.md",
+      "type": "document",
+      "name": "RpcEndpointAddress.md",
+      "filePath": "RpcEndpointAddress.md",
+      "summary": "RpcEndpointAddress.scala 的中文版设计文档：解释 spark:// 与 spark-client:// 两种 URI 形式，以及 client-only 模式下 rpcAddress 为 null 的语义。",
+      "tags": [
+        "rpc",
+        "address",
+        "uri",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 392,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcEndpointNotFoundException.md",
+      "type": "document",
+      "name": "RpcEndpointNotFoundException.md",
+      "filePath": "RpcEndpointNotFoundException.md",
+      "summary": "RpcEndpointNotFoundException.scala 的中文版设计文档：说明异常抛出的时机（setupEndpointRef 找不到目标 endpoint 时）。",
+      "tags": [
+        "rpc",
+        "exception",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 193,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcEndpointRef.md",
+      "type": "document",
+      "name": "RpcEndpointRef.md",
+      "filePath": "RpcEndpointRef.md",
+      "summary": "RpcEndpointRef.scala 的中文版设计文档：覆盖 send / ask / askAbortable / askSync 语义、超时、AbortableRpcFuture 的 abort 用法。",
+      "tags": [
+        "rpc",
+        "ref",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 482,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcEnv.md",
+      "type": "document",
+      "name": "RpcEnv.md",
+      "filePath": "RpcEnv.md",
+      "summary": "RpcEnv.scala 的中文版设计文档：RpcEnv 整体设计、RpcEnvConfig、RpcEnvFileServer 协议以及文件下载的 openChannel 流程。",
+      "tags": [
+        "rpc",
+        "env",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 685,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcEnvStoppedException.md",
+      "type": "document",
+      "name": "RpcEnvStoppedException.md",
+      "filePath": "RpcEnvStoppedException.md",
+      "summary": "RpcEnvStoppedException.scala 的中文版设计文档：说明关闭后再投递消息的容错处理。",
+      "tags": [
+        "rpc",
+        "exception",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 162,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:RpcTimeout.md",
+      "type": "document",
+      "name": "RpcTimeout.md",
+      "filePath": "RpcTimeout.md",
+      "summary": "RpcTimeout.scala 的中文版设计文档：解释 awaitResult、addMessageIfTimeout 的 PartialFunction 模式，以及与 spark.* 配置项的关联。",
+      "tags": [
+        "rpc",
+        "timeout",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 307,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/Dispatcher.md",
+      "type": "document",
+      "name": "Dispatcher.md",
+      "filePath": "netty/Dispatcher.md",
+      "summary": "Dispatcher.scala 的中文版设计文档：endpoint 注册注销、Shared vs Dedicated MessageLoop 选型、消息投递入口。",
+      "tags": [
+        "rpc",
+        "dispatcher",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 150,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/Inbox.md",
+      "type": "document",
+      "name": "Inbox.md",
+      "filePath": "netty/Inbox.md",
+      "summary": "Inbox.scala 的中文版设计文档：消息类型分层、process 主循环、enableConcurrent 与 numActiveThreads 的并发控制。",
+      "tags": [
+        "rpc",
+        "inbox",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 170,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/MessageLoop.md",
+      "type": "document",
+      "name": "MessageLoop.md",
+      "filePath": "netty/MessageLoop.md",
+      "summary": "MessageLoop.scala 的中文版设计文档：SharedMessageLoop 的线程数配置（RPC_NETTY_DISPATCHER_NUM_THREADS）、PoisonPill 停机流程。",
+      "tags": [
+        "rpc",
+        "message-loop",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 199,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/NettyRpcCallContext.md",
+      "type": "document",
+      "name": "NettyRpcCallContext.md",
+      "filePath": "netty/NettyRpcCallContext.md",
+      "summary": "NettyRpcCallContext.scala 的中文版设计文档：本地 vs 远端 reply 路径的差异。",
+      "tags": [
+        "rpc",
+        "callback",
+        "netty",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 209,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/NettyRpcEnv.md",
+      "type": "document",
+      "name": "NettyRpcEnv.md",
+      "filePath": "netty/NettyRpcEnv.md",
+      "summary": "NettyRpcEnv.scala 的中文版设计文档（最大文档）：NettyRpcEnv 整体架构、TransportContext 启动流程、NettyRpcHandler 行为、RequestMessage 序列化布局、文件下载。",
+      "tags": [
+        "rpc",
+        "netty",
+        "env",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 257,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/NettyStreamManager.md",
+      "type": "document",
+      "name": "NettyStreamManager.md",
+      "filePath": "netty/NettyStreamManager.md",
+      "summary": "NettyStreamManager.scala 的中文版设计文档：files/jars/dirs 三类资源注册与 spark:// URI 生成规则。",
+      "tags": [
+        "rpc",
+        "stream",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 190,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/Outbox.md",
+      "type": "document",
+      "name": "Outbox.md",
+      "filePath": "netty/Outbox.md",
+      "summary": "Outbox.scala 的中文版设计文档：连接按需建立、drainOutbox 状态机、连接失败重置。",
+      "tags": [
+        "rpc",
+        "outbox",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 246,
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:netty/RpcEndpointVerifier.md",
+      "type": "document",
+      "name": "RpcEndpointVerifier.md",
+      "filePath": "netty/RpcEndpointVerifier.md",
+      "summary": "RpcEndpointVerifier.scala 的中文版设计文档：endpoint-verifier 端点的存在性探测协议。",
+      "tags": [
+        "rpc",
+        "verifier",
+        "docs"
+      ],
+      "language": "markdown",
+      "sizeLines": 262,
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "本目录 .understand-anything 的运行时配置：当前 outputLanguage=zh。",
+      "tags": [
+        "config",
+        "understand"
+      ],
+      "language": "json",
+      "sizeLines": 4,
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEnv.scala:RpcEnv",
+      "type": "class",
+      "name": "RpcEnv",
+      "filePath": "RpcEnv.scala",
+      "summary": "RpcEnv 抽象类：RPC 环境的对外门面。",
+      "tags": [
+        "rpc",
+        "env",
+        "abstract"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:RpcEnv.scala:RpcEnvConfig",
+      "type": "class",
+      "name": "RpcEnvConfig",
+      "filePath": "RpcEnv.scala",
+      "summary": "RpcEnv 创建参数：name/bindAddress/advertiseAddress/port/securityManager/numUsableCores/clientMode。",
+      "tags": [
+        "rpc",
+        "config",
+        "case-class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEnv.scala:RpcEnvFileServer",
+      "type": "class",
+      "name": "RpcEnvFileServer",
+      "filePath": "RpcEnv.scala",
+      "summary": "文件服务 trait：addFile/addJar/addDirectory，把本地文件/Jar 暴露为 spark:// URI。",
+      "tags": [
+        "rpc",
+        "file-server",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcEnv.scala:NettyRpcEnvFactory",
+      "type": "class",
+      "name": "NettyRpcEnvFactory",
+      "filePath": "RpcEnv.scala",
+      "summary": "被 RpcEnv.create() 反射实例化，构造 NettyRpcEnv 并启动服务端。",
+      "tags": [
+        "rpc",
+        "factory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcEndpoint.scala:RpcEndpoint",
+      "type": "class",
+      "name": "RpcEndpoint",
+      "filePath": "RpcEndpoint.scala",
+      "summary": "消息接收端 trait：receive/receiveAndReply/onStart/onStop/onError 等生命周期回调。",
+      "tags": [
+        "rpc",
+        "endpoint",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcEndpoint.scala:ThreadSafeRpcEndpoint",
+      "type": "class",
+      "name": "ThreadSafeRpcEndpoint",
+      "filePath": "RpcEndpoint.scala",
+      "summary": "保证消息串行处理的 RpcEndpoint 变体（隐式：Inbox 不开并发）。",
+      "tags": [
+        "rpc",
+        "endpoint",
+        "trait"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+      "type": "class",
+      "name": "IsolatedRpcEndpoint",
+      "filePath": "RpcEndpoint.scala",
+      "summary": "拥有独立 MessageLoop/线程池的 RpcEndpoint。",
+      "tags": [
+        "rpc",
+        "endpoint",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcEndpoint.scala:IsolatedThreadSafeRpcEndpoint",
+      "type": "class",
+      "name": "IsolatedThreadSafeRpcEndpoint",
+      "filePath": "RpcEndpoint.scala",
+      "summary": "threadCount=1 的 IsolatedRpcEndpoint 变体，单线程串行。",
+      "tags": [
+        "rpc",
+        "endpoint",
+        "trait"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEndpoint.scala:RpcEnvFactory",
+      "type": "class",
+      "name": "RpcEnvFactory",
+      "filePath": "RpcEndpoint.scala",
+      "summary": "RpcEnv 工厂 trait，必须有空构造器以便反射调用。",
+      "tags": [
+        "rpc",
+        "factory",
+        "trait"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEndpointRef.scala:RpcEndpointRef",
+      "type": "class",
+      "name": "RpcEndpointRef",
+      "filePath": "RpcEndpointRef.scala",
+      "summary": "远端 RpcEndpoint 的可序列化句柄：send/ask/askAbortable/askSync。",
+      "tags": [
+        "rpc",
+        "ref"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcEndpointRef.scala:AbortableRpcFuture",
+      "type": "class",
+      "name": "AbortableRpcFuture",
+      "filePath": "RpcEndpointRef.scala",
+      "summary": "包装 Future 并提供 abort(t) 方法的 future 容器。",
+      "tags": [
+        "rpc",
+        "future"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEndpointRef.scala:RpcAbortException",
+      "type": "class",
+      "name": "RpcAbortException",
+      "filePath": "RpcEndpointRef.scala",
+      "summary": "调用 abort 时的异常。",
+      "tags": [
+        "rpc",
+        "exception"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcCallContext.scala:RpcCallContext",
+      "type": "class",
+      "name": "RpcCallContext",
+      "filePath": "RpcCallContext.scala",
+      "summary": "endpoint 用来 reply / sendFailure / 读取 senderAddress 的回调接口。",
+      "tags": [
+        "rpc",
+        "callback",
+        "trait"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcAddress.scala:RpcAddress",
+      "type": "class",
+      "name": "RpcAddress",
+      "filePath": "RpcAddress.scala",
+      "summary": "(host, port) 不可变地址，case class。",
+      "tags": [
+        "rpc",
+        "address",
+        "case-class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEndpointAddress.scala:RpcEndpointAddress",
+      "type": "class",
+      "name": "RpcEndpointAddress",
+      "filePath": "RpcEndpointAddress.scala",
+      "summary": "(rpcAddress, name) 不可变地址，可从 spark:// URI 解析。",
+      "tags": [
+        "rpc",
+        "address",
+        "case-class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcTimeout.scala:RpcTimeout",
+      "type": "class",
+      "name": "RpcTimeout",
+      "filePath": "RpcTimeout.scala",
+      "summary": "(duration, timeoutProp) 配对，配合 awaitResult。",
+      "tags": [
+        "rpc",
+        "timeout"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RpcTimeout.scala:RpcTimeoutException",
+      "type": "class",
+      "name": "RpcTimeoutException",
+      "filePath": "RpcTimeout.scala",
+      "summary": "封装 TimeoutException 并附 timeoutProp 名称。",
+      "tags": [
+        "rpc",
+        "exception"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEndpointNotFoundException.scala:RpcEndpointNotFoundException",
+      "type": "class",
+      "name": "RpcEndpointNotFoundException",
+      "filePath": "RpcEndpointNotFoundException.scala",
+      "summary": "找不到目标 endpoint 时抛出的异常。",
+      "tags": [
+        "rpc",
+        "exception"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:RpcEnvStoppedException.scala:RpcEnvStoppedException",
+      "type": "class",
+      "name": "RpcEnvStoppedException",
+      "filePath": "RpcEnvStoppedException.scala",
+      "summary": "已关闭的 RpcEnv 不能再投递消息。",
+      "tags": [
+        "rpc",
+        "exception"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "type": "class",
+      "name": "NettyRpcEnv",
+      "filePath": "netty/NettyRpcEnv.scala",
+      "summary": "RpcEnv 的 Netty 实现：Dispatcher + TransportContext + Outbox + StreamManager。",
+      "tags": [
+        "rpc",
+        "netty",
+        "env"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:netty/NettyRpcEnv.scala:NettyRpcEnvFactory",
+      "type": "class",
+      "name": "NettyRpcEnvFactory",
+      "filePath": "netty/NettyRpcEnv.scala",
+      "summary": "用 JavaSerializer 构造 NettyRpcEnv 并启动 TransportServer。",
+      "tags": [
+        "rpc",
+        "factory",
+        "netty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/NettyRpcEnv.scala:NettyRpcEndpointRef",
+      "type": "class",
+      "name": "NettyRpcEndpointRef",
+      "filePath": "netty/NettyRpcEnv.scala",
+      "summary": "携带 TransportClient 的 RpcEndpointRef，反序列化时通过 DynamicVariable 还原 NettyRpcEnv。",
+      "tags": [
+        "rpc",
+        "ref",
+        "netty"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:netty/NettyRpcEnv.scala:RequestMessage",
+      "type": "class",
+      "name": "RequestMessage",
+      "filePath": "netty/NettyRpcEnv.scala",
+      "summary": "(senderAddress, receiver: NettyRpcEndpointRef, content) 三元组，手工紧凑序列化。",
+      "tags": [
+        "rpc",
+        "message",
+        "netty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/NettyRpcEnv.scala:RpcFailure",
+      "type": "class",
+      "name": "RpcFailure",
+      "filePath": "netty/NettyRpcEnv.scala",
+      "summary": "对端处理失败时回传的响应体。",
+      "tags": [
+        "rpc",
+        "message",
+        "case-class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:netty/NettyRpcEnv.scala:NettyRpcHandler",
+      "type": "class",
+      "name": "NettyRpcHandler",
+      "filePath": "netty/NettyRpcEnv.scala",
+      "summary": "RpcHandler 实现：把 Netty 事件（receive/channelActive/channelInactive/exceptionCaught）桥接到 Dispatcher。",
+      "tags": [
+        "rpc",
+        "handler",
+        "netty"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:netty/Dispatcher.scala:Dispatcher",
+      "type": "class",
+      "name": "Dispatcher",
+      "filePath": "netty/Dispatcher.scala",
+      "summary": "endpoint 注册/注销 + 本地/远端/广播消息路由。",
+      "tags": [
+        "rpc",
+        "dispatcher"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:netty/Inbox.scala:Inbox",
+      "type": "class",
+      "name": "Inbox",
+      "filePath": "netty/Inbox.scala",
+      "summary": "endpoint 端的消息队列与 process 循环。",
+      "tags": [
+        "rpc",
+        "inbox"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:netty/Inbox.scala:InboxMessage",
+      "type": "class",
+      "name": "InboxMessage",
+      "filePath": "netty/Inbox.scala",
+      "summary": "sealed trait 层次：OneWayMessage / RpcMessage / OnStart / OnStop / RemoteProcess*。",
+      "tags": [
+        "rpc",
+        "message",
+        "sealed-trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/MessageLoop.scala:MessageLoop",
+      "type": "class",
+      "name": "MessageLoop",
+      "filePath": "netty/MessageLoop.scala",
+      "summary": "Dispatcher 使用的消息循环抽象。",
+      "tags": [
+        "rpc",
+        "message-loop",
+        "abstract"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/MessageLoop.scala:SharedMessageLoop",
+      "type": "class",
+      "name": "SharedMessageLoop",
+      "filePath": "netty/MessageLoop.scala",
+      "summary": "默认共享线程池消息循环。",
+      "tags": [
+        "rpc",
+        "message-loop"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/MessageLoop.scala:DedicatedMessageLoop",
+      "type": "class",
+      "name": "DedicatedMessageLoop",
+      "filePath": "netty/MessageLoop.scala",
+      "summary": "IsolatedRpcEndpoint 的专用线程池消息循环。",
+      "tags": [
+        "rpc",
+        "message-loop"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/NettyRpcCallContext.scala:NettyRpcCallContext",
+      "type": "class",
+      "name": "NettyRpcCallContext",
+      "filePath": "netty/NettyRpcCallContext.scala",
+      "summary": "RpcCallContext 的 Netty 实现，封装 reply/sendFailure。",
+      "tags": [
+        "rpc",
+        "callback",
+        "netty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/NettyRpcCallContext.scala:LocalNettyRpcCallContext",
+      "type": "class",
+      "name": "LocalNettyRpcCallContext",
+      "filePath": "netty/NettyRpcCallContext.scala",
+      "summary": "本地 reply，通过 Promise 传回。",
+      "tags": [
+        "rpc",
+        "callback",
+        "netty"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:netty/NettyRpcCallContext.scala:RemoteNettyRpcCallContext",
+      "type": "class",
+      "name": "RemoteNettyRpcCallContext",
+      "filePath": "netty/NettyRpcCallContext.scala",
+      "summary": "远端 reply，序列化后通过 RpcResponseCallback 回传。",
+      "tags": [
+        "rpc",
+        "callback",
+        "netty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/NettyStreamManager.scala:NettyStreamManager",
+      "type": "class",
+      "name": "NettyStreamManager",
+      "filePath": "netty/NettyStreamManager.scala",
+      "summary": "RpcEnvFileServer + StreamManager：files/jars/dirs 资源服务。",
+      "tags": [
+        "rpc",
+        "stream",
+        "netty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/Outbox.scala:Outbox",
+      "type": "class",
+      "name": "Outbox",
+      "filePath": "netty/Outbox.scala",
+      "summary": "远端地址的出站消息缓存与连接管理。",
+      "tags": [
+        "rpc",
+        "outbox"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:netty/Outbox.scala:OutboxMessage",
+      "type": "class",
+      "name": "OutboxMessage",
+      "filePath": "netty/Outbox.scala",
+      "summary": "sealed trait 层次：OneWayOutboxMessage / RpcOutboxMessage。",
+      "tags": [
+        "rpc",
+        "message",
+        "sealed-trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:netty/RpcEndpointVerifier.scala:RpcEndpointVerifier",
+      "type": "class",
+      "name": "RpcEndpointVerifier",
+      "filePath": "netty/RpcEndpointVerifier.scala",
+      "summary": "endpoint-verifier 内置 endpoint，用于对端存在性探测。",
+      "tags": [
+        "rpc",
+        "verifier"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "module:org.apache.spark.rpc",
+      "type": "module",
+      "name": "org.apache.spark.rpc",
+      "summary": "Spark RPC 公共抽象层：定义 RpcEnv、RpcEndpoint、RpcEndpointRef、RpcAddress 等核心抽象，是 Spark 内部各组件间通信的对外契约。",
+      "tags": [
+        "rpc",
+        "api",
+        "abstraction",
+        "spark-core"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "module:org.apache.spark.rpc.netty",
+      "type": "module",
+      "name": "org.apache.spark.rpc.netty",
+      "summary": "Spark RPC 的 Netty 实现：基于 Netty 的 TransportContext 实现 RpcEnv，处理节点间连接、消息派发、Inbox/Outbox 队列、流式文件服务等。",
+      "tags": [
+        "rpc",
+        "netty",
+        "implementation",
+        "network",
+        "spark-core"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "module:Inbox 消息队列",
+      "type": "module",
+      "name": "Inbox 消息队列",
+      "summary": "每个 RpcEndpoint 拥有一个 Inbox 消息队列，由 MessageLoop 驱动消费；保证消息按序投递到 endpoint 的 receive / receiveAndReply 方法。",
+      "tags": [
+        "rpc",
+        "inbox",
+        "message-queue"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "module:Outbox 出站连接",
+      "type": "module",
+      "name": "Outbox 出站连接",
+      "summary": "每个远端 RpcAddress 拥有一个 Outbox，缓存待发送消息并按需建立 TransportClient 连接，实现非阻塞的 send/ask。",
+      "tags": [
+        "rpc",
+        "outbox",
+        "outbound"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "module:Dispatcher 分发器",
+      "type": "module",
+      "name": "Dispatcher 分发器",
+      "summary": "Dispatcher 负责注册/注销 RpcEndpoint，维护 endpoint name → MessageLoop 映射，并将本地/远程/广播消息路由到对应 Inbox。",
+      "tags": [
+        "rpc",
+        "dispatcher"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "module:NettyStreamManager 流式服务",
+      "type": "module",
+      "name": "NettyStreamManager 流式服务",
+      "summary": "NettyStreamManager 是 RpcEnvFileServer 的 Netty 实现：对外发布 /files、/jars、自定义目录，让其它节点通过 spark:// URI 下载文件/Jar。",
+      "tags": [
+        "rpc",
+        "stream",
+        "fileserver"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:RpcEndpoint 生命周期",
+      "type": "concept",
+      "name": "RpcEndpoint 生命周期",
+      "summary": "RpcEndpoint 端点的标准生命周期：constructor → onStart → receive* → onStop，异常时进入 onError。",
+      "tags": [
+        "rpc",
+        "lifecycle"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:线程模型",
+      "type": "concept",
+      "name": "线程模型",
+      "summary": "默认 SharedMessageLoop 共享 dispatcher-event-loop 线程池；ThreadSafeRpcEndpoint 串行、IsolatedRpcEndpoint 独立池（线程数由 threadCount 决定，IsolatedThreadSafeRpcEndpoint 强制 1）。",
+      "tags": [
+        "rpc",
+        "concurrency"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:消息投递流程",
+      "type": "concept",
+      "name": "消息投递流程",
+      "summary": "Netty 接收 → NettyRpcHandler.receive → Dispatcher.postRemoteMessage → MessageLoop.post → Inbox.post → Inbox.process → endpoint.receive / receiveAndReply → RpcCallContext.reply。",
+      "tags": [
+        "rpc",
+        "flow",
+        "messaging"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:消息发送流程",
+      "type": "concept",
+      "name": "消息发送流程",
+      "summary": "NettyRpcEndpointRef.send → NettyRpcEnv.send → 若远端：Outbox（按需建连，drain 消息）；若本地：Dispatcher.postOneWayMessage → Inbox。",
+      "tags": [
+        "rpc",
+        "flow",
+        "messaging"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:RpcEnv 文件/Jar 服务",
+      "type": "concept",
+      "name": "RpcEnv 文件/Jar 服务",
+      "summary": "通过 NettyStreamManager.addFile/addJar/addDirectory 注册本地文件，生成 spark://host:port/{files|jars|dir}/name URI，对端调用 RpcEnv.openChannel 即可下载。",
+      "tags": [
+        "rpc",
+        "file-server"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:endpoint-verifier",
+      "type": "concept",
+      "name": "endpoint-verifier",
+      "summary": "NettyRpcEnv 启动时自动注册的内置 endpoint（NAME=endpoint-verifier），用于在远端建立 RpcEndpointRef 前确认对端存在。",
+      "tags": [
+        "rpc",
+        "verifier"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcAddress.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcCallContext.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcEndpoint.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcEndpointAddress.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcEndpointNotFoundException.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcEndpointRef.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcEnv.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcEnvStoppedException.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "file:RpcTimeout.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/Dispatcher.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/Inbox.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/MessageLoop.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/NettyRpcCallContext.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/NettyRpcEnv.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/NettyStreamManager.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/Outbox.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "file:netty/RpcEndpointVerifier.scala",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEnv.scala",
+      "target": "class:RpcEnv.scala:RpcEnv",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEnv.scala",
+      "target": "class:RpcEnv.scala:RpcEnvConfig",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEnv.scala",
+      "target": "class:RpcEnv.scala:RpcEnvFileServer",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEnv.scala",
+      "target": "class:RpcEnv.scala:NettyRpcEnvFactory",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpoint.scala",
+      "target": "class:RpcEndpoint.scala:RpcEndpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpoint.scala",
+      "target": "class:RpcEndpoint.scala:ThreadSafeRpcEndpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpoint.scala",
+      "target": "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpoint.scala",
+      "target": "class:RpcEndpoint.scala:IsolatedThreadSafeRpcEndpoint",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpoint.scala",
+      "target": "class:RpcEndpoint.scala:RpcEnvFactory",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpointRef.scala",
+      "target": "class:RpcEndpointRef.scala:RpcEndpointRef",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpointRef.scala",
+      "target": "class:RpcEndpointRef.scala:AbortableRpcFuture",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpointRef.scala",
+      "target": "class:RpcEndpointRef.scala:RpcAbortException",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcCallContext.scala",
+      "target": "class:RpcCallContext.scala:RpcCallContext",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcAddress.scala",
+      "target": "class:RpcAddress.scala:RpcAddress",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpointAddress.scala",
+      "target": "class:RpcEndpointAddress.scala:RpcEndpointAddress",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcTimeout.scala",
+      "target": "class:RpcTimeout.scala:RpcTimeout",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcTimeout.scala",
+      "target": "class:RpcTimeout.scala:RpcTimeoutException",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEndpointNotFoundException.scala",
+      "target": "class:RpcEndpointNotFoundException.scala:RpcEndpointNotFoundException",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:RpcEnvStoppedException.scala",
+      "target": "class:RpcEnvStoppedException.scala:RpcEnvStoppedException",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "class:netty/NettyRpcEnv.scala:NettyRpcEnvFactory",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "class:netty/NettyRpcEnv.scala:NettyRpcEndpointRef",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "class:netty/NettyRpcEnv.scala:RequestMessage",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "class:netty/NettyRpcEnv.scala:RpcFailure",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "class:netty/NettyRpcEnv.scala:NettyRpcHandler",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "class:netty/Dispatcher.scala:Dispatcher",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Inbox.scala",
+      "target": "class:netty/Inbox.scala:Inbox",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Inbox.scala",
+      "target": "class:netty/Inbox.scala:InboxMessage",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/MessageLoop.scala",
+      "target": "class:netty/MessageLoop.scala:MessageLoop",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/MessageLoop.scala",
+      "target": "class:netty/MessageLoop.scala:SharedMessageLoop",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/MessageLoop.scala",
+      "target": "class:netty/MessageLoop.scala:DedicatedMessageLoop",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcCallContext.scala",
+      "target": "class:netty/NettyRpcCallContext.scala:NettyRpcCallContext",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcCallContext.scala",
+      "target": "class:netty/NettyRpcCallContext.scala:LocalNettyRpcCallContext",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcCallContext.scala",
+      "target": "class:netty/NettyRpcCallContext.scala:RemoteNettyRpcCallContext",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyStreamManager.scala",
+      "target": "class:netty/NettyStreamManager.scala:NettyStreamManager",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Outbox.scala",
+      "target": "class:netty/Outbox.scala:Outbox",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Outbox.scala",
+      "target": "class:netty/Outbox.scala:OutboxMessage",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/RpcEndpointVerifier.scala",
+      "target": "class:netty/RpcEndpointVerifier.scala:RpcEndpointVerifier",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcAddress.md",
+      "target": "file:RpcAddress.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcCallContext.md",
+      "target": "file:RpcCallContext.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcEndpoint.md",
+      "target": "file:RpcEndpoint.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcEndpointAddress.md",
+      "target": "file:RpcEndpointAddress.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcEndpointNotFoundException.md",
+      "target": "file:RpcEndpointNotFoundException.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcEndpointRef.md",
+      "target": "file:RpcEndpointRef.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcEnv.md",
+      "target": "file:RpcEnv.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcEnvStoppedException.md",
+      "target": "file:RpcEnvStoppedException.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:RpcTimeout.md",
+      "target": "file:RpcTimeout.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/Dispatcher.md",
+      "target": "file:netty/Dispatcher.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/Inbox.md",
+      "target": "file:netty/Inbox.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/MessageLoop.md",
+      "target": "file:netty/MessageLoop.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/NettyRpcCallContext.md",
+      "target": "file:netty/NettyRpcCallContext.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/NettyRpcEnv.md",
+      "target": "file:netty/NettyRpcEnv.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/NettyStreamManager.md",
+      "target": "file:netty/NettyStreamManager.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/Outbox.md",
+      "target": "file:netty/Outbox.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:netty/RpcEndpointVerifier.md",
+      "target": "file:netty/RpcEndpointVerifier.scala",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEnv.scala:RpcEnv",
+      "target": "class:RpcEnv.scala:NettyRpcEnvFactory",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "bidirectional"
+    },
+    {
+      "source": "class:RpcEnv.scala:NettyRpcEnvFactory",
+      "target": "class:RpcEndpoint.scala:RpcEnvFactory",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "target": "class:RpcEnv.scala:RpcEnv",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEnvFactory",
+      "target": "class:RpcEndpoint.scala:RpcEnvFactory",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEndpointRef",
+      "target": "class:RpcEndpointRef.scala:RpcEndpointRef",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcCallContext.scala:NettyRpcCallContext",
+      "target": "class:RpcCallContext.scala:RpcCallContext",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcCallContext.scala:LocalNettyRpcCallContext",
+      "target": "class:netty/NettyRpcCallContext.scala:NettyRpcCallContext",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcCallContext.scala:RemoteNettyRpcCallContext",
+      "target": "class:netty/NettyRpcCallContext.scala:NettyRpcCallContext",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/MessageLoop.scala:SharedMessageLoop",
+      "target": "class:netty/MessageLoop.scala:MessageLoop",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/MessageLoop.scala:DedicatedMessageLoop",
+      "target": "class:netty/MessageLoop.scala:MessageLoop",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEndpoint.scala:ThreadSafeRpcEndpoint",
+      "target": "class:RpcEndpoint.scala:RpcEndpoint",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+      "target": "class:RpcEndpoint.scala:RpcEndpoint",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEndpoint.scala:IsolatedThreadSafeRpcEndpoint",
+      "target": "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Inbox.scala:InboxMessage",
+      "target": "class:netty/Inbox.scala:InboxMessage",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "bidirectional"
+    },
+    {
+      "source": "class:netty/Outbox.scala:OutboxMessage",
+      "target": "class:netty/Outbox.scala:OutboxMessage",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "bidirectional"
+    },
+    {
+      "source": "file:RpcEnv.scala",
+      "target": "file:netty/NettyRpcEnv.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcAddress.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcCallContext.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcEndpoint.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcEndpointAddress.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcEndpointNotFoundException.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcEndpointRef.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcEnv.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcEnvStoppedException.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Dispatcher.scala",
+      "target": "file:RpcTimeout.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Inbox.scala",
+      "target": "file:RpcAddress.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Inbox.scala",
+      "target": "file:RpcEndpoint.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/MessageLoop.scala",
+      "target": "file:RpcEndpoint.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcCallContext.scala",
+      "target": "file:RpcAddress.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcCallContext.scala",
+      "target": "file:RpcCallContext.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcAddress.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcCallContext.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcEndpoint.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcEndpointAddress.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcEndpointNotFoundException.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcEndpointRef.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcEnv.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcEnvStoppedException.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyRpcEnv.scala",
+      "target": "file:RpcTimeout.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/NettyStreamManager.scala",
+      "target": "file:RpcEnv.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Outbox.scala",
+      "target": "file:RpcAddress.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/Outbox.scala",
+      "target": "file:RpcEnvStoppedException.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/RpcEndpointVerifier.scala",
+      "target": "file:RpcCallContext.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/RpcEndpointVerifier.scala",
+      "target": "file:RpcEndpoint.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:netty/RpcEndpointVerifier.scala",
+      "target": "file:RpcEnv.scala",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "target": "class:netty/Dispatcher.scala:Dispatcher",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "target": "class:netty/Outbox.scala:Outbox",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "target": "class:netty/NettyStreamManager.scala:NettyStreamManager",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcHandler",
+      "target": "class:netty/Dispatcher.scala:Dispatcher",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Dispatcher.scala:Dispatcher",
+      "target": "class:netty/MessageLoop.scala:MessageLoop",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Dispatcher.scala:Dispatcher",
+      "target": "class:netty/MessageLoop.scala:SharedMessageLoop",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Dispatcher.scala:Dispatcher",
+      "target": "class:netty/MessageLoop.scala:DedicatedMessageLoop",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/MessageLoop.scala:SharedMessageLoop",
+      "target": "class:netty/Inbox.scala:Inbox",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/MessageLoop.scala:DedicatedMessageLoop",
+      "target": "class:netty/Inbox.scala:Inbox",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Inbox.scala:Inbox",
+      "target": "class:netty/Inbox.scala:InboxMessage",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Outbox.scala:Outbox",
+      "target": "class:netty/Outbox.scala:OutboxMessage",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Outbox.scala:Outbox",
+      "target": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/RpcEndpointVerifier.scala:RpcEndpointVerifier",
+      "target": "class:netty/Dispatcher.scala:Dispatcher",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyStreamManager.scala:NettyStreamManager",
+      "target": "class:RpcEnv.scala:RpcEnvFileServer",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/RpcEndpointVerifier.scala:RpcEndpointVerifier",
+      "target": "class:RpcEndpoint.scala:RpcEndpoint",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Inbox.scala:Inbox",
+      "target": "class:RpcEndpoint.scala:ThreadSafeRpcEndpoint",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/Dispatcher.scala:Dispatcher",
+      "target": "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/MessageLoop.scala:MessageLoop",
+      "target": "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEnv.scala:NettyRpcEnvFactory",
+      "target": "class:RpcEnv.scala:RpcEnvConfig",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEndpointRef",
+      "target": "class:RpcEndpointAddress.scala:RpcEndpointAddress",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "target": "class:RpcEndpointAddress.scala:RpcEndpointAddress",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "target": "class:RpcEndpointNotFoundException.scala:RpcEndpointNotFoundException",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:netty/NettyRpcEnv.scala:RequestMessage",
+      "target": "class:RpcAddress.scala:RpcAddress",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEndpointAddress.scala:RpcEndpointAddress",
+      "target": "class:RpcAddress.scala:RpcAddress",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEndpointRef.scala:AbortableRpcFuture",
+      "target": "class:RpcEndpointRef.scala:RpcAbortException",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:RpcEndpoint.scala:RpcEndpoint",
+      "target": "class:RpcEndpointRef.scala:RpcEndpointRef",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "config:.understand-anything/config.json",
+      "target": "module:org.apache.spark.rpc",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "bidirectional"
+    },
+    {
+      "source": "concept:RpcEndpoint 生命周期",
+      "target": "class:RpcEndpoint.scala:RpcEndpoint",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:RpcEndpoint 生命周期",
+      "target": "class:netty/Inbox.scala:InboxMessage",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:线程模型",
+      "target": "class:netty/MessageLoop.scala:MessageLoop",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:线程模型",
+      "target": "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:消息投递流程",
+      "target": "class:netty/NettyRpcEnv.scala:NettyRpcHandler",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:消息投递流程",
+      "target": "class:netty/Inbox.scala:Inbox",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:消息发送流程",
+      "target": "class:netty/Outbox.scala:Outbox",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:RpcEnv 文件/Jar 服务",
+      "target": "class:netty/NettyStreamManager.scala:NettyStreamManager",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:endpoint-verifier",
+      "target": "class:netty/RpcEndpointVerifier.scala:RpcEndpointVerifier",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:endpoint-verifier",
+      "target": "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "concept:RpcEndpoint 生命周期",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc",
+      "target": "concept:线程模型",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "concept:消息投递流程",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "concept:消息发送流程",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "concept:RpcEnv 文件/Jar 服务",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:org.apache.spark.rpc.netty",
+      "target": "concept:endpoint-verifier",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:Inbox 消息队列",
+      "target": "class:netty/Inbox.scala:Inbox",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:Outbox 出站连接",
+      "target": "class:netty/Outbox.scala:Outbox",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:Dispatcher 分发器",
+      "target": "class:netty/Dispatcher.scala:Dispatcher",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "module:NettyStreamManager 流式服务",
+      "target": "class:netty/NettyStreamManager.scala:NettyStreamManager",
+      "type": "contains",
+      "weight": 0.5,
+      "direction": "forward"
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:public-rpc-api",
+      "name": "RPC 公共抽象层",
+      "description": "org.apache.spark.rpc 包下对其它 Spark 模块暴露的抽象 API：RpcEnv、RpcEndpoint、RpcEndpointRef、RpcCallContext、RpcAddress、RpcEndpointAddress、RpcTimeout 与若干异常。是整个 Spark 节点间通信的对外契约。",
+      "nodeIds": [
+        "file:RpcAddress.scala",
+        "file:RpcCallContext.scala",
+        "file:RpcEndpoint.scala",
+        "file:RpcEndpointAddress.scala",
+        "file:RpcEndpointNotFoundException.scala",
+        "file:RpcEndpointRef.scala",
+        "file:RpcEnv.scala",
+        "file:RpcEnvStoppedException.scala",
+        "file:RpcTimeout.scala",
+        "document:RpcAddress.md",
+        "document:RpcCallContext.md",
+        "document:RpcEndpoint.md",
+        "document:RpcEndpointAddress.md",
+        "document:RpcEndpointNotFoundException.md",
+        "document:RpcEndpointRef.md",
+        "document:RpcEnv.md",
+        "document:RpcEnvStoppedException.md",
+        "document:RpcTimeout.md"
+      ]
+    },
+    {
+      "id": "layer:netty-rpc-impl",
+      "name": "Netty RPC 实现层",
+      "description": "org.apache.spark.rpc.netty 包：NettyRpcEnv、Dispatcher、Inbox、MessageLoop（Shared/Dedicated）、Outbox、NettyRpcCallContext、NettyStreamManager、RpcEndpointVerifier。基于 Spark Network（Netty）实现 RpcEnv 抽象。",
+      "nodeIds": [
+        "file:netty/Dispatcher.scala",
+        "file:netty/Inbox.scala",
+        "file:netty/MessageLoop.scala",
+        "file:netty/NettyRpcCallContext.scala",
+        "file:netty/NettyRpcEnv.scala",
+        "file:netty/NettyStreamManager.scala",
+        "file:netty/Outbox.scala",
+        "file:netty/RpcEndpointVerifier.scala",
+        "document:netty/Dispatcher.md",
+        "document:netty/Inbox.md",
+        "document:netty/MessageLoop.md",
+        "document:netty/NettyRpcCallContext.md",
+        "document:netty/NettyRpcEnv.md",
+        "document:netty/NettyStreamManager.md",
+        "document:netty/Outbox.md",
+        "document:netty/RpcEndpointVerifier.md"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "分析配置",
+      "description": "本目录 .understand-anything 自身配置。",
+      "nodeIds": [
+        "config:.understand-anything/config.json"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "总览：Spark RPC 模块定位",
+      "description": "本目录是 Spark 节点间通信的子系统。org.apache.spark.rpc 包给出抽象 API，org.apache.spark.rpc.netty 包基于 Netty（Spark Network）实现。建议先看 RpcEnv + RpcEndpoint + RpcEndpointRef 三个核心 trait 抽象，再读 Netty 实现。",
+      "nodeIds": [
+        "module:org.apache.spark.rpc",
+        "module:org.apache.spark.rpc.netty",
+        "file:RpcEnv.scala",
+        "file:RpcEndpoint.scala",
+        "file:RpcEndpointRef.scala",
+        "file:netty/NettyRpcEnv.scala"
+      ],
+      "languageLesson": "Spark 的 RPC 模块采用「抽象层 + Netty 实现层」的双包结构，这种分层让其它模块（Scheduler、BlockManager、Shuffle 等）只依赖抽象 API，可独立替换底层传输。"
+    },
+    {
+      "order": 2,
+      "title": "服务端点抽象：RpcEndpoint",
+      "description": "阅读 RpcEndpoint trait 与配套 ThreadSafe / Isolated 变体，理解 receive、receiveAndReply、onStart、onStop、onError 的生命周期约束与线程模型约束。",
+      "nodeIds": [
+        "file:RpcEndpoint.scala",
+        "class:RpcEndpoint.scala:RpcEndpoint",
+        "class:RpcEndpoint.scala:ThreadSafeRpcEndpoint",
+        "class:RpcEndpoint.scala:IsolatedRpcEndpoint",
+        "class:RpcEndpoint.scala:IsolatedThreadSafeRpcEndpoint",
+        "concept:RpcEndpoint 生命周期"
+      ],
+      "languageLesson": "private[spark] 修饰符让这些 trait 只在 spark 包内可见，避免被外部代码直接继承导致行为不可控。"
+    },
+    {
+      "order": 3,
+      "title": "可序列化句柄：RpcEndpointRef",
+      "description": "RpcEndpointRef 是可序列化的远端 endpoint 句柄，掌握 send / ask / askAbortable / askSync 的区别。AbortableRpcFuture 在 askAbortable 时使用，可通过 abort 主动取消。",
+      "nodeIds": [
+        "file:RpcEndpointRef.scala",
+        "class:RpcEndpointRef.scala:RpcEndpointRef",
+        "class:RpcEndpointRef.scala:AbortableRpcFuture",
+        "class:RpcEndpointRef.scala:RpcAbortException"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "RPC 环境门面：RpcEnv",
+      "description": "RpcEnv 是 RPC 环境的对外门面。setupEndpoint 注册端点、setupEndpointRefByURI 按 URI 获取远端引用、shutdown / awaitTermination 关闭。RpcEnv.create() 通过反射调用 NettyRpcEnvFactory。",
+      "nodeIds": [
+        "file:RpcEnv.scala",
+        "class:RpcEnv.scala:RpcEnv",
+        "class:RpcEnv.scala:RpcEnvConfig",
+        "class:RpcEnv.scala:RpcEnvFileServer",
+        "class:RpcEnv.scala:NettyRpcEnvFactory"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "地址与 URI",
+      "description": "RpcAddress（host:port）与 RpcEndpointAddress（host:port + name）配合生成 spark://name@host:port 或 spark-client://name URI，作为 endpoint 引用与注册表的关键字。",
+      "nodeIds": [
+        "file:RpcAddress.scala",
+        "file:RpcEndpointAddress.scala",
+        "class:RpcAddress.scala:RpcAddress",
+        "class:RpcEndpointAddress.scala:RpcEndpointAddress"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "回调与超时",
+      "description": "RpcCallContext 暴露 reply / sendFailure / senderAddress；RpcTimeout 把 FiniteDuration 与配置项名绑定，awaitResult 在超时时抛出 RpcTimeoutException 并附上配置键。",
+      "nodeIds": [
+        "file:RpcCallContext.scala",
+        "file:RpcTimeout.scala",
+        "class:RpcCallContext.scala:RpcCallContext",
+        "class:RpcTimeout.scala:RpcTimeout",
+        "class:RpcTimeout.scala:RpcTimeoutException"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Netty 实现入口：NettyRpcEnv",
+      "description": "NettyRpcEnv 是 758 行的核心类。它组合 Dispatcher、NettyStreamManager、TransportContext、超时调度器、客户端连接池、outboxes 表。同文件还含 NettyRpcEnvFactory（反射构造）、NettyRpcEndpointRef（带 TransportClient 的可序列化引用）、RequestMessage、NettyRpcHandler（事件桥接）、RpcFailure。",
+      "nodeIds": [
+        "file:netty/NettyRpcEnv.scala",
+        "class:netty/NettyRpcEnv.scala:NettyRpcEnv",
+        "class:netty/NettyRpcEnv.scala:NettyRpcEnvFactory",
+        "class:netty/NettyRpcEnv.scala:NettyRpcEndpointRef",
+        "class:netty/NettyRpcEnv.scala:RequestMessage",
+        "class:netty/NettyRpcEnv.scala:NettyRpcHandler",
+        "class:netty/NettyRpcEnv.scala:RpcFailure"
+      ],
+      "languageLesson": "NettyRpcEndpointRef 使用 readObject/writeObject 自定义序列化，并通过 DynamicVariable（NettyRpcEnv.currentEnv / currentClient）还原运行环境——这是 Scala 在不污染字段的前提下注入上下文变量的惯用做法。"
+    },
+    {
+      "order": 8,
+      "title": "消息分发：Dispatcher",
+      "description": "Dispatcher 维护 endpoints（name → MessageLoop）与 endpointRefs（endpoint → RpcEndpointRef）两张并发 map。registerRpcEndpoint 时根据 endpoint 是否为 IsolatedRpcEndpoint 决定走 SharedMessageLoop 还是 DedicatedMessageLoop，并随后把消息 post 到对应 Inbox。",
+      "nodeIds": [
+        "file:netty/Dispatcher.scala",
+        "class:netty/Dispatcher.scala:Dispatcher",
+        "concept:消息投递流程"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "入站队列：Inbox + MessageLoop",
+      "description": "Inbox 维护 InboxMessage 队列（OneWayMessage / RpcMessage / OnStart / OnStop / RemoteProcess*）。SharedMessageLoop 用共享 dispatcher-event-loop 线程池服务所有普通 endpoint；DedicatedMessageLoop 为 IsolatedRpcEndpoint 创建独立线程池。",
+      "nodeIds": [
+        "file:netty/Inbox.scala",
+        "file:netty/MessageLoop.scala",
+        "class:netty/Inbox.scala:Inbox",
+        "class:netty/Inbox.scala:InboxMessage",
+        "class:netty/MessageLoop.scala:MessageLoop",
+        "class:netty/MessageLoop.scala:SharedMessageLoop",
+        "class:netty/MessageLoop.scala:DedicatedMessageLoop",
+        "concept:线程模型"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "出站连接：Outbox",
+      "description": "Outbox 为每个远端 RpcAddress 维护一个消息队列与 TransportClient。按需通过 clientConnectionExecutor 异步建连，drainOutbox 顺序把消息写到 client。连接失败时 handleNetworkFailure 通知所有等待者并清理。",
+      "nodeIds": [
+        "file:netty/Outbox.scala",
+        "class:netty/Outbox.scala:Outbox",
+        "class:netty/Outbox.scala:OutboxMessage",
+        "concept:消息发送流程"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "回复通道：NettyRpcCallContext",
+      "description": "本地 reply 走 LocalNettyRpcCallContext（Promise），远端 reply 走 RemoteNettyRpcCallContext（RpcResponseCallback + 序列化）。两者共享 NettyRpcCallContext 抽象的 reply/sendFailure 逻辑。",
+      "nodeIds": [
+        "file:netty/NettyRpcCallContext.scala",
+        "class:netty/NettyRpcCallContext.scala:NettyRpcCallContext",
+        "class:netty/NettyRpcCallContext.scala:LocalNettyRpcCallContext",
+        "class:netty/NettyRpcCallContext.scala:RemoteNettyRpcCallContext"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "文件/Jar 分发：NettyStreamManager",
+      "description": "NettyStreamManager 实现 RpcEnvFileServer 与 Spark Network StreamManager。addFile/addJar/addDirectory 把本地文件注册为 spark://host:port/{files|jars|dirs}/... URI，对端 RpcEnv.openChannel 即开始流式下载。",
+      "nodeIds": [
+        "file:netty/NettyStreamManager.scala",
+        "class:netty/NettyStreamManager.scala:NettyStreamManager",
+        "class:RpcEnv.scala:RpcEnvFileServer",
+        "concept:RpcEnv 文件/Jar 服务"
+      ]
+    },
+    {
+      "order": 13,
+      "title": "存在性探测：RpcEndpointVerifier",
+      "description": "RpcEndpointVerifier 是 NettyRpcEnv 启动时注册的内置 endpoint（NAME=endpoint-verifier）。在远端建立 RpcEndpointRef 前，先 ask 它 CheckExistence(name) 以确认对端存在。",
+      "nodeIds": [
+        "file:netty/RpcEndpointVerifier.scala",
+        "class:netty/RpcEndpointVerifier.scala:RpcEndpointVerifier",
+        "concept:endpoint-verifier"
+      ]
+    },
+    {
+      "order": 14,
+      "title": "异常类型",
+      "description": "RpcEnvStoppedException（关停后投递）、RpcEndpointNotFoundException（找不到目标 endpoint）、RpcTimeoutException（带配置键的 TimeoutException 包装）、RpcAbortException（abort 调用）。",
+      "nodeIds": [
+        "file:RpcEnvStoppedException.scala",
+        "file:RpcEndpointNotFoundException.scala",
+        "class:RpcEnvStoppedException.scala:RpcEnvStoppedException",
+        "class:RpcEndpointNotFoundException.scala:RpcEndpointNotFoundException",
+        "class:RpcTimeout.scala:RpcTimeoutException",
+        "class:RpcEndpointRef.scala:RpcAbortException"
+      ]
+    }
+  ]
+}

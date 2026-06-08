@@ -1,0 +1,357 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "88f727c7e51933e741941a1c845070e47451aed5",
+  "generatedAt": "2026-06-07T19:15:35.911Z",
+  "files": {
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "e014aee9785621eea728e6b8a74288ad70aecbe3b88ab4ab28f4870b429795d7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "netty/Dispatcher.md": {
+      "filePath": "netty/Dispatcher.md",
+      "contentHash": "99400df519a5756f68a7e3d0c11c10202f406955cb798c05303cb0a75b8c2396",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 151,
+      "hasStructuralAnalysis": true
+    },
+    "netty/Dispatcher.scala": {
+      "filePath": "netty/Dispatcher.scala",
+      "contentHash": "8b020de10e82a5e650b572130360c7673793550442b38b7873a42e6ea19e9b90",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 221,
+      "hasStructuralAnalysis": false
+    },
+    "netty/Inbox.md": {
+      "filePath": "netty/Inbox.md",
+      "contentHash": "84363c332d10c9514500137875edfd41a130f180173b782692ba1ec563e437ea",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 171,
+      "hasStructuralAnalysis": true
+    },
+    "netty/Inbox.scala": {
+      "filePath": "netty/Inbox.scala",
+      "contentHash": "6d16b932d33307fdf06663c8ab90f0b094b200b6e2cb288c9c8e88d984278a1d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 237,
+      "hasStructuralAnalysis": false
+    },
+    "netty/MessageLoop.md": {
+      "filePath": "netty/MessageLoop.md",
+      "contentHash": "52f22d3c73f492d1888a71017a80edba2d5e114dce3d06cc49a1e4fde9969310",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 200,
+      "hasStructuralAnalysis": true
+    },
+    "netty/MessageLoop.scala": {
+      "filePath": "netty/MessageLoop.scala",
+      "contentHash": "4b57823ef5082617701fc8609ccccecace8c48c123bd29db9ef8dbf66ffe6eb8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 199,
+      "hasStructuralAnalysis": false
+    },
+    "netty/NettyRpcCallContext.md": {
+      "filePath": "netty/NettyRpcCallContext.md",
+      "contentHash": "13ae032e790c9af19555cd79bf69d871a2d3fd061405d01f44bb272b8426d541",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 210,
+      "hasStructuralAnalysis": true
+    },
+    "netty/NettyRpcCallContext.scala": {
+      "filePath": "netty/NettyRpcCallContext.scala",
+      "contentHash": "ba1644907695d8c6f38a7af31de0e1f05b5dafbbc3f1b8a9b9cbded3e45da124",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 68,
+      "hasStructuralAnalysis": false
+    },
+    "netty/NettyRpcEnv.md": {
+      "filePath": "netty/NettyRpcEnv.md",
+      "contentHash": "b9db78983da3da13617a2916c0545b94129079ecd4cc48a3aa85eb3fc5f27651",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 258,
+      "hasStructuralAnalysis": true
+    },
+    "netty/NettyRpcEnv.scala": {
+      "filePath": "netty/NettyRpcEnv.scala",
+      "contentHash": "5b3a8b87ba61d69599ebb2fddb0ebff6a66cd2b2321319102735a4fe54cb7052",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 759,
+      "hasStructuralAnalysis": false
+    },
+    "netty/NettyStreamManager.md": {
+      "filePath": "netty/NettyStreamManager.md",
+      "contentHash": "1bdfd0c3b27ee90f7913e42d46144b19407acb3849e4ab96c95bce10825bc96f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 191,
+      "hasStructuralAnalysis": true
+    },
+    "netty/NettyStreamManager.scala": {
+      "filePath": "netty/NettyStreamManager.scala",
+      "contentHash": "8fb9ba7f79f2e97a3ea0920d37a3a6502d63a0df92a2c8f24e85fb4a6f3893af",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 94,
+      "hasStructuralAnalysis": false
+    },
+    "netty/Outbox.md": {
+      "filePath": "netty/Outbox.md",
+      "contentHash": "8c49f58d61197a32ba3691ec3b07775070ed968af979e7e539d732bd6c457c9a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 247,
+      "hasStructuralAnalysis": true
+    },
+    "netty/Outbox.scala": {
+      "filePath": "netty/Outbox.scala",
+      "contentHash": "fb54a68aff2af953b323fb123b449eae3ac8fa0a6b2c4080f1e5566dab5b13ee",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 284,
+      "hasStructuralAnalysis": false
+    },
+    "netty/RpcEndpointVerifier.md": {
+      "filePath": "netty/RpcEndpointVerifier.md",
+      "contentHash": "6efada701cbf8ffc0ad53300f4da79699f6100ab31c82ee20c34e1a6fbbb4931",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 263,
+      "hasStructuralAnalysis": true
+    },
+    "netty/RpcEndpointVerifier.scala": {
+      "filePath": "netty/RpcEndpointVerifier.scala",
+      "contentHash": "993d0662cb7e3a661ab173202c0ba462acc5869c0af805ca6aafe21181ac8191",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "RpcAddress.md": {
+      "filePath": "RpcAddress.md",
+      "contentHash": "b0e820d7ed9643f6575c98a57e2f91524ee3039a2357fe60bd8e5a713aca282b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 356,
+      "hasStructuralAnalysis": true
+    },
+    "RpcAddress.scala": {
+      "filePath": "RpcAddress.scala",
+      "contentHash": "d562518bf5df050663fcd93375ed1fea94067b20367be9eade7c14ef023bd1a3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 58,
+      "hasStructuralAnalysis": false
+    },
+    "RpcCallContext.md": {
+      "filePath": "RpcCallContext.md",
+      "contentHash": "446375f6b61e21f2ba30e99819a8d72d9823d23296c08232a07d0c67af821263",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 268,
+      "hasStructuralAnalysis": true
+    },
+    "RpcCallContext.scala": {
+      "filePath": "RpcCallContext.scala",
+      "contentHash": "773038ab144a635f48a7bb0987439a6fb7fa8a9bc1f4105c3a670a4b18d914e1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": false
+    },
+    "RpcEndpoint.md": {
+      "filePath": "RpcEndpoint.md",
+      "contentHash": "218a9148b9db104c7d9b17cae6dbb76f4c3adc9fb36167f22928895a79332006",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 562,
+      "hasStructuralAnalysis": true
+    },
+    "RpcEndpoint.scala": {
+      "filePath": "RpcEndpoint.scala",
+      "contentHash": "6ae4150776716f125daed596cce8f0110f7f0a0e09ed502c24e98486b22ddcc7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 178,
+      "hasStructuralAnalysis": false
+    },
+    "RpcEndpointAddress.md": {
+      "filePath": "RpcEndpointAddress.md",
+      "contentHash": "da5cfc774576dd0974aaf72a4ec11f2ee451fe961d23367dc5b3ce60863150e2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 393,
+      "hasStructuralAnalysis": true
+    },
+    "RpcEndpointAddress.scala": {
+      "filePath": "RpcEndpointAddress.scala",
+      "contentHash": "37d2c051796c06f430a2dcc68ee57e0c2ab6c2b30133084d1da6f9c0db276257",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 75,
+      "hasStructuralAnalysis": false
+    },
+    "RpcEndpointNotFoundException.md": {
+      "filePath": "RpcEndpointNotFoundException.md",
+      "contentHash": "2a5a331a857827450b585f09f3f5a7077cc0f4d7421dd5569d8e276c775cff30",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 194,
+      "hasStructuralAnalysis": true
+    },
+    "RpcEndpointNotFoundException.scala": {
+      "filePath": "RpcEndpointNotFoundException.scala",
+      "contentHash": "cc2878526b9e0049b69d9164954fa18ccc0c388f4776f8955c2546b30e00d28c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": false
+    },
+    "RpcEndpointRef.md": {
+      "filePath": "RpcEndpointRef.md",
+      "contentHash": "6c8bb25a8acd12fae096a0d43606f73e3c3d339aed3b475906d80186fbccf357",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 483,
+      "hasStructuralAnalysis": true
+    },
+    "RpcEndpointRef.scala": {
+      "filePath": "RpcEndpointRef.scala",
+      "contentHash": "9b1d0a9f97c802bfff900dd77458b667c40120b359e5b9ee49693bee212e0188",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 119,
+      "hasStructuralAnalysis": false
+    },
+    "RpcEnv.md": {
+      "filePath": "RpcEnv.md",
+      "contentHash": "fb48ae9f48c8a4da5b9a00fb85a8d3e78ed9a5c98df976d723c8253ba9a7b5ff",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 686,
+      "hasStructuralAnalysis": true
+    },
+    "RpcEnv.scala": {
+      "filePath": "RpcEnv.scala",
+      "contentHash": "02438a8a702f640717be6a80f44d2c381ed77741e9747c45488b6bc0835b5578",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 209,
+      "hasStructuralAnalysis": false
+    },
+    "RpcEnvStoppedException.md": {
+      "filePath": "RpcEnvStoppedException.md",
+      "contentHash": "12332f3be2ce6161c46739a833e1c54346d2ef439b927902223f05dc7a53df9b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 163,
+      "hasStructuralAnalysis": true
+    },
+    "RpcEnvStoppedException.scala": {
+      "filePath": "RpcEnvStoppedException.scala",
+      "contentHash": "2cf87e301b44985172ebcfe83889fa9fe7409d1bdc33f100de73b9476026f152",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": false
+    },
+    "RpcTimeout.md": {
+      "filePath": "RpcTimeout.md",
+      "contentHash": "e437743dc82c8e388b8b26f42d3178cbd42984e29ef6a715b032555f7ed31e8c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 308,
+      "hasStructuralAnalysis": true
+    },
+    "RpcTimeout.scala": {
+      "filePath": "RpcTimeout.scala",
+      "contentHash": "041ee86eb74659cd43d303ceca64f574957e377522fd5ef6d92b1e17fbe70300",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 135,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

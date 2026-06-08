@@ -1,0 +1,1276 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 158,
+  "totalBatches": 10,
+  "exportsByPath": {
+    ".understand-anything/.understandignore": [],
+    "AccumulatorV2.scala": [],
+    "ByteBufferInputStream.scala": [],
+    "ByteBufferOutputStream.scala": [],
+    "CausedBy.scala": [],
+    "Clock.scala": [],
+    "ClosureCleaner.scala": [],
+    "collection/AppendOnlyMap.scala": [],
+    "collection/BitSet.scala": [],
+    "collection/CompactBuffer.scala": [],
+    "collection/ExternalAppendOnlyMap.scala": [],
+    "collection/ExternalSorter.scala": [],
+    "collection/ImmutableBitSet.scala": [],
+    "collection/OpenHashMap.scala": [],
+    "collection/OpenHashSet.scala": [],
+    "collection/PairsWriter.scala": [],
+    "collection/PartitionedAppendOnlyMap.scala": [],
+    "collection/PartitionedPairBuffer.scala": [],
+    "collection/PercentileHeap.scala": [],
+    "collection/PrimitiveKeyOpenHashMap.scala": [],
+    "collection/PrimitiveVector.scala": [],
+    "collection/SizeTracker.scala": [],
+    "collection/SizeTrackingAppendOnlyMap.scala": [],
+    "collection/SizeTrackingVector.scala": [],
+    "collection/SortDataFormat.scala": [],
+    "collection/Sorter.scala": [],
+    "collection/Spillable.scala": [],
+    "collection/Utils.scala": [],
+    "collection/WritablePartitionedPairCollection.scala": [],
+    "CollectionsUtils.scala": [],
+    "CommandLineUtils.scala": [],
+    "CompletionIterator.scala": [],
+    "DependencyUtils.scala": [],
+    "Distribution.scala": [],
+    "EventLoop.scala": [],
+    "HadoopFSUtils.scala": [],
+    "IdGenerator.scala": [],
+    "IntParam.scala": [],
+    "io/ChunkedByteBuffer.scala": [],
+    "io/ChunkedByteBufferFileRegion.scala": [],
+    "io/ChunkedByteBufferOutputStream.scala": [],
+    "JsonProtocol.scala": [],
+    "KeyLock.scala": [],
+    "ListenerBus.scala": [],
+    "logging/DriverLogger.scala": [],
+    "logging/FileAppender.scala": [],
+    "logging/RollingFileAppender.scala": [],
+    "logging/RollingPolicy.scala": [],
+    "ManualClock.scala": [],
+    "MemoryParam.scala": [],
+    "MutablePair.scala": [],
+    "NextIterator.scala": [],
+    "package-info.java": [],
+    "package.scala": [],
+    "PeriodicCheckpointer.scala": [],
+    "random/package-info.java": [],
+    "random/package.scala": [],
+    "random/Pseudorandom.scala": [],
+    "random/RandomSampler.scala": [],
+    "random/SamplingUtils.scala": [],
+    "random/StratifiedSamplingUtils.scala": [],
+    "random/XORShiftRandom.scala": [],
+    "RpcUtils.scala": [],
+    "SecurityUtils.scala": [],
+    "SerializableBuffer.scala": [],
+    "SerializableConfiguration.scala": [],
+    "SerializableJobConf.scala": [],
+    "ShutdownHookManager.scala": [],
+    "SignalUtils.scala": [],
+    "SizeEstimator.scala": [],
+    "SparkExitCode.scala": [],
+    "SparkFatalException.scala": [],
+    "SparkUncaughtExceptionHandler.scala": [],
+    "StatCounter.scala": [],
+    "taskListeners.scala": [],
+    "ThreadUtils.scala": [],
+    "UninterruptibleThread.scala": [],
+    "UninterruptibleThreadRunner.scala": [],
+    "Utils.scala": [],
+    "VersionUtils.scala": []
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "AccumulatorV2.md",
+          "language": "markdown",
+          "sizeLines": 225,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "ByteBufferInputStream.md",
+          "language": "markdown",
+          "sizeLines": 225,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "ByteBufferOutputStream.md",
+          "language": "markdown",
+          "sizeLines": 290,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "CausedBy.md",
+          "language": "markdown",
+          "sizeLines": 304,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "Clock.md",
+          "language": "markdown",
+          "sizeLines": 412,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "ClosureCleaner.md",
+          "language": "markdown",
+          "sizeLines": 422,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "CollectionsUtils.md",
+          "language": "markdown",
+          "sizeLines": 367,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "CommandLineUtils.md",
+          "language": "markdown",
+          "sizeLines": 409,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "CompletionIterator.md",
+          "language": "markdown",
+          "sizeLines": 507,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "DependencyUtils.md",
+          "language": "markdown",
+          "sizeLines": 690,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "Distribution.md",
+          "language": "markdown",
+          "sizeLines": 573,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "EventLoop.md",
+          "language": "markdown",
+          "sizeLines": 669,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "HadoopFSUtils.md",
+          "language": "markdown",
+          "sizeLines": 574,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "IdGenerator.md",
+          "language": "markdown",
+          "sizeLines": 98,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "IntParam.md",
+          "language": "markdown",
+          "sizeLines": 136,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "JsonProtocol.md",
+          "language": "markdown",
+          "sizeLines": 161,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "KeyLock.md",
+          "language": "markdown",
+          "sizeLines": 174,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "ListenerBus.md",
+          "language": "markdown",
+          "sizeLines": 197,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "ManualClock.md",
+          "language": "markdown",
+          "sizeLines": 205,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "MemoryParam.md",
+          "language": "markdown",
+          "sizeLines": 277,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "AccumulatorV2.md": [],
+        "ByteBufferInputStream.md": [],
+        "ByteBufferOutputStream.md": [],
+        "CausedBy.md": [],
+        "Clock.md": [],
+        "ClosureCleaner.md": [],
+        "CollectionsUtils.md": [],
+        "CommandLineUtils.md": [],
+        "CompletionIterator.md": [],
+        "DependencyUtils.md": [],
+        "Distribution.md": [],
+        "EventLoop.md": [],
+        "HadoopFSUtils.md": [],
+        "IdGenerator.md": [],
+        "IntParam.md": [],
+        "JsonProtocol.md": [],
+        "KeyLock.md": [],
+        "ListenerBus.md": [],
+        "ManualClock.md": [],
+        "MemoryParam.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "MutablePair.md",
+          "language": "markdown",
+          "sizeLines": 332,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "NextIterator.md",
+          "language": "markdown",
+          "sizeLines": 323,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "PeriodicCheckpointer.md",
+          "language": "markdown",
+          "sizeLines": 222,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "RpcUtils.md",
+          "language": "markdown",
+          "sizeLines": 318,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SecurityUtils.md",
+          "language": "markdown",
+          "sizeLines": 313,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SerializableBuffer.md",
+          "language": "markdown",
+          "sizeLines": 359,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SerializableConfiguration.md",
+          "language": "markdown",
+          "sizeLines": 365,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SerializableJobConf.md",
+          "language": "markdown",
+          "sizeLines": 380,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "ShutdownHookManager.md",
+          "language": "markdown",
+          "sizeLines": 762,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SignalUtils.md",
+          "language": "markdown",
+          "sizeLines": 427,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SizeEstimator.md",
+          "language": "markdown",
+          "sizeLines": 874,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SparkExitCode.md",
+          "language": "markdown",
+          "sizeLines": 487,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SparkFatalException.md",
+          "language": "markdown",
+          "sizeLines": 614,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "SparkUncaughtExceptionHandler.md",
+          "language": "markdown",
+          "sizeLines": 646,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "StatCounter.md",
+          "language": "markdown",
+          "sizeLines": 539,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "ThreadUtils.md",
+          "language": "markdown",
+          "sizeLines": 734,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "UninterruptibleThread.md",
+          "language": "markdown",
+          "sizeLines": 617,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "UninterruptibleThreadRunner.md",
+          "language": "markdown",
+          "sizeLines": 600,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "Utils.md",
+          "language": "markdown",
+          "sizeLines": 988,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "VersionUtils.md",
+          "language": "markdown",
+          "sizeLines": 654,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "MutablePair.md": [],
+        "NextIterator.md": [],
+        "PeriodicCheckpointer.md": [],
+        "RpcUtils.md": [],
+        "SecurityUtils.md": [],
+        "SerializableBuffer.md": [],
+        "SerializableConfiguration.md": [],
+        "SerializableJobConf.md": [],
+        "ShutdownHookManager.md": [],
+        "SignalUtils.md": [],
+        "SizeEstimator.md": [],
+        "SparkExitCode.md": [],
+        "SparkFatalException.md": [],
+        "SparkUncaughtExceptionHandler.md": [],
+        "StatCounter.md": [],
+        "ThreadUtils.md": [],
+        "UninterruptibleThread.md": [],
+        "UninterruptibleThreadRunner.md": [],
+        "Utils.md": [],
+        "VersionUtils.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "collection/AppendOnlyMap.md",
+          "language": "markdown",
+          "sizeLines": 156,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/BitSet.md",
+          "language": "markdown",
+          "sizeLines": 181,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/CompactBuffer.md",
+          "language": "markdown",
+          "sizeLines": 184,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/ExternalAppendOnlyMap.md",
+          "language": "markdown",
+          "sizeLines": 231,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/ExternalSorter.md",
+          "language": "markdown",
+          "sizeLines": 297,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/ImmutableBitSet.md",
+          "language": "markdown",
+          "sizeLines": 230,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/OpenHashMap.md",
+          "language": "markdown",
+          "sizeLines": 255,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/OpenHashSet.md",
+          "language": "markdown",
+          "sizeLines": 352,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/PairsWriter.md",
+          "language": "markdown",
+          "sizeLines": 198,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/PartitionedAppendOnlyMap.md",
+          "language": "markdown",
+          "sizeLines": 225,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/PartitionedPairBuffer.md",
+          "language": "markdown",
+          "sizeLines": 278,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/PercentileHeap.md",
+          "language": "markdown",
+          "sizeLines": 179,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/PrimitiveKeyOpenHashMap.md",
+          "language": "markdown",
+          "sizeLines": 225,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/PrimitiveVector.md",
+          "language": "markdown",
+          "sizeLines": 235,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/SizeTracker.md",
+          "language": "markdown",
+          "sizeLines": 241,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/SizeTrackingAppendOnlyMap.md",
+          "language": "markdown",
+          "sizeLines": 219,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/SizeTrackingVector.md",
+          "language": "markdown",
+          "sizeLines": 258,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/SortDataFormat.md",
+          "language": "markdown",
+          "sizeLines": 337,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/Sorter.md",
+          "language": "markdown",
+          "sizeLines": 245,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/Spillable.md",
+          "language": "markdown",
+          "sizeLines": 400,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "collection/AppendOnlyMap.md": [],
+        "collection/BitSet.md": [],
+        "collection/CompactBuffer.md": [],
+        "collection/ExternalAppendOnlyMap.md": [],
+        "collection/ExternalSorter.md": [],
+        "collection/ImmutableBitSet.md": [],
+        "collection/OpenHashMap.md": [],
+        "collection/OpenHashSet.md": [],
+        "collection/PairsWriter.md": [],
+        "collection/PartitionedAppendOnlyMap.md": [],
+        "collection/PartitionedPairBuffer.md": [],
+        "collection/PercentileHeap.md": [],
+        "collection/PrimitiveKeyOpenHashMap.md": [],
+        "collection/PrimitiveVector.md": [],
+        "collection/SizeTracker.md": [],
+        "collection/SizeTrackingAppendOnlyMap.md": [],
+        "collection/SizeTrackingVector.md": [],
+        "collection/SortDataFormat.md": [],
+        "collection/Sorter.md": [],
+        "collection/Spillable.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "io/ChunkedByteBuffer.md",
+          "language": "markdown",
+          "sizeLines": 245,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "io/ChunkedByteBufferFileRegion.md",
+          "language": "markdown",
+          "sizeLines": 219,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "io/ChunkedByteBufferOutputStream.md",
+          "language": "markdown",
+          "sizeLines": 243,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "io/ChunkedByteBuffer.md": [],
+        "io/ChunkedByteBufferFileRegion.md": [],
+        "io/ChunkedByteBufferOutputStream.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "logging/DriverLogger.md",
+          "language": "markdown",
+          "sizeLines": 199,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "logging/FileAppender.md",
+          "language": "markdown",
+          "sizeLines": 194,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "logging/RollingFileAppender.md",
+          "language": "markdown",
+          "sizeLines": 213,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "logging/RollingPolicy.md",
+          "language": "markdown",
+          "sizeLines": 196,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "logging/DriverLogger.md": [],
+        "logging/FileAppender.md": [],
+        "logging/RollingFileAppender.md": [],
+        "logging/RollingPolicy.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 6,
+      "files": [
+        {
+          "path": "random/Pseudorandom.md",
+          "language": "markdown",
+          "sizeLines": 141,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "random/RandomSampler.md",
+          "language": "markdown",
+          "sizeLines": 249,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "random/SamplingUtils.md",
+          "language": "markdown",
+          "sizeLines": 189,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "random/StratifiedSamplingUtils.md",
+          "language": "markdown",
+          "sizeLines": 210,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "random/XORShiftRandom.md",
+          "language": "markdown",
+          "sizeLines": 212,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "random/package-info.md",
+          "language": "markdown",
+          "sizeLines": 109,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "random/package.md",
+          "language": "markdown",
+          "sizeLines": 133,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "random/Pseudorandom.md": [],
+        "random/RandomSampler.md": [],
+        "random/SamplingUtils.md": [],
+        "random/StratifiedSamplingUtils.md": [],
+        "random/XORShiftRandom.md": [],
+        "random/package-info.md": [],
+        "random/package.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 7,
+      "files": [
+        {
+          "path": ".understand-anything/.understandignore",
+          "language": "unknown",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".understand-anything/config.json",
+          "language": "json",
+          "sizeLines": 3,
+          "fileCategory": "config"
+        },
+        {
+          "path": "AccumulatorV2.scala",
+          "language": "scala",
+          "sizeLines": 523,
+          "fileCategory": "code"
+        },
+        {
+          "path": "ByteBufferInputStream.scala",
+          "language": "scala",
+          "sizeLines": 75,
+          "fileCategory": "code"
+        },
+        {
+          "path": "ByteBufferOutputStream.scala",
+          "language": "scala",
+          "sizeLines": 60,
+          "fileCategory": "code"
+        },
+        {
+          "path": "CausedBy.scala",
+          "language": "scala",
+          "sizeLines": 36,
+          "fileCategory": "code"
+        },
+        {
+          "path": "Clock.scala",
+          "language": "scala",
+          "sizeLines": 101,
+          "fileCategory": "code"
+        },
+        {
+          "path": "ClosureCleaner.scala",
+          "language": "scala",
+          "sizeLines": 904,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/AppendOnlyMap.scala",
+          "language": "scala",
+          "sizeLines": 301,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/BitSet.scala",
+          "language": "scala",
+          "sizeLines": 262,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/CompactBuffer.scala",
+          "language": "scala",
+          "sizeLines": 161,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/ExternalAppendOnlyMap.scala",
+          "language": "scala",
+          "sizeLines": 643,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/ExternalSorter.scala",
+          "language": "scala",
+          "sizeLines": 859,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/ImmutableBitSet.scala",
+          "language": "scala",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/OpenHashMap.scala",
+          "language": "scala",
+          "sizeLines": 160,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/OpenHashSet.scala",
+          "language": "scala",
+          "sizeLines": 328,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/PairsWriter.scala",
+          "language": "scala",
+          "sizeLines": 28,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/PartitionedAppendOnlyMap.scala",
+          "language": "scala",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/PartitionedPairBuffer.scala",
+          "language": "scala",
+          "sizeLines": 101,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/PercentileHeap.scala",
+          "language": "scala",
+          "sizeLines": 116,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/PrimitiveKeyOpenHashMap.scala",
+          "language": "scala",
+          "sizeLines": 128,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/PrimitiveVector.scala",
+          "language": "scala",
+          "sizeLines": 91,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/SizeTracker.scala",
+          "language": "scala",
+          "sizeLines": 105,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/SizeTrackingAppendOnlyMap.scala",
+          "language": "scala",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/SizeTrackingVector.scala",
+          "language": "scala",
+          "sizeLines": 39,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        ".understand-anything/.understandignore": [],
+        ".understand-anything/config.json": [],
+        "AccumulatorV2.scala": [],
+        "ByteBufferInputStream.scala": [],
+        "ByteBufferOutputStream.scala": [],
+        "CausedBy.scala": [],
+        "Clock.scala": [],
+        "ClosureCleaner.scala": [],
+        "collection/AppendOnlyMap.scala": [],
+        "collection/BitSet.scala": [],
+        "collection/CompactBuffer.scala": [],
+        "collection/ExternalAppendOnlyMap.scala": [],
+        "collection/ExternalSorter.scala": [],
+        "collection/ImmutableBitSet.scala": [],
+        "collection/OpenHashMap.scala": [],
+        "collection/OpenHashSet.scala": [],
+        "collection/PairsWriter.scala": [],
+        "collection/PartitionedAppendOnlyMap.scala": [],
+        "collection/PartitionedPairBuffer.scala": [],
+        "collection/PercentileHeap.scala": [],
+        "collection/PrimitiveKeyOpenHashMap.scala": [],
+        "collection/PrimitiveVector.scala": [],
+        "collection/SizeTracker.scala": [],
+        "collection/SizeTrackingAppendOnlyMap.scala": [],
+        "collection/SizeTrackingVector.scala": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 8,
+      "files": [
+        {
+          "path": "collection/SortDataFormat.scala",
+          "language": "scala",
+          "sizeLines": 112,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/Sorter.scala",
+          "language": "scala",
+          "sizeLines": 39,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/Spillable.scala",
+          "language": "scala",
+          "sizeLines": 150,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/Utils.md",
+          "language": "markdown",
+          "sizeLines": 351,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/Utils.scala",
+          "language": "scala",
+          "sizeLines": 108,
+          "fileCategory": "code"
+        },
+        {
+          "path": "collection/WritablePartitionedPairCollection.md",
+          "language": "markdown",
+          "sizeLines": 402,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "collection/WritablePartitionedPairCollection.scala",
+          "language": "scala",
+          "sizeLines": 90,
+          "fileCategory": "code"
+        },
+        {
+          "path": "CollectionsUtils.scala",
+          "language": "scala",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "CommandLineUtils.scala",
+          "language": "scala",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "CompletionIterator.scala",
+          "language": "scala",
+          "sizeLines": 50,
+          "fileCategory": "code"
+        },
+        {
+          "path": "DependencyUtils.scala",
+          "language": "scala",
+          "sizeLines": 324,
+          "fileCategory": "code"
+        },
+        {
+          "path": "Distribution.scala",
+          "language": "scala",
+          "sizeLines": 93,
+          "fileCategory": "code"
+        },
+        {
+          "path": "EventLoop.scala",
+          "language": "scala",
+          "sizeLines": 142,
+          "fileCategory": "code"
+        },
+        {
+          "path": "HadoopFSUtils.scala",
+          "language": "scala",
+          "sizeLines": 374,
+          "fileCategory": "code"
+        },
+        {
+          "path": "IdGenerator.scala",
+          "language": "scala",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "IntParam.scala",
+          "language": "scala",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "io/ChunkedByteBuffer.scala",
+          "language": "scala",
+          "sizeLines": 338,
+          "fileCategory": "code"
+        },
+        {
+          "path": "io/ChunkedByteBufferFileRegion.scala",
+          "language": "scala",
+          "sizeLines": 82,
+          "fileCategory": "code"
+        },
+        {
+          "path": "io/ChunkedByteBufferOutputStream.scala",
+          "language": "scala",
+          "sizeLines": 124,
+          "fileCategory": "code"
+        },
+        {
+          "path": "JsonProtocol.scala",
+          "language": "scala",
+          "sizeLines": 1618,
+          "fileCategory": "code"
+        },
+        {
+          "path": "KeyLock.scala",
+          "language": "scala",
+          "sizeLines": 69,
+          "fileCategory": "code"
+        },
+        {
+          "path": "ListenerBus.scala",
+          "language": "scala",
+          "sizeLines": 163,
+          "fileCategory": "code"
+        },
+        {
+          "path": "logging/DriverLogger.scala",
+          "language": "scala",
+          "sizeLines": 231,
+          "fileCategory": "code"
+        },
+        {
+          "path": "logging/FileAppender.scala",
+          "language": "scala",
+          "sizeLines": 195,
+          "fileCategory": "code"
+        },
+        {
+          "path": "logging/RollingFileAppender.scala",
+          "language": "scala",
+          "sizeLines": 189,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "collection/SortDataFormat.scala": [],
+        "collection/Sorter.scala": [],
+        "collection/Spillable.scala": [],
+        "collection/Utils.md": [],
+        "collection/Utils.scala": [],
+        "collection/WritablePartitionedPairCollection.md": [],
+        "collection/WritablePartitionedPairCollection.scala": [],
+        "CollectionsUtils.scala": [],
+        "CommandLineUtils.scala": [],
+        "CompletionIterator.scala": [],
+        "DependencyUtils.scala": [],
+        "Distribution.scala": [],
+        "EventLoop.scala": [],
+        "HadoopFSUtils.scala": [],
+        "IdGenerator.scala": [],
+        "IntParam.scala": [],
+        "io/ChunkedByteBuffer.scala": [],
+        "io/ChunkedByteBufferFileRegion.scala": [],
+        "io/ChunkedByteBufferOutputStream.scala": [],
+        "JsonProtocol.scala": [],
+        "KeyLock.scala": [],
+        "ListenerBus.scala": [],
+        "logging/DriverLogger.scala": [],
+        "logging/FileAppender.scala": [],
+        "logging/RollingFileAppender.scala": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 9,
+      "files": [
+        {
+          "path": "logging/RollingPolicy.scala",
+          "language": "scala",
+          "sizeLines": 139,
+          "fileCategory": "code"
+        },
+        {
+          "path": "ManualClock.scala",
+          "language": "scala",
+          "sizeLines": 71,
+          "fileCategory": "code"
+        },
+        {
+          "path": "MemoryParam.scala",
+          "language": "scala",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "MutablePair.scala",
+          "language": "scala",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "NextIterator.scala",
+          "language": "scala",
+          "sizeLines": 90,
+          "fileCategory": "code"
+        },
+        {
+          "path": "package-info.java",
+          "language": "java",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "package.scala",
+          "language": "scala",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "PeriodicCheckpointer.scala",
+          "language": "scala",
+          "sizeLines": 192,
+          "fileCategory": "code"
+        },
+        {
+          "path": "random/package-info.java",
+          "language": "java",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "random/package.scala",
+          "language": "scala",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "random/Pseudorandom.scala",
+          "language": "scala",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "random/RandomSampler.scala",
+          "language": "scala",
+          "sizeLines": 340,
+          "fileCategory": "code"
+        },
+        {
+          "path": "random/SamplingUtils.scala",
+          "language": "scala",
+          "sizeLines": 169,
+          "fileCategory": "code"
+        },
+        {
+          "path": "random/StratifiedSamplingUtils.scala",
+          "language": "scala",
+          "sizeLines": 332,
+          "fileCategory": "code"
+        },
+        {
+          "path": "random/XORShiftRandom.scala",
+          "language": "scala",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "RpcUtils.scala",
+          "language": "scala",
+          "sizeLines": 68,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SecurityUtils.scala",
+          "language": "scala",
+          "sizeLines": 69,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SerializableBuffer.scala",
+          "language": "scala",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SerializableConfiguration.scala",
+          "language": "scala",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SerializableJobConf.scala",
+          "language": "scala",
+          "sizeLines": 35,
+          "fileCategory": "code"
+        },
+        {
+          "path": "ShutdownHookManager.scala",
+          "language": "scala",
+          "sizeLines": 216,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SignalUtils.scala",
+          "language": "scala",
+          "sizeLines": 141,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SizeEstimator.scala",
+          "language": "scala",
+          "sizeLines": 401,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SparkExitCode.scala",
+          "language": "scala",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "SparkFatalException.scala",
+          "language": "scala",
+          "sizeLines": 28,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "logging/RollingPolicy.scala": [],
+        "ManualClock.scala": [],
+        "MemoryParam.scala": [],
+        "MutablePair.scala": [],
+        "NextIterator.scala": [],
+        "package-info.java": [],
+        "package.scala": [],
+        "PeriodicCheckpointer.scala": [],
+        "random/package-info.java": [],
+        "random/package.scala": [],
+        "random/Pseudorandom.scala": [],
+        "random/RandomSampler.scala": [],
+        "random/SamplingUtils.scala": [],
+        "random/StratifiedSamplingUtils.scala": [],
+        "random/XORShiftRandom.scala": [],
+        "RpcUtils.scala": [],
+        "SecurityUtils.scala": [],
+        "SerializableBuffer.scala": [],
+        "SerializableConfiguration.scala": [],
+        "SerializableJobConf.scala": [],
+        "ShutdownHookManager.scala": [],
+        "SignalUtils.scala": [],
+        "SizeEstimator.scala": [],
+        "SparkExitCode.scala": [],
+        "SparkFatalException.scala": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 10,
+      "files": [
+        {
+          "path": "SparkUncaughtExceptionHandler.scala",
+          "language": "scala",
+          "sizeLines": 77,
+          "fileCategory": "code"
+        },
+        {
+          "path": "StatCounter.scala",
+          "language": "scala",
+          "sizeLines": 162,
+          "fileCategory": "code"
+        },
+        {
+          "path": "taskListeners.md",
+          "language": "markdown",
+          "sizeLines": 760,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "taskListeners.scala",
+          "language": "scala",
+          "sizeLines": 70,
+          "fileCategory": "code"
+        },
+        {
+          "path": "ThreadUtils.scala",
+          "language": "scala",
+          "sizeLines": 401,
+          "fileCategory": "code"
+        },
+        {
+          "path": "UninterruptibleThread.scala",
+          "language": "scala",
+          "sizeLines": 103,
+          "fileCategory": "code"
+        },
+        {
+          "path": "UninterruptibleThreadRunner.scala",
+          "language": "scala",
+          "sizeLines": 55,
+          "fileCategory": "code"
+        },
+        {
+          "path": "Utils.scala",
+          "language": "scala",
+          "sizeLines": 3461,
+          "fileCategory": "code"
+        },
+        {
+          "path": "VersionUtils.scala",
+          "language": "scala",
+          "sizeLines": 106,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "SparkUncaughtExceptionHandler.scala": [],
+        "StatCounter.scala": [],
+        "taskListeners.md": [],
+        "taskListeners.scala": [],
+        "ThreadUtils.scala": [],
+        "UninterruptibleThread.scala": [],
+        "UninterruptibleThreadRunner.scala": [],
+        "Utils.scala": [],
+        "VersionUtils.scala": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

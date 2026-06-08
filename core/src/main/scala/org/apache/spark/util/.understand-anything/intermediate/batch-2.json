@@ -1,0 +1,406 @@
+{
+  "nodes": [
+    {
+      "id": "file:MutablePair.md",
+      "type": "file",
+      "name": "MutablePair.md",
+      "filePath": "MutablePair.md",
+      "summary": "对应 MutablePair 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:NextIterator.md",
+      "type": "file",
+      "name": "NextIterator.md",
+      "filePath": "NextIterator.md",
+      "summary": "对应 NextIterator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:PeriodicCheckpointer.md",
+      "type": "file",
+      "name": "PeriodicCheckpointer.md",
+      "filePath": "PeriodicCheckpointer.md",
+      "summary": "对应 PeriodicCheckpointer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:RpcUtils.md",
+      "type": "file",
+      "name": "RpcUtils.md",
+      "filePath": "RpcUtils.md",
+      "summary": "对应 RpcUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SecurityUtils.md",
+      "type": "file",
+      "name": "SecurityUtils.md",
+      "filePath": "SecurityUtils.md",
+      "summary": "对应 SecurityUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SerializableBuffer.md",
+      "type": "file",
+      "name": "SerializableBuffer.md",
+      "filePath": "SerializableBuffer.md",
+      "summary": "对应 SerializableBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SerializableConfiguration.md",
+      "type": "file",
+      "name": "SerializableConfiguration.md",
+      "filePath": "SerializableConfiguration.md",
+      "summary": "对应 SerializableConfiguration 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SerializableJobConf.md",
+      "type": "file",
+      "name": "SerializableJobConf.md",
+      "filePath": "SerializableJobConf.md",
+      "summary": "对应 SerializableJobConf 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ShutdownHookManager.md",
+      "type": "file",
+      "name": "ShutdownHookManager.md",
+      "filePath": "ShutdownHookManager.md",
+      "summary": "对应 ShutdownHookManager 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SignalUtils.md",
+      "type": "file",
+      "name": "SignalUtils.md",
+      "filePath": "SignalUtils.md",
+      "summary": "对应 SignalUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SizeEstimator.md",
+      "type": "file",
+      "name": "SizeEstimator.md",
+      "filePath": "SizeEstimator.md",
+      "summary": "对应 SizeEstimator 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkExitCode.md",
+      "type": "file",
+      "name": "SparkExitCode.md",
+      "filePath": "SparkExitCode.md",
+      "summary": "对应 SparkExitCode 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkFatalException.md",
+      "type": "file",
+      "name": "SparkFatalException.md",
+      "filePath": "SparkFatalException.md",
+      "summary": "对应 SparkFatalException 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:SparkUncaughtExceptionHandler.md",
+      "type": "file",
+      "name": "SparkUncaughtExceptionHandler.md",
+      "filePath": "SparkUncaughtExceptionHandler.md",
+      "summary": "对应 SparkUncaughtExceptionHandler 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:StatCounter.md",
+      "type": "file",
+      "name": "StatCounter.md",
+      "filePath": "StatCounter.md",
+      "summary": "对应 StatCounter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ThreadUtils.md",
+      "type": "file",
+      "name": "ThreadUtils.md",
+      "filePath": "ThreadUtils.md",
+      "summary": "对应 ThreadUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:UninterruptibleThread.md",
+      "type": "file",
+      "name": "UninterruptibleThread.md",
+      "filePath": "UninterruptibleThread.md",
+      "summary": "对应 UninterruptibleThread 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:UninterruptibleThreadRunner.md",
+      "type": "file",
+      "name": "UninterruptibleThreadRunner.md",
+      "filePath": "UninterruptibleThreadRunner.md",
+      "summary": "对应 UninterruptibleThreadRunner 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:Utils.md",
+      "type": "file",
+      "name": "Utils.md",
+      "filePath": "Utils.md",
+      "summary": "对应 Utils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:VersionUtils.md",
+      "type": "file",
+      "name": "VersionUtils.md",
+      "filePath": "VersionUtils.md",
+      "summary": "对应 VersionUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:MutablePair.md",
+      "target": "file:MutablePair.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:NextIterator.md",
+      "target": "file:NextIterator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:PeriodicCheckpointer.md",
+      "target": "file:PeriodicCheckpointer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:RpcUtils.md",
+      "target": "file:RpcUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SecurityUtils.md",
+      "target": "file:SecurityUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SerializableBuffer.md",
+      "target": "file:SerializableBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SerializableConfiguration.md",
+      "target": "file:SerializableConfiguration.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SerializableJobConf.md",
+      "target": "file:SerializableJobConf.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ShutdownHookManager.md",
+      "target": "file:ShutdownHookManager.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SignalUtils.md",
+      "target": "file:SignalUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SizeEstimator.md",
+      "target": "file:SizeEstimator.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SparkExitCode.md",
+      "target": "file:SparkExitCode.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SparkFatalException.md",
+      "target": "file:SparkFatalException.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:SparkUncaughtExceptionHandler.md",
+      "target": "file:SparkUncaughtExceptionHandler.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:StatCounter.md",
+      "target": "file:StatCounter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:ThreadUtils.md",
+      "target": "file:ThreadUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:UninterruptibleThread.md",
+      "target": "file:UninterruptibleThread.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:UninterruptibleThreadRunner.md",
+      "target": "file:UninterruptibleThreadRunner.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:Utils.md",
+      "target": "file:Utils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:VersionUtils.md",
+      "target": "file:VersionUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

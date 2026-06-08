@@ -1,0 +1,406 @@
+{
+  "nodes": [
+    {
+      "id": "file:collection/AppendOnlyMap.md",
+      "type": "file",
+      "name": "AppendOnlyMap.md",
+      "filePath": "collection/AppendOnlyMap.md",
+      "summary": "对应 AppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/BitSet.md",
+      "type": "file",
+      "name": "BitSet.md",
+      "filePath": "collection/BitSet.md",
+      "summary": "对应 BitSet 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/CompactBuffer.md",
+      "type": "file",
+      "name": "CompactBuffer.md",
+      "filePath": "collection/CompactBuffer.md",
+      "summary": "对应 CompactBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/ExternalAppendOnlyMap.md",
+      "type": "file",
+      "name": "ExternalAppendOnlyMap.md",
+      "filePath": "collection/ExternalAppendOnlyMap.md",
+      "summary": "对应 ExternalAppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ExternalSorter.md",
+      "type": "file",
+      "name": "ExternalSorter.md",
+      "filePath": "collection/ExternalSorter.md",
+      "summary": "对应 ExternalSorter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ImmutableBitSet.md",
+      "type": "file",
+      "name": "ImmutableBitSet.md",
+      "filePath": "collection/ImmutableBitSet.md",
+      "summary": "对应 ImmutableBitSet 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/OpenHashMap.md",
+      "type": "file",
+      "name": "OpenHashMap.md",
+      "filePath": "collection/OpenHashMap.md",
+      "summary": "对应 OpenHashMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/OpenHashSet.md",
+      "type": "file",
+      "name": "OpenHashSet.md",
+      "filePath": "collection/OpenHashSet.md",
+      "summary": "对应 OpenHashSet 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PairsWriter.md",
+      "type": "file",
+      "name": "PairsWriter.md",
+      "filePath": "collection/PairsWriter.md",
+      "summary": "对应 PairsWriter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PartitionedAppendOnlyMap.md",
+      "type": "file",
+      "name": "PartitionedAppendOnlyMap.md",
+      "filePath": "collection/PartitionedAppendOnlyMap.md",
+      "summary": "对应 PartitionedAppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PartitionedPairBuffer.md",
+      "type": "file",
+      "name": "PartitionedPairBuffer.md",
+      "filePath": "collection/PartitionedPairBuffer.md",
+      "summary": "对应 PartitionedPairBuffer 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PercentileHeap.md",
+      "type": "file",
+      "name": "PercentileHeap.md",
+      "filePath": "collection/PercentileHeap.md",
+      "summary": "对应 PercentileHeap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PrimitiveKeyOpenHashMap.md",
+      "type": "file",
+      "name": "PrimitiveKeyOpenHashMap.md",
+      "filePath": "collection/PrimitiveKeyOpenHashMap.md",
+      "summary": "对应 PrimitiveKeyOpenHashMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PrimitiveVector.md",
+      "type": "file",
+      "name": "PrimitiveVector.md",
+      "filePath": "collection/PrimitiveVector.md",
+      "summary": "对应 PrimitiveVector 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SizeTracker.md",
+      "type": "file",
+      "name": "SizeTracker.md",
+      "filePath": "collection/SizeTracker.md",
+      "summary": "对应 SizeTracker 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SizeTrackingAppendOnlyMap.md",
+      "type": "file",
+      "name": "SizeTrackingAppendOnlyMap.md",
+      "filePath": "collection/SizeTrackingAppendOnlyMap.md",
+      "summary": "对应 SizeTrackingAppendOnlyMap 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SizeTrackingVector.md",
+      "type": "file",
+      "name": "SizeTrackingVector.md",
+      "filePath": "collection/SizeTrackingVector.md",
+      "summary": "对应 SizeTrackingVector 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/SortDataFormat.md",
+      "type": "file",
+      "name": "SortDataFormat.md",
+      "filePath": "collection/SortDataFormat.md",
+      "summary": "对应 SortDataFormat 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/Sorter.md",
+      "type": "file",
+      "name": "Sorter.md",
+      "filePath": "collection/Sorter.md",
+      "summary": "对应 Sorter 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/Spillable.md",
+      "type": "file",
+      "name": "Spillable.md",
+      "filePath": "collection/Spillable.md",
+      "summary": "对应 Spillable 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:collection/AppendOnlyMap.md",
+      "target": "file:collection/AppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/BitSet.md",
+      "target": "file:collection/BitSet.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/CompactBuffer.md",
+      "target": "file:collection/CompactBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.md",
+      "target": "file:collection/ExternalAppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/ExternalSorter.md",
+      "target": "file:collection/ExternalSorter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/ImmutableBitSet.md",
+      "target": "file:collection/ImmutableBitSet.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/OpenHashMap.md",
+      "target": "file:collection/OpenHashMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/OpenHashSet.md",
+      "target": "file:collection/OpenHashSet.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PairsWriter.md",
+      "target": "file:collection/PairsWriter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.md",
+      "target": "file:collection/PartitionedAppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.md",
+      "target": "file:collection/PartitionedPairBuffer.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PercentileHeap.md",
+      "target": "file:collection/PercentileHeap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PrimitiveKeyOpenHashMap.md",
+      "target": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/PrimitiveVector.md",
+      "target": "file:collection/PrimitiveVector.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SizeTracker.md",
+      "target": "file:collection/SizeTracker.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.md",
+      "target": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SizeTrackingVector.md",
+      "target": "file:collection/SizeTrackingVector.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/SortDataFormat.md",
+      "target": "file:collection/SortDataFormat.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/Sorter.md",
+      "target": "file:collection/Sorter.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:collection/Spillable.md",
+      "target": "file:collection/Spillable.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,975 @@
+{
+  "nodes": [
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "项目元文件。",
+      "tags": [
+        "元文件"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/config.json",
+      "type": "file",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "JSON 配置文件。",
+      "tags": [
+        "配置",
+        "json"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:AccumulatorV2.scala",
+      "type": "file",
+      "name": "AccumulatorV2.scala",
+      "filePath": "AccumulatorV2.scala",
+      "summary": "Spark 通用累加器抽象 AccumulatorV2，定义 add/merge/reset/copy 等契约。",
+      "tags": [
+        "累加器",
+        "抽象",
+        "序列化",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:AccumulatorV2.scala:AccumulatorV2",
+      "type": "class",
+      "name": "AccumulatorV2",
+      "filePath": "AccumulatorV2.scala",
+      "summary": "累加器 v2 抽象基类。",
+      "tags": [
+        "累加器",
+        "抽象"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ByteBufferInputStream.scala",
+      "type": "file",
+      "name": "ByteBufferInputStream.scala",
+      "filePath": "ByteBufferInputStream.scala",
+      "summary": "将 java.nio.ByteBuffer 包装为 java.io.InputStream。",
+      "tags": [
+        "io",
+        "nio",
+        "桥接",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ByteBufferOutputStream.scala",
+      "type": "file",
+      "name": "ByteBufferOutputStream.scala",
+      "filePath": "ByteBufferOutputStream.scala",
+      "summary": "将 java.nio.ByteBuffer 包装为 java.io.OutputStream。",
+      "tags": [
+        "io",
+        "nio",
+        "桥接",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:CausedBy.scala",
+      "type": "file",
+      "name": "CausedBy.scala",
+      "filePath": "CausedBy.scala",
+      "summary": "提供从异常链中查找根因的工具对象。",
+      "tags": [
+        "异常处理",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CausedBy.scala:CausedBy",
+      "type": "class",
+      "name": "CausedBy",
+      "filePath": "CausedBy.scala",
+      "summary": "查找异常链根因的工具对象。",
+      "tags": [
+        "异常处理",
+        "单例"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Clock.scala",
+      "type": "file",
+      "name": "Clock.scala",
+      "filePath": "Clock.scala",
+      "summary": "抽象时钟 trait，便于在测试中替换系统时间。",
+      "tags": [
+        "时间",
+        "抽象",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Clock.scala:Clock",
+      "type": "class",
+      "name": "Clock",
+      "filePath": "Clock.scala",
+      "summary": "抽象时钟 trait，提供 now()/waitTillTime() 等。",
+      "tags": [
+        "时间",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ClosureCleaner.scala",
+      "type": "file",
+      "name": "ClosureCleaner.scala",
+      "filePath": "ClosureCleaner.scala",
+      "summary": "清理 Scala 闭包以避免序列化时携带不必要引用，处理 REPL/匿名类等边界情况。",
+      "tags": [
+        "闭包",
+        "序列化",
+        "反射",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/AppendOnlyMap.scala",
+      "type": "file",
+      "name": "AppendOnlyMap.scala",
+      "filePath": "collection/AppendOnlyMap.scala",
+      "summary": "只追加的哈希映射，支持聚合合并。",
+      "tags": [
+        "数据结构",
+        "map",
+        "shuffle",
+        "聚合",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/AppendOnlyMap.scala:AppendOnlyMap",
+      "type": "class",
+      "name": "AppendOnlyMap",
+      "filePath": "collection/AppendOnlyMap.scala",
+      "summary": "只追加哈希映射，支持 key 上的合并语义。",
+      "tags": [
+        "map",
+        "聚合"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/BitSet.scala",
+      "type": "file",
+      "name": "BitSet.scala",
+      "filePath": "collection/BitSet.scala",
+      "summary": "基于 Long[] 的可变位图。",
+      "tags": [
+        "位图",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/BitSet.scala:BitSet",
+      "type": "class",
+      "name": "BitSet",
+      "filePath": "collection/BitSet.scala",
+      "summary": "基于 Long[] 的可变位图。",
+      "tags": [
+        "位图"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/CompactBuffer.scala",
+      "type": "file",
+      "name": "CompactBuffer.scala",
+      "filePath": "collection/CompactBuffer.scala",
+      "summary": "元素少时使用数组、较多时切换为缓冲的高效可变缓冲。",
+      "tags": [
+        "缓冲区",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/CompactBuffer.scala:CompactBuffer",
+      "type": "class",
+      "name": "CompactBuffer",
+      "filePath": "collection/CompactBuffer.scala",
+      "summary": "高效可变缓冲（少元素用数组、否则切缓冲）。",
+      "tags": [
+        "缓冲区"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/ExternalAppendOnlyMap.scala",
+      "type": "file",
+      "name": "ExternalAppendOnlyMap.scala",
+      "filePath": "collection/ExternalAppendOnlyMap.scala",
+      "summary": "可溢写磁盘的 AppendOnlyMap，groupBy/join 的去耦与聚合。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "聚合",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/ExternalAppendOnlyMap.scala:ExternalAppendOnlyMap",
+      "type": "class",
+      "name": "ExternalAppendOnlyMap",
+      "filePath": "collection/ExternalAppendOnlyMap.scala",
+      "summary": "可溢写磁盘的 AppendOnlyMap。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "聚合"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ExternalSorter.scala",
+      "type": "file",
+      "name": "ExternalSorter.scala",
+      "filePath": "collection/ExternalSorter.scala",
+      "summary": "可溢写磁盘的外部排序器，sort-based shuffle 的核心。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "排序",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/ExternalSorter.scala:ExternalSorter",
+      "type": "class",
+      "name": "ExternalSorter",
+      "filePath": "collection/ExternalSorter.scala",
+      "summary": "可溢写磁盘的外部排序器，sort shuffle 内核。",
+      "tags": [
+        "shuffle",
+        "spill",
+        "排序"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/ImmutableBitSet.scala",
+      "type": "file",
+      "name": "ImmutableBitSet.scala",
+      "filePath": "collection/ImmutableBitSet.scala",
+      "summary": "不可变位图。",
+      "tags": [
+        "位图",
+        "不可变",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/ImmutableBitSet.scala:ImmutableBitSet",
+      "type": "class",
+      "name": "ImmutableBitSet",
+      "filePath": "collection/ImmutableBitSet.scala",
+      "summary": "不可变位图。",
+      "tags": [
+        "位图",
+        "不可变"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/OpenHashMap.scala",
+      "type": "file",
+      "name": "OpenHashMap.scala",
+      "filePath": "collection/OpenHashMap.scala",
+      "summary": "Scala mutable Map 的开放寻址高性能替代。",
+      "tags": [
+        "map",
+        "哈希",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/OpenHashMap.scala:OpenHashMap",
+      "type": "class",
+      "name": "OpenHashMap",
+      "filePath": "collection/OpenHashMap.scala",
+      "summary": "开放寻址高性能哈希映射。",
+      "tags": [
+        "map",
+        "哈希"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/OpenHashSet.scala",
+      "type": "file",
+      "name": "OpenHashSet.scala",
+      "filePath": "collection/OpenHashSet.scala",
+      "summary": "Scala mutable Set 的开放寻址高性能替代。",
+      "tags": [
+        "set",
+        "哈希",
+        "数据结构",
+        "util"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:collection/OpenHashSet.scala:OpenHashSet",
+      "type": "class",
+      "name": "OpenHashSet",
+      "filePath": "collection/OpenHashSet.scala",
+      "summary": "开放寻址高性能哈希集合。",
+      "tags": [
+        "set",
+        "哈希"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:collection/PairsWriter.scala",
+      "type": "file",
+      "name": "PairsWriter.scala",
+      "filePath": "collection/PairsWriter.scala",
+      "summary": "外部排序/spill 阶段写 (K,V) 对的抽象迭代器。",
+      "tags": [
+        "迭代器",
+        "shuffle",
+        "抽象",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/PairsWriter.scala:PairsWriter",
+      "type": "class",
+      "name": "PairsWriter",
+      "filePath": "collection/PairsWriter.scala",
+      "summary": "写 (K,V) 对的抽象迭代器。",
+      "tags": [
+        "shuffle",
+        "迭代器",
+        "抽象"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/PartitionedAppendOnlyMap.scala",
+      "type": "file",
+      "name": "PartitionedAppendOnlyMap.scala",
+      "filePath": "collection/PartitionedAppendOnlyMap.scala",
+      "summary": "带分区信息的 AppendOnlyMap，用于 partition-by-key 聚合。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "聚合",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/PartitionedAppendOnlyMap.scala:PartitionedAppendOnlyMap",
+      "type": "class",
+      "name": "PartitionedAppendOnlyMap",
+      "filePath": "collection/PartitionedAppendOnlyMap.scala",
+      "summary": "带分区信息的 AppendOnlyMap。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "聚合"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/PartitionedPairBuffer.scala",
+      "type": "file",
+      "name": "PartitionedPairBuffer.scala",
+      "filePath": "collection/PartitionedPairBuffer.scala",
+      "summary": "带分区信息的 (K,V) 缓冲。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "缓冲区",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PartitionedPairBuffer.scala:PartitionedPairBuffer",
+      "type": "class",
+      "name": "PartitionedPairBuffer",
+      "filePath": "collection/PartitionedPairBuffer.scala",
+      "summary": "带分区信息的 (K,V) 缓冲。",
+      "tags": [
+        "shuffle",
+        "分区",
+        "缓冲"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PercentileHeap.scala",
+      "type": "file",
+      "name": "PercentileHeap.scala",
+      "filePath": "collection/PercentileHeap.scala",
+      "summary": "近似百分位估算的双堆实现。",
+      "tags": [
+        "百分位",
+        "堆",
+        "近似",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PercentileHeap.scala:PercentileHeap",
+      "type": "class",
+      "name": "PercentileHeap",
+      "filePath": "collection/PercentileHeap.scala",
+      "summary": "近似百分位双堆。",
+      "tags": [
+        "百分位",
+        "堆"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "type": "file",
+      "name": "PrimitiveKeyOpenHashMap.scala",
+      "filePath": "collection/PrimitiveKeyOpenHashMap.scala",
+      "summary": "针对基本类型 key 优化的高性能哈希映射。",
+      "tags": [
+        "map",
+        "哈希",
+        "基本类型",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PrimitiveKeyOpenHashMap.scala:PrimitiveKeyOpenHashMap",
+      "type": "class",
+      "name": "PrimitiveKeyOpenHashMap",
+      "filePath": "collection/PrimitiveKeyOpenHashMap.scala",
+      "summary": "针对基本类型 key 的高性能哈希映射。",
+      "tags": [
+        "map",
+        "哈希",
+        "基本类型"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/PrimitiveVector.scala",
+      "type": "file",
+      "name": "PrimitiveVector.scala",
+      "filePath": "collection/PrimitiveVector.scala",
+      "summary": "基本类型数组的高效可变缓冲。",
+      "tags": [
+        "向量",
+        "基本类型",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/PrimitiveVector.scala:PrimitiveVector",
+      "type": "class",
+      "name": "PrimitiveVector",
+      "filePath": "collection/PrimitiveVector.scala",
+      "summary": "基本类型可变向量。",
+      "tags": [
+        "向量"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/SizeTracker.scala",
+      "type": "file",
+      "name": "SizeTracker.scala",
+      "filePath": "collection/SizeTracker.scala",
+      "summary": "通过抽样估算集合当前大小。",
+      "tags": [
+        "大小估算",
+        "spill",
+        "util"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:collection/SizeTracker.scala:SizeTracker",
+      "type": "class",
+      "name": "SizeTracker",
+      "filePath": "collection/SizeTracker.scala",
+      "summary": "通过抽样估算集合当前大小。",
+      "tags": [
+        "大小估算",
+        "trait"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "file",
+      "name": "SizeTrackingAppendOnlyMap.scala",
+      "filePath": "collection/SizeTrackingAppendOnlyMap.scala",
+      "summary": "带大小跟踪的 AppendOnlyMap。",
+      "tags": [
+        "spill",
+        "map",
+        "大小估算",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/SizeTrackingAppendOnlyMap.scala:SizeTrackingAppendOnlyMap",
+      "type": "class",
+      "name": "SizeTrackingAppendOnlyMap",
+      "filePath": "collection/SizeTrackingAppendOnlyMap.scala",
+      "summary": "带大小跟踪的 AppendOnlyMap。",
+      "tags": [
+        "spill",
+        "map"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:collection/SizeTrackingVector.scala",
+      "type": "file",
+      "name": "SizeTrackingVector.scala",
+      "filePath": "collection/SizeTrackingVector.scala",
+      "summary": "带大小跟踪的 PrimitiveVector。",
+      "tags": [
+        "spill",
+        "向量",
+        "大小估算",
+        "util"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:collection/SizeTrackingVector.scala:SizeTrackingVector",
+      "type": "class",
+      "name": "SizeTrackingVector",
+      "filePath": "collection/SizeTrackingVector.scala",
+      "summary": "带大小跟踪的 PrimitiveVector。",
+      "tags": [
+        "spill",
+        "向量"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:AccumulatorV2.scala",
+      "target": "class:AccumulatorV2.scala:AccumulatorV2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:AccumulatorV2.scala",
+      "target": "class:AccumulatorV2.scala:AccumulatorV2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:CausedBy.scala",
+      "target": "class:CausedBy.scala:CausedBy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:CausedBy.scala",
+      "target": "class:CausedBy.scala:CausedBy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Clock.scala",
+      "target": "class:Clock.scala:Clock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:Clock.scala",
+      "target": "class:Clock.scala:Clock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/AppendOnlyMap.scala",
+      "target": "class:collection/AppendOnlyMap.scala:AppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/AppendOnlyMap.scala",
+      "target": "class:collection/AppendOnlyMap.scala:AppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/BitSet.scala",
+      "target": "class:collection/BitSet.scala:BitSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/BitSet.scala",
+      "target": "class:collection/BitSet.scala:BitSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/CompactBuffer.scala",
+      "target": "class:collection/CompactBuffer.scala:CompactBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/CompactBuffer.scala",
+      "target": "class:collection/CompactBuffer.scala:CompactBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "class:collection/ExternalAppendOnlyMap.scala:ExternalAppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "class:collection/ExternalAppendOnlyMap.scala:ExternalAppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "class:collection/ExternalSorter.scala:ExternalSorter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "class:collection/ExternalSorter.scala:ExternalSorter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/ImmutableBitSet.scala",
+      "target": "class:collection/ImmutableBitSet.scala:ImmutableBitSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/ImmutableBitSet.scala",
+      "target": "class:collection/ImmutableBitSet.scala:ImmutableBitSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/OpenHashMap.scala",
+      "target": "class:collection/OpenHashMap.scala:OpenHashMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/OpenHashMap.scala",
+      "target": "class:collection/OpenHashMap.scala:OpenHashMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/OpenHashSet.scala",
+      "target": "class:collection/OpenHashSet.scala:OpenHashSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/OpenHashSet.scala",
+      "target": "class:collection/OpenHashSet.scala:OpenHashSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PairsWriter.scala",
+      "target": "class:collection/PairsWriter.scala:PairsWriter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PairsWriter.scala",
+      "target": "class:collection/PairsWriter.scala:PairsWriter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "class:collection/PartitionedAppendOnlyMap.scala:PartitionedAppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "class:collection/PartitionedAppendOnlyMap.scala:PartitionedAppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "class:collection/PartitionedPairBuffer.scala:PartitionedPairBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "class:collection/PartitionedPairBuffer.scala:PartitionedPairBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PercentileHeap.scala",
+      "target": "class:collection/PercentileHeap.scala:PercentileHeap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PercentileHeap.scala",
+      "target": "class:collection/PercentileHeap.scala:PercentileHeap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "target": "class:collection/PrimitiveKeyOpenHashMap.scala:PrimitiveKeyOpenHashMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PrimitiveKeyOpenHashMap.scala",
+      "target": "class:collection/PrimitiveKeyOpenHashMap.scala:PrimitiveKeyOpenHashMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/PrimitiveVector.scala",
+      "target": "class:collection/PrimitiveVector.scala:PrimitiveVector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/PrimitiveVector.scala",
+      "target": "class:collection/PrimitiveVector.scala:PrimitiveVector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTracker.scala",
+      "target": "class:collection/SizeTracker.scala:SizeTracker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SizeTracker.scala",
+      "target": "class:collection/SizeTracker.scala:SizeTracker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "class:collection/SizeTrackingAppendOnlyMap.scala:SizeTrackingAppendOnlyMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "class:collection/SizeTrackingAppendOnlyMap.scala:SizeTrackingAppendOnlyMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTrackingVector.scala",
+      "target": "class:collection/SizeTrackingVector.scala:SizeTrackingVector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:collection/SizeTrackingVector.scala",
+      "target": "class:collection/SizeTrackingVector.scala:SizeTrackingVector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "file:collection/AppendOnlyMap.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "target": "file:collection/SizeTracker.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedAppendOnlyMap.scala",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/PartitionedPairBuffer.scala",
+      "target": "file:collection/SizeTracker.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/Spillable.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "file:collection/Spillable.scala",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/PartitionedAppendOnlyMap.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/PartitionedPairBuffer.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:collection/ExternalAppendOnlyMap.scala",
+      "target": "file:collection/SizeTrackingAppendOnlyMap.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ClosureCleaner.scala",
+      "target": "file:SparkFatalException.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:ClosureCleaner.scala",
+      "target": "file:Utils.scala",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/WritablePartitionedPairCollection.scala",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:collection/ExternalSorter.scala",
+      "target": "file:collection/Spillable.scala",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

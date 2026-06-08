@@ -1,0 +1,139 @@
+{
+  "nodes": [
+    {
+      "id": "file:random/Pseudorandom.md",
+      "type": "file",
+      "name": "Pseudorandom.md",
+      "filePath": "random/Pseudorandom.md",
+      "summary": "对应 Pseudorandom 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/RandomSampler.md",
+      "type": "file",
+      "name": "RandomSampler.md",
+      "filePath": "random/RandomSampler.md",
+      "summary": "对应 RandomSampler 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/SamplingUtils.md",
+      "type": "file",
+      "name": "SamplingUtils.md",
+      "filePath": "random/SamplingUtils.md",
+      "summary": "对应 SamplingUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/StratifiedSamplingUtils.md",
+      "type": "file",
+      "name": "StratifiedSamplingUtils.md",
+      "filePath": "random/StratifiedSamplingUtils.md",
+      "summary": "对应 StratifiedSamplingUtils 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/XORShiftRandom.md",
+      "type": "file",
+      "name": "XORShiftRandom.md",
+      "filePath": "random/XORShiftRandom.md",
+      "summary": "对应 XORShiftRandom 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:random/package-info.md",
+      "type": "file",
+      "name": "package-info.md",
+      "filePath": "random/package-info.md",
+      "summary": "对应 package-info 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:random/package.md",
+      "type": "file",
+      "name": "package.md",
+      "filePath": "random/package.md",
+      "summary": "对应 package 的 Scaladoc 自动生成 API 参考。",
+      "tags": [
+        "文档",
+        "scaladoc",
+        "api 参考"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:random/Pseudorandom.md",
+      "target": "file:random/Pseudorandom.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/RandomSampler.md",
+      "target": "file:random/RandomSampler.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/SamplingUtils.md",
+      "target": "file:random/SamplingUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/StratifiedSamplingUtils.md",
+      "target": "file:random/StratifiedSamplingUtils.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/XORShiftRandom.md",
+      "target": "file:random/XORShiftRandom.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:random/package.md",
+      "target": "file:random/package.scala",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,1549 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "random/Pseudorandom.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 142,
+      "nonEmptyLines": 105,
+      "sections": [
+        {
+          "heading": "Pseudorandom 接口分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "接口概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "接口方法定义",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "`setSeed(seed: Long): Unit`",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "设计特点分析",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "1. 最小化接口设计",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "2. 确定性随机数生成",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "3. 开发者API定位",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "在Spark生态系统中的角色",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "基础抽象层",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "设计模式应用",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "使用场景分析",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "1. 随机采样算法",
+          "level": 3,
+          "line": 48
+        },
+        {
+          "heading": "2. 随机化算法",
+          "level": 3,
+          "line": 53
+        },
+        {
+          "heading": "3. 测试和调试",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "实现要求和建议",
+          "level": 2,
+          "line": 63
+        },
+        {
+          "heading": "接口实现规范",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "性能考虑",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "相关配置和扩展",
+          "level": 2,
+          "line": 75
+        },
+        {
+          "heading": "种子管理策略",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "实现类示例",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 2,
+          "line": 87
+        },
+        {
+          "heading": "种子使用策略",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "性能优化",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "错误处理",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 104
+        },
+        {
+          "heading": "功能增强方向",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 111
+        },
+        {
+          "heading": "安全考虑",
+          "level": 2,
+          "line": 116
+        },
+        {
+          "heading": "密码学安全",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "隐私保护",
+          "level": 3,
+          "line": 123
+        },
+        {
+          "heading": "与其他模块的集成",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "与Spark Core集成",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "与机器学习库集成",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 140
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 35
+      }
+    },
+    {
+      "path": "random/RandomSampler.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 250,
+      "nonEmptyLines": 185,
+      "sections": [
+        {
+          "heading": "RandomSampler 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "框架概述和架构设计",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "核心接口定义",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "RandomSampler[T, U] trait",
+          "level": 3,
+          "line": 11
+        },
+        {
+          "heading": "接口继承关系",
+          "level": 4,
+          "line": 13
+        },
+        {
+          "heading": "泛型参数说明",
+          "level": 4,
+          "line": 17
+        },
+        {
+          "heading": "核心方法定义",
+          "level": 4,
+          "line": 21
+        },
+        {
+          "heading": "`sample(items: Iterator[T]): Iterator[U]`",
+          "level": 5,
+          "line": 23
+        },
+        {
+          "heading": "`sample(): Int`",
+          "level": 5,
+          "line": 28
+        },
+        {
+          "heading": "`clone: RandomSampler[T, U]`",
+          "level": 5,
+          "line": 33
+        },
+        {
+          "heading": "伴生对象配置和工具",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "默认配置参数",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "`defaultMaxGapSamplingFraction = 0.4`",
+          "level": 4,
+          "line": 42
+        },
+        {
+          "heading": "`rngEpsilon = 5e-11`",
+          "level": 4,
+          "line": 47
+        },
+        {
+          "heading": "`roundingEpsilon = 1e-6`",
+          "level": 4,
+          "line": 52
+        },
+        {
+          "heading": "工具方法",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "`newDefaultRNG: Random`",
+          "level": 4,
+          "line": 58
+        },
+        {
+          "heading": "具体采样器实现分析",
+          "level": 2,
+          "line": 63
+        },
+        {
+          "heading": "BernoulliCellSampler 类",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "设计目的",
+          "level": 4,
+          "line": 67
+        },
+        {
+          "heading": "构造函数参数",
+          "level": 4,
+          "line": 72
+        },
+        {
+          "heading": "核心算法",
+          "level": 4,
+          "line": 77
+        },
+        {
+          "heading": "特色方法",
+          "level": 4,
+          "line": 82
+        },
+        {
+          "heading": "BernoulliSampler 类",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "设计目的",
+          "level": 4,
+          "line": 87
+        },
+        {
+          "heading": "构造函数参数",
+          "level": 4,
+          "line": 92
+        },
+        {
+          "heading": "采样策略选择",
+          "level": 4,
+          "line": 95
+        },
+        {
+          "heading": "间隙采样优化",
+          "level": 4,
+          "line": 101
+        },
+        {
+          "heading": "PoissonSampler 类",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "设计目的",
+          "level": 4,
+          "line": 108
+        },
+        {
+          "heading": "构造函数参数",
+          "level": 4,
+          "line": 113
+        },
+        {
+          "heading": "采样逻辑",
+          "level": 4,
+          "line": 117
+        },
+        {
+          "heading": "特色功能",
+          "level": 4,
+          "line": 122
+        },
+        {
+          "heading": "内部优化算法分析",
+          "level": 2,
+          "line": 126
+        },
+        {
+          "heading": "GapSampling 类",
+          "level": 3,
+          "line": 128
+        },
+        {
+          "heading": "数学原理",
+          "level": 4,
+          "line": 130
+        },
+        {
+          "heading": "核心算法",
+          "level": 4,
+          "line": 135
+        },
+        {
+          "heading": "性能优势",
+          "level": 4,
+          "line": 140
+        },
+        {
+          "heading": "GapSamplingReplacement 类",
+          "level": 3,
+          "line": 145
+        },
+        {
+          "heading": "设计扩展",
+          "level": 4,
+          "line": 147
+        },
+        {
+          "heading": "核心算法",
+          "level": 4,
+          "line": 152
+        },
+        {
+          "heading": "数学公式",
+          "level": 4,
+          "line": 157
+        },
+        {
+          "heading": "设计模式和应用",
+          "level": 2,
+          "line": 161
+        },
+        {
+          "heading": "策略模式实现",
+          "level": 3,
+          "line": 163
+        },
+        {
+          "heading": "模板方法模式",
+          "level": 3,
+          "line": 168
+        },
+        {
+          "heading": "工厂模式元素",
+          "level": 3,
+          "line": 173
+        },
+        {
+          "heading": "性能优化技术",
+          "level": 2,
+          "line": 178
+        },
+        {
+          "heading": "间隙采样优化",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "浮点数优化",
+          "level": 3,
+          "line": 185
+        },
+        {
+          "heading": "懒加载机制",
+          "level": 3,
+          "line": 190
+        },
+        {
+          "heading": "异常处理和健壮性",
+          "level": 2,
+          "line": 195
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 197
+        },
+        {
+          "heading": "错误处理",
+          "level": 3,
+          "line": 202
+        },
+        {
+          "heading": "线程安全",
+          "level": 3,
+          "line": 207
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 212
+        },
+        {
+          "heading": "典型应用场景",
+          "level": 3,
+          "line": 214
+        },
+        {
+          "heading": "采样器选择指南",
+          "level": 3,
+          "line": 220
+        },
+        {
+          "heading": "参数配置建议",
+          "level": 3,
+          "line": 226
+        },
+        {
+          "heading": "扩展性和自定义",
+          "level": 2,
+          "line": 231
+        },
+        {
+          "heading": "新采样算法集成",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "自定义优化",
+          "level": 3,
+          "line": 238
+        },
+        {
+          "heading": "监控和调试",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 248
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 63
+      }
+    },
+    {
+      "path": "random/SamplingUtils.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 190,
+      "nonEmptyLines": 148,
+      "sections": [
+        {
+          "heading": "SamplingUtils 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "BinomialBounds.minSamplingRate",
+          "level": 3,
+          "line": 18
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "采样方法",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "`reservoirSampleAndCount[T: ClassTag]`",
+          "level": 4,
+          "line": 28
+        },
+        {
+          "heading": "`computeFractionForSampleSize`",
+          "level": 4,
+          "line": 41
+        },
+        {
+          "heading": "统计边界计算方法",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "PoissonBounds.getLowerBound",
+          "level": 4,
+          "line": 54
+        },
+        {
+          "heading": "PoissonBounds.getUpperBound",
+          "level": 4,
+          "line": 60
+        },
+        {
+          "heading": "BinomialBounds.getLowerBound",
+          "level": 4,
+          "line": 66
+        },
+        {
+          "heading": "BinomialBounds.getUpperBound",
+          "level": 4,
+          "line": 74
+        },
+        {
+          "heading": "辅助方法",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "PoissonBounds.numStd",
+          "level": 4,
+          "line": 84
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "1. 算法多样性",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "2. 统计严谨性",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "3. 性能优化",
+          "level": 3,
+          "line": 102
+        },
+        {
+          "heading": "4. 类型安全",
+          "level": 3,
+          "line": 107
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 112
+        },
+        {
+          "heading": "随机种子配置",
+          "level": 3,
+          "line": 114
+        },
+        {
+          "heading": "置信水平配置",
+          "level": 3,
+          "line": 119
+        },
+        {
+          "heading": "精度限制配置",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 129
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 131
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 141
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "数值安全",
+          "level": 3,
+          "line": 148
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 153
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 155
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 161
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 167
+        },
+        {
+          "heading": "依赖关系",
+          "level": 3,
+          "line": 169
+        },
+        {
+          "heading": "被调用关系",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 179
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 187
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 40
+      }
+    },
+    {
+      "path": "random/StratifiedSamplingUtils.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 211,
+      "nonEmptyLines": 164,
+      "sections": [
+        {
+          "heading": "StratifiedSamplingUtils 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "AcceptanceResult类属性",
+          "level": 3,
+          "line": 18
+        },
+        {
+          "heading": "RandomDataGenerator类属性",
+          "level": 3,
+          "line": 25
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "核心采样方法",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "`getAcceptanceResults`",
+          "level": 4,
+          "line": 34
+        },
+        {
+          "heading": "`getSeqOp`",
+          "level": 4,
+          "line": 45
+        },
+        {
+          "heading": "`getCombOp`",
+          "level": 4,
+          "line": 57
+        },
+        {
+          "heading": "阈值计算方法",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "`computeThresholdByKey`",
+          "level": 4,
+          "line": 64
+        },
+        {
+          "heading": "采样函数生成方法",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "`getBernoulliSamplingFunction`",
+          "level": 4,
+          "line": 77
+        },
+        {
+          "heading": "`getPoissonSamplingFunction`",
+          "level": 4,
+          "line": 87
+        },
+        {
+          "heading": "随机数生成方法",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "RandomDataGenerator类方法",
+          "level": 4,
+          "line": 95
+        },
+        {
+          "heading": "结果合并方法",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "AcceptanceResult.merge",
+          "level": 4,
+          "line": 102
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 106
+        },
+        {
+          "heading": "1. 分层采样算法",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "2. 双阶段采样设计",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "3. 随机数一致性保证",
+          "level": 3,
+          "line": 118
+        },
+        {
+          "heading": "4. 内存效率优化",
+          "level": 3,
+          "line": 123
+        },
+        {
+          "heading": "5. 算法多样性支持",
+          "level": 3,
+          "line": 128
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 133
+        },
+        {
+          "heading": "采样精度控制",
+          "level": 3,
+          "line": 135
+        },
+        {
+          "heading": "随机种子管理",
+          "level": 3,
+          "line": 139
+        },
+        {
+          "heading": "缓存配置",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 147
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 155
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 160
+        },
+        {
+          "heading": "边界情况处理",
+          "level": 3,
+          "line": 162
+        },
+        {
+          "heading": "数据一致性",
+          "level": 3,
+          "line": 167
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 172
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 174
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "与其他模块的交互关系",
+          "level": 2,
+          "line": 186
+        },
+        {
+          "heading": "依赖关系",
+          "level": 3,
+          "line": 188
+        },
+        {
+          "heading": "被调用关系",
+          "level": 3,
+          "line": 194
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 199
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 201
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 45
+      }
+    },
+    {
+      "path": "random/XORShiftRandom.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 213,
+      "nonEmptyLines": 164,
+      "sections": [
+        {
+          "heading": "XORShiftRandom 类分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "类的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "构造函数参数说明",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "主构造函数",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "辅助构造函数",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "核心属性分析",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "`seed: Long`",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "主要方法分类和说明",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "核心随机数生成方法",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "`protected def next(bits: Int): Int`",
+          "level": 4,
+          "line": 34
+        },
+        {
+          "heading": "`override def setSeed(s: Long): Unit`",
+          "level": 4,
+          "line": 44
+        },
+        {
+          "heading": "静态工具方法",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "`XORShiftRandom.hashSeed(seed: Long): Long`",
+          "level": 4,
+          "line": 51
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 60
+        },
+        {
+          "heading": "1. 高性能设计",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "2. 随机性质量优化",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "3. 兼容性设计",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "4. 线程模型",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "配置参数说明",
+          "level": 2,
+          "line": 82
+        },
+        {
+          "heading": "算法参数",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "哈希参数",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "性能优化点分析",
+          "level": 2,
+          "line": 92
+        },
+        {
+          "heading": "优势",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "性能对比",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "潜在考虑",
+          "level": 3,
+          "line": 105
+        },
+        {
+          "heading": "异常处理机制",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "输入验证",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "边界情况处理",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 122
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 124
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "算法原理详细分析",
+          "level": 2,
+          "line": 136
+        },
+        {
+          "heading": "XORShift算法原理",
+          "level": 3,
+          "line": 138
+        },
+        {
+          "heading": "算法步骤",
+          "level": 4,
+          "line": 141
+        },
+        {
+          "heading": "参数选择",
+          "level": 4,
+          "line": 148
+        },
+        {
+          "heading": "随机性质量分析",
+          "level": 3,
+          "line": 153
+        },
+        {
+          "heading": "与其他随机数生成器的比较",
+          "level": 2,
+          "line": 158
+        },
+        {
+          "heading": "与java.util.Random比较",
+          "level": 3,
+          "line": 160
+        },
+        {
+          "heading": "与ThreadLocalRandom比较",
+          "level": 3,
+          "line": 165
+        },
+        {
+          "heading": "与加密安全生成器比较",
+          "level": 3,
+          "line": 170
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 175
+        },
+        {
+          "heading": "功能扩展建议",
+          "level": 3,
+          "line": 177
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 183
+        },
+        {
+          "heading": "代码实现细节",
+          "level": 2,
+          "line": 189
+        },
+        {
+          "heading": "继承关系设计",
+          "level": 3,
+          "line": 191
+        },
+        {
+          "heading": "种子哈希优化",
+          "level": 3,
+          "line": 199
+        },
+        {
+          "heading": "位操作实现",
+          "level": 3,
+          "line": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 47
+      }
+    },
+    {
+      "path": "random/package-info.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 110,
+      "nonEmptyLines": 83,
+      "sections": [
+        {
+          "heading": "package-info.java 包文档分析",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "文件概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "包文档内容分析",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "包声明",
+          "level": 3,
+          "line": 9
+        },
+        {
+          "heading": "文档注释",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "包的功能定位",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "核心功能描述",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "功能范围",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "在Spark项目中的角色",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "多语言支持",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "文档生成",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 51
+        },
+        {
+          "heading": "1. 标准化文档",
+          "level": 3,
+          "line": 53
+        },
+        {
+          "heading": "2. 简洁有效",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "3. 多语言集成",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "与其他包文档的关系",
+          "level": 2,
+          "line": 68
+        },
+        {
+          "heading": "与package.scala的关系",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "在文档体系中的位置",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 2,
+          "line": 80
+        },
+        {
+          "heading": "文档维护",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "开发规范",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "扩展性考虑",
+          "level": 2,
+          "line": 92
+        },
+        {
+          "heading": "文档内容扩展",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "多语言支持",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 106
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 25
+      }
+    },
+    {
+      "path": "random/package.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 134,
+      "nonEmptyLines": 101,
+      "sections": [
+        {
+          "heading": "package.scala 包对象分析文档",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "包的概述和定义",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "包对象定义说明",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "包声明",
+          "level": 3,
+          "line": 9
+        },
+        {
+          "heading": "包对象定义",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "包的功能定位",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "主要功能领域",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "在Spark架构中的位置",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "包内包含的主要组件",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "核心类和方法",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "随机数生成器",
+          "level": 4,
+          "line": 45
+        },
+        {
+          "heading": "采样工具",
+          "level": 4,
+          "line": 49
+        },
+        {
+          "heading": "统计计算工具",
+          "level": 4,
+          "line": 55
+        },
+        {
+          "heading": "设计特点总结",
+          "level": 2,
+          "line": 59
+        },
+        {
+          "heading": "1. 模块化设计",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "2. 性能优化导向",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "3. 统计严谨性",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "4. 实用性设计",
+          "level": 3,
+          "line": 76
+        },
+        {
+          "heading": "使用场景和最佳实践",
+          "level": 2,
+          "line": 81
+        },
+        {
+          "heading": "典型使用场景",
+          "level": 3,
+          "line": 83
+        },
+        {
+          "heading": "最佳实践建议",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "包级别的扩展性考虑",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "功能扩展方向",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "性能优化方向",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "与其他包的交互关系",
+          "level": 2,
+          "line": 108
+        },
+        {
+          "heading": "内部依赖",
+          "level": 3,
+          "line": 110
+        },
+        {
+          "heading": "外部依赖",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "包文档的重要性",
+          "level": 2,
+          "line": 120
+        },
+        {
+          "heading": "文档作用",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "维护建议",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "总结",
+          "level": 2,
+          "line": 132
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 31
+      }
+    }
+  ]
+}
